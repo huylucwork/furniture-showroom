@@ -5,6 +5,19 @@ import { useState, useEffect } from "react";
 
 export default function Homepage() {
   const [buttonLogin, setButtonLogin] = useState(false);
+
+  useEffect(() => {
+    document.querySelectorAll(".ctr_form_text-field_input").forEach((element) => {
+      element.addEventListener("blur", (event) => {
+        if (event.target.value != "") {
+          event.target.nextElementSibling.classList.add("ctr_form_filled");
+        } else {
+          event.target.nextElementSibling.classList.remove("ctr_form_filled");
+        }
+      });
+    });
+  });
+
   return (
     <div>
       <button

@@ -5,7 +5,7 @@
 .wrapper_body {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center ;
 }
 .wrapper {
     top: 0 ;
@@ -16,17 +16,20 @@
     border: 1px solid #dccab9;
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ctr {
     position: relative;
     width: 100%;
-    border: 1px solid #dccab9;
     background-color: #f0eae2;
-    padding: 32px;
+    padding: 50px;
     display: flex;
     max-width: 600px;
     flex-direction: column;
+    border: 1px solid #ad7252;
 }
 
 .ctr_icon {

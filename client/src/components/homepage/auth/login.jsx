@@ -5,7 +5,7 @@ import "../../../styles/login.css";
 export default function Login(props) {
   // return(
   return (props.trigger) ? (
-    <div className="wrapper_body">
+    // <div className="wrapper_body">
     <div className="wrapper">
       <div className="ctr">
         <div className="ctr_icon">
@@ -35,18 +35,8 @@ export default function Login(props) {
         </form>
       </div>
       </div>
-    </div>
-    // <script type="text/javascript" >
-    //  document.querySelectorAll(".ctr_form_text-field_input").forEach((element) => {
-    //       element.addEventListener("blur", (event) => {
-    //           if (event.target.value != "") {
-    //               event.target.nextElementSibling.classList.add("filled");
-    //           } else {
-    //               event.target.nextElementSibling.classList.remove("filled");
-    //           }
-    //       });
-    //   });
-    // </script>
+    // </div>
+
   ) : "";
   // )
 }
