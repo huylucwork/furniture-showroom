@@ -23,7 +23,7 @@ export default function Login(props) {
             <label className="ctr_form_text-field_label">Password</label>
           </div>
           <div className="ctr_desc">
-            <a className="ctr_link" href="#" style="float:right">Forgot Password?</a>
+            <a className="ctr_link" href="#">Forgot Password?</a>
           </div>
           <div className="ctr_sign-up-btn">
             <button className="ctr_sign-up-btn_submit" type="submit" >Enjoy now !</button>
@@ -35,16 +35,16 @@ export default function Login(props) {
         </form>
       </div>
       </div>
-      </div>
+    </div>
     // <script type="text/javascript" >
-    //   document.querySelectorAll(".ctr_form_text-field_input").forEach((element) => {
-    //     element.addEventListener("blur", (event) => {
-    //       if (event.target.value != "") {
-    //         event.target.nextElementSibling.classList.add("ctr_form_filled");
-    //       } else {
-    //         event.target.nextElementSibling.classList.remove("ctr_form_filled");
-    //       }
-    //     });
+    //  document.querySelectorAll(".ctr_form_text-field_input").forEach((element) => {
+    //       element.addEventListener("blur", (event) => {
+    //           if (event.target.value != "") {
+    //               event.target.nextElementSibling.classList.add("filled");
+    //           } else {
+    //               event.target.nextElementSibling.classList.remove("filled");
+    //           }
+    //       });
     //   });
     // </script>
   ) : "";
