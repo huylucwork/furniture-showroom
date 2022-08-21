@@ -1,19 +1,15 @@
-* {
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
+:root{
+    --backgroundColor: #F5F5F5;
+    --boxColor: #AD7252;
 }
 
-.wrapper_body {
-    display: flex;
-    align-items: center;
-    justify-content: center ;
-}
-.wrapper {
+.login_container {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     top: 0 ;
     left: 0;
     width: 100%;
     padding: 15px;
     height: 100%;
-    border: 1px solid #dccab9;
     background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
     display: flex;
@@ -21,42 +17,50 @@
     justify-content: center;
 }
 
-.ctr {
+.login_wrapper{
+    padding: 30px;
+    background-color: var(--backgroundColor);
+    /* background-color: blue; */
+}
+
+.login_ctr {
     position: relative;
     width: 100%;
-    background-color: #f0eae2;
-    padding: 50px;
+    background-color: var(--backgroundColor);
+    padding: 10px;
     display: flex;
-    max-width: 600px;
+    max-width: 500px;
     flex-direction: column;
-    border: 1px solid #ad7252;
+    border: 1px solid #e7c9b7;
 }
 
-.ctr_icon {
+.login_icon {
     position: absolute;
     right: 0;
-    padding: 15px;
+    padding: 20px;
 }
 
-.ctr_icon_my-icon {
+.login_icon_my-icon {
     color: #d1b7a1;
 }
 
-.ctr_icon_my-icon:hover {
+.login_icon_my-icon:hover {
     color: #ad7252;
     cursor: pointer;
     transform: scale(1.2);
 }
 
-.ctr_header {
-    margin-top: 40px;
+.login_header {
+    margin-top: 10px;
+    padding: 25px;
     text-align: center;
     color: #b06d40;
     font-weight: lighter;
-    font-size: 35px;
+    font-size: 30px;
+
 }
 
-.ctr_para {
+.login_para {
     color: #553a31;
     text-align: center;
     border-bottom: 1px solid #bab0a7;
@@ -66,16 +70,16 @@
     font-size: 16px;
 }
 
-.ctr_form {
+.login_form {
     padding: 0 40px;
 }
 
-.ctr_form_text-field {
+.login_form_text-field {
     position: relative;
     margin: 30px 0;
 }
 
-.ctr_form_text-field_input {
+.login_form_text-field_input {
     box-sizing: border-box;
     width: 100%;
     padding: 0 23px;
@@ -87,7 +91,7 @@
     border: 1px solid #c7a08a;
 }
 
-.ctr_form_text-field_label {
+.login_form_text-field_label {
     position: absolute;
     top: 40%;
     left: 5px;
@@ -97,48 +101,51 @@
     font-size: 16px;
     pointer-events: none;
     transition: .2s;
-    background-color: #f0eae2;
+    background-color: var(--backgroundColor);
 }
 
-.ctr_form_text-field_input:focus {
+.login_form_text-field_input:focus {
     border: 2px solid #c7a08a;
 }
 
-.ctr_form_text-field_input:focus+.ctr_form_text-field_label,
-.ctr_form_filled {
+.login_form_text-field_input:focus+.login_form_text-field_label,
+.login_form_filled {
     top: -10px;
     color: #c7a08a;
     padding: 4px;
     font-weight: bold;
 }
 
-.ctr_desc {
+.login_desc {
     margin-top: -25px;
     margin-bottom: 10px;
     font-size: 16px;
     color: #553a31;
+    float: right;
 }
 
-.ctr_link {
+.login_link {
     text-decoration: none;
     color: #9c674a;
     font-weight: bold;
 }
 
-.ctr_sign-up-btn {
+.login_sign-up-btn {
     cursor: pointer;
     width: 100%;
     height: 60px;
     display: flex;
     justify-content: space-between;
-    background-color: #ad7252;
+    /* background-color: #ad7252; */
+    background-color: var(--boxColor);
     margin-bottom: 10px;
 }
 
-.ctr_sign-up-btn_submit {
+.login_sign-up-btn_submit {
     cursor: pointer;
     border: none;
-    background-color: #ad7252;
+    /* background-color: #ad7252; */
+    background-color: var(--boxColor);
     color: #fff;
     font-size: 20px;
     text-align: left;
@@ -147,17 +154,24 @@
     transition: width .5s;
 }
 
-.ctr_sign-up-btn:hover>.ctr_sign-up-btn_submit {
+.login_sign-up-btn:hover>.login_sign-up-btn_submit {
     background-color: #9c674b;
     width: 300px;
 }
 
-.ctr_sign-up-btn_icon {
+.login_sign-up-btn_icon {
     color: #fff;
     margin: auto 25px;
 }
 
-.ctr_signup-link {
+.login_signup-link {
     margin-bottom: 35px;
     color: #553a31;
+    color: var(--boxColor);
+    font-size: 16px;
+}
+
+.login_close-btn{
+    border: none;
+    background-color: var(--backgroundColor);
 }

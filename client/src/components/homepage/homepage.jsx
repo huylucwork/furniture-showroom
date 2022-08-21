@@ -7,21 +7,25 @@ export default function Homepage() {
   const [buttonLogin, setButtonLogin] = useState(false);
 
   useEffect(() => {
-    document.querySelectorAll(".ctr_form_text-field_input").forEach((element) => {
-      element.addEventListener("blur", (event) => {
-        if (event.target.value != "") {
-          event.target.nextElementSibling.classList.add("ctr_form_filled");
-        } else {
-          event.target.nextElementSibling.classList.remove("ctr_form_filled");
-        }
+    document
+      .querySelectorAll(".login_form_text-field_input")
+      .forEach((element) => {
+        element.addEventListener("blur", (event) => {
+          if (event.target.value != "") {
+            event.target.nextElementSibling.classList.add("login_form_filled");
+          } else {
+            event.target.nextElementSibling.classList.remove(
+              "login_form_filled"
+            );
+          }
+        });
       });
-    });
   });
 
   return (
     <div>
       <button
-        className="ctr_sign-up-btn_submit"
+        className="login_sign-up-btn_submit"
         onClick={() => setButtonLogin(true)}
       >
         Login
