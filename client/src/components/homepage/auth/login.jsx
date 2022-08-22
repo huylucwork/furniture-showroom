@@ -11,8 +11,7 @@ export default function Login(props) {
               className="login_close-btn"
               onClick={() => props.setTrigger(false)}
             >
-              {" "}
-              <i className="fa-solid fa-x fa-2x login_icon_my-icon"></i>
+              <i class="fa-solid fa-xmark"></i>
             </button>
           </div>
           <h1 className="login_header">Welcome back</h1>
@@ -49,13 +48,13 @@ export default function Login(props) {
               </button>
               <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i>
             </div>
+          </form>
             <div className="login_signup-link">
               New to Heifurdesz?{" "}
               <a className="login_link" href="#">
                 <u>Sign up</u>
               </a>
             </div>
-          </form>
         </div>
       </div>
     </div>
