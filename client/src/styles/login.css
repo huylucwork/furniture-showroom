@@ -155,6 +155,10 @@
     font-weight: 400;
 }
 
+.login_link:hover {
+    text-decoration: underline;
+}
+
 .login_sign-up-btn {
     position: absolute;
     margin-top: 18px;
@@ -190,8 +194,8 @@
 
 }
 
-.login_sign-up-btn:hover:before{
-    animation: wipe 0.3s ease-out;
+.login_sign-up-btn:hover:before {
+    animation: wipe .3s ease-out;
     animation-fill-mode: forwards; 
 }
 
@@ -219,5 +223,9 @@
     color: var(--boxColor);
     font-size: 14px;
     font-weight: 300;
+}
+
+.login_signup-link .login_link:hover {
+    color: #553a31;
 }
 
