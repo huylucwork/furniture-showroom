@@ -98,6 +98,7 @@
     font-size: 14px;
     transition: .2s;
     background-color: var(--backgroundColor);
+    pointer-events: none;
 }
 
 .sign-up_form_text-field_input:focus {
@@ -134,8 +135,6 @@
     width: 350px;
     height: 50px;
     background-color: var(--boxColor);
-    margin-bottom: 10px;
-    margin: auto;
 }
 
 .sign-up_btn_submit {
@@ -153,7 +152,6 @@
 }
 
 .sign-up_btn_icon {
-    top: 12.5px;
     color: #fff;
     font-size: 23px;
 }
