@@ -134,24 +134,35 @@
     cursor: pointer;
     width: 350px;
     height: 50px;
-    background-color: var(--boxColor);
+    background-color: #9c674b;
 }
 
 .sign-up_btn_submit {
     cursor: pointer;
     border: none;
     background-color: var(--boxColor);
-    width: 100px;
+    width: 350px;
     height: 100%;
-    transition: width .2s;
 }
 
-.sign-up_btn:hover > .sign-up_btn_submit {
-    background-color: #9c674b;
-    width: 100%;
+.sign-up_btn_submit p {
+    position: absolute;
+    left: 21px;
+    top: 17px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@keyframes btn-hover {
+    from {width: 350px;}
+    to {width: 100px;}
 }
 
 .sign-up_btn_icon {
+    position: absolute;
+    top: 13px;
+    right: 23px;
     color: #fff;
     font-size: 23px;
 }

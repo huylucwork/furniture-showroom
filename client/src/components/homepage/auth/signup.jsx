@@ -52,14 +52,14 @@ export default function Signup() {
               <div className="sign-up_desc">
                 By signing up, you agree to Heifurdesz's&thinsp;
                 <a className="sign-up_link" href="#">Term of Use</a> 
-                &thinsp;and&thinsp;  
+                  &thinsp;and&thinsp;  
                 <a className="sign-up_link" href="#">Privacy Policy</a>.
               </div>
               <div className="sign-up_btn">
                 <button
                   type="submit" 
                   className="sign-up_btn_submit">
-                  Sign up
+                  <p>Sign up</p>
                 </button>
                 <i className="fa-solid fa-arrow-right-long fa-2x sign-up_btn_icon"></i>
               </div>
