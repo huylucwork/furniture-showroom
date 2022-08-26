@@ -182,3 +182,7 @@
 .sign-up_link_login{
     color: var(--boxColor);
 }
+
+.sign-up_link_login:hover{
+    color: #553a31;
+}
