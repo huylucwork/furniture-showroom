@@ -129,6 +129,10 @@
     font-weight: 500;
 }
 
+.sign-up_link:hover {
+    color: rgba(156, 103, 74, 0.8);
+}
+
 .sign-up_btn {
     position: relative;
     cursor: pointer;
@@ -141,8 +145,10 @@
     cursor: pointer;
     border: none;
     background-color: var(--boxColor);
-    width: 100px;
+    width: 350px;
     height: 50px;
+    box-shadow: inset 100px 0 0 0 var(--boxColor);
+    transition: ease-out .6s;
 }
 
 .sign-up_btn_submit p {
@@ -156,13 +162,7 @@
 }
 
 .sign-up_btn:hover > .sign-up_btn_submit {
-    animation: btn-hover .3s ease-out;
-    animation-fill-mode: forwards; 
-}
-
-@keyframes btn-hover {
-    from {width: 100px; background-color: #9c674b;}
-    to {width: 350px; background-color: #9c674b;}
+    box-shadow: inset 350px 0 0 0 #9C674B;
 }
 
 .sign-up_btn_icon {

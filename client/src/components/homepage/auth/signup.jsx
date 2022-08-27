@@ -60,8 +60,8 @@ export default function Signup() {
                   type="submit" 
                   className="sign-up_btn_submit">
                   <p>Sign up</p>
+                  <i className="fa-solid fa-arrow-right-long fa-2x sign-up_btn_icon"></i>
                 </button>
-                <i className="fa-solid fa-arrow-right-long fa-2x sign-up_btn_icon"></i>
               </div>
               <div className="sign-up_signup-link">
                 Already have an account?&thinsp;
