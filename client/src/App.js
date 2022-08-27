@@ -4,6 +4,7 @@ import Axios from "axios";
 import Homepage from "./components/homepage/homepage";
 import Info from "./user/info";
 import Navbar from "./components/header/navbar";
+import History from "./user/history";
 
 export const AppContext = React.createContext()
 
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />
-          <Route path="user/info" element={<Info/>} />
+          <Route path="user/history" element={<History/>} />
         </Routes>
 
         {/* <Footer /> */}
