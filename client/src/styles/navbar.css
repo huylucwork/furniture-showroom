@@ -1,24 +1,7 @@
-.navbar {
-  position: relative;
-  z-index: 999;
-  height: 40px;
-  width: 100%;
-  background-color: #baaf9e;
-  font-size: 18px;
-}
 
-.sticky-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.main {
-  padding: 40px 20px;
-}
 
 .navbar_text {
-  /* position: relative; */
+   position: relative;
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -27,7 +10,8 @@
   display: flex;
   align-items: center;
   text-align: center;
-  color: #473c38;
+  color: #473C38;
+  margin:0;
 }
 .rightNav {
   /* position: relative; */
@@ -36,4 +20,36 @@
   left: 200px;
   top: 0px;
   background: rgba(186, 175, 158, 0.5);
+}
+
+
+.navbar_ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #BAAF9E;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar_list {
+  float: left;
+}
+
+.navbar_list .navbar_a {
+  display: block;
+  color: #473C38;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar_list .navbar_a:hover:not(.active) {
+  background-color: #a68d67;
+}
+
+.active {
+  background-color: #BAAF9E;
 }
