@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../styles/navbar.css";
 
 export default function Navbar() {
-  const [stickyClass, setStickyClass] = useState("");
-
-  useEffect(() => {
-    window.addEventListener("scroll", stickNavbar);
-    return () => window.removeEventListener("scroll", stickNavbar);
-  }, []);
-
-  const stickNavbar = () => {
-    if (window !== undefined) {
-      let windowHeight = window.scrollY;
-      // window height changed for the demo
-      windowHeight > 150 ? setStickyClass("sticky-nav") : setStickyClass("");
-    }
-  };
 
   return (
-    <div className={`navbar ${stickyClass}`}>
-      {" "}
-          <div className="navbar_text">
-        <div className="leftNav">Logo</div>
-        <div className="rightNav">Navbar</div>
-      </div>
+    <div className="navbar_text">
+      <ul className="navbar_ul">
+        <li className="navbar_list">
+          <a href="#home" className="navbar_a">
+            Logo
+          </a>
+        </li>
+        <li className="navbar_list">
+          <a href="#Collection" className="navbar_a">
+            Collection
+          </a>
+        </li>
+        <li className="navbar_list">
+          <a href="#Product" className="navbar_a">
+            Product
+          </a>
+        </li>
+        <li className="navbar_list">
+          <a href="#about" className="navbar_a">
+            About
+          </a>
+        </li>
+      </ul>
     </div>
   );
 }
