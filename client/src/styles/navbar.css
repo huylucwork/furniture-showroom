@@ -1,25 +1,24 @@
 
 
-.navbar_text {
-   position: relative;
+.navbar {
+   /* position: relative; */
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  display: flex;
   align-items: center;
-  text-align: center;
+  text-align: center; 
   color: #473C38;
-  margin:0;
-}
-.rightNav {
-  /* position: relative; */
+  /* margin:0; */
+  /* min-height: 70px; */
+  /* background-color: #EF5122; */
+    background-color: #BAAF9E;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 40px;
-  left: 200px;
-  top: 0px;
-  background: rgba(186, 175, 158, 0.5);
 }
 
 
@@ -28,26 +27,33 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
+  padding-left: 0;
+  /* margin: auto 16px; */
   background-color: #BAAF9E;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  padding-left: 0;
+  /* margin: auto 16px;  */
 }
 
 .navbar_list {
-  float: left;
+  /* float: left; */
+    list-style: none;
+    /* margin: 0 8px; */
+    display: inline-block;
 }
 
-.navbar_list .navbar_a {
-  display: block;
+ .navbar_a {
+  /* display: block; */
+  list-style: none;
+  /* margin: 0 8px; */
+  display: inline-block;
   color: #473C38;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
 
-.navbar_list .navbar_a:hover:not(.active) {
-  background-color: #a68d67;
+.navbar_a:hover:not(.active) {
+  color: #7e6a4c;
 }
 
 .active {

@@ -3,7 +3,9 @@
     --boxColor: #AD7252;
     --textColor: #553A31;
 }
-
+.buttonForSignup{
+    top:100px;
+}
 .sign-up_container {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     top: 0 ;
@@ -17,6 +19,18 @@
     justify-content: center;
 }
 
+ .start_page{
+     /* position: sticky;  */
+     margin-top:50px; 
+} 
+.login_close-btn{
+    border: none;
+    background-color: var(--backgroundColor);
+    box-sizing: border-box;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
 .sign-up_wrapper {
     position: relative;
     width: 450px;

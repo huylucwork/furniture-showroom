@@ -4,7 +4,7 @@ import Axios from "axios";
 import Homepage from "./components/homepage/homepage";
 import Info from "./user/info";
 import Navbar from "./components/header/navbar";
-
+import "./styles/signup.css";
 export const AppContext = React.createContext()
 
 function App() {
@@ -15,13 +15,13 @@ function App() {
     <AppContext.Provider >
       <div id="App">
         <Navbar />
-
+        <div className="start_page"> 
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />
           <Route path="user/info" element={<Info/>} />
         </Routes>
-
+      </div>
         {/* <Footer /> */}
       </div>
     </AppContext.Provider>
