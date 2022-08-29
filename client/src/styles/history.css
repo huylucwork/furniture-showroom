@@ -5,18 +5,26 @@
 
 .history_container {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    margin: 70px 0 0 0;
+    margin: 0;
     padding: 0;
     border: none;
     background-color: var(--backgroundColor);
     width: 100vw;
-    height: calc(100vh - 70px);
+    height: 100vh;
+}
+
+.history_navbar {
+    width: 100%;
+    height: 70px;
 }
 
 .history_sidebar {
+    position: absolute;
+    top: 70px;
+    left: 0;
     float: left;
     width: 200px;
-    height: 100%;
+    height: calc(100% - 70px);
 }
 
 .history_sidebar_container {
@@ -90,12 +98,13 @@
 }
 
 .history_content {
+    position: absolute;
+    left: 200px;
     position: relative;
     float: left;
     overflow: hidden;
     width: calc(100% - 200px);
-    height: 100%;
-    border: 1px solid red;
+    height: calc(100% - 70px);
 }
 
 .history_search-container {
@@ -141,17 +150,17 @@
     left: 30px;
     width: 993px;
     height: 644px;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .history_table-row {
+    position: relative;
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
-    /* border: 1px solid red; */
 }
 
 .history_table-element {
@@ -160,7 +169,6 @@
     margin: 5px;
     text-align: center;
     width: 150px;
-    /* border: 1px solid blue; */
     color: black;
 }
 
@@ -264,4 +272,259 @@
     color: #fff;
     font-weight: 400;
     font-size: 12px;
+}
+
+.history_pagination {
+    height: 100%;
+    width: 22%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.history_pagination_link {
+    position: relative;
+    display: block;
+    width: 31px;
+    height: 31px;
+    background-color: #E0E0E0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #000;
+}
+
+.history_pagination_link p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.history_pagination-text {
+    background-color: var(--backgroundColor);
+    margin-right: 12px;
+    color: #9E9E9E;
+}
+
+.history_pagination_link:hover:not(.history_pagination-text),
+.history_pagination_link:focus:not(.history_pagination-text) {
+    color: #fff;
+    background-color: #AD7252;
+}
+
+.history_pagination-text:hover {
+    color: #000;
+}
+
+.history_order_detail {
+    position: fixed;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(71, 71, 71, 0.6);
+    z-index: 999;
+}
+
+.history_order_detail_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 74%;
+    height: 76%;
+    background-color: #F0EAE2;
+    padding: 20px;
+}
+
+.history_detail_ctn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #D1B7A1;
+}
+
+.history_detail_info {
+    position: absolute;
+    top: 4%;
+    float: left;
+    width: 40%;
+    height: 92%;
+    border-right: 1px solid #D1B7A1;
+}
+
+.history_detail_user-info {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    height: 86%;
+    border-bottom: 1px solid #D1B7A1;
+}
+
+.history_detail_total {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 14%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history_info_header {
+    font-family: "BIZ UDPMincho", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 26px;
+    margin-bottom: 15px;
+    color: #B06D40;
+}
+
+.history_info_text {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0 0 15px 26px;
+    color: #553A31;
+}
+
+.history_info_text-total {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000;
+    align-self: center;
+}
+
+.history_info_number-total {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #B06D40;
+    align-self: center;
+}
+
+.history_detail_close-btn {
+    position: absolute;
+    right: 14px;
+    top: 7px;
+    color: #D1B7A1;
+    font-size: 30px;
+}
+
+.history_detail_close-btn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    color: #AD7252;
+}
+
+.history_detail_item {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+.history_detail_item-ctn {
+    position: absolute;
+    top: 11%;
+    left: 3.5%;
+    width: 93%;
+    height: 72%;
+    display: flex;
+    flex-direction: column;
+}
+
+.history_detail_item-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 19%;
+    background-color: #EAE3D9;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #D1B7A1;
+}
+
+.history_detail_item-img {
+    position: absolute;
+    left: 2%;
+    width: 13%;
+    height: 80%;
+    margin-right: 2%;
+    background-color: #D9D9D9;
+}
+
+.history_detail_item-name-cat {
+    position: absolute;
+    left: 17.5%;
+    width: 47.5%;
+    height: 76%;
+}
+
+.history_detail_item-name {
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 50%;
+    color: #B06D40;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.history_detail_item-cat {
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 50%;
+    color: #553A31;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.history_detail_amount {
+    position: absolute;
+    left: 68%;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    width: 16%;
+    height: 67.5%;
+    color: #553A31;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.history_detail_item-price {
+    position: absolute;
+    left: 80%;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    width: 16%;
+    height: 67.5%;
+    color: #B06D40;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: right;
+}
+
+.history_hide-modal {
+    display: none;
 }
