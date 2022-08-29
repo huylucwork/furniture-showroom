@@ -16,7 +16,7 @@ export default function History() {
   // });
   return(
     <div className="history_container">
-      <div className="history_order_detail history_hide-modal">
+      <div className="history_order_detail">
         <div className="history_order_detail_wrapper">
           <div className="history_detail_ctn">
             <div className="history_detail_info">
