@@ -1,22 +1,53 @@
-import { useEffect } from "react";
 import React from "react";
 import "../styles/history.css";
+import { useEffect } from "react";
 
 export default function History() {
   // useEffect(() => {
-  //   var history_open_modal = document.querySelectorAll('.history_detail-btn')
-  //   var history_icon_close = document.querySelectorAll('.history_detail_close-btn')
-  //   var history_modal = document.querySelectorAll('.history_order_detail')
-
-  //   function history_toggleModal() {
-  //     history_modal.classList.toggle('history_hide-modal')
-  //   }
-
-  //   history_open_modal.addEventListener('click', history_toggleModal)
+  //   document.querySelectorAll('.history_pagination_link').forEach(element => {
+  //     element.addEventListener('click', function handleClick(event) {
+  //       event.target.classList.add('history_pagination_link_focus');
+  //     });
+  //   });y
   // });
+
+  function history_openModal() {
+    var history_order_detail_list = document.getElementsByClassName('history_order_detail');
+    history_order_detail_list[0].classList.remove('history_hide-modal');
+  }
+
+  function history_closeModal() {
+    var history_order_detail_list = document.getElementsByClassName('history_order_detail');
+    history_order_detail_list[0].classList.add('history_hide-modal');
+  }
+
+  function history_sidebar_history_focus() {
+    var history_sidebar_focus_list = document.querySelectorAll('.history_user-history');
+    history_sidebar_focus_list[0].classList.add('history_sidebar_focus');
+    history_sidebar_focus_list = document.querySelectorAll('.history_user-profile');
+    if(history_sidebar_focus_list[0].classList.contains('history_sidebar_focus'))
+      history_sidebar_focus_list[0].classList.remove('history_sidebar_focus');
+  }
+
+  function history_sidebar_profile_focus() {
+    var history_sidebar_focus_list = document.querySelectorAll('.history_user-profile');
+    history_sidebar_focus_list[0].classList.add('history_sidebar_focus');
+    history_sidebar_focus_list = document.querySelectorAll('.history_user-history');
+    if(history_sidebar_focus_list[0].classList.contains('history_sidebar_focus'))
+      history_sidebar_focus_list[0].classList.remove('history_sidebar_focus');
+  }
+  
+  function history_pagination_link_focus() {
+    document.querySelectorAll('.history_pagination_link').forEach(element => {
+      if(element.classList.contains('history_pagination_link_focus') && !element.classList.contains('history_pagination-text')) {
+        element.classList.remove('history_pagination_link_focus');
+      }
+    });
+  };
+
   return(
     <div className="history_container">
-      <div className="history_order_detail">
+      <div className="history_order_detail history_hide-modal">
         <div className="history_order_detail_wrapper">
           <div className="history_detail_ctn">
             <div className="history_detail_info">
@@ -34,7 +65,7 @@ export default function History() {
               </div>
             </div>
             <div className="history_detail_item">
-              <i className="fa-solid fa-xmark history_detail_close-btn"></i>
+              <i className="fa-solid fa-xmark history_detail_close-btn" onClick={history_closeModal}></i>
               <div className="history_detail_item-ctn">
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
@@ -80,13 +111,13 @@ export default function History() {
       <div className="history_navbar"></div>
       <div className="history_sidebar">
         <div className="history_sidebar_container">
-          <button className="history_user-profile" type="button">
+          <button className="history_user-profile" type="button" onClick={history_sidebar_profile_focus}>
             User Profile
           </button>
           <i className="fa-solid fa-user history_user-icon-profile"></i>
         </div>
         <div className="history_sidebar_container">
-          <button className="history_user-history" type="button">
+          <button className="history_user-history history_sidebar_focus" type="button" onClick={history_sidebar_history_focus}>
             History
           </button>
           <i className="fa-solid fa-clock-rotate-left history_user-icon-history"></i>
@@ -95,14 +126,14 @@ export default function History() {
       <div className="history_content">
         <div className="history_search-container">
           <input className="history_search" type="text" placeholder="Search..." />
-          <i class="fa-solid fa-magnifying-glass history_search-icon"></i>       
+          <i className="fa-solid fa-magnifying-glass history_search-icon"></i>       
         </div>
         <div className="history_table">
           <div className="history_table-row history_table-first">
             <div className="history_table-element">
               <p className="history_table-head">Date</p>
               <button className="history_head-btn"></button>
-              <i class="fa-solid fa-up-down history_head-icon"></i>
+              <i className="fa-solid fa-up-down history_head-icon"></i>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Order code</p>
@@ -110,12 +141,12 @@ export default function History() {
             <div className="history_table-element">
               <p className="history_table-head">Total amount</p>
               <button className="history_head-btn"></button>
-              <i class="fa-solid fa-up-down history_head-icon"></i>
+              <i className="fa-solid fa-up-down history_head-icon"></i>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Total payment</p>
               <button className="history_head-btn"></button>
-              <i class="fa-solid fa-up-down history_head-icon"></i>
+              <i className="fa-solid fa-up-down history_head-icon"></i>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Export order</p>
@@ -138,50 +169,10 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button class="history_table-btn history_table_overwrite-bgr"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
-            </div>
-          </div>
-          <div className="history_table-row history_table-even">
-            <div className="history_table-element">
-              <p className="history_table_text">dd/mm/yy</p>
-            </div>
-            <div className="history_table-element">
-              <p className="history_table_text">SO4xxxxxxxxx</p>
-            </div>
-            <div className="history_table-element">
-              <p className="history_table_text">xxx</p>
-            </div>
-            <div className="history_table-element">
-              <p className="history_table_text">$xxx</p>
-            </div>
-            <div className="history_table-element">
-              <button className="history_table-btn"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
-            </div>
-            <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
-            </div>
-          </div>
-          <div className="history_table-row history_table-odd">
-            <div className="history_table-element">
-              <p className="history_table_text">dd/mm/yy</p>
-            </div>
-            <div className="history_table-element">
-              <p className="history_table_text">SO4xxxxxxxxx</p>
-            </div>
-            <div className="history_table-element">
-              <p className="history_table_text">xxx</p>
-            </div>
-            <div className="history_table-element">
-              <p className="history_table_text">$xxx</p>
-            </div>
-            <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
-            </div>
-            <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
           <div className="history_table-row history_table-even">
@@ -198,10 +189,10 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
           <div className="history_table-row history_table-odd">
@@ -218,10 +209,10 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
           <div className="history_table-row history_table-even">
@@ -238,10 +229,10 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
           <div className="history_table-row history_table-odd">
@@ -258,10 +249,50 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i class="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
-              <button className="history_detail-btn">Detail</button>
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
+            </div>
+          </div>
+          <div className="history_table-row history_table-even">
+            <div className="history_table-element">
+              <p className="history_table_text">dd/mm/yy</p>
+            </div>
+            <div className="history_table-element">
+              <p className="history_table_text">SO4xxxxxxxxx</p>
+            </div>
+            <div className="history_table-element">
+              <p className="history_table_text">xxx</p>
+            </div>
+            <div className="history_table-element">
+              <p className="history_table_text">$xxx</p>
+            </div>
+            <div className="history_table-element">
+              <button className="history_table-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+            </div>
+            <div className="history_table-element">
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
+            </div>
+          </div>
+          <div className="history_table-row history_table-odd">
+            <div className="history_table-element">
+              <p className="history_table_text">dd/mm/yy</p>
+            </div>
+            <div className="history_table-element">
+              <p className="history_table_text">SO4xxxxxxxxx</p>
+            </div>
+            <div className="history_table-element">
+              <p className="history_table_text">xxx</p>
+            </div>
+            <div className="history_table-element">
+              <p className="history_table_text">$xxx</p>
+            </div>
+            <div className="history_table-element">
+              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+            </div>
+            <div className="history_table-element">
+              <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
           <div className="history_table-row">
@@ -269,13 +300,13 @@ export default function History() {
               <a className="history_pagination_link history_pagination-text" href="#">
                 <p>Previous</p>
               </a>
-              <a className="history_pagination_link" href="#">
+              <a className="history_pagination_link history_pagination_link_focus" href="#" onClick={history_pagination_link_focus}>
                 <p>1</p>
               </a>
-              <a className="history_pagination_link" href="#">
+              <a className="history_pagination_link" href="#" onClick={history_pagination_link_focus}>
                 <p>2</p>
               </a>
-              <a className="history_pagination_link" href="#">
+              <a className="history_pagination_link" href="#" onClick={history_pagination_link_focus}>
                 <p>3</p>
               </a>
               <a className="history_pagination_link history_pagination-text" href="#">

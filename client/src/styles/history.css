@@ -23,33 +23,34 @@
     top: 70px;
     left: 0;
     float: left;
-    width: 200px;
+    width: 15.625%;
     height: calc(100% - 70px);
 }
 
 .history_sidebar_container {
     position: relative;
-    width: 200px;
+    width: 100%;
+    height: 14.5%;
     padding-bottom: 20px;
     border-bottom: 3px solid #fff;
 }
 
 .history_sidebar_container:last-child {
     border: none;
-    padding-bottom: 100px;
+    padding-bottom: 50%;
 }
 
 .history_user-profile {
-    box-sizing: unset;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    width: 115px;
-    height: 43px;
+    width: 91.5%;
+    height: 34%;
+    position: absolute;
+    top: 52%;
+    left: 0;
     color: var(--textColor);
     font-size: 16px;
     font-weight: 500;
-    margin-top: 61px;
     border: none;
-    padding: 0 38px 0 30px;
     background-color: var(--backgroundColor);
     cursor: pointer;
     transition: .3s ease-out;
@@ -58,31 +59,32 @@
 .history_user-icon-profile {
     position: absolute;
     left: 20px;
-    top: 72px;
+    top: 63px;
     font-size: 20px;
     color: var(--textColor);
     pointer-events: none;
 }
 
 .history_user-history {
-    box-sizing: unset;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    width: 133px;
-    height: 43px;
+    width: 91.5%;
+    height: 34%;
     position: absolute;
-    top: 21px;
+    top: 15%;
+    left: 0%;
     color: var(--textColor);
     font-size: 16px;
     font-weight: 500;
     border: none;
-    padding: 0 43px 0 7px;
     background-color: var(--backgroundColor);
     cursor: pointer;
-    transition: .3s ease-out;}
+    transition: .3s ease-out;
+    padding-right: 38px;
+}
 
 .history_user-icon-history {
     position: absolute;
-    top: 32px;
+    top: 25px;
     left: 17px;
     font-size: 23px;
     color: var(--textColor);
@@ -90,20 +92,21 @@
 }
 
 .history_user-history:hover,
-.history_user-profile:hover,
-.history_user-history:focus,
-.history_user-profile:focus, 
-.history_sidebar_filled {
+.history_user-profile:hover {
+    background-color: #BAAF9E;
+}
+
+.history_sidebar_focus {
     background-color: #BAAF9E;
 }
 
 .history_content {
     position: absolute;
-    left: 200px;
+    left: 15.625%;
     position: relative;
     float: left;
     overflow: hidden;
-    width: calc(100% - 200px);
+    width: 84.375%;
     height: calc(100% - 70px);
 }
 
@@ -114,8 +117,8 @@
 .history_search {
     position: absolute;
     top: 42px;
-    left: 30px;
-    width: 211px;
+    left: 3%;
+    width: 19.54%;
     height: 32px;
     background-color: #DFDAD3;
     border-radius: 8px;
@@ -133,7 +136,7 @@
 .history_search-icon {
     position: absolute;
     top: 39px;
-    left: 30px;
+    left: 3.2%;
     font-size: 18px;
     color: rgba(71, 60, 56, 0.7);
     margin: 10px;
@@ -146,10 +149,10 @@
 
 .history_table {
     position: absolute;
-    top: 95px;
-    left: 30px;
-    width: 993px;
-    height: 644px;
+    top: 12.6%;
+    left: 3%;
+    width: 92%;
+    height: 85.41%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -187,6 +190,7 @@
     top: 36%;
     font-size: 16px;
     color: #9E9E9E;
+    pointer-events: none;
 }
 
 .history_head-btn {
@@ -313,14 +317,19 @@
     color: #9E9E9E;
 }
 
-.history_pagination_link:hover:not(.history_pagination-text),
-.history_pagination_link:focus:not(.history_pagination-text) {
+.history_pagination-text p:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+.history_pagination_link:hover:not(.history_pagination-text) {
     color: #fff;
     background-color: #AD7252;
 }
 
-.history_pagination-text:hover {
-    color: #000;
+.history_pagination_link_focus {
+    color: #fff;
+    background-color: #AD7252;
 }
 
 .history_order_detail {
@@ -343,6 +352,7 @@
     height: 76%;
     background-color: #F0EAE2;
     padding: 20px;
+    animation: slide .2s linear;
 }
 
 .history_detail_ctn {
@@ -526,5 +536,17 @@
 }
 
 .history_hide-modal {
+    animation: example 5s linear 2s infinite alternate;
     display: none;
+}
+
+@keyframes slide {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
 }
