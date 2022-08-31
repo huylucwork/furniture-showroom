@@ -129,7 +129,7 @@ export default function History() {
           <i className="fa-solid fa-magnifying-glass history_search-icon"></i>       
         </div>
         <div className="history_table">
-          <div className="history_table-row history_table-first">
+          <div className="history_table-row history_table-first history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table-head">Date</p>
               <button className="history_head-btn"></button>
@@ -155,7 +155,7 @@ export default function History() {
               <p className="history_table-head">Detail</p>
             </div>
           </div>
-          <div className="history_table-row history_table-odd">
+          <div className="history_table-row history_table-odd history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -175,7 +175,7 @@ export default function History() {
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
-          <div className="history_table-row history_table-even">
+          <div className="history_table-row history_table-even history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -195,7 +195,7 @@ export default function History() {
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
-          <div className="history_table-row history_table-odd">
+          <div className="history_table-row history_table-odd history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -215,7 +215,7 @@ export default function History() {
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
-          <div className="history_table-row history_table-even">
+          <div className="history_table-row history_table-even history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -235,7 +235,7 @@ export default function History() {
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
-          <div className="history_table-row history_table-odd">
+          <div className="history_table-row history_table-odd history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -255,7 +255,7 @@ export default function History() {
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
-          <div className="history_table-row history_table-even">
+          <div className="history_table-row history_table-even history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -275,7 +275,7 @@ export default function History() {
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
             </div>
           </div>
-          <div className="history_table-row history_table-odd">
+          <div className="history_table-row history_table-odd history_table-row_shadow">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
