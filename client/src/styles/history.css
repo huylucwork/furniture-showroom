@@ -25,28 +25,24 @@
     float: left;
     width: 15.625%;
     height: calc(100% - 70px);
+    padding-top: 70px;
 }
 
 .history_sidebar_container {
     position: relative;
     width: 100%;
-    height: 14.5%;
-    padding-bottom: 20px;
+    height: 10%;
     border-bottom: 3px solid #fff;
 }
 
 .history_sidebar_container:last-child {
     border: none;
-    padding-bottom: 50%;
 }
 
 .history_user-profile {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 91.5%;
-    height: 34%;
-    position: absolute;
-    top: 52%;
-    left: 0;
+    height: 61.43%;
     color: var(--textColor);
     font-size: 16px;
     font-weight: 500;
@@ -54,12 +50,17 @@
     background-color: var(--backgroundColor);
     cursor: pointer;
     transition: .3s ease-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .history_user-icon-profile {
     position: absolute;
-    left: 20px;
-    top: 63px;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
     font-size: 20px;
     color: var(--textColor);
     pointer-events: none;
@@ -68,10 +69,7 @@
 .history_user-history {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 91.5%;
-    height: 34%;
-    position: absolute;
-    top: 15%;
-    left: 0%;
+    height: 61.43%;
     color: var(--textColor);
     font-size: 16px;
     font-weight: 500;
@@ -80,12 +78,17 @@
     cursor: pointer;
     transition: .3s ease-out;
     padding-right: 38px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .history_user-icon-history {
     position: absolute;
-    top: 25px;
-    left: 17px;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
     font-size: 23px;
     color: var(--textColor);
     pointer-events: none;
