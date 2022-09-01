@@ -15,13 +15,13 @@ function App() {
     <AppContext.Provider >
       <div id="App">
         <Navbar />
-        <div className="start_page"> 
+        {/* <div className="start_page">  */}
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />
           <Route path="user/info" element={<Info/>} />
         </Routes>
-      </div>
+      {/* </div> */}
         {/* <Footer /> */}
       </div>
     </AppContext.Provider>

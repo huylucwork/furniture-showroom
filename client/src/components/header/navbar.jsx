@@ -4,6 +4,7 @@ import Login from "../homepage/auth/login";
 import Signup from "../homepage/auth/signup";
 import "../../styles/signup.css";
 import "../../styles/login.css";
+
 export default function Navbar() {
   const [buttonSignUp, setButtonSignUp] = useState(false);
   const [buttonLogin, setButtonLogin] = useState(false);
