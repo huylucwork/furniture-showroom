@@ -1,0 +1,201 @@
+:root {
+    --backgroundColor: #F0EAE2;
+    --textColor: #473C38;
+}
+
+.info_container {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    /* margin: 70px 0 0 0; */
+    /* padding: 0; */
+    border: none;
+    background-color: var(--backgroundColor);
+    width: 100vw;
+    margin-top: 70px;
+    /* height: calc(100vh - 70px); */
+}
+
+.info_sidebar {
+    float: left;
+    /* width: 200px; */
+    height: 100%;
+}
+
+.info_sidebar_container {
+    position: relative;
+    width: 200px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #fff;
+}
+
+.info_sidebar_container:last-child {
+    border: none;
+    padding-bottom: 100px;
+}
+
+.info_user-profile {
+    box-sizing: unset;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    width: 115px;
+    height: 43px;
+    color: var(--textColor);
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 61px;
+    border: none;
+    padding: 0 38px 0 30px;
+    background-color: var(--backgroundColor);
+    cursor: pointer;
+    transition: .3s ease-out;
+}
+
+.info_user-icon-profile {
+    position: absolute;
+    left: 20px;
+    top: 72px;
+    font-size: 20px;
+    color: var(--textColor);
+    pointer-events: none;
+}
+
+.info_user-info {
+    box-sizing: unset;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    width: 133px;
+    height: 43px;
+    position: absolute;
+    top: 21px;
+    color: var(--textColor);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    padding: 0 43px 0 7px;
+    background-color: var(--backgroundColor);
+    cursor: pointer;
+    transition: .3s ease-out;
+}
+.info_user-icon-info {
+    position: absolute;
+    top: 32px;
+    left: 17px;
+    font-size: 23px;
+    color: var(--textColor);
+    pointer-events: none;
+}
+.history_content {
+    /* position: absolute; */
+    /* top: 5px; */
+    /* left: 33px; */
+    /* position: relative; */
+    float: left;
+    /* overflow: hidden; */
+    /* width: calc(100% - 200px); */
+    /* height: calc(100% - 70px); */
+}
+
+
+.profileContainer {
+  /* display: flex; */
+  /* margin: 80px; */
+  font-size: 16px;
+  position: fixed;
+  /* float: right; */
+}
+
+.form-control{
+    background: #EAE3D9;
+    border: 1px solid #D1B7A1;
+    border-radius: 5px;
+    /* width: 100% ; */
+    /* height: 30px; */
+    padding: 0 10px;
+    /* width: 290px; */
+    font-size: 16px;
+}
+
+
+.info_header {
+    /* position: absolute; */
+    /* top: 42px; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 56px;
+    /* or 280% */
+
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+    color: #AD7252;
+}
+
+.profileContainer{
+  /* display: table; */
+  display: flex;
+  width: 80%;
+  height: 100vh;
+}
+.left_side{
+  /* display: table-cell; */
+  margin-left: 3%;
+  width: 50%;
+  /* width: 50%; */
+  /* text-align: left; */
+  /* padding-left: 20px; */
+}
+.right_side{
+    flex-grow: 1.5;
+  /* display: table-cell; 
+  */
+  /* width: 50%; */
+  /* text-align: right; */
+  /* padding-right: 20px; */
+  margin-right: 10%;
+
+}
+
+.circle {
+  height: 180px;
+  width: 180px;
+  margin-left: 25%;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile_edit{
+    margin-top: -0.30em;
+    border: 3px solid rgba(186, 175, 158, 0.8);
+    color: #BAAF9ECC;
+    background-color: #BAAF9ECC;
+
+}
+
+.edit_btn{
+    margin-top: 70%;
+    margin-left: 70%;
+    width: 40%;
+    height: 14%;
+}
+.save_btn{
+    width: 18%;
+    height: 12%;
+}
+.btn{
+    border-color: none;
+    border: none;
+    cursor: pointer;
+    background-color: var(--boxColor);
+    color: #fff;
+    font-size: 16px;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    background-color: #995b3c;
+}

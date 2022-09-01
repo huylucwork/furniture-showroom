@@ -3,9 +3,7 @@
     --boxColor: #AD7252;
     --textColor: #553A31;
 }
-.buttonForSignup{
-    top:100px;
-}
+
 .sign-up_container {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     top: 0 ;
@@ -123,7 +121,7 @@
 .sign-up_form_filled {
     top: -10px;
     color: #c7a08a;
-    padding: 4px;
+    padding: 1px;
     font-weight: bold;
 }
 
