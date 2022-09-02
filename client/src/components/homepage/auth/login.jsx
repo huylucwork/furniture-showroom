@@ -11,7 +11,7 @@ export default function Login(props) {
               className="login_close-btn"
               onClick={() => props.setTrigger(false)}
             >
-              <i class="fa-solid fa-xmark"></i>
+              <i className="fa-solid fa-xmark"></i>
             </button>
           </div>
           <h1 className="login_header">Welcome back</h1>

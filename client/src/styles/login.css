@@ -67,7 +67,7 @@
 .login_header {
     position: absolute;
     top: 42px;
-    font-family: "BIZ UDPMincho", "Poppins", Arial, Helvetica, sans-serif;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     text-align: center;
     color: #B06D40;
     font-size: 30px;
@@ -75,7 +75,7 @@
 
 .login_para {
     position: absolute;
-    top: 80px;
+    top: 70px;
     text-align: center;
     width: 320px;
     padding-top: 10px;
@@ -176,7 +176,7 @@
     background-color: var(--boxColor);
     border: none;
     color: #fff;
-
+    padding: 1px;
     font-size: 16px;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -207,7 +207,7 @@
 
 .login_signup-link {
     position: absolute;
-    bottom: 56px;
+    bottom: 50px;
     left: 30px;
     font-size: 14px;
     font-weight: 300;
