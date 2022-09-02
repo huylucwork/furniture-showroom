@@ -4,7 +4,6 @@ import Axios from "axios";
 import Homepage from "./components/homepage/homepage";
 import Info from "./user/info";
 import Navbar from "./components/header/navbar";
-import "./styles/signup.css";
 export const AppContext = React.createContext()
 
 function App() {

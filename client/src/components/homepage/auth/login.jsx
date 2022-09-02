@@ -42,17 +42,19 @@ export default function Login(props) {
                 Forgot Password?
               </a>
             </div>
-            <button className="login_sign-up-btn" type="submit">
-              <p>Enjoy now !</p>
-              <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i>
-            </button>
-          </form>
-            <div className="login_signup-link">
-              New to Heifurdesz?{" "}
-              <a className="login_link" href="#">
-                <u>Sign up</u>
-              </a>
+            <div className="login_sign-up_div">
+              <button className="login_sign-up-btn" type="submit">
+                <p>Enjoy now !</p>
+                <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i>
+              </button>
             </div>
+          </form>
+          <div className="login_signup-link">
+            New to Heifurdesz? &thinsp;
+            <a className="login_link" href="#">
+              <u>Sign up</u>
+            </a>
+          </div>
         </div>
       </div>
     </div>

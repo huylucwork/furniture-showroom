@@ -26,19 +26,6 @@ export default function Navbar() {
           }
         });
       });
-    // document
-    //   .querySelectorAll(".login_form_text-field_input")
-    //   .forEach((element) => {
-    //     element.addEventListener("blur", (event) => {
-    //       if (event.target.value != "") {
-    //         event.target.nextElementSibling.classList.add("login_form_filled");
-    //       } else {
-    //         event.target.nextElementSibling.classList.remove(
-    //           "login_form_filled"
-    //         );
-    //       }
-    //     });
-    //   });
   });
 
   return (
@@ -69,27 +56,28 @@ export default function Navbar() {
       </ul>
       <ul class="navbar_ul">
         <li class="navbar_list">
-          <a className="navbar_a">
+          <a className="navbar_a ">
             <button
               className="buttonForSignup"
               onClick={() => setButtonLogin(true)}
             >
               <div className=" hover-underline-animation">Login</div>
             </button>
-            <Login trigger={buttonLogin} setTrigger={setButtonLogin}></Login>
+            <div class="vr"></div>
             <button
               className="buttonForSignup"
               onClick={() => setButtonSignUp(true)}
             >
               <div className=" hover-underline-animation">Sign Up</div>
             </button>
+
+            <Login trigger={buttonLogin} setTrigger={setButtonLogin}></Login>
             <Signup
               trigger={buttonSignUp}
               setTrigger={setButtonSignUp}
             ></Signup>
           </a>
         </li>
-    
       </ul>
     </div>
   );

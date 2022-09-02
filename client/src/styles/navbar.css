@@ -1,26 +1,29 @@
+:root{
+  --textColorNav: #473c38;
+}
+
 .navbar {
-  /* position: relative; */
-  /* font-family: "Poppins"; */
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 22px;
-  align-items: center;
-  text-align: center;
-  color: #473c38;
-  margin-top:0;
-  /* min-height: 70px; */
-  max-height: 70px;
-  height: 70px;
-  /* background-color: #EF5122; */
-  background-color: rgba(186, 175, 158, 0.5);
-  backdrop-filter: blur(20px);
+  color: var(--textColorNav);
+
   display: flex;
   justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
   padding: 0;
+  line-height: 22px;
+  align-items: center;
+  text-align: center;
+  margin-top:0;
+  max-height: 70px;
+  height: 70px;
+
+  background-color: rgba(186, 175, 158, 0.5);
+  backdrop-filter: blur(20px);
 }
 
 .navbar_ul {
@@ -29,41 +32,31 @@
   padding: 0;
   overflow: hidden;
   padding-left: 0;
-  /* margin: auto 16px; */
   margin: 0 0;
-
-  /* background-color: #BAAF9E80; */
   padding-left: 0;
   height: 70px;
-  /* display: inline-block; */
 }
 
 .navbar_list {
-  /* float: left; */
   list-style: none;
-  /* margin: 0 8px; */
   display: inline-block;
-  /* width: 55px; */
 }
 
 .navbar_a {
-  display: block;
+  /* display: block; */
   list-style: none;
-  /* margin: 0 8px; */
   display: inline-block;
-  color: #473c38;
+  color: var(--textColorNav);
   text-align: center;
   padding: 23.55px 26px;
   text-decoration: none;
-  /* padding-bottom: 0.25rem; */
   cursor: default;
-  
 }
 
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: #473c38;
+  color: var(--textColorNav);
   cursor: pointer;
 }
 
@@ -75,7 +68,8 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #473c38;
+  background-color: var(--textColorNav);
+
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -83,14 +77,13 @@
 .hover-underline-animation:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
-  color: #473c38;
+
+  color: var(--textColorNav);
 }
 
 .logo {
   background-color: #f0eae2;
-  /* padding: 17px; */
   height: 70px;
-  /* margin-top: -20px; */
   width: 200px;
   font-size: 25px;
 }
@@ -98,20 +91,23 @@
 .buttonForSignup {
   background-color: unset;
   border: none;
-  /* padding: 14px 16px; */
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  /* margin: 4px 2px; */
   cursor: pointer;
   border-radius: 8px;
-  font-family: "Inter";
+
+  display: inline-block;
+
+  font-size: 18px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   align-items: center;
-  /* padding:0; */
-  color: #473c38;
+  color: var(--textColorNav);
+}
+
+.vr{
+  width: 2.5px;
 }
