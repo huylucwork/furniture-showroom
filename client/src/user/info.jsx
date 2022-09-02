@@ -21,7 +21,7 @@ export default function Info() {
       <div className="history_content">
         <Row className="profileContainer">
           <Col className="left_side">
-            <div className="info_header">Profile Picture</div>
+            <div className="info_header center_pic">Profile Picture</div>
             <span class="circle">
               <Button className="edit_btn btn" variant="primary">
                 Edit
@@ -57,7 +57,7 @@ export default function Info() {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-4 mt-4">
+              <Row className="mb-5 mt-5">
                 <Form.Group as={Col} controlId="name">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
@@ -112,7 +112,7 @@ export default function Info() {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-4 mt-4">
+              <Row className="mb-5 mt-5">
                 <Form.Group as={Col} controlId="password">
                   <Form.Label> Old Password</Form.Label>
                   <Form.Control

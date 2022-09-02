@@ -69,6 +69,7 @@
     top: 42px;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     text-align: center;
+    font-weight: 300;
     color: #B06D40;
     font-size: 30px;
 }
@@ -114,6 +115,7 @@
     margin-top: -10px;
     border: 1px solid #D1B7A1;
     transform: translateX(-50%);
+;
 }
 
 .login_form_text-field_label {
