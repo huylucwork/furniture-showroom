@@ -67,15 +67,16 @@
 .login_header {
     position: absolute;
     top: 42px;
-    font-family: "BIZ UDPMincho", "Poppins", Arial, Helvetica, sans-serif;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
     text-align: center;
+    font-weight: 300;
     color: #B06D40;
     font-size: 30px;
 }
 
 .login_para {
     position: absolute;
-    top: 80px;
+    top: 70px;
     text-align: center;
     width: 320px;
     padding-top: 10px;
@@ -114,6 +115,7 @@
     margin-top: -10px;
     border: 1px solid #D1B7A1;
     transform: translateX(-50%);
+;
 }
 
 .login_form_text-field_label {
@@ -137,7 +139,7 @@
 .login_form_filled {
     top: -10px;
     color: #c7a08a;
-    padding: 4px;
+    padding: 1px;
     font-weight: bold;
 }
 
@@ -157,46 +159,36 @@
 
 .login_link:hover {
     text-decoration: underline;
+    color: var(--textColor);
 }
 
 .login_sign-up-btn {
+
+    display: flex;
     position: absolute;
+    align-items: center;
+    padding-left: 0;
     margin-top: 18px;
     left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
     width: 350px;
     height: 50px;
-    display: flex;
+    transform: translateX(-50%);
+
+    cursor: pointer;
     background-color: var(--boxColor);
     border: none;
     color: #fff;
+    padding: 1px;
     font-size: 16px;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 500;
-    align-items: center;
-    padding-left: 0;
+
+    box-shadow: inset 100px 0 0 0.09px  var(--boxColor);
+    transition: ease-out .6s;
 }
 
-
-.login_sign-up-btn:before {
-    content: "";
-    position: absolute;
-    cursor: pointer;
-    border: none;
-    background-color: #9C674B;
-    color: #fff;
-    font-weight: 500;
-    font-size: 16px;
-    width: 0px;
-    height: 50px;
-    z-index: -1;
-
-}
-
-.login_sign-up-btn:hover:before {
-    animation: wipe .3s ease-out;
-    animation-fill-mode: forwards; 
+.login_sign-up_div:hover > .login_sign-up-btn {
+    box-shadow: inset 350px 0 0 0.09px  #9C674B;
 }
 
 @keyframes wipe {
@@ -217,15 +209,13 @@
 
 .login_signup-link {
     position: absolute;
-    bottom: 56px;
+    bottom: 50px;
     left: 30px;
-    color: #553a31;
-    color: var(--boxColor);
     font-size: 14px;
     font-weight: 300;
+    color: var(--textColor);
 }
 
 .login_signup-link .login_link:hover {
-    color: #553a31;
+    color: var(--textColor);
 }
-

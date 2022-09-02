@@ -1,0 +1,113 @@
+:root{
+  --textColorNav: #473c38;
+}
+
+.navbar {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--textColorNav);
+
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  line-height: 22px;
+  align-items: center;
+  text-align: center;
+  margin-top:0;
+  max-height: 70px;
+  height: 70px;
+
+  background-color: rgba(186, 175, 158, 0.5);
+  backdrop-filter: blur(20px);
+}
+
+.navbar_ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-left: 0;
+  margin: 0 0;
+  padding-left: 0;
+  height: 70px;
+}
+
+.navbar_list {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar_a {
+  /* display: block; */
+  list-style: none;
+  display: inline-block;
+  color: var(--textColorNav);
+  text-align: center;
+  padding: 23.55px 26px;
+  text-decoration: none;
+  cursor: default;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: var(--textColorNav);
+  cursor: pointer;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--textColorNav);
+
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+
+  color: var(--textColorNav);
+}
+
+.logo {
+  background-color: #f0eae2;
+  height: 70px;
+  width: 200px;
+  font-size: 25px;
+}
+
+.buttonForSignup {
+  background-color: unset;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+  display: inline-block;
+
+  font-size: 18px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  align-items: center;
+  color: var(--textColorNav);
+}
+
+.vr{
+  width: 2.5px;
+}

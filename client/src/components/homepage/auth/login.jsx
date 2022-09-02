@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../styles/login.css";
-
+import "../../../styles/signup.css";
 export default function Login(props) {
   return props.trigger ? (
     <div className="login_container">
@@ -11,7 +11,7 @@ export default function Login(props) {
               className="login_close-btn"
               onClick={() => props.setTrigger(false)}
             >
-              <i class="fa-solid fa-xmark"></i>
+              <i className="fa-solid fa-xmark"></i>
             </button>
           </div>
           <h1 className="login_header">Welcome back</h1>
@@ -42,17 +42,19 @@ export default function Login(props) {
                 Forgot Password?
               </a>
             </div>
-            <button className="login_sign-up-btn" type="submit">
-              <p>Enjoy now !</p>
-              <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i>
-            </button>
-          </form>
-            <div className="login_signup-link">
-              New to Heifurdesz?{" "}
-              <a className="login_link" href="#">
-                <u>Sign up</u>
-              </a>
+            <div className="login_sign-up_div">
+              <button className="login_sign-up-btn" type="submit">
+                <p>Enjoy now !</p>
+                <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i>
+              </button>
             </div>
+          </form>
+          <div className="login_signup-link">
+            New to Heifurdesz? &thinsp;
+            <a className="login_link" href="#">
+              <u>Sign up</u>
+            </a>
+          </div>
         </div>
       </div>
     </div>

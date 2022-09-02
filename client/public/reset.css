@@ -60,3 +60,7 @@ html {
 * {
 	box-sizing: border-box;
 }
+body{
+	box-sizing: border-box;
+	background-color: #F0EAE2;
+}
