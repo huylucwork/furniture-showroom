@@ -17,6 +17,7 @@
     justify-content: center;
 }
 
+
 .login_close-btn{
     border: none;
     background-color: var(--backgroundColor);
@@ -25,6 +26,7 @@
     width: 30px;
     height: 30px;
 }
+
 .sign-up_wrapper {
     position: relative;
     width: 450px;
@@ -62,6 +64,7 @@
 
 .sign-up_header {
     font-family:  "Poppins";
+
     margin-top: 35px;
     text-align: center;
     color: #b06d40;
@@ -123,8 +126,8 @@
 
 .sign-up_desc {
     width: 100%;
-    margin-bottom: 15px;
-    margin-top: -5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     font-size: 12px;
     color: #473C38B2;
     line-height: 18px;
@@ -162,7 +165,7 @@
 .sign-up_btn_submit p {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     position: absolute;
-    left: 21px;
+    left: 20px;
     top: 13px;
     color: #fff;
     font-size: 16px;
