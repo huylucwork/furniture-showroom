@@ -11,7 +11,22 @@ export default function Login(props) {
               className="login_close-btn"
               onClick={() => props.setTrigger(false)}
             >
-              <i className="fa-solid fa-xmark"></i>
+              {/* <i className="fa-solid fa-xmark"></i> */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="5 2 30 30"
+                fill="currentColor"
+                // className="w-6 h-6"
+                className="login_close-btn"
+                color="#d1b7a1"
+                style={{ width: "55px", height: "55px" }}
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                  clipRule="evenodd"
+                />
+              </svg>
             </button>
           </div>
           <h1 className="login_header">Welcome back</h1>
@@ -45,7 +60,22 @@ export default function Login(props) {
             <div className="login_sign-up_div">
               <button className="login_sign-up-btn" type="submit">
                 <p>Enjoy now !</p>
-                <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i>
+                {/* <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i> */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  // className="w-6 h-6"
+                  color="#fff"
+                  className="login_sign-up-btn_icon"
+                  style={{ width: "55px", height: "55px"}}
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
               </button>
             </div>
           </form>

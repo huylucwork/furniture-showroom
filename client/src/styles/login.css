@@ -30,8 +30,8 @@
   box-sizing: border-box;
 
   position: absolute;
-  left: 34.38%;
-  right: 30.47%;
+  /* left: 34.38%; */
+  /* right: 30.47%; */
   top: 15.28%;
   bottom: 15.28%;
 
@@ -74,6 +74,10 @@
   /* left: 1247px; */
   /* top: 216px; */
 }
+
+svg:hover.login_close-btn{
+    fill: var(--boxColor);
+  }
 
 .login_close-btn {
   border: none;
