@@ -23,8 +23,8 @@
     background-color: var(--backgroundColor);
     box-sizing: border-box;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 2.778vh;
+    height: 2.778vh;
 }
 
 .sign-up_wrapper {
@@ -36,10 +36,11 @@
 
 .sign-up_ctr {
     position: absolute;
-    top: 30px;
-    left: 30px;
-    width: calc(100% - 60px);
-    height: calc(100% - 60px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 8.888%);
+    height: calc(100% - 6.666%);
     background-color: var(--backgroundColor);
     border: 1px solid #D1B7A1;
 }
@@ -47,8 +48,7 @@
 .sign-up_icon {
     position: absolute;
     right: 0;
-    padding: 20px;
-    padding-top: 20px;
+    padding: 1.851vh;
 }
 
 .sign-up_my-icon {
@@ -64,40 +64,39 @@
 
 .sign-up_header {
     font-family:  "Poppins";
-    width: 66.1%;
-    height: 6.79%;
-    line-height: 68px;
+    width: 21.105vw;
+    height: 5.278vh;
+    line-height: 6.297vh;
     text-align: center;
     color: #b06d40;
     font-size: 4.1667vh;
     font-weight: 300;
-    margin: 25px auto auto auto;
+    margin: 2.315vh auto auto auto;
 }
 
 .sign-up_para {
     border-bottom: 1px solid #bab0a7;
-    width: 78.05%;
-    height: 6.25%;
+    width: 24.95vw;
+    height: 4.848vh;
     font-size: 1.851vh;
     color: var(--textColor);
     text-align: center;
     font-weight: 300;
-    margin: 12px auto auto auto;
+    margin: 1.111vh auto auto auto;
 }
 
 .sign-up_form {
     position: relative;
-    padding: 0 45px;
+    width: 31.927vw;
+    height: 61.528vh;
+    padding: 0 4.167vh;
 }
 
 .sign-up_form_text-field {
     position: relative;
-    margin: 27.5px 0;
-}
-
-.sign-up_form_text-field {
-    position: relative;
-    margin: 27.5px 0;
+    width: 27.344vw;
+    height: 6.25vh;
+    margin: 2.546vh 0;
 }
 
 .sign-up_form_text-field_input {
@@ -107,7 +106,7 @@
     background: none;
     outline: none;
     border: 1px solid #c7a08a;
-    padding: 22.5px;
+    padding: 2.083vh;
 }
 
 .sign-up_form_text-field_label {
@@ -140,11 +139,11 @@
     height: 3.889vh;
     font-size: 1.667vh;
     color: #473C38B2;
-    line-height: 27px;
+    line-height: 2.5vh;
     font-weight: 300;
     text-align: justify;
-    margin-top: -16px;
-    margin-bottom: 27px;
+    margin-top: -1.6vh;
+    margin-bottom: 2.5vh;
 }
 
 .sign-up_link {
@@ -203,9 +202,9 @@
 .sign-up_signup-link {
     width: 20vw;
     height: 2.778vh;
-    margin-top: 10px;
+    margin-top: 0.926vh;
     color: #473C38B2;
-    font-size: 20px;
+    font-size: 1.851vh;
     text-align: left;
 }
 
