@@ -3,14 +3,6 @@ import "../styles/history.css";
 import { useEffect } from "react";
 
 export default function History() {
-  // useEffect(() => {
-  //   document.querySelectorAll('.history_pagination_link').forEach(element => {
-  //     element.addEventListener('click', function handleClick(event) {
-  //       event.target.classList.add('history_pagination_link_focus');
-  //     });
-  //   });y
-  // });
-
   function history_openModal() {
     var history_order_detail_list = document.getElementsByClassName('history_order_detail');
     history_order_detail_list[0].classList.remove('history_hide-modal');
@@ -21,29 +13,29 @@ export default function History() {
     history_order_detail_list[0].classList.add('history_hide-modal');
   }
 
-  function history_sidebar_history_focus() {
-    var history_sidebar_focus_list = document.querySelectorAll('.history_user-history');
-    history_sidebar_focus_list[0].classList.add('history_sidebar_focus');
-    history_sidebar_focus_list = document.querySelectorAll('.history_user-profile');
-    if(history_sidebar_focus_list[0].classList.contains('history_sidebar_focus'))
-      history_sidebar_focus_list[0].classList.remove('history_sidebar_focus');
-  }
+  // function history_sidebar_history_focus() {
+  //   var history_sidebar_focus_list = document.querySelectorAll('.history_user-history');
+  //   history_sidebar_focus_list[0].classList.add('history_sidebar_focus');
+  //   history_sidebar_focus_list = document.querySelectorAll('.history_user-profile');
+  //   if(history_sidebar_focus_list[0].classList.contains('history_sidebar_focus'))
+  //     history_sidebar_focus_list[0].classList.remove('history_sidebar_focus');
+  // }
 
-  function history_sidebar_profile_focus() {
-    var history_sidebar_focus_list = document.querySelectorAll('.history_user-profile');
-    history_sidebar_focus_list[0].classList.add('history_sidebar_focus');
-    history_sidebar_focus_list = document.querySelectorAll('.history_user-history');
-    if(history_sidebar_focus_list[0].classList.contains('history_sidebar_focus'))
-      history_sidebar_focus_list[0].classList.remove('history_sidebar_focus');
-  }
+  // function history_sidebar_profile_focus() {
+  //   var history_sidebar_focus_list = document.querySelectorAll('.history_user-profile');
+  //   history_sidebar_focus_list[0].classList.add('history_sidebar_focus');
+  //   history_sidebar_focus_list = document.querySelectorAll('.history_user-history');
+  //   if(history_sidebar_focus_list[0].classList.contains('history_sidebar_focus'))
+  //     history_sidebar_focus_list[0].classList.remove('history_sidebar_focus');
+  // }
   
-  function history_pagination_link_focus() {
-    document.querySelectorAll('.history_pagination_link').forEach(element => {
-      if(element.classList.contains('history_pagination_link_focus') && !element.classList.contains('history_pagination-text')) {
-        element.classList.remove('history_pagination_link_focus');
-      }
-    });
-  };
+  // function history_pagination_link_focus() {
+  //   document.querySelectorAll('.history_pagination_link').forEach(element => {
+  //     if(element.classList.contains('history_pagination_link_focus') && !element.classList.contains('history_pagination-text')) {
+  //       element.classList.remove('history_pagination_link_focus');
+  //     }
+  //   });
+  // };
 
   return(
     <div className="history_container">
@@ -110,16 +102,16 @@ export default function History() {
       <div className="history_navbar"></div>
       <div className="history_sidebar">
         <div className="history_sidebar_container">
-          <button className="history_user-profile" type="button" onClick={history_sidebar_profile_focus}>
+          <button className="history_user-sidebar" type="button">
             User Profile
           </button>
-          <i className="fa-solid fa-user history_user-icon-profile"></i>
+          <i class="fa-regular fa-user history_user-icon"></i>
         </div>
         <div className="history_sidebar_container">
-          <button className="history_user-history history_sidebar_focus" type="button" onClick={history_sidebar_history_focus}>
+          <button className="history_user-sidebar history_user-history history_sidebar_focus" type="button">
             History
           </button>
-          <i className="fa-solid fa-clock-rotate-left history_user-icon-history"></i>
+          <i className="fa-solid fa-clock-rotate-left history_user-icon"></i>
         </div>
       </div>
       <div className="history_content">
@@ -299,13 +291,13 @@ export default function History() {
               <a className="history_pagination_link history_pagination-text" href="#">
                 <p>Previous</p>
               </a>
-              <a className="history_pagination_link history_pagination_link_focus" href="#" onClick={history_pagination_link_focus}>
+              <a className="history_pagination_link history_pagination_link_focus" href="#">
                 <p>1</p>
               </a>
-              <a className="history_pagination_link" href="#" onClick={history_pagination_link_focus}>
+              <a className="history_pagination_link" href="#">
                 <p>2</p>
               </a>
-              <a className="history_pagination_link" href="#" onClick={history_pagination_link_focus}>
+              <a className="history_pagination_link" href="#">
                 <p>3</p>
               </a>
               <a className="history_pagination_link history_pagination-text" href="#">
