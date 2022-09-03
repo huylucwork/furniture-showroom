@@ -17,10 +17,7 @@
     justify-content: center;
 }
 
- .start_page{
-     /* position: sticky;  */
-     margin-top:50px; 
-} 
+
 .login_close-btn{
     border: none;
     background-color: var(--backgroundColor);
@@ -29,6 +26,7 @@
     width: 30px;
     height: 30px;
 }
+
 .sign-up_wrapper {
     position: relative;
     width: 450px;
@@ -65,11 +63,13 @@
 }
 
 .sign-up_header {
-    font-family: "BIZ UDPMincho", "Poppins";
+    font-family:  "Poppins";
+
     margin-top: 35px;
     text-align: center;
     color: #b06d40;
     font-size: 30px;
+    font-weight: 300;
 }
 
 .sign-up_para {
@@ -127,8 +127,8 @@
 
 .sign-up_desc {
     width: 100%;
-    margin-bottom: 15px;
-    margin-top: -5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     font-size: 12px;
     color: #473C38B2;
     line-height: 18px;
@@ -166,7 +166,7 @@
 .sign-up_btn_submit p {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     position: absolute;
-    left: 21px;
+    left: 20px;
     top: 13px;
     color: #fff;
     font-size: 16px;
