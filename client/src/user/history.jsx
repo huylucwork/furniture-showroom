@@ -52,7 +52,6 @@ export default function History() {
           <div className="history_detail_ctn">
             <div className="history_detail_info">
               <div className="history_detail_user-info">
-                <p className="history_info_header">Order: S04xxxxxxxxx</p>
                 <p className="history_info_text">Date: DD-MM-YYYY</p>
                 <p className="history_info_text">NAME: XXXX XXXX XXXX</p>
                 <p className="history_info_text">Email: example@email.com</p>
