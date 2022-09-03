@@ -20,7 +20,12 @@ export default function Signup(props) {
           </p>
           <form method="post" className="sign-up_form">
             <div className="sign-up_form_text-field">
-              <input className="sign-up_form_text-field_input" type="text" />
+              <input 
+                className="sign-up_form_text-field_input" 
+                type="text"
+                autocomplete="off"
+                required 
+              />
               <label className="sign-up_form_text-field_label">Full name</label>
             </div>
             <div className="sign-up_form_text-field">
