@@ -57,7 +57,7 @@
 .sign-up_my-icon {
     width: 100%;
     height: 100%;
-    font-size: 1.7vw;
+    font-size: 3.3rem;
     color: #D1B7A1;
     transition: color 0.15s linear;
 }
@@ -74,7 +74,7 @@
     line-height: 3.52vw;
     text-align: center;
     color: #b06d40;
-    font-size: 2.344vw;
+    font-size: 4.5rem;
     font-weight: 300;
     margin: 2.08vw auto auto auto;
 }
@@ -83,7 +83,7 @@
     border-bottom: 1px solid #bab0a7;
     width: 25vw;
     height: 2.734vw;
-    font-size: 1.042vw;
+    font-size: 2rem;
     color: var(--textColor);
     text-align: center;
     font-weight: 300;
@@ -112,7 +112,7 @@
 .sign-up_form_text-field_input {
     width: 100%;
     height: 100%;
-    font-size: 1.041vw;
+    font-size:2rem;
     background: none;
     outline: none;
     border: 1px solid #c7a08a;
@@ -125,7 +125,7 @@
     left: 5%;
     transform: translateY(-50%);
     color: #473C38B2;
-    font-size: 1.041vw;
+    font-size: 2rem;
     transition: .2s;
     background-color: var(--backgroundColor);
     pointer-events: none;
@@ -148,7 +148,7 @@
 .sign-up_desc {
     width: 27.266vw;
     height: 2.19vw;
-    font-size: 0.9375vw;
+    font-size: 1.8rem;
     color: #473C38B2;
     line-height: 1.41;
     font-weight: 300;
@@ -193,7 +193,7 @@
     left: 5.2%;
     transform: translateY(-50%);
     color: #fff;
-    font-size: 1.25vw;
+    font-size: 2.4rem;
     font-weight: 500;
 }
 
@@ -207,7 +207,7 @@
     right: 6.571%;
     transform: translateY(-50%);
     color: #fff;
-    font-size: 1.25vw;
+    font-size: 2.4rem;
 }
 
 .sign-up_signup-link {
@@ -215,7 +215,7 @@
     height: 1.563vw;
     margin-top: 0.521vw;
     color: #473C38B2;
-    font-size: 1.041vw;
+    font-size: 2rem;
     text-align: left;
 }
 
