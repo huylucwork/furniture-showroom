@@ -220,7 +220,7 @@
     background-color: #EAE3D9;
 }
 
-.history_table_dowload-btn {
+.history_table_download-btn {
     position: absolute;
     top: 52%;
     left: 50%;
@@ -238,10 +238,11 @@
 
 .history_download-icon {
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3.3rem;
+    width: 25px;
+    height: 25px;
     color: #757575;
     pointer-events: none;
 }
@@ -349,17 +350,17 @@
 
 .history_detail_info {
     position: absolute;
-    top: 7.34%;
+    bottom: 0;    
     float: left;
     width: 38.55%;
-    height: 92.66%;
+    height: 90.5%;
     border-right: 1px solid #D1B7A1;
 }
 
 .history_detail_user-info {
     position: absolute;
     left: 5%;
-    width: 92%;
+    width: 90%;
     height: 86%;
     border-bottom: 1px solid #D1B7A1;
 }
@@ -479,7 +480,7 @@
     position: absolute;
     left: 17.5%;
     width: 47.5%;
-    height: 76%;
+    height: 67%;
 }
 
 .history_detail_item-name {
@@ -524,7 +525,8 @@
 .history_detail_item-price {
     position: absolute;
     left: 80%;
-    top: 10%;
+    top: 50%;
+    transform: translateY(-50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 16%;
     height: 67.5%;
