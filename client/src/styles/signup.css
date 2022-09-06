@@ -183,7 +183,7 @@
     width: 27.344vw;
     height: 3.906vw;
     box-shadow: inset 100px 0 0 0 var(--boxColor);
-    transition: ease-out .6s;
+    transition: ease-out .6s .1s;
     padding: 0;
 }
 
