@@ -15,17 +15,17 @@
 
 .history_navbar {
     width: 100vw;
-    height: 8.333vh;
+    height: 4.69vw;
 }
 
 .history_sidebar {
     position: absolute;
-    top: 10vh;
+    top: 4.69vw;
     left: 0;
     float: left;
     width: 12.6vw;
-    height: 91.667vh;
-    padding-top: 8.333vh;
+    height: calc(100vh - 4.69vw);
+    padding-top: 4vw;
 }
 
 .history_sidebar_container {
@@ -48,7 +48,7 @@
     width: 91.5%;
     height: 61%;
     color: var(--textColor);
-    font-size: 2.037vh;
+    font-size: 1.15vw;
     font-weight: 500;
     border: none;
     padding-left: 3.5vw;
@@ -63,7 +63,7 @@
     top: 50%;
     left: 15%;
     transform: translate(-50%, -50%);
-    font-size: 2.778vh;
+    font-size: 1.563vw;
     color: var(--textColor);
     pointer-events: none;
 }
@@ -77,21 +77,19 @@
 }
 
 .history_content {
-    position: absolute;
-    top: 0;
-    left: 16vw;
     position: relative;
-    float: left;
+    float: right;
     overflow: hidden;
     width: 87.4vw;
-    height: 91.667vh;
+    height: calc(100vh - 4.69vw);
+    padding-left: 3.39vw;
 }
 
 .history_search-container {
     position: relative;
-    width: 15.05vw;
-    height: 3.62vh;
-    margin-top: 5.278vh;
+    width: 14.74vw;
+    height: 2.031vw;
+    margin-top: 2.97vw;
 }
 
 .history_search {
@@ -100,8 +98,7 @@
     background-color: #DFDAD3;
     border-radius: 8px;
     border: 1px solid #D1B7A1;
-    padding-left: 3.889vh;
-    outline: none;
+    padding-left: 2.19vw
 }
 
 .history_search::placeholder {
@@ -110,7 +107,7 @@
     transform: translateY(-50%);
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
     color: rgba(71, 60, 56, 0.7);
-    font-size: 1.481vh;
+    font-size: 0.833vw;
 }
 
 .history_search-icon {
@@ -118,21 +115,22 @@
     top: 50%;
     left: 0;
     transform: translateY(-51%);
-    font-size: 2.315vh;
+    font-size: 1.3vw;
     color: rgba(71, 60, 56, 0.7);
     pointer-events: none;
-    margin-left: 0.926vh;
+    margin-left: 0.521vw;
 }
 
 .history_search:focus {
-    border: 0.27778vh solid #D1B7A1;
+    outline: none;
+    border: 0.157vw solid #D1B7A1;
 }
 
 .history_table {
     position: absolute;
-    top: 12.12%;
+    bottom: 0;
     width: 79.74vw;
-    height: 69.444vh;
+    height: calc(100vh - 4.69vw - 2.97vw - 2.031vw - 24px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -156,9 +154,8 @@
 .history_table-element {
     position: relative;
     flex-grow: 1;
-    margin: 5px;
+    margin: 0 5px;
     text-align: center;
-    width: 150px;
     color: black;
 }
 
@@ -166,16 +163,17 @@
     width: 100%;
     height: 20px;
     position: absolute;
-    top: 52%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .history_head-icon {
     position: absolute;
-    left: 95%;
-    top: 36%;
-    font-size: 16px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8333vw;
     color: #9E9E9E;
     pointer-events: none;
 }
@@ -185,8 +183,8 @@
     top: 47.5%;
     left: 98%;
     transform: translate(-50%, -50%);
-    width: 5px;
-    height: 20px;
+    width: 0.5vw;
+    height: 1.042vw;
     cursor: pointer;
     border: none;
     background-color: rgba(186, 175, 158, 0);
@@ -194,7 +192,7 @@
 
 .history_table-head {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 1.042vw;
     font-weight: 600;
     color: #fff;
 }
@@ -205,7 +203,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 0.94vw;
     font-weight: 400;
     color: #473C38;
 }
@@ -227,8 +225,8 @@
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
+    width: 1.56vw;
+    height: 1.56vw;
     cursor: pointer;
     border: none;
     background-color: #EAE3D9;
@@ -243,7 +241,7 @@
     top: 52%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px;
+    font-size: 1.7vw;
     color: #757575;
     pointer-events: none;
 }
@@ -254,25 +252,25 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px;
-    height: 35px;
+    width: 3.65vw;
+    height: 2.08vw;
     cursor: pointer;
     border: none;
+    outline: none;
     border-radius: 22px;
     background-color: #AD7252;
     color: #fff;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.833vw;
 }
 
 .history_pagination {
-    height: 100%;
-    width: 22%;
+    width: 17.64%;
+    height: 46%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding-top: 16px;
     display: flex;
     justify-content: space-around;
 }
@@ -280,8 +278,8 @@
 .history_pagination_link {
     position: relative;
     display: block;
-    width: 31px;
-    height: 31px;
+    width: 2.083vw;
+    height: 2.083vw;
     background-color: #E0E0E0;
     border-radius: 8px;
     text-decoration: none;
@@ -295,12 +293,12 @@
     transform: translate(-50%, -50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.8333vw;
 }
 
 .history_pagination-text {
     background-color: var(--backgroundColor);
-    margin-right: 12px;
+    margin-right: 0.781vw;
     color: #9E9E9E;
 }
 
@@ -335,10 +333,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 74%;
-    height: 76%;
+    width: 63.8%;
+    height: 64.8%;
     background-color: #F0EAE2;
-    padding: 20px;
+    padding: 1.3vw;
     animation: slide .2s linear;
 }
 
@@ -351,19 +349,46 @@
 
 .history_detail_info {
     position: absolute;
-    top: 4%;
+    top: 7.34%;
     float: left;
-    width: 40%;
-    height: 92%;
+    width: 38.55%;
+    height: 92.66%;
     border-right: 1px solid #D1B7A1;
 }
 
 .history_detail_user-info {
     position: absolute;
     left: 5%;
-    width: 90%;
+    width: 92%;
     height: 86%;
     border-bottom: 1px solid #D1B7A1;
+}
+
+.history_info {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history_info:first-child {
+    margin-top: 0;
+}
+
+.history_info_title {
+    width: 30.3%;
+    color: #B06D40;
+    font-size: 1.042vw;
+    text-align: left;
+    font-weight: 400;
+}
+
+.history_info_customer_detail {
+    width: 63.2%;
+    color: #553A31;
+    font-size: 1.042vw;
+    text-align: left;
+    font-weight: 300;
 }
 
 .history_detail_total {
@@ -374,33 +399,23 @@
     height: 14%;
     display: flex;
     justify-content: space-between;
-}
-
-.history_info_text {
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 21px;
-    margin: 0 0 15px 0;
-    color: #553A31;
+    align-items: flex-start;
 }
 
 .history_info_text-total {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 300;
-    font-size: 18px;
-    line-height: 27px;
-    color: #000;
-    align-self: center;
+    font-size: 1.25vw;
+    line-height: 1.875vw;
+    color: #553A31;
 }
 
 .history_info_number-total {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 1.46vw;
+    line-height: 2.19vw;
     color: #B06D40;
-    align-self: center;
 }
 
 .history_detail_close-btn {
@@ -408,7 +423,7 @@
     right: 14px;
     top: 7px;
     color: #D1B7A1;
-    font-size: 30px;
+    font-size: 1.5625vw;
 }
 
 .history_detail_close-btn:hover {
@@ -419,7 +434,7 @@
 
 .history_detail_item {
     position: relative;
-    width: 60%;
+    width: 61.45%;
     height: 100%;
     position: absolute;
     right: 0;
@@ -427,24 +442,27 @@
 
 .history_detail_item-ctn {
     position: absolute;
-    top: 11%;
+    top: 10%;
     left: 3.5%;
     width: 93%;
-    height: 72%;
-    display: flex;
-    flex-direction: column;
+    height: 88%;
+    overflow: auto;
 }
 
 .history_detail_item-info {
-    display: flex;
-    align-items: center;
     position: relative;
     width: 100%;
-    height: 19%;
+    height: 4.6875vw;
     background-color: #EAE3D9;
-    margin-bottom: 12px;
+    margin-bottom: 12.5px;
     border-radius: 5px;
     border: 1px solid #D1B7A1;
+    display: flex;
+    align-items: center;
+}
+
+.history_detail_item-info:last-child {
+    margin-bottom: 0;
 }
 
 .history_detail_item-img {
@@ -471,7 +489,7 @@
     width: 100%;
     height: 50%;
     color: #B06D40;
-    font-size: 20px;
+    font-size: 1.25vw;
     font-weight: 400;
 }
 
@@ -482,20 +500,22 @@
     width: 100%;
     height: 50%;
     color: #553A31;
-    font-size: 14px;
+    font-size: 0.94vw;
     font-weight: 300;
 }
 
 .history_detail_amount {
     position: absolute;
     left: 68%;
+    top: 50%;
+    transform: translateY(-50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 16%;
     height: 67.5%;
     color: #553A31;
-    font-size: 14px;
+    font-size: 0.94vw;
     font-weight: 300;
-    line-height: 21px;
+    line-height: 1.41vw;
     text-align: center;
     display: flex;
     align-items: center;
@@ -504,13 +524,14 @@
 .history_detail_item-price {
     position: absolute;
     left: 80%;
+    top: 10%;
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 16%;
     height: 67.5%;
     color: #B06D40;
-    font-size: 16px;
+    font-size: 1.042vw;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.5vw;
     text-align: right;
 }
 

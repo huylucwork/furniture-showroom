@@ -44,11 +44,34 @@ export default function History() {
           <div className="history_detail_ctn">
             <div className="history_detail_info">
               <div className="history_detail_user-info">
-                <p className="history_info_text">Date: DD-MM-YYYY</p>
-                <p className="history_info_text">NAME: XXXX XXXX XXXX</p>
-                <p className="history_info_text">Email: example@email.com</p>
-                <p className="history_info_text">Phone: 0123xxxxxx</p>
-                <p className="history_info_text">Adress: xxx yyyyy str, xxxxxx, yyyyy, zzzzz</p>
+                <div className="history_info">
+                  <p className="history_info_title">Order:</p>
+                  <p className="history_info_customer_detail">SO40000087</p>
+                </div>
+                <div className="history_info">
+                  <p className="history_info_title">Date:</p>
+                  <p className="history_info_customer_detail">02-09-2022</p>
+                </div>
+                <div className="history_info">
+                  <p className="history_info_title">User Name:</p>
+                  <p className="history_info_customer_detail">anhbo123</p>
+                </div>
+                <div className="history_info">
+                  <p className="history_info_title">Name:</p>
+                  <p className="history_info_customer_detail">anhbodantruong</p>
+                </div>
+                <div className="history_info">
+                  <p className="history_info_title">Email:</p>
+                  <p className="history_info_customer_detail">bolaanh@gmail.com</p>
+                </div>
+                <div className="history_info">
+                  <p className="history_info_title">Phone:</p>
+                  <p className="history_info_customer_detail">0938608456</p>
+                </div>
+                <div className="history_info">
+                  <p className="history_info_title">Address:</p>
+                  <p className="history_info_customer_detail">340 Madison Avenue Sixth Floor New York, NY 10173 USA</p>
+                </div>
               </div>
               <div className="history_detail_total">
                 <p className="history_info_text-total">Total:</p>
@@ -94,6 +117,24 @@ export default function History() {
                   <p className="history_detail_amount">Amount <br></br> 1</p>
                   <p className="history_detail_item-price">Price <br></br> $123</p>
                 </div>
+                <div className="history_detail_item-info">
+                  <div className="history_detail_item-img"></div>
+                  <div className="history_detail_item-name-cat">
+                    <p className="history_detail_item-name">Item X</p>
+                    <p className="history_detail_item-cat">Category</p>
+                  </div>
+                  <p className="history_detail_amount">Amount <br></br> 1</p>
+                  <p className="history_detail_item-price">Price <br></br> $123</p>
+                </div>
+                <div className="history_detail_item-info">
+                  <div className="history_detail_item-img"></div>
+                  <div className="history_detail_item-name-cat">
+                    <p className="history_detail_item-name">Item X</p>
+                    <p className="history_detail_item-cat">Category</p>
+                  </div>
+                  <p className="history_detail_amount">Amount <br></br> 1</p>
+                  <p className="history_detail_item-price">Price <br></br> $123</p>
+                </div>
               </div>
             </div>
           </div>
@@ -103,7 +144,7 @@ export default function History() {
       <div className="history_sidebar">
         <div className="history_sidebar_container">
           <button className="history_user-sidebar" type="button">
-            User Profile
+            Profile
           </button>
           <i class="fa-regular fa-user history_user-icon"></i>
         </div>
@@ -123,21 +164,24 @@ export default function History() {
           <div className="history_table-row history_table-first history_table-row_shadow_horizontal">
             <div className="history_table-element">
               <p className="history_table-head">Date</p>
-              <button className="history_head-btn"></button>
-              <i className="fa-solid fa-up-down history_head-icon"></i>
+              <button className="history_head-btn">
+                <i className="fa-solid fa-up-down history_head-icon"></i>
+              </button>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Order code</p>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Total amount</p>
-              <button className="history_head-btn"></button>
-              <i className="fa-solid fa-up-down history_head-icon"></i>
+              <button className="history_head-btn">
+                <i className="fa-solid fa-up-down history_head-icon"></i>
+              </button>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Total payment</p>
-              <button className="history_head-btn"></button>
-              <i className="fa-solid fa-up-down history_head-icon"></i>
+              <button className="history_head-btn">
+                <i className="fa-solid fa-up-down history_head-icon"></i>
+              </button>
             </div>
             <div className="history_table-element">
               <p className="history_table-head">Export order</p>
