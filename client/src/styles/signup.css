@@ -142,7 +142,7 @@
     left: calc(1.3672vw - 3px);
     color: #c7a08a;
     padding: 4.5px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .sign-up_desc {
