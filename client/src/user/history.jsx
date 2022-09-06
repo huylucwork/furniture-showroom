@@ -78,7 +78,7 @@ export default function History() {
               </div>
             </div>
             <div className="history_detail_item">
-              <i className="fa-solid fa-xmark history_detail_close-btn" onClick={history_closeModal}></i>
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="history_detail_close-btn" onClick={history_closeModal}><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 30L30 2m0 28L2 2"/></svg>
               <div className="history_detail_item-ctn">
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
