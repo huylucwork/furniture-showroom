@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/history.css";
-import { useEffect } from "react";
 
 export default function History() {
   function history_openModal() {
@@ -83,7 +82,7 @@ export default function History() {
               <div className="history_detail_item-ctn">
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
-                  <div className="history_detail_item-name-cat">
+                  <div className="history_detail_item_name-cat">
                     <p className="history_detail_item-name">Item X</p>
                     <p className="history_detail_item-cat">Category</p>
                   </div>
@@ -92,7 +91,7 @@ export default function History() {
                 </div>
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
-                  <div className="history_detail_item-name-cat">
+                  <div className="history_detail_item_name-cat">
                     <p className="history_detail_item-name">Item X</p>
                     <p className="history_detail_item-cat">Category</p>
                   </div>
@@ -101,7 +100,7 @@ export default function History() {
                 </div>
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
-                  <div className="history_detail_item-name-cat">
+                  <div className="history_detail_item_name-cat">
                     <p className="history_detail_item-name">Item X</p>
                     <p className="history_detail_item-cat">Category</p>
                   </div>
@@ -110,7 +109,7 @@ export default function History() {
                 </div>
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
-                  <div className="history_detail_item-name-cat">
+                  <div className="history_detail_item_name-cat">
                     <p className="history_detail_item-name">Item X</p>
                     <p className="history_detail_item-cat">Category</p>
                   </div>
@@ -119,7 +118,7 @@ export default function History() {
                 </div>
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
-                  <div className="history_detail_item-name-cat">
+                  <div className="history_detail_item_name-cat">
                     <p className="history_detail_item-name">Item X</p>
                     <p className="history_detail_item-cat">Category</p>
                   </div>
@@ -128,7 +127,7 @@ export default function History() {
                 </div>
                 <div className="history_detail_item-info">
                   <div className="history_detail_item-img"></div>
-                  <div className="history_detail_item-name-cat">
+                  <div className="history_detail_item_name-cat">
                     <p className="history_detail_item-name">Item X</p>
                     <p className="history_detail_item-cat">Category</p>
                   </div>
@@ -143,13 +142,13 @@ export default function History() {
       <div className="history_navbar"></div>
       <div className="history_sidebar">
         <div className="history_sidebar_container">
-          <button className="history_user-sidebar" type="button">
+          <button className="history_user_sidebar-btn" type="button">
             Profile
           </button>
           <i class="fa-regular fa-user history_user-icon"></i>
         </div>
         <div className="history_sidebar_container">
-          <button className="history_user-sidebar history_user-history history_sidebar_focus" type="button">
+          <button className="history_user_sidebar-btn history_user-history history_sidebar_focus" type="button">
             History
           </button>
           <i className="fa-solid fa-clock-rotate-left history_user-icon"></i>
@@ -190,7 +189,7 @@ export default function History() {
               <p className="history_table-head">Detail</p>
             </div>
           </div>
-          <div className="history_table-row history_table-odd history_table-row_shadow_horizontal">
+          <div className="history_table-row history_table-odd history_table-row_horizontal-shadow">
             <div className="history_table-element">
               <p className="history_table_text">dd/mm/yy</p>
             </div>
@@ -204,7 +203,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table-_dowload-btnhistory_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
@@ -224,7 +223,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table_dowload-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
@@ -244,7 +243,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table_dowload-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
@@ -264,7 +263,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table_dowload-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
@@ -284,7 +283,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table_dowload-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
@@ -304,7 +303,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table_dowload-btn"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
@@ -324,7 +323,7 @@ export default function History() {
               <p className="history_table_text">$xxx</p>
             </div>
             <div className="history_table-element">
-              <button className="history_table-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
+              <button className="history_table_dowload-btn history_table_overwrite-bgr"><i className="fa-regular fa-circle-down history_download-icon"></i></button>
             </div>
             <div className="history_table-element">
               <button className="history_detail-btn" onClick={history_openModal}>Detail</button>
