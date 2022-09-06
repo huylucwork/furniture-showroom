@@ -157,7 +157,7 @@ export default function History() {
       <div className="history_content">
         <div className="history_search-container">
           <input className="history_search" type="text" placeholder="Search..." />
-          <i className="fa-solid fa-magnifying-glass history_search-icon"></i>       
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="history_search-icon"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/></svg>
         </div>
         <div className="history_table">
           <div className="history_table-row history_table-first history_table-row_horizontal-shadow">
