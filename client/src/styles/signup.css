@@ -134,6 +134,7 @@
 
 .sign-up_form_text-field_input:focus {
     border: 2px solid #c7a08a;
+    color: #473C38;
 }
 
 .sign-up_form_text-field_input:focus + .sign-up_form_text-field_label,
@@ -217,6 +218,7 @@
     color: #473C38B2;
     font-size: 2rem;
     text-align: left;
+    font-weight: 300;
 }
 
 .sign-up_link_login{
