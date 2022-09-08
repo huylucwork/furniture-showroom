@@ -20,23 +20,23 @@
 
 .history_sidebar {
     position: absolute;
-    top: 4.69vw;
+    top: 0;
     left: 0;
     float: left;
     width: 242px;
-    height: calc(100vh - 4.69vw);
-    padding-top: 4vw;
+    height: 100vh;
+    padding-top: 8.55vw;
 }
 
 .history_sidebar_container {
     position: relative;
     width: 100%;
-    height: 10%;
+    height: 11.44%;
     border-bottom: 3px solid #BAAF9E4D;
 }
 
 .history_sidebar_container:last-child {
-    border: none;
+    border-bottom: 3px solid var(--backgroundColor);
 }
 
 .history_user_sidebar-btn {
@@ -45,13 +45,13 @@
     left: 0%;
     transform: translateY(-50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    width: 91.5%;
-    height: 61%;
+    width: 90%;
+    height: 57%;
     color: var(--textColor);
     font-size: 2.2rem;
     font-weight: 500;
     border: none;
-    padding-left: 3.5vw;
+    padding-left: 3.55vw;
     background-color: var(--backgroundColor);
     cursor: pointer;
     transition: .3s ease-out;
@@ -350,18 +350,19 @@
 
 .history_detail_info {
     position: absolute;
-    bottom: 0;    
+    bottom: 4.325%;    
     float: left;
     width: 38.55%;
-    height: 90.5%;
+    height: 91.52%;
     border-right: 1px solid #D1B7A1;
+    padding-top: 31px;
 }
 
 .history_detail_user-info {
     position: absolute;
     left: 5%;
     width: 90%;
-    height: 86%;
+    height: calc(88.755% - 31px);
     border-bottom: 1px solid #D1B7A1;
 }
 
@@ -397,7 +398,7 @@
     bottom: 0;
     left: 5%;
     width: 90%;
-    height: 14%;
+    height: 11.245%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -470,10 +471,10 @@
 
 .history_detail_item-img {
     position: absolute;
-    left: 2%;
-    width: 13%;
+    left: 2.15%;
+    width: 12.674%;
     height: 80%;
-    margin-right: 2%;
+    margin-right: 2.3%;
     background-color: #D9D9D9;
     border-radius: 5px;
 }
@@ -482,7 +483,7 @@
     position: absolute;
     left: 17.5%;
     width: 47.5%;
-    height: 67%;
+    height: 72.5%;
 }
 
 .history_detail_item-name {
@@ -514,7 +515,7 @@
     transform: translateY(-50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 16%;
-    height: 67.5%;
+    height: 72.5%;
     color: #553A31;
     font-size: 1.8rem;
     font-weight: 300;
@@ -526,12 +527,12 @@
 
 .history_detail_item-price {
     position: absolute;
-    left: 80%;
     top: 50%;
+    right: 3.448%;
     transform: translateY(-50%);
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     width: 16%;
-    height: 67.5%;
+    height: 72.5%;
     color: #B06D40;
     font-size: 2rem;
     font-weight: 400;
