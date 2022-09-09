@@ -5,52 +5,67 @@
 .navbar {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 300;
+  font-size: 28px;
   color: var(--textColorNav);
 
   display: flex;
   justify-content: space-between;
   position: fixed;
-  top: 0;
+
+  /* vertical-align: text-top; */
+  margin-top: 0;
   width: 100%;
-  padding: 0;
-  line-height: 22px;
+  /* padding: 0; */
+  line-height: 42px;
   align-items: center;
   text-align: center;
-  margin-top:0;
-  max-height: 70px;
-  height: 70px;
+  /* margin-top:0; */
+  max-height: 90px;
+  height: 90px;
 
   background-color: rgba(186, 175, 158, 0.5);
   backdrop-filter: blur(20px);
 }
 
-.navbar_ul {
+.navbar ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  padding-left: 0;
-  margin: 0 0;
-  padding-left: 0;
-  height: 70px;
+  /* padding-left: 0; */
+  /* margin: 0 0; */
+  /* padding-left: 0; */
+  height: 90px;
+  margin-top: -5px;
+  
 }
 
 .navbar_list {
   list-style: none;
   display: inline-block;
+  margin: 0 5.5px;
+  height: 90px;
+  /* top:0px; */
+  margin-top: -10px;
 }
 
-.navbar_a {
+.navbar_a{
   /* display: block; */
   list-style: none;
   display: inline-block;
   color: var(--textColorNav);
   text-align: center;
-  padding: 23.55px 26px;
+  /* padding: 23.55px 26px; */
+  padding:34px 33px;
+  margin-top:0px;
+  margin-bottom: -10px;
   text-decoration: none;
   cursor: default;
+}
+
+.hover-underline-animation:hover {
+  font-weight: 400;
 }
 
 .hover-underline-animation {
@@ -66,7 +81,7 @@
   width: 100%;
   transform: scaleX(0);
   height: 2px;
-  bottom: 0;
+  bottom: 6px;
   left: 0;
   background-color: var(--textColorNav);
 
@@ -83,9 +98,20 @@
 
 .logo {
   background-color: #f0eae2;
-  height: 70px;
+  height: 90px;
   width: 200px;
   font-size: 25px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.logo_img {
+  position: absolute;
+  top: 10px;
+  width: 125px;
+  height: 70.19px;
+  cursor: pointer;
+  left: 40px;
 }
 
 .buttonForSignup {
@@ -98,16 +124,19 @@
 
   display: inline-block;
 
-  font-size: 18px;
+  font-size: 28px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-weight: 300;
+  line-height: 42px;
   align-items: center;
   color: var(--textColorNav);
 }
 
 .vr{
+  /* width: 2.5px; */
+  position: absolute;
   width: 2.5px;
+  height: 42px;
+  /* top: 21px; */
 }
