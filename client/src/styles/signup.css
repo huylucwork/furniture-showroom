@@ -19,7 +19,7 @@
 }
 
 .sign-up_wrapper {
-    transform: translateY(calc(0px - (100vh - 88em) / 4));
+    /* transform: translateY(calc(0px - (100vh - 88em) / 4)); */
     position: relative;
     width: 67.5em;
     height: 88em;
