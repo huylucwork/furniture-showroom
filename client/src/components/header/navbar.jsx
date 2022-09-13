@@ -15,7 +15,7 @@ export default function Navbar() {
       )
       .forEach((element) => {
         element.addEventListener("blur", (event) => {
-          if (event.target.value != "") {
+          if (event.target.value !== "") {
             event.target.nextElementSibling.classList.add(
               "sign-up_form_filled"
             );
@@ -43,17 +43,17 @@ export default function Navbar() {
           </div>
         </li>
         <li className="navbar_list">
-          <a href="#Collection" className="navbar_a">
+          <a href="#Collection" className="navbar_a a_hover">
             <div className="hover-underline-animation">Collection</div>
           </a>
         </li>
         <li className="navbar_list">
-          <a href="#Product" className="navbar_a">
+          <a href="#Product" className="navbar_a a_hover">
             <div className="hover-underline-animation">Product</div>
           </a>
         </li>
         <li className="navbar_list">
-          <a href="#about" className="navbar_a">
+          <a href="#about" className="navbar_a a_hover">
             <div className="hover-underline-animation">About us</div>
           </a>
         </li>
@@ -61,7 +61,7 @@ export default function Navbar() {
 
       <ul class="navbar_ul">
         <li class="navbar_list">
-          <a className="navbar_a ">
+          <div className="navbar_a ">
             <button
               className="buttonForSignup"
               onClick={() => setButtonLogin(true)}
@@ -74,14 +74,14 @@ export default function Navbar() {
               className="buttonForSignup"
               onClick={() => setButtonSignUp(true)}
             >
-            <div className=" hover-underline-animation">Sign Up</div>
+              <div className=" hover-underline-animation">Sign up</div>
             </button>
             <Login trigger={buttonLogin} setTrigger={setButtonLogin}></Login>
             <Signup
               trigger={buttonSignUp}
               setTrigger={setButtonSignUp}
             ></Signup>
-          </a>
+          </div>
         </li>
       </ul>
     </div>

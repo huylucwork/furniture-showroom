@@ -1,4 +1,4 @@
-:root{
+:root {
   --textColorNav: #473c38;
 }
 
@@ -28,7 +28,7 @@
   backdrop-filter: blur(20px);
 }
 
-.navbar ul{
+.navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -38,7 +38,6 @@
   /* padding-left: 0; */
   height: 90px;
   margin-top: -5px;
-  
 }
 
 .navbar_list {
@@ -50,20 +49,22 @@
   margin-top: -10px;
 }
 
-.navbar_a{
-  /* display: block; */
+.navbar_a {
   list-style: none;
   display: inline-block;
   color: var(--textColorNav);
   text-align: center;
   /* padding: 23.55px 26px; */
-  padding:34px 33px;
-  margin-top:0px;
+  padding: 34px 33px;
+  margin-top: 0px;
   margin-bottom: -10px;
   text-decoration: none;
   cursor: default;
 }
 
+.a_hover:hover {
+  background-color: #baaf9e80;
+}
 .hover-underline-animation:hover {
   font-weight: 400;
 }
@@ -75,8 +76,29 @@
   cursor: pointer;
 }
 
+.nav-btn {
+  border: none;
+  /* background-color: var(--backgroundColor); */
+  box-sizing: border-box;
+  padding: 0;
+  /* width: 30px;
+  height: 30px; */
+  width: 1.326em;
+  height: 1.326em;
+  /* font-weight:600; */
+}
+
+svg:hover.nav-btn {
+  cursor: pointer;
+}
+svg:hover.icon-hover {
+  /* fill: #f0eae2; */
+  stroke-width: 1.5;
+  cursor: pointer;
+}
+
 .hover-underline-animation:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
@@ -103,6 +125,7 @@
   font-size: 25px;
   display: inline-block;
   margin-top: 10px;
+  margin-left: -5px;
 }
 
 .logo_img {
@@ -133,10 +156,49 @@
   color: var(--textColorNav);
 }
 
-.vr{
+.vr {
   /* width: 2.5px; */
   position: absolute;
   width: 2.5px;
   height: 42px;
   /* top: 21px; */
+}
+
+.expandSearch input {
+  border: none;
+  background: transparent;
+  font: 20px "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  /* padding-left: 26px; */
+  /* padding-left: 6px; */
+
+  background: none;
+  border-radius: 4px;
+  transition: 0.24s;
+  width: 0px;
+  /* padding: 8px 0px 8px 34px; */
+  padding: 0px;
+}
+.expandSearch input:focus {
+  border-color: #aaa;
+  outline: none;
+  width: 220px;
+  padding: 8px 12px 8px 14px;
+  background: linear-gradient(#000, #000) center bottom 7px / calc(100% - 25px)
+    1px no-repeat;
+  color: black;
+}
+
+.expandSearch input:focus + i {
+  /*padding: 8px 4px 8px 8px ;*/
+  color: #ddd;
+  pointer-events: none;
+}
+svg:focus {
+  stroke-width: 1.5;
+}
+
+.right_nav{
+  /* margin-top:20px; */
+  padding: 34px 20px;
 }

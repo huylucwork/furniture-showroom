@@ -14,9 +14,8 @@ export default function Login(props) {
               {/* <i className="fa-solid fa-xmark"></i> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="5 2 30 30"
+                viewBox="2 3 20 30"
                 fill="currentColor"
-                // className="w-6 h-6"
                 className="login_close-btn"
                 color="#d1b7a1"
                 style={{ width: "55px", height: "55px" }}
