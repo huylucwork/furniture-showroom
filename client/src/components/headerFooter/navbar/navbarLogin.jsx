@@ -1,8 +1,8 @@
 import React from "react";
-import "../../styles/navbar.css";
+import "../../../styles/navbar.css";
 
 
-export default function Navbar() {
+export default function NavbarLogin() {
   return (
     <div className="navbar">
       <ul className="navbar_ul">

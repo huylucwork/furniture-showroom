@@ -168,6 +168,10 @@
     transform: translate(-50%, -50%);
 }
 
+.history_text_left-align {
+    text-align: left;
+}
+
 .history_table-element {
     position: relative;
     flex-grow: 1;
@@ -178,7 +182,7 @@
 .history_head-btn {
     position: absolute;
     top: 50%;
-    left: 95%;
+    left: 90%;
     transform: translate(-50%, -50%);
     width: 2em;
     height: 2em;
@@ -207,6 +211,11 @@
     font-size: 1.8rem;
     font-weight: 400;
     color: #473C38;
+}
+
+.history_table_text_left-align {
+    left: 0;
+    transform: translateY(-50%);
 }
 
 .history_table-first {
@@ -550,7 +559,7 @@
     display: none;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1300px) {
     .history_table {
         width: 153.1em;
     }

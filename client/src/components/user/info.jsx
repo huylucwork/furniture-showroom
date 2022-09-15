@@ -1,7 +1,8 @@
 import React, { useState} from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
-import "../styles/info.css";
+import "../../styles/info.css";
+
 export default function Info() {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);

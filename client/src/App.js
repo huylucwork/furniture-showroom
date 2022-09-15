@@ -1,11 +1,8 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import Axios from "axios";
-import Homepage from "./components/homepage/homepage";
-import Info from "./user/info";
-import Navbar from "./components/header/navbar";
-import NavbarLogin from "./components/header/navbarLogin";
-import History from "./user/history";
+import Header from "./components/headerFooter/header";
+import Homepage from "./components/publicPage/homepage";
 
 export const AppContext = React.createContext()
 
@@ -16,8 +13,7 @@ function App() {
   return (
     <AppContext.Provider >
       <div id="App">
-        <Navbar />
-        {/* <NavbarLogin /> */}
+        <Header />
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />
