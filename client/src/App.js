@@ -5,6 +5,8 @@ import Homepage from "./components/homepage/homepage";
 import Info from "./user/info";
 import Navbar from "./components/header/navbar";
 import NavbarLogin from "./components/header/navbarLogin";
+import History from "./user/history";
+
 export const AppContext = React.createContext()
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />
-          <Route path="user/info" element={<Info/>} />
+          <Route path="user/history" element={<History/>} />
         </Routes>
         {/* <Footer /> */}
       </div>
