@@ -37,7 +37,7 @@ export default function Info() {
             <Form>
               <hr className="profile_edit"></hr>
               <Row className="mb-3 mt-3">
-                <Form.Group as={Col} controlId="username">
+                <Form.Group as={Col} controlId="username" className="">
                   <Form.Label>User Name</Form.Label>
                   <Form.Control
                     className="form-control"
@@ -63,7 +63,7 @@ export default function Info() {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-3 mt-4">
+              <Row className="mb-3 mt-4 ">
                 <Form.Group as={Col} controlId="name">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
@@ -88,7 +88,7 @@ export default function Info() {
                 <Form.Group as={Col} controlId="address">
                   <Form.Label> Address</Form.Label>
                   <Form.Control
-                    className="form-control"
+                    className="form-control address_size"
                     type="address"
                     placeholder="Enter Address"
                   ></Form.Control>
@@ -96,7 +96,7 @@ export default function Info() {
               </Row>
               <Row className="row_box">
                 <Form.Group as={Col} controlId="address">
-                  <Form.Select className="form-control row_box_size">
+                  <Form.Select className="form-control row_box_size ">
                     <option>Choose Ward</option>
                     <option>...</option>
                   </Form.Select>
@@ -132,55 +132,49 @@ export default function Info() {
                 </Button>
               )}
               {editButton ? (
-                <Row className="mb-4 mt-4">
-                  <Form.Group as={Col} controlId="password">
-                    <Form.Label> Old Password</Form.Label>
-                    <Form.Control
-                      className="form-control"
-                      type="password"
-                      placeholder="Enter Old Password"
-                    ></Form.Control>
-                  </Form.Group>
-                  {/* temp */}
-                  <Form.Group as={Col} controlId=""></Form.Group>
-                </Row>
-              ) : (
-                ""
-              )}
-              {editButton ? (
-                <Row className="mb-3 mt-3">
-                  <Form.Group as={Col} controlId="password">
-                    <Form.Label>New Password</Form.Label>
-                    <Form.Control
-                      className="form-control"
-                      type="password"
-                      placeholder="Enter New Password"
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="confirmPassword">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                      className="form-control"
-                      type="password"
-                      placeholder="Confirm Password"
-                    ></Form.Control>
-                  </Form.Group>
-                </Row>
-              ) : (
-                ""
-              )}
-              {editButton ? (
-                <Button
-                  className="btn save_btn"
-                  type="submit"
-                  variant="primary"
-                  onClick={() => {
-                    setEditButton(false);
-                    setSaveButton(false);
-                  }}
-                >
-                  Save
-                </Button>
+                <div>
+                  <Row className="mb-4 mt-4">
+                    <Form.Group as={Col} controlId="password">
+                      <Form.Label> Old Password</Form.Label>
+                      <Form.Control
+                        className="form-control"
+                        type="password"
+                        placeholder="Enter Old Password"
+                      ></Form.Control>
+                    </Form.Group>
+                    {/* temp */}
+                    <Form.Group as={Col} controlId=""></Form.Group>
+                  </Row>
+                  <Row className="mb-3 mt-3">
+                    <Form.Group as={Col} controlId="password">
+                      <Form.Label>New Password</Form.Label>
+                      <Form.Control
+                        className="form-control "
+                        type="password"
+                        placeholder="Enter New Password"
+                      ></Form.Control>
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="confirmPassword">
+                      <Form.Label>Confirm Password</Form.Label>
+                      <Form.Control
+                        className="form-control"
+                        type="password"
+                        placeholder="Confirm Password"
+                      ></Form.Control>
+                    </Form.Group>
+                  </Row>
+                  <Button
+                    className="btn save_btn"
+                    type="submit"
+                    variant="primary"
+                    onClick={() => {
+                      setEditButton(false);
+                      setSaveButton(false);
+                    }}
+                  >
+                    Save
+                  </Button>
+                </div>
               ) : (
                 ""
               )}
