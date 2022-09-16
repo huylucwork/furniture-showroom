@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Axios from "axios";
 import Header from "./components/headerFooter/header";
 import Homepage from "./components/publicPage/homepage";
+import User from "./components/user/user";
+import History from "./components/user/history";
 
 export const AppContext = React.createContext()
 
