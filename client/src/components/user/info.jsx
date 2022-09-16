@@ -8,20 +8,6 @@ export default function Info(props) {
   const [editButton, setEditButton] = useState(false);
   return props.trigger ? (
     <div className="info_container">
-      <div className="info_sidebar">
-        <div className="info_sidebar_container">
-          <button className="info_user-profile" type="button">
-            User Profile
-          </button>
-          <i className="fa-solid fa-user info_user-icon-profile"></i>
-        </div>
-        <div className="info_sidebar_container">
-          <button className="info_user-info" type="button">
-            History
-          </button>
-          <i className="fa-solid fa-clock-rotate-left info_user-icon-info"></i>
-        </div>
-      </div>
       <div className="history_content">
         <Row className="profileContainer">
           <Col className="left_side">
