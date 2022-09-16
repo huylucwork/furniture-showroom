@@ -4,6 +4,7 @@
 }
 
 .aboutUs_container {
+  z-index: 1;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;

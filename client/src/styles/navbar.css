@@ -3,6 +3,7 @@
 }
 
 .navbar {
+  z-index: 999;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 300;
