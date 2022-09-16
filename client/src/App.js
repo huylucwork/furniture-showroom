@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Axios from "axios";
 import Header from "./components/headerFooter/header";
 import Homepage from "./components/publicPage/homepage";
+import History from "./components/user/history";
+import User from "./components/user/user";
 
 export const AppContext = React.createContext()
 
@@ -17,6 +19,7 @@ function App() {
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />
+          <Route path="user" element={<User />} />
           <Route path="user/history" element={<History/>} />
         </Routes>
         {/* <Footer /> */}

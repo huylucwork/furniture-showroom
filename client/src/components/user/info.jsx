@@ -3,10 +3,10 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 
 import "../../styles/info.css";
 
-export default function Info() {
+export default function Info(props) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
-  return (
+  return props.trigger ? (
     <div className="info_container">
       <div className="info_sidebar">
         <div className="info_sidebar_container">
@@ -190,5 +190,7 @@ export default function Info() {
         </Row>
       </div>
     </div>
+  ) : (
+    ""
   );
 }
