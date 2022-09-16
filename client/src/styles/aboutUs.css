@@ -12,6 +12,7 @@
   background-color: var(--backgroundColor);
   font-size: calc(100vw/1920*10);
   width: 100vw;
+  height: 100em;
 }
 
 .aboutUs_navbar {
