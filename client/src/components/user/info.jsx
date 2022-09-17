@@ -6,7 +6,7 @@ import "../../styles/info.css";
 export default function Info(props) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
-  return props.trigger ? (
+  return (
     <div className="info_container">
       <div className="history_content">
         <Row className="profileContainer">
@@ -176,7 +176,5 @@ export default function Info(props) {
         </Row>
       </div>
     </div>
-  ) : (
-    ""
-  );
+  ) 
 }

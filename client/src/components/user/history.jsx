@@ -13,7 +13,7 @@ export default function History(props) {
     history_order_detail_list[0].classList.add('history_hide-modal');
   }
 
-  return props.trigger ? (
+  return (
     <div className="history_container">
       <div className="history_order_detail history_hide-modal">
         <div className="history_order_detail_wrapper">
@@ -341,7 +341,5 @@ export default function History(props) {
         </div>
       </div>
     </div>
-  ) : (
-    ""
-  );
+  ) 
 }
