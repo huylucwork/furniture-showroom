@@ -13,8 +13,8 @@ function App() {
   return (
     <AppContext.Provider >
       <div id="App">
-        <Navbar />
-        {/* <NavbarLogin /> */}
+        {/* <Navbar /> */}
+        <NavbarLogin />
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage />} />

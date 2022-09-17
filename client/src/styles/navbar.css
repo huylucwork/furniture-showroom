@@ -43,30 +43,41 @@
 .navbar_list {
   list-style: none;
   display: inline-block;
-  margin: 0 5.5px;
+  /* margin: 0 5.5px; */
   height: 90px;
   /* top:0px; */
-  margin-top: -10px;
+  /* margin-top: -10px; */
+
+  
+}
+.margin_nav{
+    margin-left: 15px;
+
 }
 
+.a_hover{
+    width: 205px;
+}
 .navbar_a {
   list-style: none;
   display: inline-block;
   color: var(--textColorNav);
   text-align: center;
   /* padding: 23.55px 26px; */
-  padding: 34px 33px;
-  margin-top: 0px;
-  margin-bottom: -10px;
+  padding: 24px 33px;
+  /* margin-top: 5px; */
+  margin-bottom: -25px;
   text-decoration: none;
   cursor: default;
+  /* padding-bottom: -20px; */
+
 }
 
 .a_hover:hover {
   background-color: #baaf9e80;
 }
 .hover-underline-animation:hover {
-  font-weight: 400;
+  text-shadow:0px 0px 1px black;
 }
 
 .hover-underline-animation {
@@ -92,7 +103,6 @@ svg:hover.nav-btn {
   cursor: pointer;
 }
 svg:hover.icon-hover {
-  /* fill: #f0eae2; */
   stroke-width: 1.5;
   cursor: pointer;
 }
@@ -124,7 +134,7 @@ svg:hover.icon-hover {
   width: 200px;
   font-size: 25px;
   display: inline-block;
-  margin-top: 10px;
+  /* margin-top: -10px; */
   margin-left: -5px;
 }
 
@@ -200,5 +210,5 @@ svg:focus {
 
 .right_nav{
   /* margin-top:20px; */
-  padding: 34px 20px;
+  padding: 24px 20px;
 }
