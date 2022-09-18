@@ -11,7 +11,7 @@ export default function Navbar() {
   useEffect(() => {
     document
       .querySelectorAll(
-        ".sign-up_form_text-field_input,.login_form_text-field_input "
+        ".sign-up_form_text-field_input"
       )
       .forEach((element) => {
         element.addEventListener("blur", (event) => {
@@ -22,6 +22,20 @@ export default function Navbar() {
           } else {
             event.target.nextElementSibling.classList.remove(
               "sign-up_form_filled"
+            );
+          }
+        });
+      });
+
+    document
+      .querySelectorAll(".login_form_text-field_input ")
+      .forEach((element) => {
+        element.addEventListener("blur", (event) => {
+          if (event.target.value !== "") {
+            event.target.nextElementSibling.classList.add("login_form_filled");
+          } else {
+            event.target.nextElementSibling.classList.remove(
+              "login_form_filled"
             );
           }
         });
