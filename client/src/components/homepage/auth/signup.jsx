@@ -11,7 +11,7 @@ export default function Signup(props) {
               className="login_close-btn"
               onClick={() => props.setTrigger(false)}
             >
-              <i className="fa-solid fa-xmark sign-up_my-icon"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="sign-up_my-icon"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 30L30 2m0 28L2 2"/></svg>            
             </button>
           </div>
           <h1 className="sign-up_header">Welcome back</h1>
@@ -20,7 +20,12 @@ export default function Signup(props) {
           </p>
           <form method="post" className="sign-up_form">
             <div className="sign-up_form_text-field">
-              <input className="sign-up_form_text-field_input" type="text" />
+              <input 
+                className="sign-up_form_text-field_input" 
+                type="text"
+                autocomplete="off"
+                required 
+              />
               <label className="sign-up_form_text-field_label">Full name</label>
             </div>
             <div className="sign-up_form_text-field">
