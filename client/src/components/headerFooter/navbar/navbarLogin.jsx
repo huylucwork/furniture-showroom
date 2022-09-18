@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import Cart from "./cart";
-import "../../styles/navbar.css";
 
-export default function Navbar() {
+import React, { useState } from "react";
+import Cart from "../cart";
+import "../../../styles/navbar.css";
+
+export default function NavbarLogin() {
   const [buttonCart, setButtonCart] = useState(false);
   return (
     <div className="navbar">

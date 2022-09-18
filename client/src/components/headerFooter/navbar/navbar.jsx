@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/navbar.css";
-import Login from "../homepage/auth/login";
-import Signup from "../homepage/auth/signup";
-import "../../styles/signup.css";
-import "../../styles/login.css";
+import "../../../styles/navbar.css";
+import "../../../styles/signup.css";
+import "../../../styles/login.css";
+import Login from "../../auth/login";
+import Signup from "../../auth/signup";
 
 export default function Navbar() {
   const [buttonSignUp, setButtonSignUp] = useState(false);
