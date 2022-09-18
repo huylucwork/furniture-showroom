@@ -138,6 +138,12 @@
     text-align: left;
     background-color: rgba(186, 175, 158, 0.8);
     border: none;
+    box-shadow: inset 4.166666666666667em 0 0 0.00375em rgba(186, 175, 158, 0);
+    transition: ease-out 0.4s;
+}
+
+.collection_button:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(186, 175, 158, 1);
 }
 
 .collection_button_icon {
