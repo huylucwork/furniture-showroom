@@ -3,6 +3,8 @@ import "../../styles/collection.css"
 
 export default function Collection ( {} ) {
     return (
-        x
+        <div className="collection_background">
+            
+        </div>
     )
 }
