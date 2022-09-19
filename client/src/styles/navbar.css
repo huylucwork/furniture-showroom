@@ -2,26 +2,33 @@
   --textColorNav: #473c38;
 }
 
-.navbar {
+.header {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 28px;
   color: var(--textColorNav);
 
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  z-index: 10;
-
-  margin-top: 0;
   width: 100%;
-  line-height: 42px;
-  align-items: center;
-  text-align: center;
-  max-height: 90px;
   height: 90px;
 
+  position: fixed;
+  display: flex;
+  z-index: 10;
+}
+
+.navbar {
+  display: inline-flex;
+  justify-content: space-between;
+  
+  margin-top: 0;
+  width: calc(100% - 190px);
+  line-height: 42px;
+  
+  max-height: 90px;
+  height: 90px;
+  padding: 0;
+  
   background-color: rgba(186, 175, 158, 0.5);
   backdrop-filter: blur(20px);
 }
@@ -32,7 +39,6 @@
   padding: 0;
   overflow: hidden;
   height: 90px;
-  margin-top: -5px;
 }
 
 .navbar_list {
@@ -113,12 +119,13 @@ svg:hover.icon-hover {
 }
 
 .logo {
-  background-color: #f0eae2;
+  /* background-color: #f0eae2; */
   height: 90px;
   width: 250px;
   font-size: 25px;
-  display: inline-block;
+  display: inline-flex;
   margin-left: -5px;
+  backdrop-filter: blur(4px);
 }
 
 .logo_img {
@@ -127,7 +134,7 @@ svg:hover.icon-hover {
   width: 125px;
   height: 70.19px;
   cursor: pointer;
-  left: 60px;
+  left: 70px;
 }
 
 .navbar_button_auth {
@@ -186,5 +193,5 @@ svg:focus {
 }
 
 .right_nav{
-  padding: 24px 20px;
+  padding: 24px 25px;
 }
