@@ -116,6 +116,7 @@ export default function History(props) {
           </div>
         </div>
       </div>
+      
       <div className="history_content">
         <div className="history_search-container">
           <input className="history_search" type="text" placeholder="Search..." />
