@@ -1,10 +1,14 @@
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
 export default function NavbarLogin() {
   const [buttonCart, setButtonCart] = useState(false);
+
+  const navigate = useNavigate();
+
   return (
     <div className="navbar">
       <ul className="navbar_ul">
@@ -18,7 +22,7 @@ export default function NavbarLogin() {
           </a>
         </li>
         <li className="navbar_list">
-          <a href="/user/info" className="navbar_a a_hover">
+          <a href="/" className="navbar_a a_hover">
             <div className="hover-underline-animation">Collection</div>
           </a>
         </li>
@@ -88,6 +92,7 @@ export default function NavbarLogin() {
               stroke="currentColor"
               className="w-6 h-6 nav-btn icon-hover"
               color="black"
+              onClick={() => navigate("../user")}
             >
               <path
                 strokeLinecap="round"

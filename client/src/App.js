@@ -21,7 +21,7 @@ function App() {
           <Route path="home" element={<Homepage />} />
           <Route path="user/history" element={<User tab={"history"} />} />
           <Route path="user/info" element={<User tab={"info"} />} />
-          <Route path="user" element={<Navigate to="info" tab={"info"} />} />
+          <Route path="user" element={<Navigate to="info" />} />
         </Routes>
         {/* <Footer /> */}
       </div>
