@@ -46,8 +46,8 @@ export default function Cart(props) {
           </div>
 
           <div className="cart_footer">
-            <p class="cart_footer_align-left">Total:</p>
-            <p class="cart_footer_align-right"> $123</p>
+            <p className="cart_footer_align-left">Total:</p>
+            <p className="cart_footer_align-right"> $123</p>
           </div>
           <div className="cart_btn_container ">
             <button className="cart_btn" type="submit">

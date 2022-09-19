@@ -71,8 +71,8 @@ export default function Navbar() {
         </li>
       </ul>
 
-      <ul class="navbar_ul">
-        <li class="navbar_list">
+      <ul className="navbar_ul">
+        <li className="navbar_list">
           <div className="navbar_a ">
             <button
               className="navbar_button_auth"
@@ -81,7 +81,7 @@ export default function Navbar() {
               <div className="hover-underline-animation">Login</div>
             </button>
             &nbsp;
-            <div class="vr"></div> &thinsp;
+            <div className="vr"></div> &thinsp;
             <button
               className="navbar_button_auth"
               onClick={() => setButtonSignUp(true)}

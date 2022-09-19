@@ -34,10 +34,10 @@ export default function NavbarLogin() {
         </li>
       </ul>
 
-      <ul class="navbar_ul">
-        <li class="navbar_list">
+      <ul className="navbar_ul">
+        <li className="navbar_list">
           <div className="navbar_a  right_nav">
-            <label className="expandSearch">
+            <label className="nav_search">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -55,7 +55,7 @@ export default function NavbarLogin() {
               </svg>
               <input
                 type="text"
-                class=""
+                className=""
                 name=""
                 placeholder="Type to search . . . "
               />
