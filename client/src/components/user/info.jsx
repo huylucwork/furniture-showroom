@@ -8,7 +8,7 @@ export default function Info(props) {
   const [editButton, setEditButton] = useState(false);
   return (
     <div className="info_container">
-      <div className="history_content">
+      <div className="info_content">
         <Row className="profileContainer">
           <Col className="left_side">
             <div className="info_header center_pic">Profile Picture</div>
@@ -170,5 +170,5 @@ export default function Info(props) {
         </Row>
       </div>
     </div>
-  ) 
+  ); 
 }

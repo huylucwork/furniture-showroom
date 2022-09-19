@@ -55,7 +55,7 @@ export default function Navbar() {
           </a>
         </li>
         <li className="navbar_list">
-          <a href="/user/info" className="navbar_a a_hover">
+          <a href="/" className="navbar_a a_hover">
             <div className="hover-underline-animation">Collection</div>
           </a>
         </li>
@@ -75,7 +75,7 @@ export default function Navbar() {
         <li class="navbar_list">
           <div className="navbar_a ">
             <button
-              className="buttonForSignup"
+              className="navbar_button_auth"
               onClick={() => setButtonLogin(true)}
             >
               <div className="hover-underline-animation">Login</div>
@@ -83,7 +83,7 @@ export default function Navbar() {
             &nbsp;
             <div class="vr"></div> &thinsp;
             <button
-              className="buttonForSignup"
+              className="navbar_button_auth"
               onClick={() => setButtonSignUp(true)}
             >
               <div className=" hover-underline-animation">Sign up</div>

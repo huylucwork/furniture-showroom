@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import Cart from "../cart";
+import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
 export default function NavbarLogin() {
