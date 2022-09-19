@@ -60,18 +60,18 @@ export default function Navbar() {
       <div className="navbar">
 
         <ul className="navbar_ul">
-          <li className="navbar_list">
-            <a href="/" className="navbar_a a_hover">
+          <li className="navbar_list" onClick={() => navigate("../")}>
+            <a href="#collection" className="navbar_a a_hover" >
               <div className="hover-underline-animation">Collection</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav">
-            <a href="/" className="navbar_a a_hover">
+          <li className="navbar_list margin_nav" onClick={() => navigate("../")}>
+            <a className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav">
-            <a href="/" className="navbar_a a_hover">
+          <li className="navbar_list margin_nav" onClick={() => navigate("../")}>
+            <a className="navbar_a a_hover">
               <div className="hover-underline-animation">About us</div>
             </a>
           </li>
