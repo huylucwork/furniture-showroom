@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 import Axios from "axios";
@@ -13,17 +13,19 @@ function App() {
   // To ensure that use cookies and sessions
   Axios.defaults.withCredentials = true;
 
+  const [site, setSite] = useState("");
+
   return (
     <AppContext.Provider >
       <div id="App">
         <Header />
         <Routes>
           <Route index element={<Homepage />} />
-          <Route path="home" element={<Homepage />} />
+          <Route path="home" element={<Homepage site={site} setSite={setSite}/>} />
           <Route path="user/history" element={<User tab={"history"} />} />
-          <Route path="user/info" element={<User tab={"info"} />} />
+          <Route path="user/info" element={<User tab={"ingfo"} />} />
           <Route path="user" element={<Navigate to="info" />} />
-          <Route path="collection" element={<Collection />} />
+          <Route path={"collection-detail/" + site} element={<Collection site={site}/>} />
         </Routes>
         {/* <Footer /> */}
       </div>

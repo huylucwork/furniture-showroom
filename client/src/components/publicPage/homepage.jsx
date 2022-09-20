@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/homepage.css";
 
-export default function Homepage() {
+export default function Homepage( {site, setSite} ) {
+  const navigate = useNavigate();
+
   return (
     <div className="homepage_background">
       <div className="row g-0 homepage_introduce">
@@ -51,7 +54,12 @@ export default function Homepage() {
             </div>
           </div>
 
-          <button className="collection_button">
+          <button className="collection_button" 
+              onClick={() => {
+                setSite("spring")
+                console.log(site)
+                navigate("../collection")}
+              }>
             View all collection
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +106,7 @@ export default function Homepage() {
               color="#473C38"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
+              onClick={() => navigate("../")}
               >
               <path
               fillRule="evenodd"
@@ -137,6 +146,7 @@ export default function Homepage() {
               color="#473C38"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
+              onClick={() => navigate("../")}
               >
               <path
               fillRule="evenodd"
@@ -175,6 +185,7 @@ export default function Homepage() {
               color="#473C38"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
+              onClick={() => navigate("../")}
               >
               <path
               fillRule="evenodd"
