@@ -50,7 +50,7 @@ export default function Navbar() {
     <div className="header">
       <div className="logo">
         <img
-          src="./img/logo.png"
+          src="../img/logo.png"
           alt="logo"
           className="logo_img"
           onClick={() => navigate("../")}

@@ -134,13 +134,13 @@ export default function History(props) {
               <p className="history_table-head">Order code</p>
             </div>
             <div className="history_table-element">
-              <p className="history_table-head history_text_left-align">Total amount</p>
+              <p className="history_table-head">Total amount</p>
               <button className="history_head-btn">
                 <i className="fa-solid fa-up-down history_head-icon"></i>
               </button>
             </div>
             <div className="history_table-element">
-              <p className="history_table-head history_text_left-align">Total payment</p>
+              <p className="history_table-head">Total payment</p>
               <button className="history_head-btn">
                 <i className="fa-solid fa-up-down history_head-icon"></i>
               </button>

@@ -163,10 +163,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.history_text_left-align {
-    text-align: left;
+    text-align: center;
 }
 
 .history_table-element {

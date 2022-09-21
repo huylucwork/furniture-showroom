@@ -23,7 +23,7 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="home" element={<Homepage site={site} setSite={setSite}/>} />
           <Route path="user/history" element={<User tab={"history"} />} />
-          <Route path="user/info" element={<User tab={"ingfo"} />} />
+          <Route path="user/info" element={<User tab={"info"} />} />
           <Route path="user" element={<Navigate to="info" />} />
           <Route path={"collection-detail/" + site} element={<Collection site={site}/>} />
         </Routes>
