@@ -5,8 +5,8 @@ import NavbarLogin from "./navbar/navbarLogin";
 export default function Header() {
     return (
         <React.Fragment>
-            <Navbar />
-            {/* <NavbarLogin /> */}
+            {/* <Navbar /> */}
+            <NavbarLogin />
         </React.Fragment>
     )
 }

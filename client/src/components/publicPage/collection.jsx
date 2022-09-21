@@ -1,15 +1,13 @@
 import React from "react";
 import "../../styles/collection.css"
 
-export default function Collection ( {} ) {
-
-    let site = "autumn";
+export default function Collection ( {site} ) {
 
     return (
         <div className="collection_background">
             <div className="collection_wallpaper">
                 <img src="" alt="" />
-                <div id="title" className={"collection_title " + site}>
+                <div className={"collection_title " + site}>
                     <h1>{site.toUpperCase()}</h1>
                     <p>A special gift for {site}</p>
                 </div>
@@ -34,7 +32,6 @@ export default function Collection ( {} ) {
             <div className="collection_line"></div>
 
             <div>
-                
             </div>
         </div>
     )
