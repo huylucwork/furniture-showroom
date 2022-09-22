@@ -6,6 +6,7 @@ import Header from "./components/headerFooter/header";
 import Homepage from "./components/publicPage/homepage";
 import User from "./components/user/user";
 import Collection from "./components/publicPage/collection";
+import AboutUs from "./components/publicPage/aboutUs";
 
 export const AppContext = React.createContext()
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="user/info" element={<User tab={"info"} />} />
           <Route path="user" element={<Navigate to="info" />} />
           <Route path={"collection-detail/" + site} element={<Collection site={site}/>} />
+          <Route path="about-us" element={<AboutUs />} />
         </Routes>
         {/* <Footer /> */}
       </div>
