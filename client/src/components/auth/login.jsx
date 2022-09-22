@@ -5,6 +5,10 @@ import "../../styles/signup.css";
 export default function Login(props) {
   return props.trigger ? (
     <div className="login_container">
+      <div
+        className="login_modal_close"
+        onClick={() => props.setTrigger(false)}
+      ></div>
       <div className="login_wrapper">
         <div className="login_ctr">
           <div className="login_icon">
@@ -68,7 +72,7 @@ export default function Login(props) {
                   // className="w-6 h-6"
                   color="#fff"
                   className="login_sign-up-btn_icon"
-                  style={{ width: "55px", height: "55px"}}
+                  style={{ width: "55px", height: "55px" }}
                 >
                   <path
                     fillRule="evenodd"

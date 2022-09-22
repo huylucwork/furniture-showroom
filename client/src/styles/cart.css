@@ -1,0 +1,231 @@
+:root {
+  --backgroundColor: #f0eae2;
+  --boxColor: #ad7252;
+  --textColor: #553a31;
+}
+
+.cart_container {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(71, 71, 71, 0.6);
+  margin-top: 90px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+}
+
+.modoal_close {
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100vh;
+}
+
+.cart_wrapper {
+  width: 573px;
+  height: 100vh;
+  background-color: var(--backgroundColor);
+  position: static;
+}
+
+.cart_ctr {
+  width: 100%;
+  height: 100%;
+  background-color: var(--backgroundColor);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.cart_header {
+  width: 510px;
+  margin-top: 55px;
+  margin-left: 30px;
+
+  font-size: 28px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-weight: 400;
+  color: #b06d40;
+  border-bottom: 1px solid #473c38;
+}
+
+.cart_item_list::-webkit-scrollbar {
+    display: none;
+}
+
+.cart_item_list{
+  margin-top: 10px;
+  overflow: auto;
+  width: 573px;
+  height: 550px;
+  background-color: none;
+}
+
+.cart_detail_item-info {
+  position: relative;
+  width: 89%;
+  height: 7em;
+  background-color: #eae3d9;
+  top: 20px;
+  left: 30px;
+  margin-bottom: 12.5px;
+  border-radius: 5px;
+  border: 1px solid #d1b7a1;
+  display: flex;
+  align-items: center;
+}
+
+.cart_detail_item-info:last-child {
+  margin-bottom: 0;
+}
+
+.cart_detail_item-img {
+  position: absolute;
+  left: 2.15%;
+  width: 21.674%;
+  height: 81%;
+  margin-right: 2.3%;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+}
+
+.cart_detail_item_name-cat {
+  position: absolute;
+  left: 26.5%;
+  width: 47.5%;
+  height: 72.5%;
+}
+
+.cart_detail_item-name {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  width: 140%;
+  height: 15%;
+  color: #b06d40;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.cart_detail_item-cat {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 50%;
+  color: #553a31;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.cart_detail_item-price {
+  font-weight: 400;
+  font-size: 20px;
+  color: #b06d40;
+  line-height: 30px;
+  width: 50%;
+}
+
+.cart_detail_amount {
+  position: absolute;
+  left: 78%;
+  top: 80%;
+  transform: translateY(-50%);
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  width: 16%;
+  height: 72.5%;
+  color: #553a31;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.5em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+
+.item_counter {
+  width: 100%;
+}
+
+.counter_button {
+  width: 70px;
+  height: 35px;
+
+  background: rgba(186, 175, 158, 0.5);
+  border-radius: 4px;
+  border: none;
+}
+
+.cart_footer {
+  padding-top: 22px;
+  width: 510px;
+  margin-top: 36%;
+  margin-left: 30px;
+  position: absolute;
+
+  font-size: 28px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-weight: 400;
+  color: #b06d40;
+  border-top: 1px solid #473c38;
+}
+
+.cart_footer_align-left {
+	float: left;
+  color: #473C38;
+}
+.cart_footer_align-right {
+	float: right;
+}
+
+.cart_btn_container:hover > .cart_btn {
+  box-shadow: inset 21.875em 0 0 0.09px #9c674b;
+}
+
+.cart_btn{
+  display: flex;
+  position: absolute;
+  align-items: center;
+  padding-left: 0;
+
+  margin-top: 1.5833333333333333em;
+  margin-top: 21px;
+  left: 85%;
+  top:78%;
+
+  width: 511.5px;
+  height: 68.75px;
+
+  transform: translateX(-50%);
+
+  cursor: pointer;
+  background-color: #ad7252;
+  border: none;
+  color: #fff;
+
+  padding-left: 19px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+
+  box-shadow: inset 4.166666666666667em 0 0 0.00375em #ad7252;
+  transition: ease-out 0.9s;
+}
+
+.cart-btn_icon {
+  color: #fff;
+  margin: auto;
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+

@@ -3,22 +3,6 @@
     --textColor: #473C38;
 }
 
-.history_container {
-    font-family: "Poppins", Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background-color: var(--backgroundColor);
-    width: 100vw;
-    height: 100vh;
-    font-size: 10px;
-}
-
-.history_navbar {
-    width: 100vw;
-    height: 9em;
-}
-
 .history_sidebar {
     position: absolute;
     top: 0;
@@ -36,7 +20,7 @@
     border-bottom: 3px solid #BAAF9E4D;
 }
 
-.history_sidebar_container:last-child {
+.history_sidebar_container:last-of-type {
     border-bottom: 3px solid var(--backgroundColor);
 }
 
@@ -55,7 +39,7 @@
     padding-left: 3.1em;
     background-color: var(--backgroundColor);
     cursor: pointer;
-    transition: .3s ease-out;
+    transition: .2s ease-out;
     text-align: left;
 }
 
@@ -77,12 +61,24 @@
     background-color: #BAAF9E80;
 }
 
+.history_container {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: var(--backgroundColor);
+    width: 100vw;
+    height: 100vh;
+    font-size: 10px;
+}
+
 .history_content {
     position: relative;
     width: calc(100% - 24.2em);
     height: calc(100vh - 9em);
     padding-left: 6.5em;
     left: 24.2em;
+    top: 9em;
     overflow: auto;
 }
 
@@ -103,12 +99,13 @@
     background-color: #DFDAD3;
     border-radius: 8px;
     border: 1px solid #D1B7A1;
-    padding-left: 2.6em;
+    padding-left: 4.2em;
 }
 
 .history_search::placeholder {
     position: absolute;
-    top: 50%;
+    top: 52%;
+    left: 15%;
     transform: translateY(-50%);
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
     color: rgba(71, 60, 56, 0.7);
@@ -166,10 +163,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.history_text_left-align {
-    text-align: left;
+    text-align: center;
 }
 
 .history_table-element {
@@ -349,7 +343,6 @@
     height: 62.2em;
     background-color: #F0EAE2;
     padding: 2.5em;
-    /* animation: slide .2s linear; */
 }
 
 .history_detail_ctn {
@@ -564,14 +557,3 @@
         width: 153.1em;
     }
 }
-
-/* @keyframes slide {
-    from {
-        top: 0;
-        opacity: 0;
-    }
-    to {
-        top: 50%;
-        opacity: 1;
-    }
-} */

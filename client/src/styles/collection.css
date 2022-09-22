@@ -1,0 +1,143 @@
+:root {
+    --springColor: #C22424;
+    --summerColor: #FD8728;
+    --autumnColor: #B06D40;
+    --winterColor: #474747;
+}
+
+p {
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+    text-align: justify;
+    font-weight: 300;
+}
+
+.collection_background {
+    position: absolute;
+    width: 100%;
+    color: #473C38;
+    font-size: 10px;
+}
+
+.collection_wallpaper {
+    width: 100%;
+    height: 85rem;
+    background-color: #d9d9d9;
+    position: relative;
+}
+
+.collection_title {
+    position: absolute;
+    top: 35rem;
+    left: 35rem;
+}
+
+.spring {
+    color: var(--springColor);
+}
+
+.summer {
+    color: var(--summerColor);
+}
+
+.autumn {
+    color: var(--autumnColor);
+}
+
+.winter {
+    color: var(--winterColor);
+}
+
+.collection_title h1 {
+    font-size:  8rem;
+    font-family: 'Cinzel Decorative';
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.collection_title p {
+    font-size: 6rem;
+    width: 60rem;
+    line-height: 9rem;
+    text-align: center;
+}
+
+.collection_image_1 {
+    position: absolute;
+    top: 71rem;
+    left: 27rem;
+
+    width: 67rem;
+    height: 85.5rem;
+
+    background-color: #d9d9d9;
+    border: 1px solid #000;
+}
+
+.collection_image_2 {
+    position: absolute;
+    top: 161.7rem;
+    right: 21.7rem;
+
+    width: 72rem;
+    height: 40rem;
+
+    background-color: #d9d9d9;
+    border: 1px solid #000;
+}
+
+.collection_image_3 {
+    position: absolute;
+    top: 193.5rem;
+    left: 41.5rem;
+
+    width: 37.5rem;
+    height: 55.6rem;
+
+    background-color: #d9d9d9;
+    border: 1px solid #000;
+}
+
+.collection_descr_1 {
+    margin-top: 12rem;
+    margin-left: 103rem;   
+}
+
+.collection_descr_1 h1 {
+    font-size: 4rem;
+    margin-bottom: 5rem;
+}
+
+.collection_descr_1 p {
+    width: 50.5rem;
+}
+
+.collection_descr_1 p::first-letter {
+   float: left;
+   font-size: 13rem;
+   line-height: 11rem;
+   padding-right: 1rem;
+}
+
+.collection_descr_2 { 
+    margin-top: 31rem;
+    margin-left: 33.4rem;
+    width: 54.5rem;
+}
+
+.collection_descr_3 { 
+    margin-top: 30rem;
+    margin-left: 91.7rem;
+    width: 54.5rem;
+}
+
+.collection_line {
+    position: absolute;
+    width: 600px;
+    height: 0px;
+    left: 50%;
+    margin-top: 24rem;
+    transform: translateX(-50%);
+
+    border: 1px solid #474747;
+}
