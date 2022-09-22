@@ -1,0 +1,90 @@
+.logout_container {
+  right: 10px;
+  /* width: 200px; */
+  background: #ffffff;
+  border: 1px solid #cad5e0;
+  padding: 4px;
+  position: absolute;
+  min-height: 200px;
+  top: 80px;
+  background: #eae3d9;
+  border: 1px solid #d1b7a1;
+  border-radius: 5px;
+
+width: 273.07px;
+height: 267.88px;
+
+}
+
+.logout_container:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -11px;
+  right: 23px;
+  width: 20px;
+  height: 20px;
+  background: #eae3d9;
+  border-right: 1px solid #d1b7a1;
+  border-top: 1px solid #d1b7a1;
+  transform: rotate(-45deg);
+  /* -moz-transform:rotate(-45deg);
+  -webkit-transform:rotate(-45deg); */
+}
+
+.logout_wrapper{
+  margin: 10px;
+}
+
+.logout_header{
+  font-size: 19px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-weight: 400;
+  line-height: 28px;
+color: #473C38; 
+  /* border-bottom: 1px solid #473c38; */
+}
+
+.logout_name{
+  font-size: 22px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: 400;
+  line-height: 28px;
+color: #AD7252;
+border-bottom: 1px solid #473C38;
+
+}
+.logout_icon{
+  font-size: 18px;
+  text-align: center;
+  margin: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  
+}
+
+.logout_button{
+  width: 232.46px;
+  height: 50px;
+  text-align: left;
+  border: none;
+  background-color: #eae3d9;
+  margin-top: 10px;
+}
+
+.logout_button_footer{
+  color: #AD7252;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.logout_button:hover{
+  background-color: #d1b7a1;
+}
+.logout_hover:hover{
+    text-shadow:0px 0px 1px black;
+}

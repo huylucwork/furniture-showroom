@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "../../styles/cart.css";
 
 export default function Cart(props) {
@@ -6,6 +7,12 @@ export default function Cart(props) {
   const addCountHandler = () => {
     setCounter(counter + 1);
   };
+
+// turn off the cart when change route
+  let location = useLocation();
+  useEffect(()=>{
+    props.setTrigger(false)
+  },[location])
 
   const removeCountHandler = () => {
     if (counter === 0) {
@@ -17,7 +24,7 @@ export default function Cart(props) {
   return props.trigger ? (
     <div className="cart_container">
       <div
-        className="modoal_close"
+        className="modal_close"
         onClick={() => props.setTrigger(false)}
       ></div>
       <div className="cart_wrapper">

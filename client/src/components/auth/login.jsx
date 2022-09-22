@@ -16,14 +16,12 @@ export default function Login(props) {
               className="login_close-btn"
               onClick={() => props.setTrigger(false)}
             >
-              {/* <i className="fa-solid fa-xmark"></i> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="2 3 20 30"
+                viewBox="3 3 16 16"
                 fill="currentColor"
                 className="login_close-btn"
                 color="#d1b7a1"
-                style={{ width: "55px", height: "55px" }}
               >
                 <path
                   fillRule="evenodd"
