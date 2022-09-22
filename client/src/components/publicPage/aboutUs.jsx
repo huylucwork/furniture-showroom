@@ -42,7 +42,8 @@ export default function AboutUs() {
                         <li>...</li>
                     </ul>
                 </div>
-                <div class="aboutUs_contact-info_sth"></div>
+                <textarea name="contact" className="aboutUs_contact-info_sth"></textarea>
+                <input type="submit" value="Submit" className="aboutUs_contact_submit"></input>
                 <img src="#" alt="#" />
             </div>
         </section>

@@ -17,7 +17,7 @@
 
 .aboutUs_navbar {
   width: 100%;
-  height: 9em;
+  height: 90px;
 }
 
 .aboutUs_intro-vid {
@@ -81,26 +81,46 @@
 
 .aboutUs_info_decs:nth-child(1) {
   position: absolute;
-  top: 11.2em;
-  left: 26.6em;
-  width: 99.8em;
-  height: 25em;
+  top: 15em;
+  left: 50em;
+  width: 65em;
+  height: 19em;
 }
 
-.aboutUs_info_decs:nth-child(1) h2 {
+.aboutUs_info_decs:nth-child(2) {
+  position: absolute;
+  top: 70em;
+  left: 110em;
+  width: 52em;
+  height: 22em;
+}
+
+.aboutUs_info_decs:nth-child(3) {
+  position: absolute;
+  top: 134.1em;
+  left: 58em;
+  width: 75em;
+  height: 16em;
+}
+
+.aboutUs_info_decs:nth-child(1) h2,
+.aboutUs_info_decs:nth-child(2) h2,
+.aboutUs_info_decs:nth-child(3) h2 {
   font-family: 'Nova Cut';
   width: 100%;
   height: 1.5em;
-  font-size: 3.6em;
+  font-size: 2.4em;
   text-align: center;
   font-weight: 400;
   line-height: 1.5em;
 }
 
-.aboutUs_info_decs:nth-child(1) p {
+.aboutUs_info_decs:nth-child(1) p,
+.aboutUs_info_decs:nth-child(2) p,
+.aboutUs_info_decs:nth-child(3) p {
   width: 100%;
   height: calc(100% - 2em);
-  font-size: 2.7em;
+  font-size: 1.8em;
   line-height: 1.5em;
   text-align: center;
   padding-top: 20px;
@@ -108,68 +128,10 @@
   font-weight: 300;
 }
 
-.aboutUs_info_decs:nth-child(2) {
-  position: absolute;
-  top: 66.1em;
-  left: 101.5em;
-  width: 61.8em;
-  height: 30.5em;
-}
-
-.aboutUs_info_decs:nth-child(2) h2 {
-  font-family: 'Nova Cut';
-  width: 100%;
-  height: 1.1em;
-  font-size: 3.6em;
-  text-align: center;
-  font-weight: 400;
-  line-height: 1.1em;
-}
-
-.aboutUs_info_decs:nth-child(2) p {
-  width: 100%;
-  height: calc(100% - 1.5em);
-  font-size: 2.7em;
-  line-height: 1.5em;
-  text-align: center;
-  padding-top: 30px;
-  margin-top: 10px;
-  font-weight: 300;
-}
-
-.aboutUs_info_decs:nth-child(3) {
-  position: absolute;
-  top: 134.1em;
-  left: 39.6em;
-  width: 112.7em;
-  height: 23.6em;
-}
-
-.aboutUs_info_decs:nth-child(3) h2 {
-  font-family: 'Nova Cut';
-  width: 100%;
-  height: 1.5em;
-  font-size: 3.6em;
-  text-align: center;
-  font-weight: 400;
-  line-height: 1.5em;
-}
-
-.aboutUs_info_decs:nth-child(3) p {
-  width: 100%;
-  height: calc(100% - 2em);
-  font-size: 2.7em;
-  line-height: 1.5em;
-  text-align: center;
-  padding-top: 30px;
-  margin-top: 10px;
-  font-weight: 300;
-}
-
 .aboutUs_info_img:nth-child(4) {
   position: absolute;
   top: 7.1em;
-  right: 17em;
+  right: 14em;
   display: block;
   width: 40em;
   height: 48.5em;
@@ -190,7 +152,7 @@
 .aboutUs_info_img:nth-child(6) {
   position: absolute;
   top: 108.8em;
-  left: 90em;
+  left: 93em;
   display: block;
   width: 85em;
   height: 19.5em;
@@ -232,7 +194,7 @@
   font-family: 'Nova Cut';
   width: 100%;
   height: 1.5em;
-  font-size: 3.6em;
+  font-size: 2.4em;
   text-align: center;
   font-weight: 400;
   line-height: 1.5em;
@@ -243,7 +205,7 @@
   bottom: 0;
   width: 100%;
   height: calc(100% - 2em);
-  font-size: 2.7em;
+  font-size: 1.8em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -254,16 +216,43 @@
   list-style-type: disc;
   font-weight: 300;
   line-height: 1.5em;
+  padding-top: 5px;
 }
 
 .aboutUs_contact-info_sth {
   position: absolute;
-  top: 32em;
+  top: 17.8em;
   left: 0;
-  width: 77em;
-  height: 20.4em;
+  width: 42.8em;
+  height: 11.3em;
   background-color: #F9F7F4;
   border: 1px solid #DBC2AD;
+  padding: 12px 20px;
+  font-size: 1.8em;
+  resize: none;
+}
+
+.aboutUs_contact-info_sth:focus {
+  outline: 0;
+  border: 2px solid #473C38;
+}
+
+.aboutUs_contact_submit {
+  position: absolute;
+  top: 30.6em;
+  left: 17.2em;
+  width: 8.3em;
+  height: 2.8em;
+  background-color: #ad7252;
+  border: none;
+  color: #fff;
+  font-size: 1.8em;
+  box-shadow: inset 20px 0 0 0 var(--boxColor);
+  transition: ease-out .3s .1s;
+}
+
+.aboutUs_contact_submit:hover {
+  box-shadow: inset 8.3em 0 0 0 #9C674B;
 }
 
 .aboutUs_contact-us_wrapper img {
