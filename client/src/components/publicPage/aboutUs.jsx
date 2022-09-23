@@ -17,15 +17,15 @@ export default function AboutUs() {
         <section class="aboutUs_info">
             <div className="aboutUs_info_decs">
                 <h2>MISSION</h2>
-                <p>We design and curate the best and latest in interior design, make it accessible, and keep you up-to-date on cutting-edge trends in the industry. That way, you can finally take that #dreamroom from your Pinterest board and make it a reality.</p>
+                <p>Focus on improving customer experience, The most enthusiastic, finest service, Guarantee harmonic relation between company benefit, customer experience and social responsibility, We are your reliable companion.</p>
             </div>
             <div className="aboutUs_info_decs">
                 <h2>VISION</h2>
-                <p>We design and curate the best and latest in interior design, make it accessible, and keep you up-to-date on cutting-edge trends in the industry. That way, you can finally take that #dreamroom from your Pinterest board and make it a reality.</p>
+                <p>Our goal is to sell products with reasonable price and high quality. Our products will be sold at an reasonable price. We guarantee to offer you the highest quality products.  With the most extraordinary design.</p>
             </div>
             <div className="aboutUs_info_decs">
                 <h2>GOAL</h2>
-                <p>We design and curate the best and latest in interior design, make it accessible, and keep you up-to-date on cutting-edge trends in the industry. That way, you can finally take that #dreamroom from your Pinterest board and make it a reality.</p>
+                <p>With the ambition to become one of your friend, a pioneer in the interior field, Hifurdez always tries to improve with Vietnamese elite and intellect. To accomplish that ambition, Hifurdez is committed to fulfill fully the core value proposed by our company "human - product - experience".</p>
             </div>
             <img src="#" alt="#" className="aboutUs_info_img" />
             <img src="#" alt="#" className="aboutUs_info_img" />
