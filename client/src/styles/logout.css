@@ -3,16 +3,16 @@
   /* width: 200px; */
   background: #ffffff;
   border: 1px solid #cad5e0;
-  padding: 4px;
+  padding: 10px;
   position: absolute;
   min-height: 200px;
-  top: 80px;
+  top: 95px;
   background: #eae3d9;
   border: 1px solid #d1b7a1;
   border-radius: 5px;
 
-width: 273.07px;
-height: 267.88px;
+width: 293.07px;
+height: 277.88px;
 
 }
 
@@ -20,10 +20,10 @@ height: 267.88px;
   content: "";
   display: block;
   position: absolute;
-  top: -11px;
-  right: 23px;
-  width: 20px;
-  height: 20px;
+  top: -18px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
   background: #eae3d9;
   border-right: 1px solid #d1b7a1;
   border-top: 1px solid #d1b7a1;
@@ -43,6 +43,7 @@ height: 267.88px;
   font-weight: 400;
   line-height: 28px;
 color: #473C38; 
+margin-top:10px;
   /* border-bottom: 1px solid #473c38; */
 }
 
@@ -84,7 +85,4 @@ border-bottom: 1px solid #473C38;
 
 .logout_button:hover{
   background-color: #d1b7a1;
-}
-.logout_hover:hover{
-    text-shadow:0px 0px 1px black;
 }
