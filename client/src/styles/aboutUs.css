@@ -82,7 +82,7 @@
 .aboutUs_info_decs:nth-child(1) {
   position: absolute;
   top: 15em;
-  left: 50em;
+  left: 45em;
   width: 65em;
   height: 19em;
 }
@@ -131,7 +131,7 @@
 .aboutUs_info_img:nth-child(4) {
   position: absolute;
   top: 7.1em;
-  right: 14em;
+  right: 23em;
   display: block;
   width: 40em;
   height: 48.5em;
@@ -240,7 +240,7 @@
 .aboutUs_contact_submit {
   position: absolute;
   top: 30.6em;
-  left: 17.2em;
+  left: 34.5em;
   width: 8.3em;
   height: 2.8em;
   background-color: #ad7252;
@@ -263,5 +263,5 @@
   width: 55em;
   height: 68.5em;
   background-color: #D9D9D9;
-  box-shadow: 4.5em -5em 0px 0px #DBC2AD;
+  box-shadow: 4.5em -3.5em 0px 0px #DBC2AD;
 }
