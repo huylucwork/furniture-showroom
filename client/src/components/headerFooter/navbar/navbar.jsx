@@ -70,7 +70,7 @@ export default function Navbar() {
               <div className="hover-underline-animation">Product</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav" onClick={() => navigate("../")}>
+          <li className="navbar_list margin_nav" onClick={() => navigate("../about-us")}>
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">About us</div>
             </a>
