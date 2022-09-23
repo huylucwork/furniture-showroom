@@ -16,8 +16,6 @@ function App() {
 
   const [site, setSite] = useState('spring');
 
-  console.log(site);
-
   return (
     <AppContext.Provider >
       <div id="App">
