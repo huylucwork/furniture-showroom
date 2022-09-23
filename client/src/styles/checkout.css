@@ -1,0 +1,34 @@
+.checkout_container {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  color: #473C38;
+  font-size: 10px;
+}
+
+.checkout_information {
+  position: absolute;
+  top: 14.7em;
+  left: 7.7em;
+  width: 82em;
+  height: 39.3em;
+  background-color: green;
+}
+
+.checkout_payment {
+  position: absolute;
+  top: 56.1em;
+  left: 7.7em;
+  width: 82em;
+  height: 30.5em;
+  background-color: black;
+}
+
+.checkout_item {
+  position: absolute;
+  top: 17.5em;
+  right: 8.2em;
+  width: 80.2em;
+  height: 73em;
+  background-color: red;
+}
