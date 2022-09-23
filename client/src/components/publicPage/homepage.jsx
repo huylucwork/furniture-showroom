@@ -54,11 +54,12 @@ export default function Homepage( {site, setSite} ) {
             </div>
           </div>
 
-          <button 
+          <button
             className="collection_button" 
             onClick={() => {
               setSite('spring');
-              navigate("../collection-detail/spring")}
+              navigate("../collection-detail/spring")
+            }
             }>
             View all collection
             <svg
