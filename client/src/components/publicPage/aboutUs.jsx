@@ -6,7 +6,7 @@ export default function AboutUs() {
     <div class="aboutUs_container">
         <section class="aboutUs_navbar"></section>
         <section class="aboutUs_intro-vid">
-            <h1>HEIFURDESZ</h1>
+            <h1>HIFURDEZ</h1>
             <p>Make your home become cozy and comfortable.</p>
             <div className="aboutUs_contact">
                 <i class="fa-brands fa-facebook"></i>
