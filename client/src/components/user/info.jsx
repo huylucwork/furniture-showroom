@@ -23,7 +23,7 @@ export default function Info(props) {
 
             <Form>
               <hr className="profile_edit"></hr>
-              <Row className="mb-3 mt-3">
+              <Row className="mb-5 mt-4">
                 <Form.Group as={Col} controlId="username" className="">
                   <Form.Label>User Name</Form.Label>
                   <Form.Control
@@ -50,7 +50,7 @@ export default function Info(props) {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-3 mt-4 ">
+              <Row className="mb-5 mt-4 ">
                 <Form.Group as={Col} controlId="name">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
@@ -120,7 +120,7 @@ export default function Info(props) {
               )}
               {editButton ? (
                 <div>
-                  <Row className="mb-4 mt-4">
+                  <Row className="mb-5 mt-5">
                     <Form.Group as={Col} controlId="password">
                       <Form.Label> Old Password</Form.Label>
                       <Form.Control
@@ -132,7 +132,7 @@ export default function Info(props) {
                     {/* temp */}
                     <Form.Group as={Col} controlId=""></Form.Group>
                   </Row>
-                  <Row className="mb-3 mt-3">
+                  <Row className="mb-5 mt-5">
                     <Form.Group as={Col} controlId="password_new">
                       <Form.Label>New Password</Form.Label>
                       <Form.Control

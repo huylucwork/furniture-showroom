@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState} from "react";
 import Navbar from "./navbar/navbar";
 import NavbarLogin from "./navbar/navbarLogin";
 
 export default function Header() {
+    const [loggedIn, setButtonLoggedIn] = useState(true);
     return (
-        <React.Fragment>
-            {/* <Navbar /> */}
-            <NavbarLogin />
-        </React.Fragment>
-    )
+      <React.Fragment>
+        {loggedIn ? (
+          <NavbarLogin setTrigger={setButtonLoggedIn} />
+        ) : (
+          <Navbar setTrigger={setButtonLoggedIn} />
+        )}
+      </React.Fragment>
+    );
 }

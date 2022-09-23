@@ -74,6 +74,11 @@
   text-shadow:0px 0px 1px black;
 }
 
+::placeholder{
+  color: black;
+
+}
+
 .hover-underline-animation {
   display: inline-block;
   position: relative;
