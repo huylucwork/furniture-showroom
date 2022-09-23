@@ -71,6 +71,10 @@ export default function NavbarLogin(props) {
                   className=""
                   name=""
                   placeholder="Type to search . . . "
+                  onClick={() => {
+                    setButtonCart(false);
+                    setButtonLogout(false);
+                  }}
                 />
               </label>
             </div>
@@ -83,7 +87,10 @@ export default function NavbarLogin(props) {
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
-                onClick={() => setButtonCart(!buttonCart)}
+                onClick={() => {
+                  setButtonCart(!buttonCart);
+                  setButtonLogout(false);
+                }}
               >
                 <path
                   strokeLinecap="round"
@@ -102,7 +109,10 @@ export default function NavbarLogin(props) {
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
                 // onClick={() => navigate("../user")}
-                onClick={() => setButtonLogout(!buttonLogout)}
+                onClick={() => {
+                  setButtonLogout(!buttonLogout);
+                  setButtonCart(false);
+                }}
               >
                 <path
                   strokeLinecap="round"
@@ -114,8 +124,12 @@ export default function NavbarLogin(props) {
           </li>
         </ul>
       </div>
-      <Cart trigger={buttonCart} setTrigger={setButtonCart}/>
-      <Logout trigger={buttonLogout} setTrigger={setButtonLogout} changeNav={props.setTrigger} />
+      <Cart trigger={buttonCart} setTrigger={setButtonCart} />
+      <Logout
+        trigger={buttonLogout}
+        setTrigger={setButtonLogout}
+        changeNav={props.setTrigger}
+      />
     </div>
   );
 }
