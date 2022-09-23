@@ -20,9 +20,9 @@ function App() {
   return (
     <AppContext.Provider>
       <div id="App">
+        <ScrollToTop/>
         <Header />
 
-        <ScrollToTop>
           <Routes>
             <Route index element={<Homepage site={site} setSite={setSite} />} />
             <Route path="user/history" element={<User tab={"history"} />} />
@@ -34,7 +34,6 @@ function App() {
             />
             <Route path="about-us" element={<AboutUs />} />
           </Routes>
-        </ScrollToTop>
         {/* <Footer /> */}
       </div>
     </AppContext.Provider>
