@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
+import Logout from "../../user/logout";
 import "../../../styles/navbar.css";
 
-export default function NavbarLogin() {
+export default function NavbarLogin(props) {
   const [buttonCart, setButtonCart] = useState(false);
+  const [buttonLogout, setButtonLogout] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,19 +23,24 @@ export default function NavbarLogin() {
       </div>
 
       <div className="navbar">
-
         <ul className="navbar_ul">
           <li className="navbar_list" onClick={() => navigate("../")}>
-            <a href="#collection" className="navbar_a a_hover" >
+            <a href="#collection" className="navbar_a a_hover">
               <div className="hover-underline-animation">Collection</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav" onClick={() => navigate("../")}>
+          <li
+            className="navbar_list margin_nav"
+            onClick={() => navigate("../")}
+          >
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav" onClick={() => navigate("../")}>
+          <li
+            className="navbar_list margin_nav"
+            onClick={() => navigate("../")}
+          >
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">About us</div>
             </a>
@@ -64,6 +71,10 @@ export default function NavbarLogin() {
                   className=""
                   name=""
                   placeholder="Type to search . . . "
+                  onClick={() => {
+                    setButtonCart(false);
+                    setButtonLogout(false);
+                  }}
                 />
               </label>
             </div>
@@ -76,7 +87,10 @@ export default function NavbarLogin() {
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
-                onClick={() => setButtonCart(!buttonCart)}
+                onClick={() => {
+                  setButtonCart(!buttonCart);
+                  setButtonLogout(false);
+                }}
               >
                 <path
                   strokeLinecap="round"
@@ -94,7 +108,11 @@ export default function NavbarLogin() {
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
-                onClick={() => navigate("../user")}
+                // onClick={() => navigate("../user")}
+                onClick={() => {
+                  setButtonLogout(!buttonLogout);
+                  setButtonCart(false);
+                }}
               >
                 <path
                   strokeLinecap="round"
@@ -106,7 +124,12 @@ export default function NavbarLogin() {
           </li>
         </ul>
       </div>
-      <Cart trigger={buttonCart} setTrigger={setButtonCart}></Cart>
+      <Cart trigger={buttonCart} setTrigger={setButtonCart} />
+      <Logout
+        trigger={buttonLogout}
+        setTrigger={setButtonLogout}
+        changeNav={props.setTrigger}
+      />
     </div>
   );
 }

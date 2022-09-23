@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/homepage.css";
 
@@ -19,9 +19,9 @@ export default function Homepage( {site, setSite} ) {
             <p>Comfort</p>
             <p>Coziness</p>
             <div className="slogan_icon">
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-twitter"></i>
-              <i class="fa-brands fa-instagram"></i>
+              <i className="fa-brands fa-facebook"></i>
+              <i className="fa-brands fa-twitter"></i>
+              <i className="fa-brands fa-instagram"></i>
             </div>
           </div>
         </div>
@@ -54,12 +54,13 @@ export default function Homepage( {site, setSite} ) {
             </div>
           </div>
 
-          <button className="collection_button" 
-              onClick={() => {
-                setSite("spring")
-                console.log(site)
-                navigate("../collection")}
-              }>
+          <button
+            className="collection_button" 
+            onClick={() => {
+              setSite('spring');
+              navigate("../collection-detail/spring")
+            }
+            }>
             View all collection
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +98,13 @@ export default function Homepage( {site, setSite} ) {
             </div>
           </div>
 
-          <button className="collection_button">
+          <button 
+            className="collection_button"
+            onClick={() => {
+              setSite('summer');
+              navigate("collection-detail/summer")}
+            }
+          >
             View all collection
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +113,6 @@ export default function Homepage( {site, setSite} ) {
               color="#473C38"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
-              onClick={() => navigate("../")}
               >
               <path
               fillRule="evenodd"
@@ -137,7 +143,13 @@ export default function Homepage( {site, setSite} ) {
             </div>
           </div>
 
-          <button className="collection_button">
+          <button 
+            className="collection_button"
+            onClick={() => {
+              setSite('autumn');
+              navigate("collection-detail/autumn")}
+            }
+          >
             View all collection
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +188,13 @@ export default function Homepage( {site, setSite} ) {
             </div>
           </div>
 
-          <button className="collection_button">
+          <button 
+            className="collection_button"
+            onClick={() => {
+              setSite('winter');
+              navigate("collection-detail/winter")}
+            }
+          >
             View all collection
             <svg
               xmlns="http://www.w3.org/2000/svg"

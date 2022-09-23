@@ -1,21 +1,31 @@
 import React from "react";
 import "../../styles/collection.css"
 
-export default function Collection ( {} ) {
+export default function Collection ( {site} ) {
 
-    let site = "autumn";
+    const RenderItems =()=>{
+        let list = []
+        for(let i=0; i<8; i++)
+            list.push(
+            <div className="col item">
+                <img src="" alt="" />
+                <h1 className={site}>Name of item</h1>
+                <p>$999</p>
+            </div>)
+        return list
+    }
 
     return (
         <div className="collection_background">
             <div className="collection_wallpaper">
                 <img src="" alt="" />
-                <div id="title" className={"collection_title " + site}>
+                <div className={"collection_title " + site}>
                     <h1>{site.toUpperCase()}</h1>
                     <p>A special gift for {site}</p>
                 </div>
             </div>
 
-            <div>
+            <div className="collection_part_1">
                 <img src="" alt="image 1" className="collection_image_1" />
                 <div className="collection_descr_1">
                     <h1 className={site}>About collection</h1>
@@ -31,10 +41,44 @@ export default function Collection ( {} ) {
                 <img src="" alt="image 3" className="collection_image_3" />
             </div>
 
-            <div className="collection_line"></div>
+            <div className="collection_part_2">
+                <div className="collection_line"></div>
+                <h1 className={site}>{site.toUpperCase()}</h1>
+                <div className="row g-5 image">
+                    <img src="" alt="" className="col image_item" />
+                    <img src="" alt="" className="col image_item" />
+                    <img src="" alt="" className="col image_item" />
+                </div>
+                <p className="collection_descr_4">There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). </p>
+            </div>
 
-            <div>
-                
+            <div className="collection_part_3">
+                <div className="collection_line"></div>
+                <h1 className={site}>Feature items</h1>
+                <button
+                    className="part_3_button" 
+                    onClick={() => {
+                    }
+                    }>
+                    View all product
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    color="#473C38"
+                    className="part_3_button_icon"
+                    style={{ width: "30px", height: "30px"}}
+                    >
+                    <path
+                    fillRule="evenodd"
+                    d="M16.72 7.72a.75.75 0 011.06 0l3.75 3.75a.75.75 0 010 1.06l-3.75 3.75a.75.75 0 11-1.06-1.06l2.47-2.47H3a.75.75 0 010-1.5h16.19l-2.47-2.47a.75.75 0 010-1.06z"
+                    clipRule="evenodd"
+                    />
+                    </svg>
+                </button>
+                <div className="row g-5 items">
+                    <RenderItems />
+                </div>
             </div>
         </div>
     )
