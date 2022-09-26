@@ -8,6 +8,7 @@ import User from "./components/user/user";
 import Collection from "./components/publicPage/collection";
 import AboutUs from "./components/publicPage/aboutUs";
 import ScrollToTop from "./utils/scrollToTop";
+import Product from "./components/publicPage/product";
 
 export const AppContext = React.createContext();
 
@@ -33,6 +34,7 @@ function App() {
               element={<Collection site={site} />}
             />
             <Route path="about-us" element={<AboutUs />} />
+            <Route path="product" element={<Product />} />
           </Routes>
         {/* <Footer /> */}
       </div>
