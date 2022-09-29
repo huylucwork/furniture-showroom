@@ -179,7 +179,7 @@ svg:hover.icon-hover {
   width: 0px;
   padding: 0px;
 }
-.nav_search input:focus {
+.nav_search input:focus, .nav_search input:hover {
   border-color: #aaa;
   outline: none;
   width: 220px;
@@ -187,6 +187,11 @@ svg:hover.icon-hover {
   background: linear-gradient(#000, #000) center bottom 7px / calc(100% - 25px)
     1px no-repeat;
   color: black;
+  
+}
+
+.nav_search input:focus::placeholder {
+  color:transparent
 }
 
 .nav_search input:focus + i {

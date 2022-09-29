@@ -2,24 +2,49 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "../../styles/cart.css";
 
-export default function Cart(props) {
+
+function CartItem(item) {
   const [counter, setCounter] = useState(0);
   const addCountHandler = () => {
     setCounter(counter + 1);
   };
-
-// turn off the cart when change route
-  let location = useLocation();
-  useEffect(()=>{
-    props.setTrigger(false)
-  },[location])
-
   const removeCountHandler = () => {
     if (counter === 0) {
       return;
     }
     setCounter(counter - 1);
   };
+  return (
+    <div className="cart_detail_item-info">
+      <div className="cart_detail_item-img"></div>
+      <div className="cart_detail_item_name-cat">
+        <p className="cart_detail_item-name">{item.name}</p>
+        <p className="cart_detail_item-cat">{ item.collection}</p>
+        <p className="cart_detail_item-cat cart_detail_item-price">$ {item.price}</p>
+      </div>
+      <p className="cart_detail_amount">
+        <button className="counter_button" onClick={removeCountHandler}>
+          -
+        </button>
+        <div className="item_counter"> {counter}</div>
+        <button className="counter_button" onClick={addCountHandler}>
+          +
+        </button>
+      </p>
+    </div>
+  );
+}
+
+CartItem.propTypes = {};
+
+export default function Cart(props) {
+
+  // turn off the cart when change route
+  let location = useLocation();
+  useEffect(() => {
+    props.setTrigger(false);
+  }, [location]);
+
 
   return props.trigger ? (
     <div className="cart_container">
@@ -31,25 +56,17 @@ export default function Cart(props) {
         <div className="cart_ctr">
           <h1 className="cart_header">Your Cart</h1>
           <div className="cart_item_list">
-            <div className="cart_detail_item-info">
-              <div className="cart_detail_item-img"></div>
-              <div className="cart_detail_item_name-cat">
-                <p className="cart_detail_item-name">Chaise Sectional Sofa</p>
-                <p className="cart_detail_item-cat">Pearl Spring</p>
-                <p className="cart_detail_item-cat cart_detail_item-price">
-                  $123
-                </p>
-              </div>
-              <p className="cart_detail_amount">
-                <button className="counter_button" onClick={removeCountHandler}>
-                  -
-                </button>
-                <div className="item_counter"> {counter}</div>
-                <button className="counter_button" onClick={addCountHandler}>
-                  +
-                </button>
-              </p>
-            </div>
+            <CartItem
+              name="Chaise Sectional Sofa"
+              collection="Pearl Spring"
+              price="123"
+            />
+            <CartItem />
+            <CartItem
+              name="Wellington Sofa"
+              collection="Heartfelt Winter"
+              price="10000"
+            />
           </div>
 
           <div className="cart_footer">
