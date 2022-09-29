@@ -80,6 +80,10 @@
 }
 
 .sidebar_element a:hover {
+  background-color: #BAAF9E30;
+}
+
+.sidebar_element .history_sidebar_focus:hover {
   background-color: #BAAF9E80;
 }
 
