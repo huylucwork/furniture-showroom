@@ -4,6 +4,7 @@ import "../../styles/cart.css";
 
 
 function CartItem(item) {
+  const [close,setClose] = useState(false);
   const [counter, setCounter] = useState(0);
   const addCountHandler = () => {
     setCounter(counter + 1);
@@ -14,13 +15,32 @@ function CartItem(item) {
     }
     setCounter(counter - 1);
   };
-  return (
+  return close ? (
+    ""
+  ) : (
     <div className="cart_detail_item-info">
       <div className="cart_detail_item-img"></div>
       <div className="cart_detail_item_name-cat">
         <p className="cart_detail_item-name">{item.name}</p>
-        <p className="cart_detail_item-cat">{ item.collection}</p>
-        <p className="cart_detail_item-cat cart_detail_item-price">$ {item.price}</p>
+        <button className="cart_btn_close" onClick={() => setClose(true)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="cart_btn_close_hover"
+            color="#d1b7a1"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+        <p className="cart_detail_item-cat">{item.collection}</p>
+        <p className="cart_detail_item-cat cart_detail_item-price">
+          $ {item.price}
+        </p>
       </div>
       <p className="cart_detail_amount">
         <button className="counter_button" onClick={removeCountHandler}>
@@ -35,7 +55,6 @@ function CartItem(item) {
   );
 }
 
-CartItem.propTypes = {};
 
 export default function Cart(props) {
 
@@ -67,6 +86,7 @@ export default function Cart(props) {
               collection="Heartfelt Winter"
               price="10000"
             />
+            
           </div>
 
           <div className="cart_footer">
