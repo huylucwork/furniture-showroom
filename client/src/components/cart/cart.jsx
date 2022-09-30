@@ -80,7 +80,6 @@ export default function Cart(props) {
               collection="Pearl Spring"
               price="123"
             />
-            <CartItem />
             <CartItem
               name="Wellington Sofa"
               collection="Heartfelt Winter"

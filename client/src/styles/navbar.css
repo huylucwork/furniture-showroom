@@ -30,7 +30,7 @@
   padding: 0;
   
   background-color: rgba(186, 175, 158, 0.5);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(50px);
 }
 
 .navbar ul {

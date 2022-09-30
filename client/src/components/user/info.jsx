@@ -7,7 +7,7 @@ export default function Info(props) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
   return (
-    <div className="info_container">
+    <div className="">
       <div className="info_content">
         <Row className="profileContainer">
           <Col className="left_side">

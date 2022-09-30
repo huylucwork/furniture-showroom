@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
@@ -71,7 +70,7 @@ export default function NavbarLogin(props) {
                   className=""
                   name=""
                   placeholder="Type to search . . . "
-                  onClick={() => {
+                  onMouseEnter={() => {
                     setButtonCart(false);
                     setButtonLogout(false);
                   }}
@@ -108,9 +107,13 @@ export default function NavbarLogin(props) {
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
-                // onClick={() => navigate("../user")}
-                onClick={() => {
+                onClick={() => navigate("../user")}
+                onMouseEnter={() => {
                   setButtonLogout(!buttonLogout);
+                  setButtonCart(false);
+                }}
+                onMouse={() => {
+                  setButtonLogout(false);
                   setButtonCart(false);
                 }}
               >
