@@ -8,7 +8,7 @@ import User from "./components/user/user";
 import Collection from "./components/publicPage/collection";
 import AboutUs from "./components/publicPage/aboutUs";
 import ScrollToTop from "./utils/scrollToTop";
-
+import Footer from "./components/headerFooter/footer";
 export const AppContext = React.createContext();
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
             />
             <Route path="about-us" element={<AboutUs />} />
           </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </AppContext.Provider>
   );
