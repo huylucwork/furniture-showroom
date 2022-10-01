@@ -104,10 +104,11 @@
 }
 
 .cart_btn_close{
-  position: fixed;
-  right:26px;
+  position: absolute;
+  right:-127px;
   margin-top: -28px;
   align-items: right;
+  justify-content: right;
   /* background-color: none; */
   border: none;
   background-color: #eae3d9;
