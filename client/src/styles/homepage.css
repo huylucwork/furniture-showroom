@@ -48,6 +48,7 @@
     height: 68.2rem;
     color: #BAB0A7;
     text-align: center;
+    z-index: -1;
 }
 
 .introduce_slogan p {
