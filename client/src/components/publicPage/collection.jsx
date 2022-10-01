@@ -56,7 +56,7 @@ export default function Collection ( {site} ) {
                 <div className="collection_line"></div>
                 <h1 className={site}>Feature items</h1>
                 <button
-                    className="part_3_button" 
+                    className="part_3_button"
                     onClick={() => {
                     }
                     }>

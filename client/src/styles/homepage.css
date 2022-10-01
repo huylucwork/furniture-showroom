@@ -118,8 +118,8 @@
 
 .homepage_spring .topic_image_2 {
     position: absolute;
-    width: 50.8rem;
-    height: 67.8rem;
+    width: 51rem;
+    height: 68rem;
     bottom: 0;
     left: 0;
     background-color: #d9d9d9;
@@ -134,18 +134,50 @@
     padding-left: 4.4rem;
     font-size: 1.6rem;
     text-align: left;
-    background-color: rgba(186, 175, 158, 0.8);
-    border: none;
-    box-shadow: inset 4.166666666666667em 0 0 0.00375em rgba(186, 175, 158, 0);
+    border: none; 
     transition: ease-out 0.4s;
+    color: #F0EAE2;
 }
 
-.collection_button:hover {
-    box-shadow: inset 27.5rem 0 0 0 rgba(186, 175, 158, 1);
+.spring {
+    background-color: rgba(194, 36, 36, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(194, 36, 36, 0);
 }
+
+.spring:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(194, 36, 36, 1);
+}
+
+.summer {
+    background-color:rgba(253, 135, 40, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(252, 127, 25, 0);
+}
+
+.summer:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(252, 127, 25, 1);
+}
+
+.autumn {
+    background-color:rgba(176, 109, 64, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(176, 109, 64, 0);
+}
+
+.autumn:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(176, 109, 64, 1);
+}
+
+.winter {
+    background-color: rgba(71, 71, 71, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(71, 71, 71, 0);
+}
+
+.winter:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(71, 71, 71, 1);
+}
+
 
 .collection_button_icon {
-    color: #473C38;
+    color: #F0EAE2;
     margin: auto;
     margin-left: 30px;
     font-size: 2.5rem;
@@ -203,8 +235,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 93.9rem;
-    height: 42.1rem;
+    width: 94rem;
+    height: 42rem;
     background-color: #d9d9d9;
 }
 
@@ -212,8 +244,8 @@
     position: absolute;
     top: 8.5rem;
     right: 0;
-    width: 41.8rem;
-    height: 58.7rem;
+    width: 42rem;
+    height: 59rem;
     background-color: #d9d9d9;
 }
 
@@ -282,8 +314,8 @@
     position: absolute;
     top: 12rem;
     right: 0;
-    width: 41.8rem;
-    height: 49.9rem;
+    width: 42rem;
+    height: 50rem;
     background-color: #d9d9d9;
 }
 
@@ -292,7 +324,7 @@
     bottom: 0;
     right: 44rem;
     width: 65rem;
-    height: 55.8rem;
+    height: 56rem;
     background-color: #d9d9d9;
 }
 

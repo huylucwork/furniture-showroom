@@ -26,19 +26,19 @@
     left: 35rem;
 }
 
-.spring {
+.collection_background .spring {
     color: var(--springColor);
 }
 
-.summer {
+.collection_background .summer {
     color: var(--summerColor);
 }
 
-.autumn {
+.collection_background .autumn {
     color: var(--autumnColor);
 }
 
-.winter {
+.collection_background .winter {
     color: var(--winterColor);
 }
 
