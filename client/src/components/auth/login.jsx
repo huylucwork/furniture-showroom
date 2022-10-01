@@ -68,9 +68,10 @@ export default function Login(props) {
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   // className="w-6 h-6"
+                  strokeWidth={0.1}
                   color="#fff"
                   className="login_sign-up-btn_icon"
-                  style={{ width: "55px", height: "55px" }}
+                  style={{ width: "60px", height: "50px" }}
                 >
                   <path
                     fillRule="evenodd"

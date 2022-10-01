@@ -96,14 +96,14 @@
 
     position: absolute;
   
-    top: 87px;
+    top: 97px;
     width: 334px;
     font-size: 16px;
     margin-left: 5px;
     text-align: center;
   
     padding-top: 0.5em;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   
     color: #553a31;
     font-weight: 300;
@@ -177,7 +177,7 @@
   .login_desc {
     position: absolute;
     right: 0;
-    margin-top: -43px;
+    margin-top: -33px;
     /* margin-right: 31px; */
     font-size: 16px;
   }
