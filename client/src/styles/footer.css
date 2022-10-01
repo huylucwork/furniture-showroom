@@ -51,24 +51,8 @@
 }
 
 .company-icon i {
-    width: 15%
+    width: 12%
 }
-/* 
-.fa-brands-fa-facebook-a{
-    width: 20%;
-    size: 1vw;
-}
-
-.fa-brands-fa-twitter-b{
-    width: 20%;
-    size: 1vw;
-}
-
-.fa-brands-fa-instagram-c{
-    width: 20%;
-    size: 1vw;
-}
- */
 
 .product {
     width: 70%;
@@ -86,10 +70,6 @@
     font-size: 1.4vw;
     padding-top: 6%;
 }
-/* 
-.product-header div {
-    width: 30%;
-} */
 
 .product-header-product {
     width: 25%;
@@ -115,6 +95,10 @@
     padding-top: 3%;
 }
 
+.product-text-a:hover {
+    color: #473C38;
+}
+
 .product-text-b {
     width: 25%;
     color: #473C38;
@@ -123,12 +107,20 @@
     padding-top: 3%;
 }
 
+.product-text-b:hover {
+    color: #473C38;
+}
+
 .product-text-c {
     width: 50%;
     color: #473C38;
     text-decoration: none;
     font-size: 1vw;
     padding-top: 3%;
+}
+
+.product-text-c:hover {
+    color: #473C38;
 }
 
 .more-info {
@@ -142,7 +134,11 @@
     color: #473C38;
     text-decoration: none;
     font-size: 1vw;
-    padding-top: 1.5%;
+    padding-top: 1.5%;   
+}
+
+.more-info-text-a:hover {
+    color: #473C38;
 }
 
 .more-info-text-b{
@@ -153,6 +149,10 @@
     padding-top: 1.5%;
 }
 
+.more-info-text-b:hover {
+    color: #473C38;
+}
+
 .more-info-text-c{
     width: 50%;
     color: #473C38;
@@ -161,13 +161,15 @@
     padding-top: 1.5%;
 }
 
+.more-info-text-c:hover {
+    color: #473C38;
+}
 
 .contact {
     display:flex;
     flex-direction: row;
     height: 20%;
 }
-
 
 .contact-text-a {
     width:25%;
@@ -176,6 +178,11 @@
     font-size: 1vw;
     padding-top: -2%;
 }
+
+.contact-text-a:hover {
+    color: #473C38;
+}
+
 .contact-text-b {
     width: 25%;
     color: #473C38;
@@ -183,10 +190,19 @@
     font-size: 1vw;
     padding-top: -2%;
 }
+
+.contact-text-b:hover {
+    color: #473C38;
+}
+
 .contact-text-c {
     width: 50%;
     color: #473C38;
     text-decoration: none;
     font-size: 1vw;
     padding-top: -2%;
+}
+
+.contact-text-c:hover {
+    color: #473C38;
 }
