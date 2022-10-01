@@ -48,7 +48,7 @@ export default function Footer() {
               Term of use
             </a>
             <a href="/" className="contact-text-c">
-              0938604853
+              +8438604853
             </a>
           </div>
         </div>
