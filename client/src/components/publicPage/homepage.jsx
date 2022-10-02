@@ -173,7 +173,7 @@ export default function Homepage( {site, setSite} ) {
           <div className="homepage_winter_scroll"></div>
 
           <div className="topic_image_1">
-            <img src="../img/winter12.jpg" alt="" />
+            <img src="../img/winter14.jpg" alt="" />
           </div>
 
           <div className="topic_image_2">

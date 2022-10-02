@@ -13,8 +13,14 @@
     font-size: 10px;
 }
 
+.collection_background img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit:fill;
+}
+
 .collection_wallpaper {
-    width: 100%;
+    width: 192rem;
     height: 85rem;
     background-color: #d9d9d9;
     position: relative;
@@ -22,8 +28,8 @@
 
 .collection_title {
     position: absolute;
-    top: 35rem;
-    left: 35rem;
+    top: 40rem;
+    left: 42rem;
 }
 
 .collection_background .spring {
@@ -73,7 +79,7 @@
     height: 85.5rem;
 
     background-color: #d9d9d9;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 
 .collection_image_2 {
