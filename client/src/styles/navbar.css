@@ -20,15 +20,15 @@
 .navbar {
   display: inline-flex;
   justify-content: space-between;
-  
+
   margin-top: 0;
   width: calc(100% - 190px);
   line-height: 42px;
-  
+
   max-height: 90px;
   height: 90px;
   padding: 0;
-  
+
   background-color: rgba(186, 175, 158, 0.5);
   backdrop-filter: blur(50px);
 }
@@ -45,15 +45,13 @@
   list-style: none;
   display: inline-block;
   height: 90px;
-
 }
-.margin_nav{
-    margin-left: 15px;
-
+.margin_nav {
+  margin-left: 15px;
 }
 
-.a_hover{
-    width: 205px;
+.a_hover {
+  width: 205px;
 }
 .navbar_a {
   list-style: none;
@@ -64,19 +62,17 @@
   margin-bottom: -25px;
   text-decoration: none;
   cursor: default;
-
 }
 
 .a_hover:hover {
   background-color: #baaf9e80;
 }
 .hover-underline-animation:hover {
-  text-shadow:0px 0px 1px black;
+  text-shadow: 0px 0px 1px black;
 }
 
-::placeholder{
+::placeholder {
   color: black;
-
 }
 
 .hover-underline-animation {
@@ -175,11 +171,12 @@ svg:hover.icon-hover {
 
   background: none;
   border-radius: 4px;
-  transition: width 0.3s ;
+  transition: width 0.3s;
   width: 0px;
   padding: 0px;
 }
-.nav_search input:focus, .nav_search input:hover {
+.nav_search input:focus,
+.nav_search input:hover {
   border-color: #aaa;
   outline: none;
   width: 220px;
@@ -187,11 +184,10 @@ svg:hover.icon-hover {
   background: linear-gradient(#000, #000) center bottom 7px / calc(100% - 25px)
     1px no-repeat;
   color: black;
-  
 }
 
 .nav_search input:focus::placeholder {
-  color:transparent
+  color: transparent;
 }
 
 .nav_search input:focus + i {
@@ -202,6 +198,95 @@ svg:focus {
   stroke-width: 1.5;
 }
 
-.right_nav{
+.right_nav {
   padding: 24px 25px;
+}
+
+.logout_container {
+  right: 10px;
+  /* width: 200px; */
+  background: #ffffff;
+  border: 1px solid #cad5e0;
+  padding: 10px;
+  position: absolute;
+  min-height: 200px;
+  top: 95px;
+  background: #eae3d9;
+  border: 1px solid #d1b7a1;
+  border-radius: 5px;
+  user-select: none;
+  width: 293.07px;
+  height: 277.88px;
+  display: none;
+}
+
+.user_icon:hover .logout_container {
+  display: block;
+}
+
+.logout_container:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -18px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  background: #eae3d9;
+  border-right: 1px solid #d1b7a1;
+  border-top: 1px solid #d1b7a1;
+  /* rotate: -45deg; */
+  transform: rotate(-45deg);
+}
+
+.logout_wrapper {
+  margin: 10px;
+}
+
+.logout_header {
+  font-size: 19px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-weight: 400;
+  line-height: 28px;
+  color: #473c38;
+  margin-top: 10px;
+}
+
+.logout_name {
+  font-size: 22px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-weight: 400;
+  line-height: 28px;
+  color: #ad7252;
+  border-bottom: 1px solid #473c38;
+}
+.logout_icon {
+  font-size: 18px;
+  text-align: center;
+  margin: 5px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+}
+
+.logout_button {
+  width: 232.46px;
+  height: 50px;
+  text-align: left;
+  border: none;
+  background-color: #eae3d9;
+  margin-top: 10px;
+}
+
+.logout_button_footer {
+  color: #ad7252;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.logout_button:hover {
+  background-color: #d1b7a1;
 }

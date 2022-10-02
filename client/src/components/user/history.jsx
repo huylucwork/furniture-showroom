@@ -1,6 +1,5 @@
 import React from "react";
 import "../../styles/history.css";
-import User from "./user";
 
 export default function History(props) {
   function history_openModal() {
