@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 import "../../styles/info.css";
@@ -7,13 +7,13 @@ export default function Info(props) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
   return (
-    <div className="info_container">
+    <div className="">
       <div className="info_content">
-        <Row className="profileContainer">
-          <Col className="left_side">
+        <Row className="profile_container">
+          <Col className="left_side ">
             <div className="info_header center_pic">Profile Picture</div>
             <span className="circle">
-              <Button className="edit_btn btn" variant="primary">
+              <Button className="btn edit_btn" variant="primary">
                 Edit
               </Button>
             </span>
@@ -23,8 +23,8 @@ export default function Info(props) {
 
             <Form>
               <hr className="profile_edit"></hr>
-              <Row className="mb-5 mt-4">
-                <Form.Group as={Col} controlId="username" className="">
+              <Row className="mt-5 row_margin">
+                <Form.Group as={Col} controlId="username">
                   <Form.Label>User Name</Form.Label>
                   <Form.Control
                     className="form-control"
@@ -37,12 +37,12 @@ export default function Info(props) {
                   ></Form.Control>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="email">
+                <Form.Group as={Col} controlId="email" className="second_col">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     className="form-control"
                     type="email"
-                    placeholder="tranducbo@meomeo.com"
+                    value="tranducbo@meomeo.com"
                     disabled
                     plaintext
                     readOnly
@@ -50,7 +50,7 @@ export default function Info(props) {
                 </Form.Group>
               </Row>
 
-              <Row className="mb-5 mt-4 ">
+              <Row className="row_margin mt-5 ">
                 <Form.Group as={Col} controlId="name">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
@@ -61,7 +61,7 @@ export default function Info(props) {
                   ></Form.Control>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="phone">
+                <Form.Group as={Col} controlId="phone" className="second_col">
                   <Form.Label>Phone</Form.Label>
                   <Form.Control
                     className="form-control"
@@ -81,7 +81,7 @@ export default function Info(props) {
                   ></Form.Control>
                 </Form.Group>
               </Row>
-              <Row className="row_box">
+              <Row className="row_box ">
                 <Form.Group as={Col} controlId="address_ward">
                   <Form.Select className="form-control row_box_size ">
                     <option>Choose Ward</option>
@@ -90,14 +90,14 @@ export default function Info(props) {
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="address_district">
-                  <Form.Select className="form-control row_box_size">
+                  <Form.Select className="form-control row_box_size second_box">
                     <option>Choose District</option>
                     <option>...</option>
                   </Form.Select>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="address_province">
-                  <Form.Select className="form-control row_box_size">
+                  <Form.Select className="form-control row_box_size third_box">
                     <option>Choose Province</option>
                     <option>...</option>
                   </Form.Select>
@@ -120,7 +120,7 @@ export default function Info(props) {
               )}
               {editButton ? (
                 <div>
-                  <Row className="mb-5 mt-5">
+                  <Row className="row_margin mt-5">
                     <Form.Group as={Col} controlId="password">
                       <Form.Label> Old Password</Form.Label>
                       <Form.Control
@@ -141,10 +141,14 @@ export default function Info(props) {
                         placeholder="Enter New Password"
                       ></Form.Control>
                     </Form.Group>
-                    <Form.Group as={Col} controlId="confirmPassword_confirm">
+                    <Form.Group
+                      as={Col}
+                      controlId="confirmPassword_confirm"
+                      className="second_col"
+                    >
                       <Form.Label>Confirm Password</Form.Label>
                       <Form.Control
-                        className="form-control"
+                        className="form-control "
                         type="password"
                         placeholder="Confirm Password"
                       ></Form.Control>
@@ -170,5 +174,5 @@ export default function Info(props) {
         </Row>
       </div>
     </div>
-  ); 
+  );
 }

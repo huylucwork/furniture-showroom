@@ -20,7 +20,7 @@ export default function Login(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="3 3 16 16"
                 fill="currentColor"
-                className="login_close-btn"
+                className=""
                 color="#d1b7a1"
               >
                 <path
@@ -68,9 +68,10 @@ export default function Login(props) {
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   // className="w-6 h-6"
+                  strokeWidth={0.1}
                   color="#fff"
                   className="login_sign-up-btn_icon"
-                  style={{ width: "55px", height: "55px" }}
+                  style={{ width: "60px", height: "50px" }}
                 >
                   <path
                     fillRule="evenodd"
@@ -82,7 +83,7 @@ export default function Login(props) {
             </div>
           </form>
           <div className="login_signup-link">
-            New to Heifurdesz? &thinsp;
+            New to Hifurdez? &thinsp;
             <a className="login_link" href="#">
               <u>Sign up</u>
             </a>
