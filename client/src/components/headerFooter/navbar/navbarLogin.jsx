@@ -28,7 +28,7 @@ export default function NavbarLogin(props) {
           </li>
           <li
             className="navbar_list margin_nav"
-            onClick={() => navigate("../")}
+            onClick={() => navigate("../product")}
           >
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>

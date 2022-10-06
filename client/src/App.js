@@ -10,6 +10,8 @@ import AboutUs from "./components/publicPage/aboutUs";
 import ScrollToTop from "./utils/scrollToTop";
 import Product from "./components/publicPage/product";
 import Footer from "./components/headerFooter/footer";
+import Admin from "./components/admin/admin";
+import Checkout from "./components/cart/checkout"
 export const AppContext = React.createContext();
 
 function App() {
@@ -35,6 +37,11 @@ function App() {
             />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="product" element={<Product />} />
+            <Route path="admin/manage-users" element={<Admin tab={"manage-users"} />} />
+            <Route path="admin/manage-items" element={<Admin tab={"manage-items"} />} />
+            <Route path="admin/manage-history" element={<Admin tab={"manage-history"} />} />
+            <Route path="admin" element={<Navigate to="manage-users" />} />
+            <Route path="checkout" element={<Checkout />} />
           </Routes>
         <Footer />
       </div>

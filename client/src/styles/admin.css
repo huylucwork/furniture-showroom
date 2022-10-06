@@ -1,0 +1,254 @@
+:root {
+  --backgroundColor: #F0EAE2;
+  --textColor: #473C38;
+  font-size: 10px;
+}
+
+.admin_fix-size-1 {
+  flex-grow: 0.5;
+}
+
+.admin_fix-size-2 {
+  flex-grow: 0.7;
+}
+
+.admin_fix-size-3 {
+  flex-grow: 1.2;
+}
+
+.table_ele .admin_active-btn {
+  background-color: #125F4B;
+}
+
+.admin_fix_modal {
+  width: 65em;
+  height: 80em;
+}
+
+.admin-modal_ctr {
+  width: 60em;
+  height: 75em;
+}
+
+.admin_add {
+  position: absolute;
+  top: 0;
+  right: -5em;
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+  background-color: #AD7252;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin_add i {
+  color: #fff;
+  font-size: 2em;
+}
+
+.admin_header {
+  font-size: 3.5rem;
+  font-family: "Poppins";
+  width: 11.6em;
+  height: 1.2em;
+  line-height: 1.4em;
+  text-align: center;
+  color: #b06d40;
+  font-weight: 400;
+  margin: 0.6em auto auto auto;
+}
+
+.admin_content {
+  position: relative;
+  width: 50em;
+  height: 55.5em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.admin_input {
+  margin-bottom: 2.1em;
+}
+
+.admin_input:nth-child(2) {
+  height: 8em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.display_block {
+  display: block;
+}
+
+.admin_input label:not(.admin_input_label) {
+  font-family: 'Poppins';
+  font-weight: 300;
+  font-size: 2.2em;
+  line-height: 1.8em;
+  width: 7em;
+  height: 1.8em;
+  color: #473C38;
+}
+
+.admin_input_text {
+  width: 100%;
+  height: 2.2em;
+  outline: 0;
+  border-radius: 5px;
+  border: 1px solid #D1B7A1;
+  color: #473C38;
+  background-color: #EAE3D9;
+  font-size: 1.8em;
+  padding: 0 15px;
+  font-weight: 300;
+}
+
+.size_ctn {
+  display: flex;
+}
+
+.admin_choosen {
+  flex-grow: 1;
+  margin-right: 2.1em;
+  position: relative;
+}
+
+.admin_input:nth-child(1) input {
+  padding: 0 23px;
+}
+
+.admin_input:nth-child(2) .admin_choosen {
+  width: 100%;
+  height: 4em;
+}
+
+.admin_input:nth-child(2) .admin_choosen:nth-child(2) {
+  margin-right: 0;
+}
+
+.admin_input:nth-child(3) .admin_choosen {
+  margin-right: 4em;
+}
+
+.admin_input:nth-child(3) label {
+  width: 2em;
+}
+
+.admin_input:nth-child(3) .admin_choosen {
+  display: flex;
+}
+
+.admin_input:nth-child(3) .admin_choosen:nth-child(3) {
+  margin-right: 0;
+}
+
+.admin_input:nth-child(4) label {
+  width: 100%;
+}
+
+.admin_input:nth-child(4) {
+  position: relative;
+}
+
+.admin_input_label {
+  height: 2em;
+  line-height: 2em;
+  outline: 0;
+  border-radius: 5px;
+  border: 1px solid #D1B7A1;
+  color: #473C3850;
+  background-color: #EAE3D9;
+  font-size: 2em;
+  padding: 0 11px;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.admin_input input[type="file"] {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+  line-height: 1.75em;
+}
+
+.admin_input_desc {
+  height: 6.33em;
+  overflow-wrap: break-word;
+  padding: 13px 11px;
+  resize: none;
+}
+
+.admin_input_desc::placeholder {
+  font-size: 20px;
+  color: #473C3850;
+}
+
+.admin_input_desc:focus::placeholder {
+  color: transparent;
+}
+
+.admin_save {
+  margin-top: 1em;
+  width: 20.8em;
+  height: 3.1em;
+  outline: none;
+  border: none;
+  padding-left: 1.2em;
+  background-color: #AD7252;
+  color: #fff;
+  font-size: 2.4em;
+  font-weight: 500;
+  text-align: left;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 4.2em 0 0 0.00375em var(--boxColor);
+  transition: ease-out 0.9s;
+}
+
+.admin_save:hover {
+  box-shadow: inset 20.8em 0 0 0.09px #9C674B;
+}
+@media only screen and (max-width: 1750px) {
+  .admin_user-scroll {
+      width: 153.1em;
+  }
+}
+
+/* Sort style */
+
+.admin_input .manage_type button {
+  border-radius: 5px;
+  border: 1px solid #D1B7A1;
+  color: #473C38;
+  background-color: #EAE3D9;
+  font-weight: 300;
+}
+
+.admin_input .manage_type span {
+  font-size: 18px;
+  padding: 0 15px;
+}
+
+.admin_input .manage_type i {
+  font-size: 18px;
+}
+
+.admin_input .manage_type .sort-opts a {
+  height: 4em;
+}
+
+.admin_input .manage_type .sort-opts a h2 {
+  font-size: 18px;
+}
+
+.admin_input .manage_type .sort-opts .checked-opt {
+  color: #a45b37;
+}
