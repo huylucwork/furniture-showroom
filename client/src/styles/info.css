@@ -67,7 +67,7 @@
   width: calc(100% - 24.2em);
   height: calc(100vh - 9em);
   /* padding-left: 6.5em; */
-  left: 20.2em;
+  left: 24.2em;
   overflow: auto;
   z-index: 1;
 }
@@ -97,7 +97,7 @@
   color: #ad7252;
 }
 .center_pic {
-  margin-left: 17%;
+  margin-left: 9%;
 }
 .profile_container {
   display: flex;
@@ -213,6 +213,10 @@
   background-color: #eae3d9;
   border-color: #a3c4bc !important;
   box-shadow: 0 0 0 0.1rem #8ebdb1 !important;
+}
+
+input.form-control:focus::placeholder {
+  color: transparent !important;
 }
 
 .address_size{

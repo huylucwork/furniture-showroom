@@ -130,7 +130,11 @@ export default function Info(props) {
                       ></Form.Control>
                     </Form.Group>
                     {/* temp */}
-                    <Form.Group as={Col} controlId=""></Form.Group>
+                    <Form.Group
+                      as={Col}
+                      controlId=""
+                      className="second_col"
+                    ></Form.Group>
                   </Row>
                   <Row className="mb-5 mt-5">
                     <Form.Group as={Col} controlId="password_new">
