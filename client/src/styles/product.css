@@ -150,13 +150,3 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
-.product_row .product_pagination-focus {
-  color: #fff;
-  background-color: #473C38;
-}
-
-.product_pagination a:hover:not(.text_pagination) {
-  color: #fff;
-  background-color: #473C38;
-}

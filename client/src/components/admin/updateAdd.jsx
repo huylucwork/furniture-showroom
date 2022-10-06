@@ -3,6 +3,10 @@ import "../../styles/admin.css";
 import StyledSort from "../publicPage/styledSort";
 
 export default function UpdateAdd(props) {
+
+  const season = ["Summer", "Autumn", "Winter"];
+  const color = ["Yellow", "Green"];
+
   useEffect(() => {
     var inputs = document.querySelectorAll( '.admin_input_tmp' );
     Array.prototype.forEach.call( inputs, function( input )
@@ -25,6 +29,7 @@ export default function UpdateAdd(props) {
       });
     });
   });
+  
   return props.trigger[0] ? (
     <div className="sign-up_container">
       <div className="sign-up_wrapper admin_fix_modal">
@@ -40,7 +45,7 @@ export default function UpdateAdd(props) {
               height="1em" 
               preserveAspectRatio="xMidYMid meet" 
               viewBox="0 0 32 32" 
-              class="sign-up_my-icon">
+              className="sign-up_my-icon">
                 <path 
                 fill="none" 
                 stroke="currentColor" 
@@ -60,11 +65,11 @@ export default function UpdateAdd(props) {
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Collection</label>
-                <StyledSort trigger="manageItem1" setCount={0} />
+                <StyledSort trigger="manageItem1" setCount={0} optsArray={season} />
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Color</label>
-                <StyledSort trigger="manageItem2" setCount={1} />
+                <StyledSort trigger="manageItem2" setCount={1} optsArray={color} />
               </div>
             </div>
             <div className="admin_input">

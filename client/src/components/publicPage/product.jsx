@@ -3,6 +3,9 @@ import "../../styles/product.css";
 import StyledSort from "./styledSort";
 
 export default function Product() {
+
+  const productArr = ["Price: Low to high", "Price: High to low"];
+
   function handleClick(e) {
     let childElement = e.target.parentElement.children;
     for (let index = 0; index < childElement.length; ++index) {
@@ -35,7 +38,7 @@ export default function Product() {
       </div>
       <div className="admin_sort">
         <h2>Sort by:</h2>
-        <StyledSort trigger="product" setCount={0} />
+        <StyledSort trigger="product" setCount={0} optsArray={productArr}/>
       </div>
       <div className="product_content">
         <div className="product_row">
@@ -83,11 +86,11 @@ export default function Product() {
           </div>
         </div>
         <div className="product_row">
-          <div className="history_pagination product_pagination">
+          <div className="history_pagination">
             <a className="text_pagination" href="#">
               <p>Previous</p>
             </a>
-            <a className="pagination_focus product_pagination-focus" href="#">
+            <a className="pagination_focus" href="#">
               <p>1</p>
             </a>
             <a href="#">

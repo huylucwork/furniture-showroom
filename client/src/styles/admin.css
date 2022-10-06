@@ -248,3 +248,7 @@
 .admin_input .manage_type .sort-opts a h2 {
   font-size: 18px;
 }
+
+.admin_input .manage_type .sort-opts .checked-opt {
+  color: #a45b37;
+}

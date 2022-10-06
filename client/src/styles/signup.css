@@ -163,12 +163,12 @@
 
 .sign-up_link {
     text-decoration: none;
-    color: #9c674a;
+    color: rgba(156, 103, 74, 0.8);
     font-weight: 500;
 }
 
 .sign-up_link:hover {
-    color: rgba(156, 103, 74, 0.8);
+    color: #9c674a;
 }
 
 .sign-up_btn {
@@ -205,13 +205,13 @@
     box-shadow: inset 52.5em 0 0 0.09px #9C674B;
 }
 
-.sign-up_btn_icon {
+.sign-up-btn_icon {
     position: absolute;
     top: 50%;
-    right: 6.571%;
+    right: 20px;
     transform: translateY(-50%);
     color: #fff;
-    font-size: 2.4rem;
+    font-size: 3em;
 }
 
 .sign-up_signup-link {
@@ -225,9 +225,11 @@
 }
 
 .sign-up_link_login{
+    text-decoration: none;
     color: var(--boxColor);
 }
 
 .sign-up_link_login:hover{
-    color: #553a31;
+    color: #9c674a;
+    font-weight: 500;
 }
