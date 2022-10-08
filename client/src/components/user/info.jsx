@@ -6,6 +6,7 @@ import "../../styles/info.css";
 export default function Info(props) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
+
   return (
     <div className="">
       <div className="info_content">
@@ -90,7 +91,9 @@ export default function Info(props) {
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="address_district">
-                  <Form.Select className="form-control row_box_size second_box">
+                  <Form.Select
+                     className="form-control row_box_size second_box"
+                  >
                     <option>Choose District</option>
                     <option>...</option>
                   </Form.Select>

@@ -136,11 +136,11 @@
   position: absolute;
   margin-top: 10%;
   margin-left: 14%;
-  width: 6.6%;
-  height: 4.2%;
+  width: 6.8%;
+  height: 4.7%;
 }
 .save_btn {
-  width:12%;
+  width:13%;
   height: 50%;
   margin-top: 6%;
 }
@@ -187,6 +187,10 @@
   margin-top: 3px;
   margin-bottom: 9px;
   margin-left: 0px;
+font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
 }
 
 .row_box {
@@ -195,7 +199,7 @@
 }
 
 .row_box_size {
-  height: 140%;
+  height: 145%;
   font-size: 18px;
   font-weight: 300;
   width: 94%;
@@ -215,6 +219,11 @@
   box-shadow: 0 0 0 0.1rem #8ebdb1 !important;
 }
 
+
+input.form-control:disabled {
+  background-color: #BAAF9E80 !important;
+}
+
 input.form-control:focus::placeholder {
   color: transparent !important;
 }
@@ -223,4 +232,12 @@ input.form-control:focus::placeholder {
   width: 96.5%;
 }
 
-select.form-control { -webkit-appearance: menulist; }
+select.form-control { appearance: menulist;
+}
+
+
+
+select.form-control option:hover  {
+  box-shadow: 0 0 10px 100px #96a2a7 inset;
+  background-color: green!important ;
+}
