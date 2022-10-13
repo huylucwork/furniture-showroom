@@ -246,7 +246,7 @@
 .product-detail_recommend .items .item img {
     margin-left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: 35.7rem;
     height: 41.7rem;
     background-color: #d9d9d9;
 }
