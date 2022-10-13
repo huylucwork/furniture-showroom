@@ -5,7 +5,7 @@ export default function ProductDetail () {
     const [chosenImg, setChosenImg] = useState(0);
     const [itemCount, setItemCount] = useState(1);
     const [triggerAbout, setTriggerAbout] = useState(false);
-    const [triggerDescr, setTriggerDescr] = useState(false);
+    const [triggerPolicy, setTriggerPolicy] = useState(false);
 
     const SubImg =()=>{
         let list = []
@@ -26,7 +26,7 @@ export default function ProductDetail () {
             list.push(
             <div className="col item">
                 <img src="" alt="" />
-                <h1>Name of item</h1>
+                <h2>Name of item</h2>
                 <p>$999</p>
             </div>)
         return list
@@ -71,27 +71,25 @@ export default function ProductDetail () {
                             <p className="about_container_right">Original gray</p>
                         </div>}
                     </div>
-                    <div className="product-detail_body_right_descr row" onClick={()=>setTriggerDescr(!triggerDescr)}>
-                        <h1 className="col">Description</h1>
+                    <div className="product-detail_body_right_policy row" onClick={()=>setTriggerPolicy(!triggerPolicy)}>
+                        <h1 className="col">Policy</h1>
                         <i class="fa-solid fa-plus col plus"></i>
-                        {triggerDescr === true &&
-                        <div className="">
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
-                            Sacha's low-slung, sculptural silhouette is upholstered with spill-resistant bouclé, making it a go-to piece to enjoy a cuppa.
+                        {triggerPolicy === true &&
+                        <div className="policy_container">
+                            Material:
                         </div>}
                     </div>
                 </div>
             </div>
             <div className="product-detail_recommend">
                 <h1>You may also like</h1>
+                <div className="row items">
+                    <RenderRecommendItems />
+                </div>
+            </div>
+            
+            <div className="product-detail_recommend">
+                <h1>Best seller</h1>
                 <div className="row items">
                     <RenderRecommendItems />
                 </div>

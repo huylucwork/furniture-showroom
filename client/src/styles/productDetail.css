@@ -23,7 +23,7 @@
     width: 97%;
     display: flex;
     margin-left: 50%;
-    margin-bottom: 8rem;
+    margin-bottom: 12rem;
     transform: translateX(-50%);
 }
 
@@ -201,34 +201,42 @@
     font-weight: 400;
 }
 
-.product-detail_body_right_descr {
+.product-detail_body_right_policy {
     width: 100%;
     border-top: 1px solid #474747;
     cursor: pointer;
 }
 
-.product-detail_body_right_descr h1 {
+.product-detail_body_right_policy h1 {
     padding-top: 2rem;
     padding-left: 1rem;
     font-size: 2.8rem;
     font-weight: 400;
 }
 
-.product-detail_body_right_descr .plus {
+.product-detail_body_right_policy .plus {
     padding-right: 1rem;
     padding-top: 2rem;
     text-align: right;
     font-size: 2.5rem;
 }
 
+.product-detail_body_right_policy .policy_container {
+    margin-top: 4rem;
+    font-size: 2rem;
+    font-weight: 500;
+    padding-bottom: 3rem;
+}
+
 .product-detail_recommend h1 {
+    font-family: 'Cinzel Decorative';
     font-size: 4rem;
     font-weight: 300;
     text-align: center;
 }
 
 .product-detail_recommend .items {
-    margin-top: 2.6rem;
+    margin-top: 6rem;
     display: flex;
 }
 
@@ -240,18 +248,18 @@
 }
 
 .product-detail_recommend .items .item:hover {
-    border: 1px solid #D1B7A1;
+    color: #AD7252;
 }
 
 .product-detail_recommend .items .item img {
     margin-left: 50%;
     transform: translateX(-50%);
-    width: 35.7rem;
-    height: 41.7rem;
+    width: 34rem;
+    height: 34rem;
     background-color: #d9d9d9;
 }
 
-.product-detail_recommend .items .item h1 {
+.product-detail_recommend .items .item h2 {
     font-size: 2.4rem;
     text-align: center;
     margin-top: 1.5rem;
@@ -265,6 +273,4 @@
     font-weight: 400;
     letter-spacing: 0.05rem;
 }
-
-
 
