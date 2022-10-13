@@ -152,12 +152,12 @@
 
 .cart_detail_amount {
   position: absolute;
-  left: 78%;
+  left: 77%;
   top: 80%;
   transform: translateY(-50%);
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  width: 16%;
-  height: 72.5%;
+  width: 19%;
+  height: 34.5%;
   color: #553a31;
   font-size: 1.8rem;
   font-weight: 300;
@@ -173,9 +173,9 @@
 }
 
 .counter_button {
-  width: 70px;
+  width: 90px;
   height: 35px;
-
+  font-size: 15px;
   background: rgba(186, 175, 158, 0.5);
   border-radius: 4px;
   border: none;
@@ -246,3 +246,6 @@
 }
 
 
+ .counter_button:hover {
+  background-color: #d4ac6f80;
+}

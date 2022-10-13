@@ -120,8 +120,8 @@ export default function NavbarLogin(props) {
 
               <div className="logout_container">
                 <div className="logout_wrapper">
-                  <div className="logout_header"> Hello,</div>
-                  <div className="logout_name"> $&#123;Full name&#125;</div>
+                  <h1 className="logout_header"> Hello,</h1>
+                  <p className="logout_name"> $&#123;Full name&#125;</p>
                   <div className="logout_icon">
                     <button
                       className="logout_button logout_hover"
