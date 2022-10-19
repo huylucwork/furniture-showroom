@@ -76,7 +76,9 @@ export default function ProductDetail () {
                         <i class="fa-solid fa-plus col plus"></i>
                         {triggerPolicy === true &&
                         <div className="policy_container">
-                            Material:
+                            <p>- Free shipping in Ho Chi Minh City.</p>
+                            <p>- 3 years warranty for Sofas. Lifetime maintenance.</p>
+                            <p>- 0% interest installment payment for credit card across 24 banks.</p>
                         </div>}
                     </div>
                 </div>

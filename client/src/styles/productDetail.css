@@ -228,6 +228,12 @@
     padding-bottom: 3rem;
 }
 
+.product-detail_body_right_policy .policy_container p {
+    padding-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
 .product-detail_recommend h1 {
     font-family: 'Cinzel Decorative';
     font-size: 4rem;
