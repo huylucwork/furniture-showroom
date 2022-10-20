@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
-export default function NavbarLogin(props) {
+export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
   const [buttonCart, setButtonCart] = useState(false);
 
   const navigate = useNavigate();
@@ -30,17 +30,17 @@ export default function NavbarLogin(props) {
             className="navbar_list margin_nav"
             onClick={() => navigate("../product")}
           >
-            <a className="navbar_a a_hover">
+            <div className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>
-            </a>
+            </div>
           </li>
           <li
             className="navbar_list margin_nav"
             onClick={() => navigate("../about-us")}
           >
-            <a className="navbar_a a_hover">
+            <div className="navbar_a a_hover">
               <div className="hover-underline-animation">About us</div>
-            </a>
+            </div>
           </li>
         </ul>
 
@@ -171,7 +171,10 @@ export default function NavbarLogin(props) {
                     {/* Temp change NAV bar  */}
                     <button
                       className="logout_button logout_button_footer"
-                      onClick={() => props.setTrigger(false)}
+                      onClick={() => {
+                        setLoggedIn(false);
+                        navigate("../")
+                      }}
                     >
                       LOG OUT
                     </button>

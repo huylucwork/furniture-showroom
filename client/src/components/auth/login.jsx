@@ -1,20 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/login.css";
 import "../../styles/signup.css";
 
-export default function Login(props) {
-  return props.trigger ? (
+export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } ) {
+  const navigate = useNavigate();
+
+  return (
     <div className="login_container">
       <div
         className="login_modal_close"
-        onClick={() => props.setTrigger(false)}
+        onClick={() => setButtonLogin(false)}
       ></div>
       <div className="login_wrapper">
         <div className="login_ctr">
           <div className="login_icon">
             <button
               className="login_close-btn"
-              onClick={() => props.setTrigger(false)}
+              onClick={() => setButtonLogin(false)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +42,7 @@ export default function Login(props) {
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"
-                type="text"
+                type="email"
                 autocomplete="off"
                 required
               />
@@ -60,7 +63,13 @@ export default function Login(props) {
               </a>
             </div>
             <div className="login_sign-up_div">
-              <button className="login_sign-up-btn" type="submit">
+              <button className="login_sign-up-btn" type="submit" 
+                      onClick={()=>{
+                        setButtonLogin(false);
+                        setLoggedIn(true);
+                        navigate("../")
+                      }}
+              >
                 <p>Enjoy now !</p>
                 {/* <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i> */}
                 <svg
@@ -84,14 +93,17 @@ export default function Login(props) {
           </form>
           <div className="login_signup-link">
             New to Hifurdez? &thinsp;
-            <a className="login_link" href="#">
+            <span className="login_link" 
+                  onClick={()=>{
+                    setButtonSignUp(true);
+                    setButtonLogin(false);
+                  }}
+            >
               <u>Sign up</u>
-            </a>
+            </span>
           </div>
         </div>
       </div>
     </div>
-  ) : (
-    ""
-  );
+  )
 }

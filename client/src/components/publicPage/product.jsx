@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/product.css";
 import StyledSort from "./styledSort";
 
 export default function Product() {
 
   const productArr = ["Price: Low to high", "Price: High to low"];
+
+  const navigate = useNavigate();
 
   function handleClick(e) {
     let childElement = e.target.parentElement.children;
@@ -42,82 +45,82 @@ export default function Product() {
       </div>
       <div className="product_content">
         <div className="product_row">
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>
           </div>
-          <div className="product_element">
+          <div className="product_element" onClick={()=>navigate("../product-detail")}>
             <img src="" alt="" />
             <h2>Name of Item</h2>
             <p>$123</p>

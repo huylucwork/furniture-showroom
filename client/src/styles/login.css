@@ -188,7 +188,7 @@ svg:hover.login_close-btn {
   text-decoration: none;
   color: rgba(156, 103, 74, 0.8);
   font-weight: 400;
-  
+  cursor: pointer;
 }
 
 .login_link:hover {

@@ -6,7 +6,7 @@ import "../../../styles/login.css";
 import Login from "../../auth/login";
 import Signup from "../../auth/signup";
 
-export default function Navbar() {
+export default function Navbar( {loggedIn, setLoggedIn} ) {
   const [buttonSignUp, setButtonSignUp] = useState(false);
   const [buttonLogin, setButtonLogin] = useState(false);
 
@@ -65,7 +65,7 @@ export default function Navbar() {
               <div className="hover-underline-animation">Collection</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav" onClick={() => navigate("../")}>
+          <li className="navbar_list margin_nav" onClick={() => navigate("../product")}>
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>
             </a>
@@ -98,11 +98,8 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      <Login trigger={buttonLogin} setTrigger={setButtonLogin}></Login>
-      <Signup
-        trigger={buttonSignUp}
-        setTrigger={setButtonSignUp}
-      ></Signup>
+      {buttonLogin && <Login setButtonSignUp={setButtonSignUp} setButtonLogin={setButtonLogin} setLoggedIn={setLoggedIn}/>}
+      {buttonSignUp && <Signup setButtonSignUp={setButtonSignUp} setButtonLogin={setButtonLogin}/>}
     </div>
   );
 }

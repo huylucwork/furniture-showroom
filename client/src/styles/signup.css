@@ -227,6 +227,7 @@
 .sign-up_link_login{
     text-decoration: none;
     color: var(--boxColor);
+    cursor: pointer;
 }
 
 .sign-up_link_login:hover{

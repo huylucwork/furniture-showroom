@@ -7,9 +7,9 @@ export default function Header() {
     return (
       <React.Fragment>
         {loggedIn ? (
-          <NavbarLogin setTrigger={setButtonLoggedIn} />
+          <NavbarLogin loggedIn={loggedIn} setLoggedIn={setButtonLoggedIn} />
         ) : (
-          <Navbar />
+          <Navbar loggedIn={loggedIn} setLoggedIn={setButtonLoggedIn}/>
         )}
       </React.Fragment>
     );

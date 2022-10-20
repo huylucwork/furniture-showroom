@@ -1,15 +1,15 @@
 import React from "react";
 import "../../styles/signup.css";
 
-export default function Signup(props) {
-  return props.trigger ? (
+export default function Signup( {setButtonSignUp, setButtonLogin } ) {
+  return (
     <div className="sign-up_container">
       <div className="sign-up_wrapper">
         <div className="sign-up_ctr">
           <div className="sign-up_icon">
             <button
               className="login_close-btn"
-              onClick={() => props.setTrigger(false)}
+              onClick={() => setButtonSignUp(false)}
             >
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" class="sign-up_my-icon"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 30L30 2m0 28L2 2"/></svg>            
             </button>
@@ -98,15 +98,18 @@ export default function Signup(props) {
             </div>
             <div className="sign-up_signup-link">
               Already have an account?&thinsp;
-              <a className="sign-up_link_login" href="#">
+              <span className="sign-up_link_login" 
+                    onClick={()=>{
+                      setButtonSignUp(false);
+                      setButtonLogin(true);
+                    }}
+              >
                 Log in
-              </a>
+              </span>
             </div>
           </form>
         </div>
       </div>
     </div>
-  ) : (
-    ""
-  );
+  ) 
 }
