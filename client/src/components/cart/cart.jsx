@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../styles/cart.css";
 
 
@@ -60,6 +61,7 @@ export default function Cart(props) {
 
   // turn off the cart when change route
   let location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => {
     props.setTrigger(false);
   }, [location]);
@@ -93,7 +95,7 @@ export default function Cart(props) {
             <p className="cart_footer_align-right"> $123</p>
           </div>
           <div className="cart_btn_container ">
-            <button className="cart_btn" type="submit">
+            <button className="cart_btn" type="submit" onClick={()=> navigate('../checkout')}>
               <p>Checkout</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
