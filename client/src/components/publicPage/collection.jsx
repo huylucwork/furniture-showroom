@@ -18,7 +18,7 @@ export default function Collection ( {site} ) {
     return (
         <div className="collection_background">
             <div className="collection_wallpaper">
-                <img src="" alt="" />
+                <img src="../img/spring21.jpg" alt="" />
                 <div className={"collection_title " + site}>
                     <h1>{site.toUpperCase()}</h1>
                     <p>A special gift for {site}</p>
@@ -26,7 +26,7 @@ export default function Collection ( {site} ) {
             </div>
 
             <div className="collection_part_1">
-                <img src="" alt="image 1" className="collection_image_1" />
+                <img src="../img/spring8.jpg" alt="image 1" className="collection_image_1" />
                 <div className="collection_descr_1">
                     <h1 className={site}>About collection</h1>
                     <p>The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR).</p>
@@ -56,7 +56,7 @@ export default function Collection ( {site} ) {
                 <div className="collection_line"></div>
                 <h1 className={site}>Feature items</h1>
                 <button
-                    className="part_3_button" 
+                    className="part_3_button"
                     onClick={() => {
                     }
                     }>

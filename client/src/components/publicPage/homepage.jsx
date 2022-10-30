@@ -40,10 +40,10 @@ export default function Homepage( {site, setSite} ) {
 
         <div className="homepage_spring">
           <div className="topic_image_1">
-          
+            <img src="../img/spring12.jpg" alt="" />
           </div>
           <div className="topic_image_2">
-          
+            <img src="../img/spring2.jpg" alt="" />
           </div>
           
           <div className="topic_body">
@@ -55,7 +55,7 @@ export default function Homepage( {site, setSite} ) {
           </div>
 
           <button
-            className="collection_button" 
+            className="spring collection_button" 
             onClick={() => {
               setSite('spring');
               navigate("../collection-detail/spring")
@@ -83,11 +83,11 @@ export default function Homepage( {site, setSite} ) {
           <div className="homepage_summer_scroll"></div>
 
           <div className="topic_image_1">
-          
+            <img src="../img/homepageSummer.jpg" alt="" />
           </div>
 
           <div className="topic_image_2">
-          
+            <img src="../img/homepageSummer1.jpg" alt="" />
           </div>
 
           <div className="topic_body">
@@ -99,7 +99,7 @@ export default function Homepage( {site, setSite} ) {
           </div>
 
           <button 
-            className="collection_button"
+            className="summer collection_button"
             onClick={() => {
               setSite('summer');
               navigate("collection-detail/summer")}
@@ -128,11 +128,11 @@ export default function Homepage( {site, setSite} ) {
           <div className="homepage_autumn_scroll"></div>
 
           <div className="topic_image_1">
-          
+            <img src="../img/autumn2.jpg" alt="" />
           </div>
 
           <div className="topic_image_2">
-          
+            <img src="../img/autumn7.jpg" alt="" />
           </div>
 
           <div className="topic_body">
@@ -144,7 +144,7 @@ export default function Homepage( {site, setSite} ) {
           </div>
 
           <button 
-            className="collection_button"
+            className="autumn collection_button"
             onClick={() => {
               setSite('autumn');
               navigate("collection-detail/autumn")}
@@ -155,7 +155,7 @@ export default function Homepage( {site, setSite} ) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              color="#473C38"
+              color="#F0EAE2"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
               onClick={() => navigate("../")}
@@ -173,11 +173,11 @@ export default function Homepage( {site, setSite} ) {
           <div className="homepage_winter_scroll"></div>
 
           <div className="topic_image_1">
-          
+            <img src="../img/winter14.jpg" alt="" />
           </div>
 
           <div className="topic_image_2">
-          
+            <img src="../img/winter15.jpg" alt="" />
           </div>
 
           <div className="topic_body">
@@ -189,7 +189,7 @@ export default function Homepage( {site, setSite} ) {
           </div>
 
           <button 
-            className="collection_button"
+            className="winter collection_button"
             onClick={() => {
               setSite('winter');
               navigate("collection-detail/winter")}
