@@ -40,7 +40,11 @@ function App() {
           <Route path="product-detail" element={<ProductDetail />}/>
           <Route path="admin/manage-users" element={<Admin tab={"manage-users"} />} />
           <Route path="admin/manage-items" element={<Admin tab={"manage-items"} />} />
-          <Route path="admin/manage-history" element={<Admin tab={"manage-history"} />} />
+          <Route path="admin/supplier" element={<Admin tab={"supplier"} />} />
+          <Route path="admin/order/sale" element={<Admin tab={"order-sale"} />} />
+          <Route path="admin/order/purchase" element={<Admin tab={"order-purchase"} />} />
+          <Route path="admin/third-party" element={<Admin tab={"third-party"} />} />
+          <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
           <Route path="checkout" element={<Checkout />} />
         </Routes>

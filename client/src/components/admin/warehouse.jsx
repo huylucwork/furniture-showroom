@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../styles/admin.css";
 import DetailModal from "../user/detailModal";
 
-export default function ManageHistory() {
+export default function Warehouse() {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -28,31 +28,31 @@ export default function ManageHistory() {
         <div className="history_table">
           <div className="table_row first_row horizontal_shadow">
             <div className="table_ele admin_fix-size-2">
-              <p>Date</p>
+              <p>Name</p>
               <button>
                 <i className="fa-solid fa-up-down"></i>
               </button>
             </div>
             <div className="table_ele">
-              <p>Order code</p>
+              <p>Code</p>
             </div>
             <div className="table_ele">
-              <p className="left_align">User name</p>
+              <p className="left_align">Address</p>
             </div>
             <div className="table_ele">
-              <p className="left_align">Total amount</p>
+              <p className="left_align">Ward</p>
               <button>
                 <i className="fa-solid fa-up-down"></i>
               </button>
             </div>
             <div className="table_ele">
-              <p className="left_align">Total payment</p>
+              <p className="left_align">District</p>
               <button>
                 <i className="fa-solid fa-up-down"></i>
               </button>
             </div>
             <div className="table_ele">
-              <p>Export order</p>
+              <p>Province</p>
             </div>
             <div className="table_ele admin_fix-size-1">
               <p>Detail</p>
