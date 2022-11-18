@@ -176,6 +176,7 @@
 
 .left_align {
     text-align: left;
+    line-height: 2em;
 }
 
 .table_ele {
@@ -377,8 +378,11 @@
     left: 5%;
     width: 90%;
     height: calc(88.755% - 3.1em);
-    border-bottom: 1px solid #D1B7A1;
     overflow: auto;
+}
+
+.user_detail-info-total {
+    border-bottom: 1px solid #D1B7A1;
 }
 
 .user_detail-info::-webkit-scrollbar {
@@ -443,6 +447,47 @@
     right: 0;
 }
 
+.item_info-tab {
+    width: 60%;
+    margin-left: 50%;
+    margin-top: 3rem;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #473C38;
+}
+
+.item_info-tab:hover {
+    cursor: pointer;
+}
+
+.item_info-tab-chosen {
+    position: relative;
+    font-weight: 400;
+    color: #B06D40;
+    /* text-decoration: underline; */
+}
+
+.item_info-tab-chosen::before {
+    content: "";
+    position: absolute;
+    width: 94%;
+    height: 1px;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-bottom: 1px solid #B06D40;
+}
+
+.item_info-tab p {
+    padding: 0.2rem 0px;
+}
+
+.item_info-tab p:not(:last-child){
+    border-right: 1px solid #473C38;
+}
+
 .item_info svg {
     position: absolute;
     right: 19px;
@@ -460,9 +505,9 @@
 }
 
 .item_ctn {
-    position: absolute;
-    top: 10%;
-    left: 3.5%;
+    /* position: absolute; */
+    margin-top: 2rem;
+    margin-left: 3.5%;
     width: 93%;
     height: 80%;
     overflow: auto;
@@ -470,6 +515,28 @@
 
 .item_ctn::-webkit-scrollbar {
     display: none;
+}
+
+.item_ctn_info {
+    width: 100%;
+    max-height: 15rem;
+    background-color: #EAE3D9;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #D1B7A1;
+    padding: 1.2rem 1.5rem;
+}
+
+.item_ctn_info .first {
+    font-size: 2.2rem;
+    color: #B06D40;
+}
+
+.item_ctn_info .second {
+    padding-top: 2rem;
+    font-size: 1.8rem;
+    color: #473C38;
+    font-weight: 300;
 }
 
 .item_info_ctn {

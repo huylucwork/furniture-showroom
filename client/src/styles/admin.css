@@ -20,6 +20,10 @@
   background-color: #125F4B;
 }
 
+.table_ele .admin_locked_btn {
+  background-color: #757575;
+}
+
 .admin_fix_modal {
   width: 65em;
   height: 80em;

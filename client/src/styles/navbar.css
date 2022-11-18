@@ -68,7 +68,7 @@
   background-color: #baaf9e80;
 }
 .hover-underline-animation:hover {
-  text-shadow: 0px 0px 1px black;
+  text-shadow: 0px 0px 0px black;
 }
 
 ::placeholder {

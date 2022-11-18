@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/admin.css";
-import DetailModal from "../user/detailModal";
+import ModalWarehouse from "./modalWarehouse";
 
 export default function Warehouse() {
   const [openModal, setOpenModal] = useState(false);
 
+  //temp
+  const [statusButton, setStatusButton] = useState(true);
+  const [statusButton1, setStatusButton1] = useState(true);
+
+  const RenderEmptyRow =()=>{
+    let list = []
+    for(let i=3; i<8; i++)
+      list.push(<div className={"table_row " + (i%2? "odd_row" : "even_row")}></div>)
+    return list
+  }
+
   return (
     <div className="history_container">
-      <DetailModal trigger={openModal} setTrigger={setOpenModal} />
+      {openModal && <ModalWarehouse setOpenModal={setOpenModal}/>}
       <div className="history_content">
         <div className="search_container">
           <input 
@@ -25,291 +36,77 @@ export default function Warehouse() {
               d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/>
           </svg>
         </div>
-        <div className="history_table">
-          <div className="table_row first_row horizontal_shadow">
+        <div className="history_table admin_user-scroll">
+          <div className="table_row first_row">
             <div className="table_ele admin_fix-size-2">
-              <p>Name</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
+              <p>Code</p>
             </div>
             <div className="table_ele">
-              <p>Code</p>
+              <p className="left_align">Name</p>
             </div>
             <div className="table_ele">
               <p className="left_align">Address</p>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Ward</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">District</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p>Province</p>
+            <div className="table_ele admin_fix-size-2">
+              <p>Quantity On Hand</p>
             </div>
             <div className="table_ele admin_fix-size-1">
               <p>Detail</p>
             </div>
+            <div className="table_ele admin_fix-size-1">
+              <p>Status</p>
+            </div>
           </div>
-          <div className="table_row odd_row horizontal_shadow">
+
+          <div className="table_row odd_row">
             <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
+              <p>WH100000001</p>
             </div>
             <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
+              <p className="left_align">Warehouse xxx</p>
             </div>
             <div className="table_ele">
-              <p className="left_align">Abc_123</p>
+              <p className="left_align">288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
             </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-              </button>
+            <div className="table_ele admin_fix-size-2">
+              <p>200</p>
             </div>
             <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
-          </div>
-          <div className="table_row even_row horizontal_shadow">
-            <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
-            </div>
-            <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Abc_123</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-              </button>
+              <button onClick={() => setOpenModal(true) }>Detail</button>
             </div>
             <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
-          </div>
-          <div className="table_row odd_row horizontal_shadow">
-            <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
-            </div>
-            <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Abc_123</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
+              <button 
+                className={statusButton? "admin_active-btn": "admin_locked_btn"}
+                onClick={() => setStatusButton(!statusButton)}>
+                {statusButton? "Active" : "Locked"}
               </button>
             </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
           </div>
-          <div className="table_row even_row horizontal_shadow">
+          <div className="table_row even_row">
+          <div className="table_ele admin_fix-size-2">
+              <p>WH100000001</p>
+            </div>
+            <div className="table_ele">
+              <p className="left_align">Warehouse xxx</p>
+            </div>
+            <div className="table_ele">
+              <p className="left_align">288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
+            </div>
             <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
+              <p>200</p>
             </div>
-            <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
+            <div className="table_ele admin_fix-size-1">
+              <button onClick={() => setOpenModal(true) }>Detail</button>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Abc_123</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
+            <div className="table_ele admin_fix-size-1">
+              <button 
+                className={statusButton1? "admin_active-btn": "admin_locked_btn"}
+                onClick={() => setStatusButton1(!statusButton1)}>
+                {statusButton1? "Active" : "Locked"}
               </button>
             </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
           </div>
-          <div className="table_row odd_row horizontal_shadow">
-            <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
-            </div>
-            <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Abc_123</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-              </button>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
-          </div>
-          <div className="table_row even_row horizontal_shadow">
-            <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
-            </div>
-            <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Abc_123</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-              </button>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
-          </div>
-          <div className="table_row odd_row last-row_shadow">
-            <div className="table_ele admin_fix-size-2">
-              <p>dd/mm/yy</p>
-            </div>
-            <div className="table_ele">
-              <p>SO4xxxxxxxxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Abc_123</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">$xxx</p>
-            </div>
-            <div className="table_ele">
-              <button className="download_btn">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  stroke-width="1.5" 
-                  stroke="currentColor" 
-                  class="w-6 h-6">
-                    <path 
-                    stroke-linecap="round" 
-                    stroke-linejoin="round" 
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-              </button>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={ () => setOpenModal(true) }>Detail</button>
-            </div>
-          </div>
+          <RenderEmptyRow />
           <div className="table_row">
             <div className="history_pagination">
               <a className="text_pagination" href="#">
