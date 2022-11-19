@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/admin.css";
+import "../../styles/history.css";
 import ModalWarehouse from "./modalWarehouse";
 
 export default function Warehouse() {

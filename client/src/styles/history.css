@@ -94,6 +94,19 @@
     display: none;
 }
 
+.history_content .title {
+    margin-top: 6rem;
+    font-weight: 500;
+    font-size: 4rem;
+    color: #473C38;
+    text-align: center;
+}
+
+.history_content .body {
+    margin-top: 4rem;
+    height: 100%;
+}
+
 .search_container {
     position: relative;
     width: 28.5em;
