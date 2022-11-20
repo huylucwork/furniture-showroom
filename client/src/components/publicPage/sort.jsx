@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import "../../styles/sort.css";
 
-export default function StyledSort(props) {
+export default function Sort(props) {
   
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);

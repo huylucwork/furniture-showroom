@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../../styles/admin.css";
-import StyledSort from "../publicPage/styledSort";
+import Sort from "../publicPage/sort";
 
 export default function UpdateAdd(props) {
 
@@ -65,11 +65,11 @@ export default function UpdateAdd(props) {
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Collection</label>
-                <StyledSort trigger="manageItem1" setCount={0} optsArray={season} />
+                <Sort trigger="manageItem1" setCount={0} optsArray={season} />
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Color</label>
-                <StyledSort trigger="manageItem2" setCount={1} optsArray={color} />
+                <Sort trigger="manageItem2" setCount={1} optsArray={color} />
               </div>
             </div>
             <div className="admin_input">
