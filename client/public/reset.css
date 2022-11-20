@@ -65,3 +65,22 @@ body{
 	background-color: #F0EAE2;
 	font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
+
+::-webkit-scrollbar-track {
+  background-color: #9f9f9f;
+}
+
+::-webkit-scrollbar {
+  background-color: #191919;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FFFFFF;
+	border-radius: 20px;
+	border: 4px solid transparent;
+	background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #FFFFFF80;
+}

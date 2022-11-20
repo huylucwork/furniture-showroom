@@ -24,6 +24,11 @@
     width: 24.2em;
     height: 100vh;
     padding-top: 16.8em;
+    overflow: auto;
+}
+
+.sidebar_ctn::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar_ele {

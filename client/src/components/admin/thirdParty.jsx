@@ -13,22 +13,22 @@ export default function Thirdparty() {
             list.push(
             <div className={"table_row " + (i%2 ? "odd_row" : "even_row ") + (i===6 ? "last-row_shadow" : "")}>
                 <div className="table_ele">
-                    <p>Item 1</p>
+                    <p>ABC_123</p>
                 </div>
                 <div className="table_ele">
-                    <p>Item 1</p>
+                    <p>123123$</p>
                 </div>
                 <div className="table_ele">
-                    <p>Item 1</p>
-                </div>
-                <div className="table_ele">
-                    <p>000000000000</p>
-                </div>
-                <div className="table_ele">
-                    <p>098xxxxxxxxx</p>
+                    <p>093xxxxxxxxx</p>
                 </div>
                 <div className="table_ele">
                     <p>Abc_123</p>
+                </div>
+                <div className="table_ele">
+                    <p>DD-MM-YYYY</p>
+                </div>
+                <div className="table_ele">
+                    <p>DD-MM-YYYY</p>
                 </div>
                 <div className="table_ele admin_fix-size-1">
                     <button onClick={() => setOpenModal(true) }>Detail</button>
