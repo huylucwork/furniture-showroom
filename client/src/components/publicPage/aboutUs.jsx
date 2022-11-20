@@ -1,18 +1,13 @@
 import React from "react";
-import Iframe from "react-iframe";
 import "../../styles/aboutUs.css";
 
 export default function AboutUs() {
   return(
     <div class="aboutUs_container">
         <div className="vid">
-            <Iframe 
-            width="100%" height="100%" 
-            src="https://www.youtube.com/embed/S-A0qLTxf-U?autoplay=1" 
-            title="Home Furniture Ad Video Template (Editable)" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen />
+            <video autoPlay>
+                <source src="./vid/aboutUs_intro.mp4" type="video/mp4"/>
+            </video>
         </div>
         <section class="aboutUs_navbar"></section>
         <section class="aboutUs_intro-vid">
