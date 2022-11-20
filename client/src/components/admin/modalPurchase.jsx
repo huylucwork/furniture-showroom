@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/history.css";
 
-export default function DetailModal(props) {
+export default function PurchaseModal(props) {
 
   const RenderItemInfo =()=>{
     let list = []
@@ -11,13 +11,25 @@ export default function DetailModal(props) {
           <div className="item_img"></div>
           <div className="item_name-cat">
             <p>Item X</p>
-            <p>Category</p>
+            <p className="purchase_price">$123</p>
           </div>
-          <p>Amount <br></br> 1</p>
-          <p>Price <br></br> $123</p>
+          <div className="item_index">
+            <div>
+              <p>Color: White</p>
+              <p>l: 02xx</p>
+            </div>
+            <div>
+              <p>w: 02xx</p>
+              <p>h: 02xx</p>
+            </div>
+            <div>
+              <p>Amount: 01</p>
+              <p>Weight: 10kg</p>
+            </div>
+          </div>
         </div>
       )
-    return list;
+    return list
   }
 
   return props.trigger ? (
@@ -28,30 +40,26 @@ export default function DetailModal(props) {
             <div className="user_detail-info">
               <div className="info_ctn">
                 <p>Order:</p>
-                <p>SO40000087</p>
+                <p>PO40000087</p>
               </div>
               <div className="info_ctn">
                 <p>Date:</p>
                 <p>02-09-2022</p>
               </div>
               <div className="info_ctn">
-                <p>User Name:</p>
-                <p>anhbo123</p>
+                <p>Company:</p>
+                <p>XXX</p>
               </div>
               <div className="info_ctn">
-                <p>Name:</p>
-                <p>anhbodantruong</p>
+                <p>Amount:</p>
+                <p>06</p>
               </div>
               <div className="info_ctn">
-                <p>Email:</p>
-                <p>bolaanh@gmail.com</p>
+                <p>Move Code:</p>
+                <p>SM10000000001</p>
               </div>
               <div className="info_ctn">
-                <p>Phone:</p>
-                <p>0938608456</p>
-              </div>
-              <div className="info_ctn">
-                <p>Address:</p>
+                <p>Warehouse:</p>
                 <p>340 Madison Avenue Sixth Floor New York, NY 10173 USA</p>
               </div>
             </div>

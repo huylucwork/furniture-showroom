@@ -1,59 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/admin.css";
-import PurchaseModal from "./modalPurchase";
+import DetailModal from "../user/detailModal";
 
-export default function OrderSale() {
+export default function ManageUser() {
   const [openModal, setOpenModal] = useState(false);
+
+  const [statusArr, setStatusArr] = useState([true, true, true, true, true, true, true]);
 
   const RenderColumn =()=>{
     let list = []
     for(let i=0; i<7; i++)
       list.push(
       <div className={"table_row " + (i%2 ? "odd_row" : "even_row ") + (i===6 ? "last-row_shadow" : "")}>
-        <div className="table_ele">
+        <div className="table_ele admin_fix-size-2">
           <p>dd/mm/yy</p>
         </div>
         <div className="table_ele">
-          <p className="left_align">SO4xxxxxxxxx</p>
+          <p className="left_align">For x months</p>
         </div>
         <div className="table_ele">
-          <p className="left_align">P04xxxxxxxxxxx</p>
-        </div>
-        <div className="table_ele admin_fix-size-3">
           <p className="left_align">Abc_123</p>
         </div>
-        <div className="table_ele">
-          <p className="left_align">123</p>
+        <div className="table_ele admin_fix-size-3">
+          <p className="left_align">anhbodantruong@gmail.com</p>
         </div>
-        <div className="table_ele">
-          <p className="left_align">$xxx</p>
-        </div>
-        <div className="table_ele">
-          <button className="download_btn">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke-width="1.5" 
-              stroke="currentColor" 
-              class="w-6 h-6">
-                <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-            </svg>
-          </button>
+        <div className="table_ele admin_fix-size-3">
+          <p className="left_align"> Nguyen Van A</p>
         </div>
         <div className="table_ele admin_fix-size-1">
-          <button onClick={ () => setOpenModal(true) }>Detail</button>
+          <button onClick={() => setOpenModal(true) }>Detail</button>
+        </div>
+        <div className="table_ele admin_fix-size-1">
+          <button 
+            className= {statusArr[i] ? "admin_active-btn": "admin_locked-btn"}
+            onClick={() => {
+              let tmpArr = [...statusArr];
+              tmpArr[i] = !tmpArr[i];
+              setStatusArr(tmpArr);
+            }}>
+            {statusArr[i] ? "Active" : "Locked"}
+          </button>
         </div>
       </div>)
-    return list
+    return list;
   }
 
   return (
     <div className="history_container">
-      <PurchaseModal trigger={openModal} setTrigger={setOpenModal} />
+      <DetailModal trigger={openModal} setTrigger={setOpenModal} />
       <div className="history_content">
         <div className="search_container">
           <input 
@@ -71,40 +65,28 @@ export default function OrderSale() {
               d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/>
           </svg>
         </div>
-        <div className="history_table">
-          <div className="table_row first_row horizontal_shadow">
-            <div className="table_ele">
-              <p>Date</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
+        <div className="history_table admin_user-scroll">
+          <div className="table_row first_row">
+            <div className="table_ele admin_fix-size-2">
+              <p>Created Date</p>
             </div>
             <div className="table_ele">
-              <p className="left_align">Order code</p>
+              <p className="left_align">Last active</p>
             </div>
             <div className="table_ele">
-              <p className="left_align">Picking Code</p>
+              <p className="left_align">User name</p>
+            </div>
+            <div className="table_ele admin_fix-size-3">
+              <p className="left_align">Email</p>
             </div>
             <div className="table_ele admin_fix-size-3">
               <p className="left_align">Name</p>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Total amount</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Total payment</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p>Export order</p>
-            </div>
             <div className="table_ele admin_fix-size-1">
               <p>Detail</p>
+            </div>
+            <div className="table_ele admin_fix-size-1">
+              <p>Status</p>
             </div>
           </div>
           <RenderColumn />
