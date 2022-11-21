@@ -66,7 +66,7 @@
     top: 50%;
     left: 15%;
     transform: translate(-50%, -50%);
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: var(--textColor);
     pointer-events: none;
 }
@@ -407,15 +407,16 @@
 }
 
 .info_ctn p {
-    width: 6.8em;
+    width: 35%;
     color: #B06D40;
     font-size: 2rem;
     text-align: left;
     font-weight: 400;
+    line-height: 30px;
 }
 
 .info_ctn p:last-child {
-    width: 12.8em;
+    width: 65%;
     color: #553A31;
     font-weight: 300;
     line-height: 30px;
