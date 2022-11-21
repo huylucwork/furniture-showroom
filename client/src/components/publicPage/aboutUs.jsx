@@ -4,8 +4,10 @@ import "../../styles/aboutUs.css";
 export default function AboutUs() {
   return(
     <div class="aboutUs_container">
-        <section class="aboutUs_navbar"></section>
         <section class="aboutUs_intro-vid">
+            <video autoPlay>
+                <source src="./vid/aboutUs_intro.mp4" type="video/mp4"/>
+            </video>
             <h1>HIFURDEZ</h1>
             <p>Make your home become cozy and comfortable.</p>
             <div className="aboutUs_contact">
