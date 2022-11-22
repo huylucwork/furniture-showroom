@@ -2,6 +2,27 @@
   --textColorNav: #473c38;
 }
 
+.header_ctn {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: .3s ease-in;
+  z-index: 99;
+}
+
+.header_scroll {
+  top: -90px;
+}
+
+.dummy_navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 9rem;
+  z-index: 99999;
+}
+
 .header {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-style: normal;

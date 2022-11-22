@@ -6,7 +6,7 @@ import "../../../styles/login.css";
 import Login from "../../auth/login";
 import Signup from "../../auth/signup";
 
-export default function Navbar( {loggedIn, setLoggedIn} ) {
+export default function Navbar( {loggedIn, setLoggedIn, setHeaderNav} ) {
   const [buttonSignUp, setButtonSignUp] = useState(false);
   const [buttonLogin, setButtonLogin] = useState(false);
 
@@ -53,24 +53,24 @@ export default function Navbar( {loggedIn, setLoggedIn} ) {
           src="../img/logo.png"
           alt="logo"
           className="logo_img"
-          onClick={() => navigate("../")}
+          onClick={() => {navigate("../"); setHeaderNav("");}}
         />
       </div>
 
       <div className="navbar">
 
         <ul className="navbar_ul">
-          <li className="navbar_list" onClick={() => navigate("../")}>
+          <li className="navbar_list" onClick={() => {navigate("../"); setHeaderNav("");}}>
             <a href="#collection" className="navbar_a a_hover" >
               <div className="hover-underline-animation">Collection</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav" onClick={() => navigate("../product")}>
+          <li className="navbar_list margin_nav" onClick={() => {navigate("../product"); setHeaderNav("");}}>
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>
             </a>
           </li>
-          <li className="navbar_list margin_nav" onClick={() => navigate("../about-us")}>
+          <li className="navbar_list margin_nav" onClick={() => {navigate("../about-us"); setHeaderNav("header_ctn");}}>
             <a className="navbar_a a_hover">
               <div className="hover-underline-animation">About us</div>
             </a>
@@ -82,7 +82,7 @@ export default function Navbar( {loggedIn, setLoggedIn} ) {
             <div className="navbar_a ">
               <button
                 className="navbar_button_auth"
-                onClick={() => setButtonLogin(true)}
+                onClick={() => {setButtonLogin(true); setHeaderNav("");}}
               >
                 <div className="hover-underline-animation">Login</div>
               </button>
@@ -90,7 +90,7 @@ export default function Navbar( {loggedIn, setLoggedIn} ) {
               <div className="vr"></div> &thinsp;
               <button
                 className="navbar_button_auth"
-                onClick={() => setButtonSignUp(true)}
+                onClick={() => {setButtonSignUp(true); setHeaderNav("");}}
               >
                 <div className=" hover-underline-animation">Sign up</div>
               </button>
