@@ -45,6 +45,7 @@ function App() {
           <Route path="admin/order/purchase" element={<Admin tab={"order-purchase"} />} />
           <Route path="admin/third-party" element={<Admin tab={"third-party"} />} />
           <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
+          <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
           <Route path="checkout" element={<Checkout />} />
         </Routes>
