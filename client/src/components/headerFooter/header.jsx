@@ -41,22 +41,22 @@ export default function Header() {
 
     // hide or show when scroll
 
-    var prevScrollpos = window.pageYOffset;
+    // var prevScrollpos = window.pageYOffset;
 
-    window.onscroll = function() {
-      var currentScrollPos = window.pageYOffset;
-      if (prevScrollpos > currentScrollPos) {
-        setHeaderNav("header_ctn");
-        setTimeout(function() {
-          setHeaderNav("header_ctn header_scroll");
-        }, 2000);
-      } else {
-        setTimeout(function() {
-          setHeaderNav("header_ctn header_scroll");
-        }, 100);
-      }
-      prevScrollpos = currentScrollPos;
-    }
+    // window.onscroll = function() {
+    //   var currentScrollPos = window.pageYOffset;
+    //   if (prevScrollpos > currentScrollPos) {
+    //     setHeaderNav("header_ctn");
+    //     setTimeout(function() {
+    //       setHeaderNav("header_ctn header_scroll");
+    //     }, 2000);
+    //   } else {
+    //     setTimeout(function() {
+    //       setHeaderNav("header_ctn header_scroll");
+    //     }, 100);
+    //   }
+    //   prevScrollpos = currentScrollPos;
+    // }
   });
 
   useEffect(() => {
