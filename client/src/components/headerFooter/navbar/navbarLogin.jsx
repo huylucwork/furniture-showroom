@@ -3,13 +3,15 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
-export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav} ) {
+export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTimer} ) {
   const [buttonCart, setButtonCart] = useState(false);
 
   const navigate = useNavigate();
 
   return (
-    <div className="header">
+    <div className="header" 
+      onMouseEnter={() => {setTimer(true); setHeaderNav("header_ctn")}}
+      onMouseLeave={() => setTimer(false)}>
       <div className="logo">
         <img
           src="../img/logo.png"

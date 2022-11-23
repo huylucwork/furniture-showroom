@@ -6,7 +6,7 @@ import "../../../styles/login.css";
 import Login from "../../auth/login";
 import Signup from "../../auth/signup";
 
-export default function Navbar( {loggedIn, setLoggedIn, setHeaderNav} ) {
+export default function Navbar( {loggedIn, setLoggedIn, setHeaderNav, setTimer} ) {
   const [buttonSignUp, setButtonSignUp] = useState(false);
   const [buttonLogin, setButtonLogin] = useState(false);
 
@@ -47,7 +47,9 @@ export default function Navbar( {loggedIn, setLoggedIn, setHeaderNav} ) {
   });
 
   return (
-    <div className="header">
+    <div className="header" 
+      onMouseEnter={() => {setTimer(true); setHeaderNav("header_ctn")}}
+      onMouseLeave={() => setTimer(false)}>
       <div className="logo">
         <img
           src="../img/logo.png"
