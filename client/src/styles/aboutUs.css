@@ -69,7 +69,7 @@
   margin: 10px 0;
   width: 100%;
   height: 33%;
-  font-size: 4em;
+  font-size: 3em;
   color: #BAB0A7;
 }
 
@@ -83,34 +83,35 @@
 .aboutUs_info_decs:nth-child(1) {
   position: absolute;
   top: 15em;
-  left: 45em;
-  width: 70em;
+  left: 40em;
+  width: 75em;
   height: 19em;
 }
 
 .aboutUs_info_decs:nth-child(2) {
   position: absolute;
-  top: 70em;
-  left: 110em;
-  width: 52em;
+  top: 68em;
+  left: 105em;
+  width: 55em;
   height: 22em;
 }
 
 .aboutUs_info_decs:nth-child(3) {
   position: absolute;
   top: 134.1em;
-  left: 58em;
-  width: 75em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100em;
   height: 16em;
 }
 
 .aboutUs_info_decs:nth-child(1) h2,
 .aboutUs_info_decs:nth-child(2) h2,
 .aboutUs_info_decs:nth-child(3) h2 {
-  font-family: 'Nova Cut';
+  /* font-family: 'Nova Cut'; */
   width: 100%;
   height: 1.5em;
-  font-size: 2.4em;
+  font-size: 3.3em;
   text-align: center;
   font-weight: 400;
   line-height: 1.5em;
@@ -121,7 +122,7 @@
 .aboutUs_info_decs:nth-child(3) p {
   width: 100%;
   height: calc(100% - 2em);
-  font-size: 1.8em;
+  font-size: 2.2em;
   line-height: 1.5em;
   text-align: center;
   padding-top: 20px;
@@ -186,16 +187,16 @@
   position: absolute;
   top: 2.3em;
   left: 2em;
-  width: 85em;
+  width: 80em;
   height: 28em;
   position: relative;
 }
 
 .aboutUs_contact-info h2 {
-  font-family: 'Nova Cut';
+  /* font-family: 'Nova Cut'; */
   width: 100%;
   height: 1.5em;
-  font-size: 2.4em;
+  font-size: 3.3em;
   text-align: center;
   font-weight: 400;
   line-height: 1.5em;
@@ -206,13 +207,13 @@
   bottom: 0;
   width: 100%;
   height: calc(100% - 2em);
-  font-size: 1.8em;
+  font-size: 2.2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.aboutUs_contact-info ul li {
+.aboutUs_contact-info ul li,p {
   list-style-position: inside;
   list-style-type: disc;
   font-weight: 300;
@@ -224,7 +225,7 @@
   position: absolute;
   top: 17.8em;
   left: 0;
-  width: 42.8em;
+  width: 45.5em;
   height: 11.3em;
   background-color: #F9F7F4;
   border: 1px solid #DBC2AD;

@@ -39,9 +39,18 @@ export default function AboutUs() {
                 <div class="aboutUs_contact-info">
                     <h2>CONTACT US</h2>
                     <ul>
-                        <li>Tel: 0123456789</li>
-                        <li>Address: 123 XBT str,...</li>
-                        <li>...</li>
+                        <p className="row">
+                            <li className="col-3">Address:</li>
+                            <p className="col-9">268 Ly Thuong Kiet, Ward 11, District 10, Ho Chi Minh City</p>
+                        </p>
+                        <p className="row">
+                            <li className="col-3">Phone:</li>
+                            <p className="col-9">+84 28 3864 7256</p>
+                        </p>
+                        <p className="row">
+                            <li className="col-3">Email:</li>
+                            <p className="col-9">contact@hifurdez.com</p>
+                        </p>
                     </ul>
                 </div>
                 <textarea name="contact" className="aboutUs_contact-info_sth"></textarea>
