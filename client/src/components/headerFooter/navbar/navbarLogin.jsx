@@ -3,32 +3,34 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
-export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
+export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTimer} ) {
   const [buttonCart, setButtonCart] = useState(false);
 
   const navigate = useNavigate();
 
   return (
-    <div className="header">
+    <div className="header" 
+      onMouseEnter={() => {setTimer(true); setHeaderNav("header_ctn")}}
+      onMouseLeave={() => setTimer(false)}>
       <div className="logo">
         <img
           src="../img/logo.png"
           alt="logo"
           className="logo_img"
-          onClick={() => navigate("../")}
+          onClick={() => {navigate("../"); setHeaderNav("");}}
         />
       </div>
 
       <div className="navbar">
         <ul className="navbar_ul">
-          <li className="navbar_list" onClick={() => navigate("../")}>
+          <li className="navbar_list" onClick={() => {navigate("../"); setHeaderNav("abcd");}}>
             <a href="#collection" className="navbar_a a_hover">
               <div className="hover-underline-animation">Collection</div>
             </a>
           </li>
           <li
             className="navbar_list margin_nav"
-            onClick={() => navigate("../product")}
+            onClick={() => {navigate("../product"); setHeaderNav("");}}
           >
             <div className="navbar_a a_hover">
               <div className="hover-underline-animation">Product</div>
@@ -36,7 +38,7 @@ export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
           </li>
           <li
             className="navbar_list margin_nav"
-            onClick={() => navigate("../about-us")}
+            onClick={() => {navigate("../about-us"); setHeaderNav("header_ctn");}}
           >
             <div className="navbar_a a_hover">
               <div className="hover-underline-animation">About us</div>
@@ -83,8 +85,8 @@ export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
-                onClick={() => {
-                  setButtonCart(!buttonCart);
+                onClick={() => {{
+                  setButtonCart(!buttonCart); setHeaderNav("");};
                 }}
               >
                 <path
@@ -109,7 +111,7 @@ export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover user_icon_hover"
                 color="black"
-                onClick={() => navigate("../user")}
+                onClick={() => {navigate("../user"); setHeaderNav("");}}
               >
                 <path
                   strokeLinecap="round"
@@ -125,8 +127,8 @@ export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
                   <div className="logout_icon">
                     <button
                       className="logout_button logout_hover"
-                      onClick={() => {
-                        navigate("../user/info");
+                      onClick={() => {{
+                        navigate("../user/info"); setHeaderNav("");};
                       }}
                     >
                       <svg
@@ -147,8 +149,8 @@ export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
 
                     <button
                       className="logout_button logout_hover"
-                      onClick={() => {
-                        navigate("../user/history");
+                      onClick={() => {{
+                        navigate("../user/history"); setHeaderNav("");};
                       }}
                     >
                       <svg
@@ -173,7 +175,8 @@ export default function NavbarLogin( {loggedIn, setLoggedIn} ) {
                       className="logout_button logout_button_footer"
                       onClick={() => {
                         setLoggedIn(false);
-                        navigate("../")
+                        navigate("../");
+                        setHeaderNav("");
                       }}
                     >
                       LOG OUT

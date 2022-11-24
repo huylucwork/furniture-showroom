@@ -1,11 +1,14 @@
 import React from "react";
+import Iframe from 'react-iframe';
 import "../../styles/aboutUs.css";
 
 export default function AboutUs() {
   return(
     <div class="aboutUs_container">
-        <section class="aboutUs_navbar"></section>
         <section class="aboutUs_intro-vid">
+            <video autoPlay>
+                <source src="./vid/aboutUs_intro.mp4" type="video/mp4"/>
+            </video>
             <h1>HIFURDEZ</h1>
             <p>Make your home become cozy and comfortable.</p>
             <div className="aboutUs_contact">
@@ -37,14 +40,25 @@ export default function AboutUs() {
                 <div class="aboutUs_contact-info">
                     <h2>CONTACT US</h2>
                     <ul>
-                        <li>Tel: 0123456789</li>
-                        <li>Address: 123 XBT str,...</li>
-                        <li>...</li>
+                        <p className="row">
+                            <li className="col-3">Address:</li>
+                            <p className="col-9">268 Ly Thuong Kiet, Ward 11, District 10, Ho Chi Minh City</p>
+                        </p>
+                        <p className="row">
+                            <li className="col-3">Phone:</li>
+                            <p className="col-9">+84 28 3864 7256</p>
+                        </p>
+                        <p className="row">
+                            <li className="col-3">Email:</li>
+                            <p className="col-9">contact@hifurdez.com</p>
+                        </p>
                     </ul>
                 </div>
-                <textarea name="contact" className="aboutUs_contact-info_sth"></textarea>
+                <textarea name="contact" className="aboutUs_contact-info_sth" placeholder="Send we an email!"></textarea>
                 <input type="submit" value="Submit" className="aboutUs_contact_submit"></input>
-                <img src="#" alt="#" />
+                {/* <img src="#" alt="#" /> */}
+                <Iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1234.5304992677686!2d106.65528566907425!3d10.781406281320905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec864b87985%3A0x1a24a166991dec45!2zMjY4IEzDvSBUaMaw4budbmcgS2nhu4d0LCBQaMaw4budbmcgNiwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1669106909469!5m2!1svi!2s" 
+                        className="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
             </div>
         </section>
     </div>

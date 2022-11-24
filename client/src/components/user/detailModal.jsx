@@ -2,6 +2,24 @@ import React from "react";
 import "../../styles/history.css";
 
 export default function DetailModal(props) {
+
+  const RenderItemInfo =()=>{
+    let list = []
+    for(let i=0; i<8; i++)
+      list.push(
+        <div className="item_info_ctn">
+          <div className="item_img"></div>
+          <div className="item_name-cat">
+            <p>Item X</p>
+            <p>Category</p>
+          </div>
+          <p>Amount <br></br> 1</p>
+          <p>Price <br></br> $123</p>
+        </div>
+      )
+    return list;
+  }
+
   return props.trigger ? (
     <div className={"order_detail " + (!props.trigger && "hide_modal")}>
       <div className="order_detail_wrapper">
@@ -58,60 +76,7 @@ export default function DetailModal(props) {
                 d="M2 30L30 2m0 28L2 2"/>
             </svg>
             <div className="item_ctn">
-              <div className="item_info_ctn">
-                <div className="item_img"></div>
-                <div className="item_name-cat">
-                  <p>Item X</p>
-                  <p>Category</p>
-                </div>
-                <p>Amount <br></br> 1</p>
-                <p>Price <br></br> $123</p>
-              </div>
-              <div className="item_info_ctn">
-                <div className="item_img"></div>
-                <div className="item_name-cat">
-                  <p>Item X</p>
-                  <p>Category</p>
-                </div>
-                <p>Amount <br></br> 1</p>
-                <p>Price <br></br> $123</p>
-              </div>
-              <div className="item_info_ctn">
-                <div className="item_img"></div>
-                <div className="item_name-cat">
-                  <p>Item X</p>
-                  <p>Category</p>
-                </div>
-                <p>Amount <br></br> 1</p>
-                <p>Price <br></br> $123</p>
-              </div>
-              <div className="item_info_ctn">
-                <div className="item_img"></div>
-                <div className="item_name-cat">
-                  <p>Item X</p>
-                  <p>Category</p>
-                </div>
-                <p>Amount <br></br> 1</p>
-                <p>Price <br></br> $123</p>
-              </div>
-              <div className="item_info_ctn">
-                <div className="item_img"></div>
-                <div className="item_name-cat">
-                  <p>Item X</p>
-                  <p>Category</p>
-                </div>
-                <p>Amount <br></br> 1</p>
-                <p>Price <br></br> $123</p>
-              </div>
-              <div className="item_info_ctn">
-                <div className="item_img"></div>
-                <div className="item_name-cat">
-                  <p>Item X</p>
-                  <p>Category</p>
-                </div>
-                <p>Amount <br></br> 1</p>
-                <p>Price <br></br> $123</p>
-              </div>
+              <RenderItemInfo />
             </div>
           </div>
         </div>
