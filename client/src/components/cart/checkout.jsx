@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/checkout.css";
-import StyledSort from "../publicPage/styledSort";
+import Sort from "../publicPage/sort";
 
 export default function Checkout() {
 
@@ -27,9 +27,9 @@ export default function Checkout() {
           <input type="text" />
         </div>
         <div className="checkout_input">
-          <StyledSort trigger="checkout1" setCount={0} optsArray={vehicle} />
-          <StyledSort trigger="checkout2" setCount={1} optsArray={vehicle} />
-          <StyledSort trigger="checkout3" setCount={2} optsArray={vehicle} />
+          <Sort trigger="checkout1" setCount={0} optsArray={vehicle} />
+          <Sort trigger="checkout2" setCount={1} optsArray={vehicle} />
+          <Sort trigger="checkout3" setCount={2} optsArray={vehicle} />
         </div>
       </div>
       <div className="checkout_payment">

@@ -1,23 +1,25 @@
 import React from "react";
 import "../../styles/history.css";
 
-export default function DetailModal(props) {
+export default function ThirdPartyModal(props) {
 
   const RenderItemInfo =()=>{
     let list = []
     for(let i=0; i<8; i++)
       list.push(
-        <div className="item_info_ctn">
-          <div className="item_img"></div>
-          <div className="item_name-cat">
-            <p>Item X</p>
-            <p>Category</p>
+        <div className="item_ctn_info">
+          <div className="row first">
+            <p className="col-10">Picking Code: SP100000001</p>
+            <p className="col-2 text-end">$1000</p>
           </div>
-          <p>Amount <br></br> 1</p>
-          <p>Price <br></br> $123</p>
+          <div className="row second">
+            <p className="col">Code: PO10000001</p>
+            <p className="col text-center">Warehouse ID: WH10000</p>
+            <p className="col-3 text-end">Amout: 100</p>
+          </div>
         </div>
       )
-    return list;
+    return list
   }
 
   return props.trigger ? (
@@ -25,39 +27,31 @@ export default function DetailModal(props) {
       <div className="order_detail_wrapper">
         <div className="order_detail_ctn">
           <div className="user_info">
-            <div className="user_detail-info">
+            <div className="user_detail-info del_bottomBorder">
               <div className="info_ctn">
-                <p>Order:</p>
-                <p>SO40000087</p>
+                <p>Company:</p>
+                <p>PO40000087</p>
               </div>
               <div className="info_ctn">
-                <p>Date:</p>
+                <p>Short name:</p>
                 <p>02-09-2022</p>
               </div>
               <div className="info_ctn">
-                <p>User Name:</p>
-                <p>anhbo123</p>
-              </div>
-              <div className="info_ctn">
-                <p>Name:</p>
-                <p>anhbodantruong</p>
-              </div>
-              <div className="info_ctn">
-                <p>Email:</p>
-                <p>bolaanh@gmail.com</p>
+                <p>Tax:</p>
+                <p>XXX</p>
               </div>
               <div className="info_ctn">
                 <p>Phone:</p>
-                <p>0938608456</p>
+                <p>06</p>
               </div>
               <div className="info_ctn">
-                <p>Address:</p>
+                <p>PIC Name:</p>
+                <p>SM10000000001</p>
+              </div>
+              <div className="info_ctn">
+                <p>Warehouse:</p>
                 <p>340 Madison Avenue Sixth Floor New York, NY 10173 USA</p>
               </div>
-            </div>
-            <div className="user_total">
-              <p>Total:</p>
-              <p>$1000000</p>
             </div>
           </div>
           <div className="item_info">

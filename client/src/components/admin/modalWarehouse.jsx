@@ -70,7 +70,7 @@ export default function ModalWarehouse( {setOpenModal} ) {
       <div className="order_detail_wrapper">
         <div className="order_detail_ctn">
           <div className="user_info">
-            <div className="user_detail-info">
+            <div className="user_detail-info del_bottomBorder">
               <div className="info_ctn">
                 <p>Code:</p>
                 <p>WH100000001</p>
@@ -117,7 +117,7 @@ export default function ModalWarehouse( {setOpenModal} ) {
                 d="M2 30L30 2m0 28L2 2"/>
             </svg>
             
-            <div className="item_ctn">
+            <div className="item_ctn item_warehouse">
               {tab === 'receive' && <RenderItem tab={tab}/>}
               {tab === 'transfer' && <RenderItem tab={tab}/>}
               {tab === 'delivery' && <RenderItem tab={tab}/>}

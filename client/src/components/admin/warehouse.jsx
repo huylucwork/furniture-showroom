@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../styles/admin.css";
 import "../../styles/history.css";
 import ModalWarehouse from "./modalWarehouse";
@@ -77,14 +77,14 @@ export default function Warehouse() {
             </div>
             <div className="table_ele admin_fix-size-1">
               <button 
-                className={statusButton? "admin_active-btn": "admin_locked_btn"}
+                className={statusButton? "admin_active-btn": "admin_locked-btn"}
                 onClick={() => setStatusButton(!statusButton)}>
                 {statusButton? "Active" : "Locked"}
               </button>
             </div>
           </div>
           <div className="table_row even_row">
-          <div className="table_ele admin_fix-size-2">
+            <div className="table_ele admin_fix-size-2">
               <p>WH100000001</p>
             </div>
             <div className="table_ele">
@@ -101,7 +101,7 @@ export default function Warehouse() {
             </div>
             <div className="table_ele admin_fix-size-1">
               <button 
-                className={statusButton1? "admin_active-btn": "admin_locked_btn"}
+                className={statusButton1? "admin_active-btn": "admin_locked-btn"}
                 onClick={() => setStatusButton1(!statusButton1)}>
                 {statusButton1? "Active" : "Locked"}
               </button>

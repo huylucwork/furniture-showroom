@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import ManageUser from "./manage-users";
-import ManageItem from "./manage-items";
+import ManageUser from "./manageUsers";
+import ManageItem from "./manageItems";
 import Supplier from "./supplier";
 import OrderSale from "./orderSale";
 import OrderPurchase from "./orderPurchase";

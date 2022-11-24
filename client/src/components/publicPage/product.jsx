@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/product.css";
-import StyledSort from "./styledSort";
+import Sort from "./sort";
 
 export default function Product() {
 
@@ -41,7 +41,7 @@ export default function Product() {
       </div>
       <div className="admin_sort">
         <h2>Sort by:</h2>
-        <StyledSort trigger="product" setCount={0} optsArray={productArr}/>
+        <Sort trigger="product" setCount={0} optsArray={productArr}/>
       </div>
       <div className="product_content">
         <div className="product_row">
