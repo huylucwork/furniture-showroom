@@ -183,10 +183,6 @@
   position: relative;
 }
 
-.aboutUs_contact-us_wrapper textarea {
-  /* font-size: ; */
-}
-
 .aboutUs_contact-info {
   position: absolute;
   top: 2.3em;
@@ -227,15 +223,21 @@
 
 .aboutUs_contact-info_sth {
   position: absolute;
-  top: 17.8em;
+  top: 13.5em;
   left: 0;
-  width: 45.5em;
-  height: 11.3em;
+  width: 37.3em; 
+  height: 10.3em; 
   background-color: #F9F7F4;
   border: 1px solid #DBC2AD;
-  padding: 12px 20px;
-  font-size: 1.8em;
+  color: #473C38;
+  font-weight: 300;
+  padding: 30px;
+  font-size: 2.2em;
   resize: none;
+}
+
+.aboutUs_contact-info_sth::placeholder {
+  color: rgba(71, 60, 56, 0.5);
 }
 
 .aboutUs_contact-info_sth:focus {
