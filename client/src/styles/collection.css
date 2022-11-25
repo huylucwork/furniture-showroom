@@ -238,9 +238,9 @@
 }
 
 .collection_part_3 .items .item img {
-    width: 35.7rem;
-    height: 41.7rem;
-    background-color: #d9d9d9;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
 }
 
 .collection_part_3 .items .item h1 {
@@ -248,6 +248,7 @@
     text-align: center;
     margin-top: 1.5rem;
     font-weight: 400;
+    color: black;
 }
 
 .collection_part_3 .items .item p {
@@ -258,4 +259,18 @@
     letter-spacing: 0.05rem;
 }
 
+.collection_img {
+    width: 35.7rem;
+    height: 41.7rem;
+    background-color: #d9d9d9;
+    overflow: hidden;
+}
 
+.collection_part_3 .items .item:hover img {
+    transform: scale(1.1);
+}
+
+.collection_part_3 .items .item:hover p,
+.collection_part_3 .items .item:hover h1 {
+    color: #AD7252;
+}

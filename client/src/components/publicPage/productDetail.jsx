@@ -29,7 +29,9 @@ export default function ProductDetail ( {filterCollection, filterCategory, setFi
         for(let i=0; i<4; i++)
             list.push(
             <div className="col item">
-                <img src="" alt="" />
+                <div className="detail_ctn">
+                    <img src="./img/autumn.jpg" alt="" />
+                </div>
                 <h2>Name of item</h2>
                 <p>$999</p>
             </div>)

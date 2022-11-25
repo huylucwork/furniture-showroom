@@ -257,12 +257,15 @@
     color: #AD7252;
 }
 
-.product-detail_recommend .items .item img {
-    margin-left: 50%;
-    transform: translateX(-50%);
-    width: 34rem;
-    height: 34rem;
+.product-detail_recommend .items .item:hover .detail_ctn img  {
+    transform: scale(1.1);
+}
+
+.detail_ctn img {
+    width: 100%;
+    height: 100%;
     background-color: #d9d9d9;
+    transition: transform .6s;
 }
 
 .product-detail_recommend .items .item h2 {
@@ -280,3 +283,10 @@
     letter-spacing: 0.05rem;
 }
 
+.detail_ctn {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 34rem;
+    height: 34rem;
+    overflow: hidden;
+}

@@ -13,6 +13,7 @@ import Footer from "./components/headerFooter/footer";
 import Admin from "./components/admin/admin";
 import Checkout from "./components/cart/checkout"
 import ProductDetail from "./components/publicPage/productDetail";
+import Error from "./components/publicPage/error"
 export const AppContext = React.createContext();
 
 function App() {
@@ -73,7 +74,8 @@ function App() {
           <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
           <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
-          <Route path="checkout" element={<Checkout setFilterCollection = {setFilterCollection} setFilterCategory = {setFilterCategory}/>} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </div>
