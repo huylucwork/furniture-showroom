@@ -69,7 +69,7 @@ export default function ProductDetail ( {filterCollection, filterCategory, setFi
                     <button className="product-detail_body_right_add">Add to cart - $12123</button>
                     <div className="product-detail_body_right_about row" onClick={()=>setTriggerAbout(!triggerAbout)}>
                         <h1 className="col">About</h1>
-                        <i class="fa-solid fa-plus col plus"></i>
+                        <i className="fa-solid fa-plus col plus"></i>
                         {triggerAbout === true &&
                         <div className="about_container">
                             <p className="about_container_left">Material:</p>
@@ -82,7 +82,7 @@ export default function ProductDetail ( {filterCollection, filterCategory, setFi
                     </div>
                     <div className="product-detail_body_right_policy row" onClick={()=>setTriggerPolicy(!triggerPolicy)}>
                         <h1 className="col">Policy</h1>
-                        <i class="fa-solid fa-plus col plus"></i>
+                        <i className="fa-solid fa-plus col plus"></i>
                         {triggerPolicy === true &&
                         <div className="policy_container">
                             <p>- Free shipping in Ho Chi Minh City.</p>

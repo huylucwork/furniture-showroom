@@ -22,7 +22,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/manage-users")}}>
                         Members
                     </button>
-                    <i class="fa-solid fa-user sidebar_icon"></i>     
+                    <i className="fa-solid fa-user sidebar_icon"></i>     
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -31,7 +31,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/manage-items")}}>
                         Items
                     </button>
-                    <i class="fa-solid fa-box sidebar_icon"></i>
+                    <i className="fa-solid fa-box sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -40,7 +40,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/supplier")}}>
                         Supplier
                     </button>
-                    <i class="fa-solid fa-truck sidebar_icon"></i>
+                    <i className="fa-solid fa-truck sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -49,7 +49,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/order/sale")}}>
                         Sales
                     </button>
-                    <i class="fa-brands fa-shopify sidebar_icon"></i>
+                    <i className="fa-brands fa-shopify sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -58,7 +58,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/order/purchase")}}>
                         Purchases
                     </button>
-                    <i class="fa-solid fa-clipboard sidebar_icon"></i>
+                    <i className="fa-solid fa-clipboard sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -67,7 +67,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/third-party")}}>
                         Third-party
                     </button>
-                    <i class="fa-solid fa-users sidebar_icon"></i>
+                    <i className="fa-solid fa-users sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -76,7 +76,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/warehouse")}}>
                         Warehouse
                     </button>
-                    <i class="fa-solid fa-warehouse sidebar_icon"></i>
+                    <i className="fa-solid fa-warehouse sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -85,7 +85,7 @@ export default function Admin( {tab} ) {
                         onClick={() => {navigate("../admin/report")}}>
                         Report
                     </button>
-                    <i class="fa-solid fa-file-invoice sidebar_icon"></i>
+                    <i className="fa-solid fa-file-invoice sidebar_icon"></i>
                 </div>
             </div>
             {tab === 'manage-users' && <ManageUser />}

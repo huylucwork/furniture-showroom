@@ -18,7 +18,7 @@ export default function User( {tab} ) {
                         onClick={() => {navigate("../user/info")}}>
                         Profile
                     </button>
-                    <i class="fa-solid fa-user sidebar_icon"></i>     
+                    <i className="fa-solid fa-user sidebar_icon"></i>     
                 </div>
                 <div className="sidebar_ele">
                     <button 
@@ -27,7 +27,7 @@ export default function User( {tab} ) {
                         onClick={() => {navigate("../user/history")}}>
                         History
                     </button>
-                    <i class="fa-solid fa-clock-rotate-left sidebar_icon"></i>
+                    <i className="fa-solid fa-clock-rotate-left sidebar_icon"></i>
                 </div>
             </div>
             {tab === 'info' && <Info />}
