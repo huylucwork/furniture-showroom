@@ -26,7 +26,12 @@ export default function AboutUs() {
                 <i className={"fa-brands fa-facebook " + (aboutUsDecs && "show_decs")}></i>
                 <i className={"fa-brands fa-twitter " + (aboutUsDecs && "show_decs")}></i>
                 <i className={"fa-brands fa-instagram " + (aboutUsDecs && "show_decs")}></i>
-                <i className={"fa-solid fa-volume-xmark aboutUs_last_icon " + (aboutUsDecs ? "hide_decs" : "show_decs")} onClick={() => setMuteVid(!muteVid)}></i>
+                <i className={
+                        (!muteVid ? "fa-solid fa-volume-high " : "fa-solid fa-volume-xmark ") 
+                        + "aboutUs_last_icon " 
+                        + (aboutUsDecs ? "hide_decs" : "show_decs")} 
+                    onClick={() => setMuteVid(!muteVid)}>
+                </i>
             </div>
         </section>
         <section className="aboutUs_info">
