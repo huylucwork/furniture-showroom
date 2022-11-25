@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/productDetail.css";
 
-export default function ProductDetail () {
+export default function ProductDetail ( {filterCollection, filterCategory, setFilterCategory} ) {
+
     const [chosenImg, setChosenImg] = useState(0);
     const [itemCount, setItemCount] = useState(1);
     const [triggerAbout, setTriggerAbout] = useState(false);
     const [triggerPolicy, setTriggerPolicy] = useState(false);
+
+    const navigate = useNavigate();
 
     const SubImg =()=>{
         let list = []
@@ -37,7 +41,7 @@ export default function ProductDetail () {
     return (
         <div className="product-detail_container">
             <div className="product-detail_route">
-                <span>Product</span> / <span>Collection</span> / <span>Category</span> / <span className="product-detail_route_name">Name</span>
+                <span>Product</span> / <span>{filterCollection}</span> / <span>{filterCategory}</span> / <span className="product-detail_route_name">Name</span>
             </div>
             <div className="product-detail_body">
                 <div className="product-detail_body_left row g-0">
@@ -45,7 +49,10 @@ export default function ProductDetail () {
                         <SubImg />
                     </ul>
                     <img src="" alt="" className="main-img col" />
-                    <p className="view-link">View all this collection {'>'}</p>
+                    <p className="view-link" 
+                        onClick={()=>{setFilterCategory('All'); navigate('../product')}}>
+                        View all this collection {'>'}
+                    </p>
                 </div>
                 
                 <div className="product-detail_body_right">

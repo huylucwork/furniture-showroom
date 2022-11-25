@@ -1,8 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/checkout.css";
 import Sort from "../publicPage/sort";
 
-export default function Checkout() {
+export default function Checkout( { setFilterCollection, setFilterCategory} ) {
+
+  const navigate = useNavigate();
 
   const vehicle = ["Honda", "Suzuki"];
 
@@ -44,8 +47,20 @@ export default function Checkout() {
           <input type="radio" name="radio" />
           <span className="payment_checkmark"></span>
         </div>
-        <a href="#">Return&nbsp;to&nbsp;shop</a>
-        <button>Pay up</button>
+        <p onClick={()=>{
+          setFilterCategory('All');
+          setFilterCollection('All');
+          navigate("../product")
+        }}>
+          Return to shop
+        </p>
+        <button onClick={()=>{
+          setFilterCategory('All');
+          setFilterCollection('All');
+          navigate("../")
+        }}>
+          Pay up
+        </button>
       </div>
       <div className="checkout_item">
         <div className="item_container">
