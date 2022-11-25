@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Axios from "axios";
+import Alert from "./components/helper/alert";
 import Header from "./components/headerFooter/header";
 import Homepage from "./components/publicPage/homepage";
 import User from "./components/user/user";
@@ -28,6 +29,9 @@ function App() {
   //filter
   const [filterCollection, setFilterCollection] = useState(collectionProduct[0]);
   const [filterCategory, setFilterCategory] = useState(categoryProduct[0]);
+
+  //alert
+  const [openAlert, setOpenAlert] = useState(true)
 
   return (
     <AppContext.Provider>
@@ -74,6 +78,7 @@ function App() {
           <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
           <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
+          <Route path="alert" element={<Alert alert={{type: 'warning', message: 'gà'}} setOpenAlert={setOpenAlert} />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="*" element={<Error />} />
         </Routes>
