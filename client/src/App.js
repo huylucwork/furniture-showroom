@@ -19,7 +19,14 @@ function App() {
   // To ensure that use cookies and sessions
   Axios.defaults.withCredentials = true;
 
-  const [site, setSite] = useState("spring");
+  const collectionProduct = ['All', 'Spring', 'Summer', 'Autumn', 'Winter'];
+  const categoryProduct = ['All', 'Sofa', 'Table', 'Chair', 'Storage'];
+
+  const [site, setSite] = useState(collectionProduct[1]);
+
+  //filter
+  const [filterCollection, setFilterCollection] = useState(collectionProduct[0]);
+  const [filterCategory, setFilterCategory] = useState(categoryProduct[0]);
 
   return (
     <AppContext.Provider>
@@ -36,8 +43,23 @@ function App() {
             element={<Collection site={site} />}
           />
           <Route path="about-us" element={<AboutUs />} />
-          <Route path="product" element={<Product />} />
-          <Route path="product-detail" element={<ProductDetail />}/>
+          <Route 
+            path="product" 
+            element={<Product 
+              collectionProduct = {collectionProduct}
+              categoryProduct = {categoryProduct}
+              filterCollection = {filterCollection}
+              setFilterCollection = {setFilterCollection}
+              filterCategory = {filterCategory}
+              setFilterCategory = {setFilterCategory}
+            />} />
+          <Route 
+            path="product-detail" 
+            element={<ProductDetail 
+              filterCollection = {filterCollection}
+              filterCategory = {filterCategory}
+              setFilterCategory = {setFilterCategory}
+          />}/>
           <Route path="admin/manage-users" element={<Admin tab={"manage-users"} />} />
           <Route path="admin/manage-items" element={<Admin tab={"manage-items"} />} />
           <Route path="admin/supplier" element={<Admin tab={"supplier"} />} />

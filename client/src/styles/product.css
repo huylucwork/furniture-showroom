@@ -57,7 +57,7 @@
   margin-bottom: 0.9em;
 }
 
-.sidebar_element a {
+.sidebar_element button {
   width: 100%;
   height: 2.5em;
   display: block;
@@ -66,9 +66,18 @@
   font-size: 2em;
   padding-left: 2.2em;
   line-height: 2.5em;
+  border: none;
+  background-color: var(--backgroundColor);
+  cursor: pointer;
+  transition: .1s ease-out;
+  text-align: left;
 }
 
-.sidebar_element a:not(.sidebar_focus):hover {
+.sidebar_element .button_selected {
+  background-color: #BAAF9E80;
+}
+
+.sidebar_element button:not(.button_selected):hover {
   background-color: #BAAF9E30;
 }
 
