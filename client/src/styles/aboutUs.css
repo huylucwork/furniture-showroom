@@ -118,7 +118,6 @@
 .aboutUs_info_decs:nth-child(1) h2,
 .aboutUs_info_decs:nth-child(2) h2,
 .aboutUs_info_decs:nth-child(3) h2 {
-  /* font-family: 'Nova Cut'; */
   width: 100%;
   height: 1.5em;
   font-size: 3.5em;
@@ -212,9 +211,17 @@
 
 .aboutUs_row {
   margin-top: 2em;
+} 
+
+.aboutUs_contact-info li {
+  list-style-type: none;
+  font-weight: 300;
+  line-height: 1.5em;
+  padding-top: 5px;
+  font-size: 2.3em;
 }
 
-.aboutUs_contact-info li,p {
+.aboutUs_contact-info p {
   list-style-type: none;
   font-weight: 300;
   line-height: 1.5em;
@@ -249,7 +256,7 @@
 .aboutUs_contact_submit {
   position: absolute;
   top: 31.7em;
-  left: 33.6em;
+  left: 33.5em;
   width: 7.5em;
   height: 2.5em;
   background-color: #ad7252;
@@ -272,7 +279,6 @@
   width: 65em;
   height: 68.5em;
   background-color: #D9D9D9;
-  /* box-shadow: 3em -3em 0px 0px #DBC2AD; */
 }
 
 .aboutUs_intro-vid .show_decs {
