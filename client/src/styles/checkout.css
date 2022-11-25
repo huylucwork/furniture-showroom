@@ -231,7 +231,7 @@
 .checkout_item {
   position: absolute;
   top: 17.5em;
-  left: 103.7em;
+  right: 5em;
   width: 80.2em;
   height: 73em;
 }
@@ -277,5 +277,5 @@
 .item_total p:nth-child(1) {
   color: #473C38;
   font-weight: 300;
-  margin-right: 15em;
+  margin-right: 18em;
 }

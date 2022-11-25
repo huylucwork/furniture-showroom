@@ -12,7 +12,7 @@ export default function Homepage( {site, setSite, collectionProduct, setFilterCo
           <div className="introduce_title">
             <div className="title_sub-name">Showroom</div>
             <div className="title_name">HIFURDEZ</div>
-            <div className="title_descr">We will bring ...</div>
+            <div className="title_descr">We will bring high-end furniture design</div>
           </div>
           <div className="introduce_slogan">
             <p>Modern</p>
