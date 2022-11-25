@@ -3,40 +3,40 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/product.css";
 import Sort from "./sort";
 
-export default function Product() {
+export default function Product( {
+  collectionProduct, categoryProduct,
+  filterCollection, setFilterCollection, filterCategory, setFilterCategory
+} ) {
 
   const productArr = ["Price: Low to high", "Price: High to low"];
 
   const navigate = useNavigate();
 
-  function handleClick(e) {
-    let childElement = e.target.parentElement.children;
-    for (let index = 0; index < childElement.length; ++index) {
-      let element = childElement[index];
-        if(element.classList.contains("sidebar_focus")) {
-          element.classList.remove("sidebar_focus");
-        }
-    }  
-    e.target.classList.add("sidebar_focus");
-  }
   return (
     <div className="product_container">
       <div className="product_sidebar">
         <div className="sidebar_element">
           <h2>Collection</h2>
-          <a href="#" onClick={handleClick}>Spring</a>
-          <a href="#" onClick={handleClick}>Summer</a>
-          <a href="#" onClick={handleClick}>Autumn</a>
-          <a href="#" className="sidebar_focus" onClick={handleClick}>Winter</a>
-          <a href="#" onClick={handleClick}>All</a>
+          {collectionProduct.map((collection, index) => {
+            return (
+              <button className={filterCollection === collection ? "button_selected" : ""} 
+                  onClick={()=>setFilterCollection(collection)}>
+                {collectionProduct[index]}
+              </button>
+            )
+          })}
         </div>
+        
         <div className="sidebar_element">
           <h2>Category</h2>
-          <a href="#" className="sidebar_focus" onClick={handleClick}>Sofas</a>
-          <a href="#" onClick={handleClick}>Tables</a>
-          <a href="#" onClick={handleClick}>Chairs</a>
-          <a href="#" onClick={handleClick}>Storages</a>
-          <a href="#" onClick={handleClick}>All</a>
+          {categoryProduct.map((category, index) => {
+            return (
+              <button className={filterCategory === category? "button_selected" : ''} 
+                  onClick={()=>setFilterCategory(category)}>
+                {categoryProduct[index]}
+              </button>
+            )
+          })}
         </div>
       </div>
       <div className="admin_sort">

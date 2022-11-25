@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/homepage.css";
 
-export default function Homepage( {site, setSite} ) {
+export default function Homepage( {site, setSite, collectionProduct, setFilterCollection} ) {
   const navigate = useNavigate();
 
   return (
@@ -58,6 +58,7 @@ export default function Homepage( {site, setSite} ) {
             className="spring collection_button" 
             onClick={() => {
               setSite('spring');
+              setFilterCollection(collectionProduct[1]);
               navigate("../collection-detail/spring")
             }
             }>
@@ -102,6 +103,7 @@ export default function Homepage( {site, setSite} ) {
             className="summer collection_button"
             onClick={() => {
               setSite('summer');
+              setFilterCollection(collectionProduct[2]);
               navigate("collection-detail/summer")}
             }
           >
@@ -147,6 +149,7 @@ export default function Homepage( {site, setSite} ) {
             className="autumn collection_button"
             onClick={() => {
               setSite('autumn');
+              setFilterCollection(collectionProduct[1]);
               navigate("collection-detail/autumn")}
             }
           >
@@ -158,7 +161,6 @@ export default function Homepage( {site, setSite} ) {
               color="#F0EAE2"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
-              onClick={() => navigate("../")}
               >
               <path
               fillRule="evenodd"
@@ -192,6 +194,7 @@ export default function Homepage( {site, setSite} ) {
             className="winter collection_button"
             onClick={() => {
               setSite('winter');
+              setFilterCollection(collectionProduct[4]);
               navigate("collection-detail/winter")}
             }
           >
@@ -203,7 +206,6 @@ export default function Homepage( {site, setSite} ) {
               color="#473C38"
               className="collection_button_icon"
               style={{ width: "30px", height: "30px"}}
-              onClick={() => navigate("../")}
               >
               <path
               fillRule="evenodd"
