@@ -9,7 +9,7 @@ export default function AboutUs() {
   useEffect(() => {
     setTimeout(function() {
         setAboutUsDecs(true);
-    }, 43500);
+    }, 42500);
   }, []);
 
   return(
@@ -49,16 +49,16 @@ export default function AboutUs() {
                 <div class="aboutUs_contact-info">
                     <h2>CONTACT US</h2>
                     <div className="row aboutUs_row">
-                        <li className="col-3">Address:</li>
-                        <p className="col-9">268 Ly Thuong Kiet, Ward 14, District 10, Ho Chi Minh City</p>
+                        <li className="col-2">Address:</li>
+                        <p className="col-10">268 Ly Thuong Kiet, Ward 14, District 10, Ho Chi Minh City</p>
                     </div>
                     <div className="row aboutUs_row">
-                        <li className="col-3">Phone:</li>
-                        <p className="col-9">+84 28 3864 7256</p>
+                        <li className="col-2">Phone:</li>
+                        <p className="col-10">+84 28 3864 7256</p>
                     </div>
                     <div className="row aboutUs_row">
-                        <li className="col-3">Email:</li>
-                        <p className="col-9">contact@hifurdez.com</p>
+                        <li className="col-2">Email:</li>
+                        <p className="col-10">contact@hifurdez.com</p>
                     </div>
                 </div>
                 <textarea name="contact" className="aboutUs_contact-info_sth" placeholder="Send we an email!"></textarea>

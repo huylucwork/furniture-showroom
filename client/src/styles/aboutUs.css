@@ -115,7 +115,7 @@
   /* font-family: 'Nova Cut'; */
   width: 100%;
   height: 1.5em;
-  font-size: 3.3em;
+  font-size: 3.5em;
   text-align: center;
   font-weight: 400;
   line-height: 1.5em;
@@ -126,7 +126,7 @@
 .aboutUs_info_decs:nth-child(3) p {
   width: 100%;
   height: calc(100% - 2em);
-  font-size: 2em;
+  font-size: 2.3em;
   line-height: 1.5em;
   text-align: center;
   padding-top: 20px;
@@ -198,7 +198,7 @@
 
 .aboutUs_contact-info h2 {
   width: 100%;
-  font-size: 3.7em;
+  font-size: 3.5em;
   text-align: center;
   font-weight: 400;
   margin-bottom: 0.85em;
@@ -213,7 +213,7 @@
   font-weight: 300;
   line-height: 1.5em;
   padding-top: 5px;
-  font-size: 2.5em;
+  font-size: 2.3em;
 }
 
 .aboutUs_contact-info_sth {
@@ -227,7 +227,7 @@
   color: #473C38;
   font-weight: 300;
   padding: 24px 30px;
-  font-size: 2.2em;
+  font-size: 2.3em;
   resize: none;
 }
 
@@ -243,7 +243,7 @@
 .aboutUs_contact_submit {
   position: absolute;
   top: 31.7em;
-  left: 33.5em;
+  left: 35.3em;
   width: 7.5em;
   height: 2.5em;
   background-color: #ad7252;
