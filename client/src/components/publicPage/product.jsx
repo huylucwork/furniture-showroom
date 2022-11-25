@@ -17,50 +17,26 @@ export default function Product( {
       <div className="product_sidebar">
         <div className="sidebar_element">
           <h2>Collection</h2>
-          <button className={filterCollection === collectionProduct[0] ? "button_selected" : ""} 
-                  onClick={()=>setFilterCollection(collectionProduct[0])}>
-            {collectionProduct[0]}
-          </button>
-          <button className={filterCollection === collectionProduct[1] ? "button_selected" : ""} 
-                  onClick={()=>setFilterCollection(collectionProduct[1])}>
-            {collectionProduct[1]}
-          </button>
-          <button className={filterCollection === collectionProduct[2] ? "button_selected" : ""} 
-                  onClick={()=>setFilterCollection(collectionProduct[2])}>
-            {collectionProduct[2]}
-          </button>
-          <button className={filterCollection === collectionProduct[3] ? "button_selected" : ""} 
-                  onClick={()=>setFilterCollection(collectionProduct[3])}>
-            {collectionProduct[3]}
-          </button>
-          <button className={filterCollection === collectionProduct[4] ? "button_selected" : ""} 
-                  onClick={()=>setFilterCollection(collectionProduct[4])}>
-            {collectionProduct[4]}
-          </button>
+          {collectionProduct.map((collection, index) => {
+            return (
+              <button className={filterCollection === collection ? "button_selected" : ""} 
+                  onClick={()=>setFilterCollection(collection)}>
+                {collectionProduct[index]}
+              </button>
+            )
+          })}
         </div>
         
         <div className="sidebar_element">
           <h2>Category</h2>
-          <button className={filterCategory === categoryProduct[0]? "button_selected" : ''} 
-                  onClick={()=>setFilterCategory(categoryProduct[0])}>
-            {categoryProduct[0]}
-          </button>
-          <button className={filterCategory === categoryProduct[1]? "button_selected" : ''} 
-                  onClick={()=>setFilterCategory(categoryProduct[1])}>
-            {categoryProduct[1]}
-          </button>
-          <button className={filterCategory === categoryProduct[2]? "button_selected" : ''} 
-                  onClick={()=>setFilterCategory(categoryProduct[2])}>
-            {categoryProduct[2]}
-          </button>
-          <button className={filterCategory === categoryProduct[3]? "button_selected" : ''} 
-                  onClick={()=>setFilterCategory(categoryProduct[3])}>
-            {categoryProduct[3]}
-          </button>
-          <button className={filterCategory === categoryProduct[4]? "button_selected" : ''} 
-                  onClick={()=>setFilterCategory(categoryProduct[4])}>
-            {categoryProduct[4]}
-          </button>
+          {categoryProduct.map((category, index) => {
+            return (
+              <button className={filterCategory === category? "button_selected" : ''} 
+                  onClick={()=>setFilterCategory(category)}>
+                {categoryProduct[index]}
+              </button>
+            )
+          })}
         </div>
       </div>
       <div className="admin_sort">
