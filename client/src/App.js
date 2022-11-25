@@ -73,7 +73,7 @@ function App() {
           <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
           <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route path="checkout" element={<Checkout setFilterCollection = {setFilterCollection} setFilterCategory = {setFilterCategory}/>} />
         </Routes>
         <Footer />
       </div>
