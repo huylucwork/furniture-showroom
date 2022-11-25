@@ -60,10 +60,9 @@
 
 .aboutUs_contact {
   position: absolute;
-  bottom: 9em;
+  bottom: 3em;
   right: 2.9em;
   width: 4.5em;
-  height: 13.3em;
   display: flex;
   flex-direction: column;
 }
@@ -75,6 +74,13 @@
   height: 33%;
   font-size: 3em;
   color: #BAB0A7;
+  opacity: 0;
+  transition: 1s ease-in-out;
+  cursor: pointer;
+}
+
+.aboutUs_contact .aboutUs_last_icon {
+  opacity: 1;
 }
 
 .aboutUs_info {
@@ -277,4 +283,8 @@
 
 .aboutUs_intro-vid .show_decs {
   opacity: 1;
+}
+
+.aboutUs_intro-vid .aboutUs_contact .hide_decs {
+  display: none;
 }

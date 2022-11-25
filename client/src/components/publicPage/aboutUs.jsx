@@ -6,6 +6,8 @@ export default function AboutUs() {
 
   const [aboutUsDecs, setAboutUsDecs] = useState(false);
 
+  const [muteVid, setMuteVid] = useState(false);
+
   useEffect(() => {
     setTimeout(function() {
         setAboutUsDecs(true);
@@ -13,20 +15,26 @@ export default function AboutUs() {
   }, []);
 
   return(
-    <div class="aboutUs_container">
-        <section class="aboutUs_intro-vid">
-            <video autoPlay>
+    <div className="aboutUs_container">
+        <section className="aboutUs_intro-vid">
+            <video autoPlay {...(muteVid && { muted: true })}>
                 <source src="./vid/aboutUs_intro.mp4" type="video/mp4"/>
             </video>
             <h1 className={aboutUsDecs && "show_decs"}>HIFURDEZ</h1>
             <p className={aboutUsDecs && "show_decs"}>Make your home become cozy and comfortable.</p>
             <div className="aboutUs_contact">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
+                <i className={"fa-brands fa-facebook " + (aboutUsDecs && "show_decs")}></i>
+                <i className={"fa-brands fa-twitter " + (aboutUsDecs && "show_decs")}></i>
+                <i className={"fa-brands fa-instagram " + (aboutUsDecs && "show_decs")}></i>
+                <i className={
+                        (!muteVid ? "fa-solid fa-volume-high " : "fa-solid fa-volume-xmark ") 
+                        + "aboutUs_last_icon " 
+                        + (aboutUsDecs ? "hide_decs" : "show_decs")} 
+                    onClick={() => setMuteVid(!muteVid)}>
+                </i>
             </div>
         </section>
-        <section class="aboutUs_info">
+        <section className="aboutUs_info">
             <div className="aboutUs_info_decs">
                 <h2>MISSION</h2>
                 <p>Focus on improving customer experience, The most enthusiastic, finest service, Guarantee harmonic relation between company benefit, customer experience and social responsibility, We are your reliable companion.</p>
@@ -43,10 +51,10 @@ export default function AboutUs() {
             <img src="#" alt="#" className="aboutUs_info_img" />
             <img src="#" alt="#" className="aboutUs_info_img" />
         </section>
-        <section class="aboutUs_founder"></section>
-        <section class="aboutUs_contact-us">
+        <section className="aboutUs_founder"></section>
+        <section className="aboutUs_contact-us">
             <div className="aboutUs_contact-us_wrapper">
-                <div class="aboutUs_contact-info">
+                <div className="aboutUs_contact-info">
                     <h2>CONTACT US</h2>
                     <div className="row aboutUs_row">
                         <li className="col-2">Address:</li>
