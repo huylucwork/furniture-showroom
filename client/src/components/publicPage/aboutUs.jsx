@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Iframe from 'react-iframe';
 import "../../styles/aboutUs.css";
 
 export default function AboutUs() {
+
+  const [aboutUsDecs, setAboutUsDecs] = useState(false);
+
+  useEffect(() => {
+    setTimeout(function() {
+        setAboutUsDecs(true);
+    }, 43500);
+  }, []);
+
   return(
     <div class="aboutUs_container">
         <section class="aboutUs_intro-vid">
             <video autoPlay>
                 <source src="./vid/aboutUs_intro.mp4" type="video/mp4"/>
             </video>
-            <h1>HIFURDEZ</h1>
-            <p>Make your home become cozy and comfortable.</p>
+            <h1 className={aboutUsDecs && "show_decs"}>HIFURDEZ</h1>
+            <p className={aboutUsDecs && "show_decs"}>Make your home become cozy and comfortable.</p>
             <div className="aboutUs_contact">
                 <i class="fa-brands fa-facebook"></i>
                 <i class="fa-brands fa-twitter"></i>
@@ -39,20 +48,18 @@ export default function AboutUs() {
             <div className="aboutUs_contact-us_wrapper">
                 <div class="aboutUs_contact-info">
                     <h2>CONTACT US</h2>
-                    <ul>
-                        <p className="row">
-                            <li className="col-3">Address:</li>
-                            <p className="col-9">268 Ly Thuong Kiet, Ward 11, District 10, Ho Chi Minh City</p>
-                        </p>
-                        <p className="row">
-                            <li className="col-3">Phone:</li>
-                            <p className="col-9">+84 28 3864 7256</p>
-                        </p>
-                        <p className="row">
-                            <li className="col-3">Email:</li>
-                            <p className="col-9">contact@hifurdez.com</p>
-                        </p>
-                    </ul>
+                    <div className="row aboutUs_row">
+                        <li className="col-3">Address:</li>
+                        <p className="col-9">268 Ly Thuong Kiet, Ward 14, District 10, Ho Chi Minh City</p>
+                    </div>
+                    <div className="row aboutUs_row">
+                        <li className="col-3">Phone:</li>
+                        <p className="col-9">+84 28 3864 7256</p>
+                    </div>
+                    <div className="row aboutUs_row">
+                        <li className="col-3">Email:</li>
+                        <p className="col-9">contact@hifurdez.com</p>
+                    </div>
                 </div>
                 <textarea name="contact" className="aboutUs_contact-info_sth" placeholder="Send we an email!"></textarea>
                 <input type="submit" value="Submit" className="aboutUs_contact_submit"></input>

@@ -19,6 +19,26 @@ export default function Product() {
     }  
     e.target.classList.add("sidebar_focus");
   }
+
+  const RenderProduct = () => {
+    let list = [];
+    for(var i = 0; i < 16; i++){
+      list.push(
+        <div 
+          key={i}
+          className="product_element" 
+          onClick={()=>navigate("../product-detail")}>
+            <div className="contain_img">
+              <img src="./img/autumn.jpg" alt="" />
+            </div>
+            <h2>Name of Item</h2>
+            <p>$123</p>
+        </div>
+      )
+    }
+    return list;
+  }
+
   return (
     <div className="product_container">
       <div className="product_sidebar">
@@ -45,86 +65,7 @@ export default function Product() {
       </div>
       <div className="product_content">
         <div className="product_row">
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
-          <div className="product_element" onClick={()=>navigate("../product-detail")}>
-            <img src="" alt="" />
-            <h2>Name of Item</h2>
-            <p>$123</p>
-          </div>
+          <RenderProduct />
         </div>
         <div className="product_row">
           <div className="history_pagination">
