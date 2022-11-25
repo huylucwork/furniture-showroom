@@ -12,6 +12,26 @@ export default function Product( {
 
   const navigate = useNavigate();
 
+  const RenderProduct = () => {
+    let list = [];
+    for(var i = 0; i < 16; i++){
+      list.push(
+        <div 
+          key={i}
+          className="product_element" 
+          onClick={()=>navigate("../product-detail")}>
+            <div className="contain_img">
+              <img src="./img/autumn.jpg" alt="" />
+            </div>
+            <h2>Name of Item</h2>
+            <p>$123</p>
+        </div>
+      )
+    }
+    return list;
+  }
+
+
   return (
     <div className="product_container">
       <div className="product_sidebar">
