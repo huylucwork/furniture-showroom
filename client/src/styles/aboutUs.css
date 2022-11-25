@@ -51,7 +51,8 @@
   font-weight: 500;
   line-height: 1.3em;
   text-align: left;
-  color: var(--textColor);
+  color: var(--backgroundColor);
+  text-shadow: 0px 0px 10px #473C38;
 }
 
 .aboutUs_contact {
