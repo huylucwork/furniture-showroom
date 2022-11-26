@@ -76,7 +76,7 @@
 }
 
 .product-detail_body_right::-webkit-scrollbar {
-    width: 5px;
+    width: 0px;
 }
 
 .product-detail_body_right:-webkit-scrollbar-track {
