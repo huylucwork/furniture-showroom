@@ -31,11 +31,13 @@ function App() {
   const [filterCategory, setFilterCategory] = useState(categoryProduct[0]);
 
   //alert
-  const [openAlert, setOpenAlert] = useState(true)
+  const [openAlert, setOpenAlert] = useState(true);
+  const [alert, setAlert] = useState({type: '', message: ''});
 
   return (
     <AppContext.Provider>
       <div id="App">
+        {openAlert && <Alert alert={alert} setOpenAlert={setOpenAlert} />}
         <ScrollToTop/>
         <Header />
         <Routes>
@@ -51,7 +53,7 @@ function App() {
             path={"collection-detail/" + site}
             element={<Collection site={site} />}
           />
-          <Route path="about-us" element={<AboutUs />} />
+          <Route path="about-us" element={<AboutUs setAlert={setAlert} setOpenAlert={setOpenAlert}/>} />
           <Route 
             path="product" 
             element={<Product 
@@ -78,8 +80,11 @@ function App() {
           <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
           <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
-          <Route path="alert" element={<Alert alert={{type: 'warning', message: 'gà'}} setOpenAlert={setOpenAlert} />} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route path="checkout" element={<Checkout 
+            setFilterCollection = {setFilterCollection}
+            setFilterCategory = {setFilterCategory}
+            setAlert={setAlert} setOpenAlert={setOpenAlert}
+          />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

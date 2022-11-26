@@ -3,11 +3,25 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/checkout.css";
 import Sort from "../publicPage/sort";
 
-export default function Checkout( { setFilterCollection, setFilterCategory} ) {
+export default function Checkout( { setFilterCollection, setFilterCategory, setAlert, setOpenAlert} ) {
 
   const navigate = useNavigate();
 
   const vehicle = ["Honda", "Suzuki"];
+
+  const handlePayUp = () => {
+
+    setAlert({
+        type: 'success', 
+        message: 'Thank you for your purchase!'
+    })
+
+    setOpenAlert(true);
+  
+    setFilterCategory('All');
+    setFilterCollection('All');
+    navigate("../")
+  }
 
   return (
     <div className="checkout_container">
@@ -54,11 +68,7 @@ export default function Checkout( { setFilterCollection, setFilterCategory} ) {
         }}>
           Return to shop
         </p>
-        <button onClick={()=>{
-          setFilterCategory('All');
-          setFilterCollection('All');
-          navigate("../")
-        }}>
+        <button onClick={()=>handlePayUp()}>
           Pay up
         </button>
       </div>

@@ -2,11 +2,26 @@ import React, { useState, useEffect } from "react";
 import Iframe from 'react-iframe';
 import "../../styles/aboutUs.css";
 
-export default function AboutUs() {
+export default function AboutUs( {setAlert, setOpenAlert} ) {
 
   const [aboutUsDecs, setAboutUsDecs] = useState(false);
 
   const [muteVid, setMuteVid] = useState(false);
+
+  const [inputEmail, setInputEmail] = useState('');
+
+  const handleSubmit = () => {
+
+    setInputEmail('');
+
+    setAlert({
+        type: 'success', 
+        message: 'Thanks for sending mail. Have a good day!'
+    })
+
+    setOpenAlert(true);
+
+  }
 
   useEffect(() => {
     setTimeout(function() {
@@ -69,8 +84,9 @@ export default function AboutUs() {
                         <p className="col-10">contact@hifurdez.com</p>
                     </div>
                 </div>
-                <textarea name="contact" className="aboutUs_contact-info_sth" placeholder="Send we an email!"></textarea>
-                <input type="submit" value="Submit" className="aboutUs_contact_submit"></input>
+                <textarea name="contact" id="contact" className="aboutUs_contact-info_sth" placeholder="Send we an email!" 
+                            value={inputEmail} onChange={e => setInputEmail(e.target.value)}></textarea>
+                <input type="submit" value="Submit" className="aboutUs_contact_submit" onClick={()=>handleSubmit()}></input>
                 {/* <img src="#" alt="#" /> */}
                 <Iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4034.3892892200206!2d106.65703957471843!3d10.770038316156603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ec3c161a3fb%3A0xef77cd47a1cc691e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBraG9hIC0gxJDhuqFpIGjhu41jIFF14buRYyBnaWEgVFAuSENN!5e0!3m2!1svi!2s!4v1669346811687!5m2!1svi!2s" 
                         className="map" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
