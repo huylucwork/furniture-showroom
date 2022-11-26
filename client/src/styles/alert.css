@@ -1,65 +1,82 @@
 .alert_container {
     position: fixed;
-    top: 15px;
-    right: 20px;
+    top: 1.7em;
+    right: 2.2em;
     z-index: 999;
-    /* height: 100px; */
-    width: -1px;
+    height: 9.5em;
+    width: 55em;
     display: flex;
-    /* justify-content: ; */
     flex-direction: row;
-    animation: wipe-in .2s linear;
 }
 
-@keyframes wipe-in {
+.alert_container.in {
+    animation: fade-in 0.6s ease-in;
+}
+
+.alert_container.out {
+    animation: fade-out 0.5s linear;
+}
+
+@keyframes fade-in {
     from {
-      width: 0px;
+      opacity: 0;
     }
     to {
-      width: 500px;
+      opacity: 1;
     }
 }
 
-.alert_icon {
-    /* height: 100%; */
-    width: 100px;
+@keyframes fade-out {
+    from {
+      opacity: 1;
+      top: 1.7em;
+    }
+    to {
+      opacity: 0;
+      top: 4.5em;
+    }
+}
+
+.alert_container .alert_icon {
+    width: 8em;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.alert_icon i {
-    font-size: 40px;
+.alert_container .alert_icon i {
+    font-size: 3em;
 }
 
-.alert_content {
-    min-height: 100px;
-    width: 380px;
-    display: flex;
+.alert_container .alert_content {
+    max-height: 9.5em;
+    width: 47em;
     flex-direction: column;
-    align-items: left;
-    padding-bottom: 30px;
-    white-space: nowrap;
+    padding: 1em;
+    padding-left: 0;
     overflow: hidden;
-    text-overflow: ellipsis;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.alert_content_title {
-    display: inline-block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 600;
+.alert_container .alert_content .alert_content_title {
+    padding-bottom: 0.3em;
+    font-size: 2.1em;
+    font-weight: 500;
 }
 
-.alert_content_message {
-    display: inline-block;
-    font-size: 2.2em;
+.alert_container .alert_content .alert_content_message {
+    max-height: 2.4em;
+    overflow: hidden;
+    line-height: 1.3em;
+    font-size: 1.8em;
     font-weight: 300;
 }
 
 .alert_container.success {
-    color: #fff;
+    color: #F0EAE2;
     background-color: #336e53;
 }
 

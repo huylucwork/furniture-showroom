@@ -148,15 +148,16 @@ svg:hover.icon-hover {
   display: inline-flex;
   margin-left: -5px;
   backdrop-filter: blur(4px);
+  position: relative;
 }
 
-.logo_img {
-  position: absolute;
-  top: 10px;
+.logo .logo_img {
+  /* position: absolute; */
+  margin-top: 10px;
   width: 125px;
   height: 70.19px;
   cursor: pointer;
-  left: 70px;
+  margin-left: 70px;
 }
 
 .navbar_button_auth {
