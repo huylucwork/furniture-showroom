@@ -18,7 +18,7 @@ export default function AboutUs() {
     <div className="aboutUs_container">
         <section className="aboutUs_intro-vid">
             <video autoPlay {...(muteVid && { muted: true })}>
-                <source src="./vid/aboutUs_intro.mp4" type="video/mp4"/>
+                <source src="https://ik.imagekit.io/gyeviu0zo/aboutUs_intro.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1669449399087" type="video/mp4"/>
             </video>
             <h1 className={aboutUsDecs && "show_decs"}>HIFURDEZ</h1>
             <p className={aboutUsDecs && "show_decs"}>Make your home become cozy and comfortable.</p>

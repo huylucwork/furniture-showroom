@@ -90,6 +90,10 @@
   position: relative;
 }
 
+.aboutUs_info_decs h2 {
+  font-family: 'MinervaModern';
+}
+
 .aboutUs_info_decs:nth-child(1) {
   position: absolute;
   top: 15em;
