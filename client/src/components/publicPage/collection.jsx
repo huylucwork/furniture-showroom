@@ -13,6 +13,7 @@ export default function Collection ( {site} ) {
             <div className="col item">
                 <div className="collection_img">
                     <img src="../img/autumn.jpg" alt="" />
+                    <img src="../img/autumn2.jpg" alt="" />
                 </div>
                 <h1 className={site}>Name of item</h1>
                 <p>$999</p>

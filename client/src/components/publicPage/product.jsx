@@ -10,8 +10,6 @@ export default function Product( {
 
   const productArr = ["Price: Low to high", "Price: High to low"];
 
-  const [zoomIn, setZoomIn] = useState(false);
-
   const navigate = useNavigate();
 
   const RenderProduct = () => {
@@ -26,11 +24,10 @@ export default function Product( {
               <img 
                 src="./img/autumn.jpg" 
                 alt=""
-                className={"firstImg"}/>
+                className="firstImg"/>
               <img 
                 src="./img/autumn2.jpg" 
-                alt=""
-                className="secondImg"/>
+                alt=""/>
             </div>
             <h2>Name of Item</h2>
             <p>$123</p>

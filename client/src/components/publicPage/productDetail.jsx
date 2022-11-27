@@ -31,6 +31,7 @@ export default function ProductDetail ( {filterCollection, filterCategory, setFi
             <div className="col item">
                 <div className="detail_ctn">
                     <img src="./img/autumn.jpg" alt="" />
+                    <img src="./img/autumn2.jpg" alt="" />
                 </div>
                 <h2>Name of item</h2>
                 <p>$999</p>
