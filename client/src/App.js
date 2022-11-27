@@ -15,7 +15,6 @@ import Admin from "./components/admin/admin";
 import Checkout from "./components/cart/checkout";
 import ProductDetail from "./components/publicPage/productDetail";
 import Error from "./components/publicPage/error";
-import { Analytics } from "@vercel/analytics/react";
 
 export const AppContext = React.createContext();
 
@@ -43,7 +42,6 @@ function App() {
       <div id="App">
         {openAlert && <Alert alert={alert} setOpenAlert={setOpenAlert} />}
         <ScrollToTop />
-        <Analytics />
         <Header />
         <Routes>
           <Route
