@@ -43,7 +43,7 @@ function App() {
   const [openLoading, setOpenLoading] = useState(false);
 
   //items
-  let items = [];
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     // Get all of items
@@ -51,17 +51,13 @@ function App() {
         setOpenLoading(true);
         Axios.get("https://www.hifurdez.systems/products")
             .then((response) => {
-              response.data.forEach(element => {
-                items.push(element)
-              });
+              setItems(response.data);
               setOpenLoading(false);
-              console.log(response.data);
-              console.log(items[0]);
             })
             .catch(err => {
                 setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
                 setOpenAlert(true)
-            })
+            });            
     }
     // setOpenLoading(true)
     // Axios.get("/api/auth")

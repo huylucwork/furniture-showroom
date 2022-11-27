@@ -5,7 +5,8 @@ import Sort from "./sort";
 
 export default function Product( {
   collectionProduct, categoryProduct,
-  filterCollection, setFilterCollection, filterCategory, setFilterCategory
+  filterCollection, setFilterCollection, filterCategory, setFilterCategory,
+  items
 } ) {
 
   const productArr = ["Price: Low to high", "Price: High to low"];
@@ -71,7 +72,29 @@ export default function Product( {
       </div>
       <div className="product_content">
         <div className="product_row">
-          <RenderProduct />
+          {items.map((item, index)=> {
+            return index < 16 && (
+              <div 
+                key={item.sku}
+                className="product_element" 
+                onClick={()=>navigate("../product-detail")}>
+                  <div className="contain_img">
+                    <img 
+                      src={item.product_image_2} 
+                      alt=""
+                      className="firstImg"/>
+                    <img 
+                      src={item.product_image_1} 
+                      alt=""/>
+                  </div>
+                  <div className="text">
+                    <h2>{item.product_name}</h2>
+                    <p className={item.discount_price && "price-discount"}>$ {item.price}</p>
+                    {item.discount_price && <p>$ {item.discount_price}</p>}
+                  </div>
+              </div>
+            )
+          })}
         </div>
         <div className="product_row">
           <div className="history_pagination">
