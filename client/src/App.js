@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Axios from "axios";
@@ -15,6 +15,7 @@ import Admin from "./components/admin/admin";
 import Checkout from "./components/cart/checkout";
 import ProductDetail from "./components/publicPage/productDetail";
 import Error from "./components/helper/error";
+import Loading from "./components/helper/loading";
 import { Analytics } from "@vercel/analytics/react";
 
 export const AppContext = React.createContext();
@@ -37,6 +38,41 @@ function App() {
   //alert
   const [openAlert, setOpenAlert] = useState(true);
   const [alert, setAlert] = useState({ type: "", message: "" });
+  
+  //loading
+  const [openLoading, setOpenLoading] = useState(false);
+
+  //items
+  let items = [];
+
+  useEffect(() => {
+    // Get all of items
+    if (items.length === 0) {
+        setOpenLoading(true);
+        Axios.get("https://www.hifurdez.systems/products")
+            .then((response) => {
+              response.data.forEach(element => {
+                items.push(element)
+              });
+              setOpenLoading(false);
+              console.log(response.data);
+              console.log(items[0]);
+            })
+            .catch(err => {
+                setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+                setOpenAlert(true)
+            })
+    }
+    // setOpenLoading(true)
+    // Axios.get("/api/auth")
+    //     .then((response) => {
+    //         setUser(response.data.user)
+    //         setOpenLoading(false)
+    //     })
+    //     .catch(err => {
+    //         setOpenLoading(false)
+    //     })
+  }, [])
 
   return (
     <AppContext.Provider>
@@ -45,6 +81,7 @@ function App() {
         <ScrollToTop />
         <Analytics />
         <Header />
+        {openLoading ? <Loading /> :
         <Routes>
           <Route
             index
@@ -80,6 +117,7 @@ function App() {
                 setFilterCollection={setFilterCollection}
                 filterCategory={filterCategory}
                 setFilterCategory={setFilterCategory}
+                items = {items}
               />
             }
           />
@@ -129,7 +167,7 @@ function App() {
             }
           />
           <Route path="*" element={<Error />} />
-        </Routes>
+        </Routes>}
         <Footer />
       </div>
     </AppContext.Provider>

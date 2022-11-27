@@ -22,11 +22,11 @@ export default function Product( {
           onClick={()=>navigate("../product-detail")}>
             <div className="contain_img">
               <img 
-                src="./img/autumn.jpg" 
+                src="https://res.cloudinary.com/castlery/image/private/b_rgb:FFFFFF,c_fit,f_auto,q_auto,w_1000/v1624966277/crusader/variants/T50440968-TL4002-SV/Adams-Ottoman-Pearl-Beige-Silver-Leg-Lifestyle-Crop.jpg" 
                 alt=""
                 className="firstImg"/>
               <img 
-                src="./img/autumn2.jpg" 
+                src="https://res.cloudinary.com/castlery/image/private/b_rgb:eae0d3,c_fit,f_auto,q_auto,w_1000/v1619341174/crusader/variants/T50440968-TL4002-SV/Adams-Ottoman-Pearl-Beige-Silver-Front.jpg" 
                 alt=""/>
             </div>
             <h2>Name of Item</h2>
