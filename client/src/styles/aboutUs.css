@@ -29,7 +29,7 @@
 .aboutUs_intro-vid h1 {
   font-family: 'Cinzel Decorative';
   position: absolute;
-  top: 32%;
+  top: 25%;
   left: 1.7em;
   width: 6.8em;
   height: 1.1em;
@@ -45,7 +45,7 @@
 
 .aboutUs_intro-vid p {
   position: absolute;
-  top: calc(32% + 4em);
+  top: calc(25% + 4em);
   left: 5.8em;
   width: 25em;
   height: 1.3em;
