@@ -21,7 +21,13 @@ export default function Product( {
           className="product_element" 
           onClick={()=>navigate("../product-detail")}>
             <div className="contain_img">
-              <img src="./img/autumn.jpg" alt="" />
+              <img 
+                src="./img/autumn.jpg" 
+                alt=""
+                className="firstImg"/>
+              <img 
+                src="./img/autumn2.jpg" 
+                alt=""/>
             </div>
             <h2>Name of Item</h2>
             <p>$123</p>

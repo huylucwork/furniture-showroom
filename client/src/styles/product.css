@@ -106,6 +106,7 @@
   border: 1px solid transparent;
   margin-bottom: 8.2em;
   padding-bottom: 1em;
+  cursor: pointer;
 }
 
 .product_element:nth-child(13),
@@ -120,20 +121,29 @@
 }
 
 .product_element .contain_img {
+  position: relative;
   width: 35.7em;
   height: 41.7em;
   overflow: hidden;
 }
 
-.product_element:hover .contain_img img {
+.product_element:hover .contain_img .firstImg {
   transform: scale(1.1);
 }
 
 .product_element img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: #D9D9D9;
-  transition: transform .6s;
+  transition: all .6s;
+  opacity: 1;
+}
+
+.product_element:hover img:nth-child(2) {
+  opacity: 0;
 }
 
 .product_element h2,

@@ -262,11 +262,18 @@
 }
 
 .detail_ctn img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: #d9d9d9;
-    transition: transform .6s;
+    transition: all .6s;
 }
+
+.detail_ctn:hover img:nth-child(2) {
+    opacity: 0;
+  }  
 
 .product-detail_recommend .items .item h2 {
     font-size: 2.4rem;
@@ -284,6 +291,7 @@
 }
 
 .detail_ctn {
+    position: relative;
     margin-left: 50%;
     transform: translateX(-50%);
     width: 34rem;

@@ -240,7 +240,7 @@
 .collection_part_3 .items .item img {
     width: 100%;
     height: 100%;
-    transition: transform .6s;
+    transition: all .6s;
 }
 
 .collection_part_3 .items .item h1 {
@@ -260,14 +260,25 @@
 }
 
 .collection_img {
+    position: relative;
     width: 35.7rem;
     height: 41.7rem;
     background-color: #d9d9d9;
     overflow: hidden;
 }
 
-.collection_part_3 .items .item:hover img {
+.collection_part_3 .items .item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.collection_part_3 .items .item:hover img:nth-child(1) {
     transform: scale(1.1);
+}
+
+.collection_part_3 .items .item:hover img:nth-child(2) {
+    opacity: 0;
 }
 
 .collection_part_3 .items .item:hover p,

@@ -33,7 +33,7 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
     <div className="aboutUs_container">
         <section className="aboutUs_intro-vid">
             <video autoPlay {...(muteVid && { muted: true })}>
-                <source src="https://ik.imagekit.io/gyeviu0zo/aboutUs_intro.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1669449399087" type="video/mp4"/>
+                <source src="https://ik.imagekit.io/gyeviu0zo/reduceMore.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1669519034567" type="video/mp4"/>
             </video>
             <h1 className={aboutUsDecs && "show_decs"}>HIFURDEZ</h1>
             <p className={aboutUsDecs && "show_decs"}>Make your home become cozy and comfortable.</p>
@@ -84,7 +84,7 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
                         <p className="col-10">contact@hifurdez.com</p>
                     </div>
                 </div>
-                <textarea name="contact" id="contact" className="aboutUs_contact-info_sth" placeholder="Send we an email!" 
+                <textarea name="contact" id="contact" className="aboutUs_contact-info_sth" placeholder="Send us an email!" 
                             value={inputEmail} onChange={e => setInputEmail(e.target.value)}></textarea>
                 <input type="submit" value="Submit" className="aboutUs_contact_submit" onClick={()=>handleSubmit()}></input>
                 {/* <img src="#" alt="#" /> */}
