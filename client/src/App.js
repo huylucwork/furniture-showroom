@@ -14,7 +14,7 @@ import Footer from "./components/headerFooter/footer";
 import Admin from "./components/admin/admin";
 import Checkout from "./components/cart/checkout";
 import ProductDetail from "./components/publicPage/productDetail";
-import Error from "./components/publicPage/error";
+import Error from "./components/helper/error";
 import { Analytics } from "@vercel/analytics/react";
 
 export const AppContext = React.createContext();
