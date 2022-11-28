@@ -215,7 +215,7 @@
   left: 50%;
   transform: translateX(-50%);
   box-shadow: inset 4.2em 0 0 0.00375em var(--boxColor);
-  transition: ease-out 0.9s;
+  transition: ease-out 0.5s;
 }
 
 .admin_save:hover {
