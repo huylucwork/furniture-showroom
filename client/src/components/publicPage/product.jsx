@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/product.css";
 import Sort from "./sort";
+import ScrollToTop from "../../utils/scrollToTop";
 
 export default function Product( {
   collectionProduct, categoryProduct,
@@ -13,31 +14,70 @@ export default function Product( {
 
   const navigate = useNavigate();
 
-  const RenderProduct = () => {
-    let list = [];
-    for(var i = 0; i < 16; i++){
-      list.push(
-        <div 
-          key={i}
-          className="product_element" 
-          onClick={()=>navigate("../product-detail")}>
-            <div className="contain_img">
-              <img 
-                src="https://res.cloudinary.com/castlery/image/private/b_rgb:FFFFFF,c_fit,f_auto,q_auto,w_1000/v1624966277/crusader/variants/T50440968-TL4002-SV/Adams-Ottoman-Pearl-Beige-Silver-Leg-Lifestyle-Crop.jpg" 
-                alt=""
-                className="firstImg"/>
-              <img 
-                src="https://res.cloudinary.com/castlery/image/private/b_rgb:eae0d3,c_fit,f_auto,q_auto,w_1000/v1619341174/crusader/variants/T50440968-TL4002-SV/Adams-Ottoman-Pearl-Beige-Silver-Front.jpg" 
-                alt=""/>
-            </div>
-            <h2>Name of Item</h2>
-            <p>$123</p>
-        </div>
-      )
+  // for fragment
+  const [currentFragment, setCurrentFragment] = useState(0);
+  const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+  const maxOfFragment = 20;
+  const numberOfFragment = Math.ceil(items.length * 1.0 / maxOfFragment);
+  function prevFragment() {
+    if (currentFragment > 0) {
+      setCurrentFragment(currentFragment - 1);
+      currentFragment === 1 ?
+        setlistFragment([0,1,2]):
+        setlistFragment([currentFragment-2, currentFragment-1, currentFragment]);
     }
-    return list;
+  }
+  function nextFragment() {
+    if (currentFragment < numberOfFragment - 1) {
+      setCurrentFragment(currentFragment + 1);
+      currentFragment === numberOfFragment - 2 ?
+        setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1]):
+      setlistFragment([currentFragment, currentFragment + 1, currentFragment + 2]);
+    }
   }
 
+  const ListFragment = ( {value, index} ) => {
+    if (value === 0 && index === 0)
+      return (
+        <p key={index} 
+          className={currentFragment === 0 && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(0)
+            setlistFragment([0,1,2])
+            console.log(listFragment)
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+    else if (value === numberOfFragment - 1 && index === 2)
+      return (
+        <p key={index} 
+          className={value === currentFragment && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(numberOfFragment - 1)
+            setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1])
+            console.log(listFragment)
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+    else
+      return (
+        <p key={index} 
+          className={value === currentFragment && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(value)
+            setlistFragment([value-1, value, value+1])
+            console.log(listFragment)
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+  }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0})
+  }, [currentFragment]);
 
   return (
     <div className="product_container">
@@ -73,7 +113,7 @@ export default function Product( {
       <div className="product_content">
         <div className="product_row">
           {items.map((item, index)=> {
-            return index < 16 && (
+            return index >= currentFragment * maxOfFragment && index < (currentFragment + 1) * maxOfFragment && (
               <div 
                 key={item.sku}
                 className="product_element" 
@@ -89,8 +129,10 @@ export default function Product( {
                   </div>
                   <div className="text">
                     <h2>{item.product_name}</h2>
-                    <p className={item.discount_price && "price-discount"}>$ {item.price}</p>
-                    {item.discount_price && <p>$ {item.discount_price}</p>}
+                    <p> 
+                      <span className={item.discount_price && "price-discount"}>$ {item.price}</span>
+                      {item.discount_price && <span>  $ {item.discount_price}</span>}
+                    </p>
                   </div>
               </div>
             )
@@ -98,21 +140,15 @@ export default function Product( {
         </div>
         <div className="product_row">
           <div className="history_pagination">
-            <a className="text_pagination" href="#">
-              <p>Previous</p>
-            </a>
-            <a className="pagination_focus" href="#">
-              <p>1</p>
-            </a>
-            <a href="#">
-              <p>2</p>
-            </a>
-            <a href="#">
-              <p>3</p>
-            </a>
-            <a className="text_pagination" href="#">
-              <p>Next</p>
-            </a>
+            <p className="text_pagination" onClick={prevFragment}>
+              <button>Previous</button>
+            </p>
+
+            {listFragment.map((value, index) => <ListFragment value={value} index={index} />) }
+
+            <p className="text_pagination" onClick={nextFragment}>
+              <button>Next</button>
+            </p>
           </div>
         </div>
       </div>
