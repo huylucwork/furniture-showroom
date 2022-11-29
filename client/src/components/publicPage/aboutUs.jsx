@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Iframe from 'react-iframe';
 import "../../styles/aboutUs.css";
 
@@ -9,6 +9,12 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
   const [muteVid, setMuteVid] = useState(false);
 
   const [inputEmail, setInputEmail] = useState('');
+
+  const videoRef= useRef();
+
+  useEffect(() => {
+    videoRef.current.volume = 0.5;
+  }, []);
 
   const handleSubmit = () => {
 
@@ -32,7 +38,7 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
   return(
     <div className="aboutUs_container">
         <section className="aboutUs_intro-vid">
-            <video autoPlay {...(muteVid && { muted: true })}>
+            <video autoPlay {...(muteVid && { muted: true })} ref={videoRef}>
                 <source src="https://ik.imagekit.io/gyeviu0zo/reduceMore.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1669519034567" type="video/mp4"/>
             </video>
             <h1 className={aboutUsDecs && "show_decs"}>HIFURDEZ</h1>
