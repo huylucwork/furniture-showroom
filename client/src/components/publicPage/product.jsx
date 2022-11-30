@@ -14,11 +14,34 @@ export default function Product( {
 
   const navigate = useNavigate();
 
+  //filter
+  const [filterItems, setFilterItems] = useState([])
+
+  useEffect(()=>{
+    setFilterItems([]);
+    if (filterCollection === collectionProduct[0] && filterCategory === categoryProduct[0])
+      setFilterItems(items);
+    else if (filterCategory === categoryProduct[0]){
+      items.map((item) => item.collection_name === filterCollection && setFilterItems(oldArray => [...oldArray, item]));
+    }
+    else if (filterCollection === collectionProduct[0]) {
+      items.map((item) => item.category_name === filterCategory && setFilterItems(oldArray => [...oldArray, item]));
+    }
+    else {
+      items.map((item) => item.category_name === filterCategory && item.collection_name === filterCollection 
+        && setFilterItems(oldArray => [...oldArray, item]));
+    }
+    setlistFragment([0,1,2]);
+    setCurrentFragment(0);
+    console.log(filterCategory)
+    console.log(filterCollection)
+  },[filterCollection, filterCategory])
+
   // for fragment
   const [currentFragment, setCurrentFragment] = useState(0);
   const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
   const maxOfFragment = 20;
-  const numberOfFragment = Math.ceil(items.length * 1.0 / maxOfFragment);
+  const numberOfFragment = Math.ceil(filterItems.length * 1.0 / maxOfFragment);
   function prevFragment() {
     if (currentFragment > 0) {
       setCurrentFragment(currentFragment - 1);
@@ -37,14 +60,13 @@ export default function Product( {
   }
 
   const ListFragment = ( {value, index} ) => {
-    if (value === 0 && index === 0)
+    if ((value === 0 && index === 0))
       return (
         <p key={index} 
           className={currentFragment === 0 && "pagination_focus"}
           onClick={() => {
             setCurrentFragment(0)
             setlistFragment([0,1,2])
-            console.log(listFragment)
           }}>
             <button>{value + 1}</button>
         </p>
@@ -56,7 +78,6 @@ export default function Product( {
           onClick={() => {
             setCurrentFragment(numberOfFragment - 1)
             setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1])
-            console.log(listFragment)
           }}>
             <button>{value + 1}</button>
         </p>
@@ -68,7 +89,6 @@ export default function Product( {
           onClick={() => {
             setCurrentFragment(value)
             setlistFragment([value-1, value, value+1])
-            console.log(listFragment)
           }}>
             <button>{value + 1}</button>
         </p>
@@ -112,10 +132,11 @@ export default function Product( {
       </div>
       <div className="product_content">
         <div className="product_row">
-          {items.map((item, index)=> {
-            return index >= currentFragment * maxOfFragment && index < (currentFragment + 1) * maxOfFragment && (
+          {filterItems.map((item, index)=> {
+            return index >= currentFragment * maxOfFragment && 
+                  index < (currentFragment + 1) * maxOfFragment && (
               <div 
-                key={item.sku}
+                key={item.id} 
                 className="product_element" 
                 onClick={()=>navigate("../product-detail")}>
                   <div className="contain_img">
@@ -128,7 +149,8 @@ export default function Product( {
                       alt=""/>
                   </div>
                   <div className="text">
-                    <h2>{item.product_name}</h2>
+                    <h2>{item.collection_name}</h2>
+                    <h2>{item.category_name}</h2>
                     <p> 
                       <span className={item.discount_price && "price-discount"}>$ {item.price}</span>
                       {item.discount_price && <span>  $ {item.discount_price}</span>}

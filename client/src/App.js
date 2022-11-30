@@ -30,9 +30,7 @@ function App() {
   const [site, setSite] = useState(collectionProduct[1]);
 
   //filter
-  const [filterCollection, setFilterCollection] = useState(
-    collectionProduct[0]
-  );
+  const [filterCollection, setFilterCollection] = useState(collectionProduct[0]);
   const [filterCategory, setFilterCategory] = useState(categoryProduct[0]);
 
   //alert
