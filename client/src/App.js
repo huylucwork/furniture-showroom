@@ -27,8 +27,6 @@ function App() {
   const collectionProduct = ["All", "Spring", "Summer", "Autumn", "Winter"];
   const categoryProduct = ["All", "Sofa", "Table", "Chair", "Storage"];
 
-  const [site, setSite] = useState(collectionProduct[1]);
-
   //filter
   const [filterCollection, setFilterCollection] = useState(collectionProduct[0]);
   const [filterCategory, setFilterCategory] = useState(categoryProduct[0]);
@@ -43,19 +41,67 @@ function App() {
   //items
   const [items, setItems] = useState([]);
 
+  //collection
+  const [site, setSite] = useState(collectionProduct[1]);
+  const [springRecommend, setSpringRecommend] = useState([]);
+  const [summerRecommend, setSummerRecommend] = useState([]);
+  const [autumnRecommend, setAutumnRecommend] = useState([]);
+  const [winterRecommend, setWinterRecommend] = useState([]);
+
   useEffect(() => {
+    setOpenLoading(true);
     // Get all of items
     if (items.length === 0) {
-        setOpenLoading(true);
-        Axios.get("https://hifurdez.vercel.app/all-product")
-            .then((response) => {
-              setItems(response.data);
-              setOpenLoading(false);
-            })
-            .catch(err => {
-                setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-                setOpenAlert(true)
-            });            
+      Axios.get("https://hifurdez.vercel.app/all-product")
+          .then((response) => {
+            setItems(response.data);
+          })
+          .catch(err => {
+              setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+              setOpenAlert(true)
+          });            
+    }
+
+    // Get recommend items colletion
+    if (springRecommend.length === 0) {
+      Axios.get("https://hifurdez.vercel.app/product-random-by-spring")
+          .then((response) => {
+            setSpringRecommend(response.data);
+          })
+          .catch(err => {
+              setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+              setOpenAlert(true)
+          });  
+    }
+    if (summerRecommend.length === 0) {
+      Axios.get("https://hifurdez.vercel.app/product-random-by-summer")
+          .then((response) => {
+            setSummerRecommend(response.data);
+          })
+          .catch(err => {
+              setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+              setOpenAlert(true)
+          });  
+    }
+    if (autumnRecommend.length === 0) {
+      Axios.get("https://hifurdez.vercel.app/product-random-by-autumn")
+          .then((response) => {
+            setAutumnRecommend(response.data);
+          })
+          .catch(err => {
+              setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+              setOpenAlert(true)
+          });  
+    }
+    if (winterRecommend.length === 0) {
+      Axios.get("https://hifurdez.vercel.app/product-random-by-winter")
+          .then((response) => {
+            setWinterRecommend(response.data);
+          })
+          .catch(err => {
+              setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+              setOpenAlert(true)
+          });  
     }
     // setOpenLoading(true)
     // Axios.get("/api/auth")
@@ -66,6 +112,7 @@ function App() {
     //     .catch(err => {
     //         setOpenLoading(false)
     //     })
+    setOpenLoading(false);
   }, [])
 
   return (
@@ -93,7 +140,14 @@ function App() {
           <Route path="user" element={<Navigate to="info" />} />
           <Route
             path={"collection-detail/" + site}
-            element={<Collection site={site} />}
+            element={
+              <Collection 
+                site={site} 
+                springRecommend={springRecommend}
+                summerRecommend={summerRecommend}
+                autumnRecommend={autumnRecommend}
+                winterRecommend={springRecommend}
+              />}
           />
           <Route
             path="about-us"

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/collection.css"
 
-export default function Collection ( {site} ) {
+export default function Collection ( {site, springRecommend, summerRecommend, autumnRecommend, winterRecommend,} ) {
 
     const navigate = useNavigate();
 
@@ -82,7 +82,18 @@ export default function Collection ( {site} ) {
                     </svg>
                 </button>
                 <div className="row g-5 items">
-                    <RenderItems />
+                    {site === 'spring' && springRecommend.map((value)=> {
+                        return(
+                            <div className="col item">
+                                <div className="collection_img">
+                                    <img src={value.media_0} alt="" />
+                                    <img src={value.media_1} alt="" />
+                                </div>
+                                <h1 className={site}>{value.product_name}</h1>
+                                <p>$ {value.price}</p>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>

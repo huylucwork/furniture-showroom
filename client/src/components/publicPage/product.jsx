@@ -151,8 +151,8 @@ export default function Product( {
                   <div className="text">
                     <h2>{item.product_name}</h2>
                     <p> 
-                      <span className={item.discount_price && "price-discount"}>$ {item.price}</span>
-                      {item.discount_price && <span>  $ {item.discount_price}</span>}
+                      {item.discount_price && <span>$ {item.discount_price}  </span>}
+                      <span className={item.discount_price && "price-discount"}> $ {item.price}</span>
                     </p>
                   </div>
               </div>
