@@ -74,62 +74,62 @@ export default function ManageItem() {
               Add new
           </button>
         </div>
-        <div className="history_table">
-          <div className="table_row first_row">
-            <div className="table_ele">
-              <p>Collection</p>
+        <div className="table_ctn">
+          <div className="history_table">
+            <div className="table_row first_row">
+              <div className="table_ele">
+                <p>Collection</p>
+              </div>
+              <div className="table_ele">
+                <p>SKU</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
+                <p className="left_align">Name</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
+                <p className="left_align">Price</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
+              </div>
+              <div className="table_ele">
+                <p>Created date</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
+              </div>
+              <div className="table_ele">
+                <p>Updated date</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Update</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Status</p>
+              </div>
             </div>
-            <div className="table_ele">
-              <p>SKU</p>
-            </div>
-            <div className="table_ele admin_fix-size-3">
-              <p className="left_align">Name</p>
-            </div>
-            <div className="table_ele admin_fix-size-3">
-              <p className="left_align">Price</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p>Created date</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p>Updated date</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Update</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Status</p>
-            </div>
+            <RenderColumn />
           </div>
-          <RenderColumn />
-          <div className="table_row">
-            <div className="history_pagination">
-              <a className="text_pagination" href="#">
-                <p>Previous</p>
-              </a>
-              <a className="pagination_focus" href="#">
-                <p>1</p>
-              </a>
-              <a href="#">
-                <p>2</p>
-              </a>
-              <a href="#">
-                <p>3</p>
-              </a>
-              <a className="text_pagination" href="#">
-                <p>Next</p>
-              </a>
-            </div>
-          </div>
+        </div>
+        <div className="history_pagination">
+          <a className="text_pagination" href="#">
+            <p>Previous</p>
+          </a>
+          <a className="pagination_focus" href="#">
+            <p>1</p>
+          </a>
+          <a href="#">
+            <p>2</p>
+          </a>
+          <a href="#">
+            <p>3</p>
+          </a>
+          <a className="text_pagination" href="#">
+            <p>Next</p>
+          </a>
         </div>
         <UpdateAdd 
           trigger={[buttonModal, modalVal]} 

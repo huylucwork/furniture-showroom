@@ -222,8 +222,12 @@
   box-shadow: inset 20.8em 0 0 0.09px #9C674B;
 }
 @media only screen and (max-width: 1750px) {
-  .admin_user-scroll {
+  .admin_user-scroll,
+  .history_table {
       width: 153.1em;
+  }
+  .table_ctn {
+    overflow-x: scroll;
   }
 }
 

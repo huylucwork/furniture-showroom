@@ -71,62 +71,62 @@ export default function OrderSale() {
               d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/>
           </svg>
         </div>
-        <div className="history_table">
-          <div className="table_row first_row horizontal_shadow">
-            <div className="table_ele">
-              <p>Date</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
+        <div className="table_ctn">
+          <div className="history_table">
+            <div className="table_row first_row horizontal_shadow">
+              <div className="table_ele">
+                <p>Date</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Order code</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Picking Code</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
+                <p className="left_align">Name</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Total amount</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Total payment</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
+              </div>
+              <div className="table_ele">
+                <p>Export order</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Detail</p>
+              </div>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Order code</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Picking Code</p>
-            </div>
-            <div className="table_ele admin_fix-size-3">
-              <p className="left_align">Name</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Total amount</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Total payment</p>
-              <button>
-                <i className="fa-solid fa-up-down"></i>
-              </button>
-            </div>
-            <div className="table_ele">
-              <p>Export order</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Detail</p>
-            </div>
+            <RenderColumn />
           </div>
-          <RenderColumn />
-          <div className="table_row">
-            <div className="history_pagination">
-              <a className="text_pagination" href="#">
-                <p>Previous</p>
-              </a>
-              <a className="pagination_focus" href="#">
-                <p>1</p>
-              </a>
-              <a href="#">
-                <p>2</p>
-              </a>
-              <a href="#">
-                <p>3</p>
-              </a>
-              <a className="text_pagination" href="#">
-                <p>Next</p>
-              </a>
-            </div>
-          </div>
+        </div>
+        <div className="history_pagination">
+          <a className="text_pagination" href="#">
+            <p>Previous</p>
+          </a>
+          <a className="pagination_focus" href="#">
+            <p>1</p>
+          </a>
+          <a href="#">
+            <p>2</p>
+          </a>
+          <a href="#">
+            <p>3</p>
+          </a>
+          <a className="text_pagination" href="#">
+            <p>Next</p>
+          </a>
         </div>
       </div>
     </div>
