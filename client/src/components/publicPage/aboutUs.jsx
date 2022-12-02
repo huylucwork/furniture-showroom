@@ -68,9 +68,9 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
                 <h2>GOAL</h2>
                 <p>With the ambition to become one of your friend, a pioneer in the interior field, Hifurdez always tries to improve with Vietnamese elite and intellect. To accomplish that ambition, Hifurdez is committed to fulfill fully the core value proposed by our company "human - product - experience".</p>
             </div>
-            <img src="#" alt="#" className="aboutUs_info_img" />
-            <img src="#" alt="#" className="aboutUs_info_img" />
-            <img src="#" alt="#" className="aboutUs_info_img" />
+            <img src="../img/aboutUs1.jpg" alt="#" className="aboutUs_info_img" />
+            <img src="../img/aboutUs2.jpg" alt="#" className="aboutUs_info_img" />
+            <img src="../img/aboutUs3.jpg" alt="#" className="aboutUs_info_img" />
         </section>
         <section className="aboutUs_founder"></section>
         <section className="aboutUs_contact-us">
