@@ -149,8 +149,7 @@ export default function Product( {
                       alt=""/>
                   </div>
                   <div className="text">
-                    <h2>{item.collection_name}</h2>
-                    <h2>{item.category_name}</h2>
+                    <h2>{item.product_name}</h2>
                     <p> 
                       <span className={item.discount_price && "price-discount"}>$ {item.price}</span>
                       {item.discount_price && <span>  $ {item.discount_price}</span>}
@@ -166,7 +165,33 @@ export default function Product( {
               <button>Previous</button>
             </p>
 
-            {listFragment.map((value, index) => <ListFragment value={value} index={index} />) }
+            {numberOfFragment > 2 && listFragment.map((value, index) => <ListFragment value={value} index={index} />) }
+            {numberOfFragment <= 2 && listFragment.map((value, index) => {
+              if (index === 0) {
+                return(
+                  <p key={index} 
+                    className={currentFragment === 0 && "pagination_focus"}
+                    onClick={() => {
+                      setCurrentFragment(0)
+                      setlistFragment([0,1,2])
+                    }}>
+                      <button>{value + 1}</button>
+                  </p>
+                )
+              }
+              else if (numberOfFragment === 2 && index === 1) {
+                return(
+                  <p key={index} 
+                    className={currentFragment === 1 && "pagination_focus"}
+                    onClick={() => {
+                      setCurrentFragment(1)
+                      setlistFragment([0,1,2])
+                    }}>
+                      <button>{value + 1}</button>
+                  </p>
+                )
+              }
+            }) }
 
             <p className="text_pagination" onClick={nextFragment}>
               <button>Next</button>

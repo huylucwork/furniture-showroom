@@ -47,7 +47,7 @@ function App() {
     // Get all of items
     if (items.length === 0) {
         setOpenLoading(true);
-        Axios.get("https://hifurdez.vercel.app/products")
+        Axios.get("https://hifurdez.vercel.app/all-product")
             .then((response) => {
               setItems(response.data);
               setOpenLoading(false);
