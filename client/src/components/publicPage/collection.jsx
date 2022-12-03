@@ -94,6 +94,42 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                             </div>
                         )
                     })}
+                    {site === 'summer' && summerRecommend.map((value)=> {
+                        return(
+                            <div className="col item">
+                                <div className="collection_img">
+                                    <img src={value.media_0} alt="" />
+                                    <img src={value.media_1} alt="" />
+                                </div>
+                                <h1 className={site}>{value.product_name}</h1>
+                                <p>$ {value.price}</p>
+                            </div>
+                        )
+                    })}
+                    {site === 'autumn' && autumnRecommend.map((value)=> {
+                        return(
+                            <div className="col item">
+                                <div className="collection_img">
+                                    <img src={value.media_0} alt="" />
+                                    <img src={value.media_1} alt="" />
+                                </div>
+                                <h1 className={site}>{value.product_name}</h1>
+                                <p>$ {value.price}</p>
+                            </div>
+                        )
+                    })}
+                    {site === 'winter' && winterRecommend.map((value)=> {
+                        return(
+                            <div className="col item">
+                                <div className="collection_img">
+                                    <img src={value.media_0} alt="" />
+                                    <img src={value.media_1} alt="" />
+                                </div>
+                                <h1 className={site}>{value.product_name}</h1>
+                                <p>$ {value.price}</p>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
