@@ -37,96 +37,96 @@ export default function Warehouse() {
               d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/>
           </svg>
         </div>
-        <div className="history_table admin_user-scroll">
-          <div className="table_row first_row">
-            <div className="table_ele admin_fix-size-2">
-              <p>Code</p>
+        <div className="table_ctn">
+          <div className="history_table admin_user-scroll">
+            <div className="table_row first_row">
+              <div className="table_ele admin_fix-size-2">
+                <p>Code</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Name</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Address</p>
+              </div>
+              <div className="table_ele admin_fix-size-2">
+                <p>Quantity On Hand</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Detail</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Status</p>
+              </div>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Name</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Address</p>
-            </div>
-            <div className="table_ele admin_fix-size-2">
-              <p>Quantity On Hand</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Detail</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Status</p>
-            </div>
-          </div>
 
-          <div className="table_row odd_row">
-            <div className="table_ele admin_fix-size-2">
-              <p>WH100000001</p>
+            <div className="table_row odd_row">
+              <div className="table_ele admin_fix-size-2">
+                <p>WH100000001</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Warehouse xxx</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
+              </div>
+              <div className="table_ele admin_fix-size-2">
+                <p>200</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <button onClick={() => setOpenModal(true) }>Detail</button>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <button 
+                  className={statusButton? "admin_active-btn": "admin_locked-btn"}
+                  onClick={() => setStatusButton(!statusButton)}>
+                  {statusButton? "Active" : "Locked"}
+                </button>
+              </div>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Warehouse xxx</p>
+            <div className="table_row even_row">
+              <div className="table_ele admin_fix-size-2">
+                <p>WH100000001</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Warehouse xxx</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
+              </div>
+              <div className="table_ele admin_fix-size-2">
+                <p>200</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <button onClick={() => setOpenModal(true) }>Detail</button>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <button 
+                  className={statusButton1? "admin_active-btn": "admin_locked-btn"}
+                  onClick={() => setStatusButton1(!statusButton1)}>
+                  {statusButton1? "Active" : "Locked"}
+                </button>
+              </div>
             </div>
-            <div className="table_ele">
-              <p className="left_align">288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
-            </div>
-            <div className="table_ele admin_fix-size-2">
-              <p>200</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={() => setOpenModal(true) }>Detail</button>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button 
-                className={statusButton? "admin_active-btn": "admin_locked-btn"}
-                onClick={() => setStatusButton(!statusButton)}>
-                {statusButton? "Active" : "Locked"}
-              </button>
-            </div>
+            <RenderEmptyRow />
           </div>
-          <div className="table_row even_row">
-            <div className="table_ele admin_fix-size-2">
-              <p>WH100000001</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">Warehouse xxx</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
-            </div>
-            <div className="table_ele admin_fix-size-2">
-              <p>200</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button onClick={() => setOpenModal(true) }>Detail</button>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <button 
-                className={statusButton1? "admin_active-btn": "admin_locked-btn"}
-                onClick={() => setStatusButton1(!statusButton1)}>
-                {statusButton1? "Active" : "Locked"}
-              </button>
-            </div>
-          </div>
-          <RenderEmptyRow />
-          <div className="table_row">
-            <div className="history_pagination">
-              <p className="text_pagination">
-                <button>Previous</button>
-              </p>
-              <p className="pagination_focus">
-                <button>1</button>
-              </p>
-              <p>
-                <button>2</button>
-              </p>
-              <p>
-                <button>3</button>
-              </p>
-              <p className="text_pagination">
-                <button>Next</button>
-              </p>
-            </div>
-          </div>
+        </div>
+        <div className="history_pagination">
+          <p className="text_pagination" href="#">
+            <button>Previous</button>
+          </p>
+          <p className="pagination_focus" href="#">
+            <button>1</button>
+          </p>
+          <p href="#">
+            <button>2</button>
+          </p>
+          <p href="#">
+            <button>3</button>
+          </p>
+          <p className="text_pagination" href="#">
+            <button>Next</button>
+          </p>
         </div>
       </div>
     </div>

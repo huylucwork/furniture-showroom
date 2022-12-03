@@ -65,50 +65,50 @@ export default function ManageUser() {
               d="m21 21l-4.486-4.494M19 10.5a8.5 8.5 0 1 1-17 0a8.5 8.5 0 0 1 17 0Z"/>
           </svg>
         </div>
-        <div className="history_table admin_user-scroll">
-          <div className="table_row first_row">
-            <div className="table_ele admin_fix-size-2">
-              <p>Created Date</p>
+        <div className="table_ctn">
+          <div className="history_table admin_user-scroll">
+            <div className="table_row first_row">
+              <div className="table_ele admin_fix-size-2">
+                <p>Created Date</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">Last active</p>
+              </div>
+              <div className="table_ele">
+                <p className="left_align">User name</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
+                <p className="left_align">Email</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
+                <p className="left_align">Name</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Detail</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Status</p>
+              </div>
             </div>
-            <div className="table_ele">
-              <p className="left_align">Last active</p>
-            </div>
-            <div className="table_ele">
-              <p className="left_align">User name</p>
-            </div>
-            <div className="table_ele admin_fix-size-3">
-              <p className="left_align">Email</p>
-            </div>
-            <div className="table_ele admin_fix-size-3">
-              <p className="left_align">Name</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Detail</p>
-            </div>
-            <div className="table_ele admin_fix-size-1">
-              <p>Status</p>
-            </div>
+            <RenderColumn />
           </div>
-          <RenderColumn />
-          <div className="table_row">
-            <div className="history_pagination">
-              <p className="text_pagination">
-                <button>Previous</button>
-              </p>
-              <p className="pagination_focus">
-                <button>1</button>
-              </p>
-              <p>
-                <button>2</button>
-              </p>
-              <p>
-                <button>3</button>
-              </p>
-              <p className="text_pagination">
-                <button>Next</button>
-              </p>
-            </div>
-          </div>
+        </div>
+        <div className="history_pagination">
+          <p className="text_pagination" href="#">
+            <button>Previous</button>
+          </p>
+          <p className="pagination_focus" href="#">
+            <button>1</button>
+          </p>
+          <p href="#">
+            <button>2</button>
+          </p>
+          <p href="#">
+            <button>3</button>
+          </p>
+          <p className="text_pagination" href="#">
+            <button>Next</button>
+          </p>
         </div>
       </div>
     </div>

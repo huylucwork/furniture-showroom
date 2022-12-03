@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Iframe from 'react-iframe';
 import "../../styles/aboutUs.css";
 
@@ -9,6 +9,12 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
   const [muteVid, setMuteVid] = useState(false);
 
   const [inputEmail, setInputEmail] = useState('');
+
+  const videoRef= useRef();
+
+  useEffect(() => {
+    videoRef.current.volume = 0.5;
+  }, []);
 
   const handleSubmit = () => {
 
@@ -32,7 +38,7 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
   return(
     <div className="aboutUs_container">
         <section className="aboutUs_intro-vid">
-            <video autoPlay {...(muteVid && { muted: true })}>
+            <video autoPlay {...(muteVid && { muted: true })} ref={videoRef}>
                 <source src="https://ik.imagekit.io/gyeviu0zo/reduceMore.mp4?ik-sdk-version=javascript-1.4.3&updatedAt=1669519034567" type="video/mp4"/>
             </video>
             <h1 className={aboutUsDecs && "show_decs"}>HIFURDEZ</h1>
@@ -62,9 +68,9 @@ export default function AboutUs( {setAlert, setOpenAlert} ) {
                 <h2>GOAL</h2>
                 <p>With the ambition to become one of your friend, a pioneer in the interior field, Hifurdez always tries to improve with Vietnamese elite and intellect. To accomplish that ambition, Hifurdez is committed to fulfill fully the core value proposed by our company "human - product - experience".</p>
             </div>
-            <img src="#" alt="#" className="aboutUs_info_img" />
-            <img src="#" alt="#" className="aboutUs_info_img" />
-            <img src="#" alt="#" className="aboutUs_info_img" />
+            <img src="../img/aboutUs1.jpg" alt="#" className="aboutUs_info_img" />
+            <img src="../img/aboutUs2.jpg" alt="#" className="aboutUs_info_img" />
+            <img src="../img/aboutUs3.jpg" alt="#" className="aboutUs_info_img" />
         </section>
         <section className="aboutUs_founder"></section>
         <section className="aboutUs_contact-us">

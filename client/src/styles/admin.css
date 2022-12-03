@@ -215,15 +215,19 @@
   left: 50%;
   transform: translateX(-50%);
   box-shadow: inset 4.2em 0 0 0.00375em var(--boxColor);
-  transition: ease-out 0.9s;
+  transition: ease-out 0.5s;
 }
 
 .admin_save:hover {
   box-shadow: inset 20.8em 0 0 0.09px #9C674B;
 }
 @media only screen and (max-width: 1750px) {
-  .admin_user-scroll {
+  .admin_user-scroll,
+  .history_table {
       width: 153.1em;
+  }
+  .table_ctn {
+    overflow-x: scroll;
   }
 }
 
