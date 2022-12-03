@@ -115,21 +115,21 @@ export default function ManageItem() {
           </div>
         </div>
         <div className="history_pagination">
-          <a className="text_pagination" href="#">
-            <p>Previous</p>
-          </a>
-          <a className="pagination_focus" href="#">
-            <p>1</p>
-          </a>
-          <a href="#">
-            <p>2</p>
-          </a>
-          <a href="#">
-            <p>3</p>
-          </a>
-          <a className="text_pagination" href="#">
-            <p>Next</p>
-          </a>
+          <p className="text_pagination" href="#">
+            <button>Previous</button>
+          </p>
+          <p className="pagination_focus" href="#">
+            <button>1</button>
+          </p>
+          <p href="#">
+            <button>2</button>
+          </p>
+          <p href="#">
+            <button>3</button>
+          </p>
+          <p className="text_pagination" href="#">
+            <button>Next</button>
+          </p>
         </div>
         <UpdateAdd 
           trigger={[buttonModal, modalVal]} 

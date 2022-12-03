@@ -32,12 +32,12 @@ export default function Alert({ alert, setOpenAlert }) {
                 {
                     setTimeout(function () {
                         setAnimation('out')
-                    }, 1400)
+                    }, 2000)
                 }
                 {
                     setTimeout(function () {
                         setOpenAlert(false)
-                    }, 1900)
+                    }, 2500)
                 }
                 </div>
             </div>
