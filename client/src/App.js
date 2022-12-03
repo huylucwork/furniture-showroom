@@ -49,12 +49,13 @@ function App() {
   const [winterRecommend, setWinterRecommend] = useState([]);
 
   useEffect(() => {
-    setOpenLoading(true);
     // Get all of items
-    if (items.length === 0) {
+    if (items.length === 0) { 
+      setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/all-product")
           .then((response) => {
             setItems(response.data);
+            setOpenLoading(false);
           })
           .catch(err => {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
@@ -64,9 +65,11 @@ function App() {
 
     // Get recommend items colletion
     if (springRecommend.length === 0) {
+      setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-spring")
           .then((response) => {
             setSpringRecommend(response.data);
+            setOpenLoading(false);
           })
           .catch(err => {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
@@ -74,9 +77,11 @@ function App() {
           });  
     }
     if (summerRecommend.length === 0) {
+      setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-summer")
           .then((response) => {
             setSummerRecommend(response.data);
+            setOpenLoading(false);
           })
           .catch(err => {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
@@ -84,9 +89,11 @@ function App() {
           });  
     }
     if (autumnRecommend.length === 0) {
+      setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-autumn")
           .then((response) => {
             setAutumnRecommend(response.data);
+            setOpenLoading(false);
           })
           .catch(err => {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
@@ -94,9 +101,11 @@ function App() {
           });  
     }
     if (winterRecommend.length === 0) {
+      setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-winter")
           .then((response) => {
             setWinterRecommend(response.data);
+            setOpenLoading(false);
           })
           .catch(err => {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
@@ -112,7 +121,6 @@ function App() {
     //     .catch(err => {
     //         setOpenLoading(false)
     //     })
-    setOpenLoading(false);
   }, [])
 
   return (
