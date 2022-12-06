@@ -1,14 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 import "../../styles/product.css";
 import Sort from "./sort";
-import ScrollToTop from "../../utils/scrollToTop";
 
 export default function Product( {
   collectionProduct, categoryProduct,
   filterCollection, setFilterCollection, filterCategory, setFilterCategory,
-  items
+  items, setItems,
+  setProductDetail,
+  setAlert, setOpenAlert, setOpenLoading
 } ) {
+
+  useEffect(()=>{
+    if(!items.length) {
+      if (items.length === 0) {
+        setOpenLoading(true);
+        Axios.get("https://hifurdez.vercel.app/all-product")
+            .then((response) => {
+              setItems(response.data);
+              setOpenLoading(false);
+            })
+            .catch(err => {
+                setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+                setOpenAlert(true)
+            });            
+      }
+    }
+  },[])
 
   const productArr = ["Price: Low to high", "Price: High to low"];
 
@@ -33,8 +52,6 @@ export default function Product( {
     }
     setlistFragment([0,1,2]);
     setCurrentFragment(0);
-    console.log(filterCategory)
-    console.log(filterCollection)
   },[filterCollection, filterCategory])
 
   // for fragment
@@ -99,6 +116,28 @@ export default function Product( {
     window.scrollTo({ top: 0})
   }, [currentFragment]);
 
+  const handleNavigateProduct = (id) => {
+    // setOpenLoading(true);
+    // Axios.post("https://hifurdez.vercel.app/product-by-id", {
+    //   id:id
+    // })
+    //   .then((response) => {
+    //     if (response.data.length) {
+    //       setProductDetail(response.data[0]);
+    //       setOpenLoading(false);
+    //     }
+    //     else {
+    //       setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+    //       setOpenAlert(true)
+    //     }
+    //   })
+    //   .catch(err => {
+    //       setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+    //       setOpenAlert(true)
+    //   });
+    navigate(`../product-detail/${id}`);
+  }
+
   return (
     <div className="product_container">
       <div className="product_sidebar">
@@ -106,7 +145,7 @@ export default function Product( {
           <h2>Collection</h2>
           {collectionProduct.map((collection, index) => {
             return (
-              <button className={filterCollection === collection ? "button_selected" : ""} 
+              <button key={index} className={filterCollection === collection ? "button_selected" : ""} 
                   onClick={()=>setFilterCollection(collection)}>
                 {collectionProduct[index]}
               </button>
@@ -118,7 +157,7 @@ export default function Product( {
           <h2>Category</h2>
           {categoryProduct.map((category, index) => {
             return (
-              <button className={filterCategory === category? "button_selected" : ''} 
+              <button key={index} className={filterCategory === category? "button_selected" : ''} 
                   onClick={()=>setFilterCategory(category)}>
                 {categoryProduct[index]}
               </button>
@@ -138,7 +177,7 @@ export default function Product( {
               <div 
                 key={item.id} 
                 className="product_element" 
-                onClick={()=>navigate("../product-detail")}>
+                onClick={()=>{handleNavigateProduct(item.id)}}>
                   <div className="contain_img">
                     <img 
                       src={item.product_image_2} 
@@ -151,8 +190,8 @@ export default function Product( {
                   <div className="text">
                     <h2>{item.product_name}</h2>
                     <p> 
-                      {item.discount_price && <span>$ {item.discount_price}  </span>}
-                      <span className={item.discount_price && "price-discount"}> $ {item.price}</span>
+                      {item.discount_price !== item.price  && <span>$ {item.discount_price}  </span>}
+                      <span className={item.discount_price !== item.price && "price-discount"}> $ {item.price}</span>
                     </p>
                   </div>
               </div>
