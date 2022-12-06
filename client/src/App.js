@@ -48,7 +48,6 @@ function App() {
   const [autumnRecommend, setAutumnRecommend] = useState([]);
   const [winterRecommend, setWinterRecommend] = useState([]);
 
-  //product detail
   const [productDetail, setProductDetail] = useState();
 
   useEffect(() => {
@@ -124,7 +123,7 @@ function App() {
     //     .catch(err => {
     //         setOpenLoading(false)
     //     })
-  }, [])
+  },[])
 
   return (
     <AppContext.Provider>
@@ -150,10 +149,43 @@ function App() {
           <Route path="user/info" element={<User tab={"info"} />} />
           <Route path="user" element={<Navigate to="info" />} />
           <Route
-            path={"collection-detail/" + site}
+            path={"collection-detail/spring"}
             element={
               <Collection 
-                site={site} 
+                site={"spring"} 
+                springRecommend={springRecommend}
+                summerRecommend={summerRecommend}
+                autumnRecommend={autumnRecommend}
+                winterRecommend={springRecommend}
+              />}
+          />
+          <Route
+            path={"collection-detail/summer"}
+            element={
+              <Collection 
+                site={"summer"} 
+                springRecommend={springRecommend}
+                summerRecommend={summerRecommend}
+                autumnRecommend={autumnRecommend}
+                winterRecommend={springRecommend}
+              />}
+          />
+          <Route
+            path={"collection-detail/autumn"}
+            element={
+              <Collection 
+                site={"autumn"} 
+                springRecommend={springRecommend}
+                summerRecommend={summerRecommend}
+                autumnRecommend={autumnRecommend}
+                winterRecommend={springRecommend}
+              />}
+          />
+          <Route
+            path={"collection-detail/winter"}
+            element={
+              <Collection 
+                site={"winter"} 
                 springRecommend={springRecommend}
                 summerRecommend={summerRecommend}
                 autumnRecommend={autumnRecommend}
@@ -177,7 +209,7 @@ function App() {
                 filterCategory={filterCategory}
                 setFilterCategory={setFilterCategory}
                 items = {items}
-                setProductDetail = {setProductDetail}
+                setItems = {setItems}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
                 setOpenLoading={setOpenLoading}
@@ -185,7 +217,7 @@ function App() {
             }
           />
           <Route
-            path="product-detail"
+            path="product-detail/:id"
             element={
               <ProductDetail
                 filterCollection={filterCollection}
@@ -194,7 +226,8 @@ function App() {
                 setFilterCollection={setFilterCollection}
                 collectionProduct={collectionProduct}
                 categoryProduct={categoryProduct}
-                productDetail={productDetail}
+                productDetail = {productDetail}
+                setProductDetail = {setProductDetail}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
                 setOpenLoading={setOpenLoading}

@@ -3,15 +3,31 @@ import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "../../styles/product.css";
 import Sort from "./sort";
-import ScrollToTop from "../../utils/scrollToTop";
 
 export default function Product( {
   collectionProduct, categoryProduct,
   filterCollection, setFilterCollection, filterCategory, setFilterCategory,
-  items,
+  items, setItems,
   setProductDetail,
   setAlert, setOpenAlert, setOpenLoading
 } ) {
+
+  useEffect(()=>{
+    if(!items.length) {
+      if (items.length === 0) {
+        setOpenLoading(true);
+        Axios.get("https://hifurdez.vercel.app/all-product")
+            .then((response) => {
+              setItems(response.data);
+              setOpenLoading(false);
+            })
+            .catch(err => {
+                setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+                setOpenAlert(true)
+            });            
+      }
+    }
+  },[])
 
   const productArr = ["Price: Low to high", "Price: High to low"];
 
@@ -101,25 +117,25 @@ export default function Product( {
   }, [currentFragment]);
 
   const handleNavigateProduct = (id) => {
-    setOpenLoading(true);
-    Axios.post("https://hifurdez.vercel.app/product-by-id", {
-      id:id
-    })
-      .then((response) => {
-        if (response.data.length) {
-          setProductDetail(response.data[0]);
-          setOpenLoading(false);
-        }
-        else {
-          setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-          setOpenAlert(true)
-        }
-      })
-      .catch(err => {
-          setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-          setOpenAlert(true)
-      });
-    navigate("../product-detail");
+    // setOpenLoading(true);
+    // Axios.post("https://hifurdez.vercel.app/product-by-id", {
+    //   id:id
+    // })
+    //   .then((response) => {
+    //     if (response.data.length) {
+    //       setProductDetail(response.data[0]);
+    //       setOpenLoading(false);
+    //     }
+    //     else {
+    //       setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+    //       setOpenAlert(true)
+    //     }
+    //   })
+    //   .catch(err => {
+    //       setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+    //       setOpenAlert(true)
+    //   });
+    navigate(`../product-detail/${id}`);
   }
 
   return (

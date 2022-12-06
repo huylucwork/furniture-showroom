@@ -1,5 +1,6 @@
 .product-detail_container {
     width: 85%;
+    min-height: 100vh;
     font-size: 10px;
     padding-top: 9rem;
     color: #473C38;
@@ -218,7 +219,7 @@
 }
 
 .product-detail_body_right_about .about_container_left {
-    width: 40%;
+    width: 30%;
     font-size: 2rem;
     font-weight: 500;
     padding-bottom: 3rem;
@@ -227,7 +228,7 @@
 }
 
 .product-detail_body_right_about .about_container_right {
-    width: 60%;
+    width: 70%;
     font-size: 2rem;
     font-weight: 400;
     line-height: 1.5;
@@ -258,7 +259,8 @@
     margin-top: 4rem;
     font-size: 2rem;
     font-weight: 500;
-    padding-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    line-height: 1.5;
 }
 
 .product-detail_body_right_policy .policy_container p {
