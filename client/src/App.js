@@ -51,9 +51,6 @@ function App() {
   //product detail
   const [productDetail, setProductDetail] = useState();
 
-  //admin
-  const [users, setUsers] = useState([]);
-
   useEffect(() => {
     // Get all of items
     if (items.length === 0) {
@@ -127,19 +124,6 @@ function App() {
     //     .catch(err => {
     //         setOpenLoading(false)
     //     })
-  },[])
-
-  useEffect(()=>{
-    setOpenLoading(true);
-    Axios.get("https://hifurdez.vercel.app/admin/users")
-      .then((response)=> {
-        setUsers(response.data);
-        setOpenLoading(false);
-      })
-      .catch((err)=>{
-        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-        setOpenAlert(true)
-      })
   },[])
 
   return (
@@ -252,7 +236,6 @@ function App() {
             path="admin/manage-users"
             element={<Admin 
               tab={"manage-users"}  
-              users={users} 
               setAlert={setAlert}
               setOpenAlert={setOpenAlert}
           />}

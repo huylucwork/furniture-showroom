@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 import ManageUser from "./manageUsers";
 import ManageItem from "./manageItems";
 import Supplier from "./supplier";
@@ -8,14 +9,35 @@ import OrderPurchase from "./orderPurchase";
 import ThirdParty from "./thirdParty";
 import Warehouse from "./warehouse";
 import Report from "./report";
+import Loading from "../helper/loading";
 
-export default function Admin( {tab, users, setAlert, setOpenAlert, setOpenLoading} ) {
+export default function Admin( {tab, setAlert, setOpenAlert} ) {
     const navigate = useNavigate();
+
+    const [openLoading, setOpenLoading] = useState(false);
+
+    //admin
+    const [users, setUsers] = useState([]);
+    const [changeUsers, setChangeUsers] = useState(true);
+
+    useEffect(()=>{
+        setOpenLoading(true);
+        Axios.get("https://hifurdez.vercel.app/admin/users")
+        .then((response)=> {
+            setUsers(response.data);
+            setOpenLoading(false);
+        })
+        .catch((err)=>{
+            setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+            setOpenAlert(true)
+        })
+    },[changeUsers])
 
     return (
         <React.Fragment>
+            {openLoading && <Loading />}
             <div className="sidebar_ctn">
-            <div className="sidebar_ele">
+                <div className="sidebar_ele">
                     <button 
                         className={"sidebar_btn " + (tab === 'manage-users' && "sidebar_focus")}
                         type="button" 
@@ -91,8 +113,11 @@ export default function Admin( {tab, users, setAlert, setOpenAlert, setOpenLoadi
             {tab === 'manage-users' && 
             <ManageUser 
                 users={users} 
+                changeUsers={changeUsers}
+                setChangeUsers={setChangeUsers}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
+                openLoading={openLoading}
                 setOpenLoading={setOpenLoading}
             />}
             {tab === 'manage-items' && <ManageItem />}

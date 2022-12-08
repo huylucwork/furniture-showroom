@@ -4,12 +4,12 @@ import "../../styles/admin.css";
 import ModalUser from "./modalUser";
 import Loading from "../helper/loading";
 
-export default function ManageUser( {users, setAlert, setOpenAlert}) {
+export default function ManageUser( {
+  users, changeUsers, setChangeUsers, 
+  setAlert, setOpenAlert, openLoading, setOpenLoading
+}) {
   const [openModal, setOpenModal] = useState(false);
-  const [openLoading, setOpenLoading] = useState(false);
   const [modalData, setModalData] = useState();
-
-  const [statusArr, setStatusArr] = useState([true, true, true, true, true, true, true]);
 
   // for fragment
   const [currentFragment, setCurrentFragment] = useState(0);
@@ -107,9 +107,20 @@ export default function ManageUser( {users, setAlert, setOpenAlert}) {
       })
   }
 
-  return (
+  const handleStatusSwitch = (id) => {
+    setOpenLoading(true);
+    Axios.put("https://hifurdez.vercel.app/admin/users/change-status", {
+      id:id
+    })
+      .then((response) => {
+        setChangeUsers(!changeUsers)
+        setAlert({type: "success", message: response.data.message});
+        setOpenAlert(true);
+      })
+  }
+
+  return !openLoading && (
     <div className="history_container">
-      {openLoading && <Loading />}
       {openModal && <ModalUser modalData={modalData} setOpenModal={setOpenModal}/>}
       <div className="history_content">
         <div className="search_container">
@@ -183,13 +194,9 @@ export default function ManageUser( {users, setAlert, setOpenAlert}) {
                   </div>
                   <div className="table_ele admin_fix-size-1">
                     <button 
-                      className= {statusArr[index] ? "admin_active-btn": "admin_locked-btn"}
-                      onClick={() => {
-                        let tmpArr = [...statusArr];
-                        tmpArr[index] = !tmpArr[index];
-                        setStatusArr(tmpArr);
-                      }}>
-                      {statusArr[index] ? "Active" : "Locked"}
+                      className= {user.is_active ? "admin_active-btn": "admin_locked-btn"}
+                      onClick={() => handleStatusSwitch(user.id)}>
+                      {user.is_active ? "Active" : "Locked"}
                     </button>
                   </div>
                 </div>

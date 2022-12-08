@@ -87,7 +87,7 @@ export default function ModalUser( {modalData,setOpenModal} ) {
                                         <div className="row second">
                                             <p className="col">TCard: {item.transport_card_code}</p>
                                             <p className="col text-center">Date: {item.commitment_date}</p>
-                                            <p className="col-3 text-end">Amout: 100</p>
+                                            <p className="col-3 text-end">Amout: {item.product_amount}</p>
                                             <p className="col-2 text-end">{item.status.charAt(0).toUpperCase() + item.status.slice(1)}</p>
                                         </div>
                                     </div>
