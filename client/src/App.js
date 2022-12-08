@@ -48,7 +48,11 @@ function App() {
   const [autumnRecommend, setAutumnRecommend] = useState([]);
   const [winterRecommend, setWinterRecommend] = useState([]);
 
+  //product detail
   const [productDetail, setProductDetail] = useState();
+
+  //admin
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // Get all of items
@@ -123,6 +127,19 @@ function App() {
     //     .catch(err => {
     //         setOpenLoading(false)
     //     })
+  },[])
+
+  useEffect(()=>{
+    setOpenLoading(true);
+    Axios.get("https://hifurdez.vercel.app/admin/users")
+      .then((response)=> {
+        setUsers(response.data);
+        setOpenLoading(false);
+      })
+      .catch((err)=>{
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true)
+      })
   },[])
 
   return (
@@ -220,8 +237,6 @@ function App() {
             path="product-detail/:id"
             element={
               <ProductDetail
-                filterCollection={filterCollection}
-                filterCategory={filterCategory}
                 setFilterCategory={setFilterCategory}
                 setFilterCollection={setFilterCollection}
                 collectionProduct={collectionProduct}
@@ -230,13 +245,17 @@ function App() {
                 setProductDetail = {setProductDetail}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
-                setOpenLoading={setOpenLoading}
               />
             }
           />
           <Route
             path="admin/manage-users"
-            element={<Admin tab={"manage-users"} />}
+            element={<Admin 
+              tab={"manage-users"}  
+              users={users} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+          />}
           />
           <Route
             path="admin/manage-items"

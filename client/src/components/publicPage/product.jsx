@@ -8,7 +8,6 @@ export default function Product( {
   collectionProduct, categoryProduct,
   filterCollection, setFilterCollection, filterCategory, setFilterCategory,
   items, setItems,
-  setProductDetail,
   setAlert, setOpenAlert, setOpenLoading
 } ) {
 
@@ -116,28 +115,6 @@ export default function Product( {
     window.scrollTo({ top: 0})
   }, [currentFragment]);
 
-  const handleNavigateProduct = (id) => {
-    // setOpenLoading(true);
-    // Axios.post("https://hifurdez.vercel.app/product-by-id", {
-    //   id:id
-    // })
-    //   .then((response) => {
-    //     if (response.data.length) {
-    //       setProductDetail(response.data[0]);
-    //       setOpenLoading(false);
-    //     }
-    //     else {
-    //       setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-    //       setOpenAlert(true)
-    //     }
-    //   })
-    //   .catch(err => {
-    //       setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-    //       setOpenAlert(true)
-    //   });
-    navigate(`../product-detail/${id}`);
-  }
-
   return (
     <div className="product_container">
       <div className="product_sidebar">
@@ -177,7 +154,7 @@ export default function Product( {
               <div 
                 key={item.id} 
                 className="product_element" 
-                onClick={()=>{handleNavigateProduct(item.id)}}>
+                onClick={()=>{navigate(`../product-detail/${item.id}`)}}>
                   <div className="contain_img">
                     <img 
                       src={item.product_image_2} 

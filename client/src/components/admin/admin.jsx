@@ -9,7 +9,7 @@ import ThirdParty from "./thirdParty";
 import Warehouse from "./warehouse";
 import Report from "./report";
 
-export default function Admin( {tab} ) {
+export default function Admin( {tab, users, setAlert, setOpenAlert, setOpenLoading} ) {
     const navigate = useNavigate();
 
     return (
@@ -88,7 +88,13 @@ export default function Admin( {tab} ) {
                     <i className="fa-solid fa-file-invoice sidebar_icon"></i>
                 </div>
             </div>
-            {tab === 'manage-users' && <ManageUser />}
+            {tab === 'manage-users' && 
+            <ManageUser 
+                users={users} 
+                setAlert={setAlert}
+                setOpenAlert={setOpenAlert}
+                setOpenLoading={setOpenLoading}
+            />}
             {tab === 'manage-items' && <ManageItem />}
             {tab === 'supplier' && <Supplier />}
             {tab === 'order-sale' && <OrderSale />}

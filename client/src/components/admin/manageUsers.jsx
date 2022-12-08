@@ -1,53 +1,116 @@
 import React, { useState } from "react";
+import Axios from "axios";
 import "../../styles/admin.css";
-import DetailModal from "../user/detailModal";
+import ModalUser from "./modalUser";
+import Loading from "../helper/loading";
 
-export default function ManageUser() {
+export default function ManageUser( {users, setAlert, setOpenAlert}) {
   const [openModal, setOpenModal] = useState(false);
+  const [openLoading, setOpenLoading] = useState(false);
+  const [modalData, setModalData] = useState();
 
   const [statusArr, setStatusArr] = useState([true, true, true, true, true, true, true]);
 
-  const RenderColumn =()=>{
-    let list = []
-    for(let i=0; i<7; i++)
-      list.push(
-      <div className={"table_row " + (i%2 ? "odd_row" : "even_row ") + (i===6 ? "last-row_shadow" : "")}>
-        <div className="table_ele admin_fix-size-2">
-          <p>dd/mm/yy</p>
-        </div>
-        <div className="table_ele">
-          <p className="left_align">For x months</p>
-        </div>
-        <div className="table_ele">
-          <p className="left_align">Abc_123</p>
-        </div>
-        <div className="table_ele admin_fix-size-3">
-          <p className="left_align">anhbodantruong@gmail.com</p>
-        </div>
-        <div className="table_ele admin_fix-size-3">
-          <p className="left_align"> Nguyen Van A</p>
-        </div>
-        <div className="table_ele admin_fix-size-1">
-          <button onClick={() => setOpenModal(true) }>Detail</button>
-        </div>
-        <div className="table_ele admin_fix-size-1">
-          <button 
-            className= {statusArr[i] ? "admin_active-btn": "admin_locked-btn"}
-            onClick={() => {
-              let tmpArr = [...statusArr];
-              tmpArr[i] = !tmpArr[i];
-              setStatusArr(tmpArr);
-            }}>
-            {statusArr[i] ? "Active" : "Locked"}
-          </button>
-        </div>
-      </div>)
-    return list;
+  // for fragment
+  const [currentFragment, setCurrentFragment] = useState(0);
+  const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+  const maxOfFragment = 7;
+  const numberOfFragment = Math.ceil(users.length * 1.0 / maxOfFragment);
+  function prevFragment() {
+    if (currentFragment > 0) {
+      setCurrentFragment(currentFragment - 1);
+      currentFragment === 1 ?
+        setlistFragment([0,1,2]):
+        setlistFragment([currentFragment-2, currentFragment-1, currentFragment]);
+    }
+  }
+  function nextFragment() {
+    if (currentFragment < numberOfFragment - 1) {
+      setCurrentFragment(currentFragment + 1);
+      currentFragment === numberOfFragment - 2 ?
+        setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1]):
+      setlistFragment([currentFragment, currentFragment + 1, currentFragment + 2]);
+    }
+  }
+
+  const ListFragment = ( {value, index} ) => {
+    if ((value === 0 && index === 0))
+      return (
+        <p key={index} 
+          className={currentFragment === 0 && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(0)
+            setlistFragment([0,1,2])
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+    else if (value === numberOfFragment - 1 && index === 2)
+      return (
+        <p key={index} 
+          className={value === currentFragment && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(numberOfFragment - 1)
+            setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1])
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+    else
+      return (
+        <p key={index} 
+          className={value === currentFragment && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(value)
+            setlistFragment([value-1, value, value+1])
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+  }
+
+  //display day
+  const setDate = (lastActive) => {
+    let day = (new Date()- new Date(lastActive))/(60*60*1000*24);
+
+    if (day >= 1)
+      return `For ${parseInt(day)} days`;
+    else if (day > 30)
+      return `Since ${lastActive}`;
+    else {
+      return `Currently login`;
+    }
+  }
+
+  const RenderEmptyRow =()=>{
+    if (currentFragment !== numberOfFragment-1) return '';
+    let list = [];
+    let start = users.length-((numberOfFragment-1)*maxOfFragment);
+    for(let i=start; i<7; i++)
+      list.push(<div key={users.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+    return list
+  }
+
+  const handleOpenModal = (id) => {
+    setOpenLoading(true);
+    Axios.post("https://hifurdez.vercel.app/admin/users/detail", {
+      id:id
+    })
+      .then((response) => {
+        setModalData(response.data);
+        setOpenLoading(false);
+        setOpenModal(true);
+      })
+      .catch((err)=>{
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true)
+      })
   }
 
   return (
     <div className="history_container">
-      <DetailModal trigger={openModal} setTrigger={setOpenModal} />
+      {openLoading && <Loading />}
+      {openModal && <ModalUser modalData={modalData} setOpenModal={setOpenModal}/>}
       <div className="history_content">
         <div className="search_container">
           <input 
@@ -68,20 +131,23 @@ export default function ManageUser() {
         <div className="table_ctn">
           <div className="history_table admin_user-scroll">
             <div className="table_row first_row">
+              <div className="table_ele admin_fix-size-1">
+                <p>ID</p>
+              </div>
               <div className="table_ele admin_fix-size-2">
-                <p>Created Date</p>
+                <p>Created date</p>
               </div>
               <div className="table_ele">
                 <p className="left_align">Last active</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
+                <p className="left_align">Full name</p>
               </div>
               <div className="table_ele">
                 <p className="left_align">User name</p>
               </div>
               <div className="table_ele admin_fix-size-3">
                 <p className="left_align">Email</p>
-              </div>
-              <div className="table_ele admin_fix-size-3">
-                <p className="left_align">Name</p>
               </div>
               <div className="table_ele admin_fix-size-1">
                 <p>Detail</p>
@@ -90,23 +156,82 @@ export default function ManageUser() {
                 <p>Status</p>
               </div>
             </div>
-            <RenderColumn />
+            {users.map((user, index)=>{
+              return index >= currentFragment * maxOfFragment && 
+              index < (currentFragment + 1) * maxOfFragment && (
+                <div key={index} className={"table_row " + (index%2 ? "odd_row" : "even_row") + (index===6 ? " last-row_shadow" : "")}>
+                  <div className="table_ele admin_fix-size-1">
+                    <p>{user.id}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-2">
+                    <p>{user.created_date}</p>
+                  </div>
+                  <div className="table_ele">
+                    <p className="left_align">{setDate(user.created_date)}</p>
+                  </div>
+                  <div className="table_ele">
+                    <p className="left_align">{user.name}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-3">
+                    <p className="left_align">{user.display_name? user.display_name : ""}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-3">
+                    <p className="left_align">{user.user_mail}@gmail.com</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-1">
+                    <button onClick={() =>handleOpenModal(user.id)}>Detail</button>
+                  </div>
+                  <div className="table_ele admin_fix-size-1">
+                    <button 
+                      className= {statusArr[index] ? "admin_active-btn": "admin_locked-btn"}
+                      onClick={() => {
+                        let tmpArr = [...statusArr];
+                        tmpArr[index] = !tmpArr[index];
+                        setStatusArr(tmpArr);
+                      }}>
+                      {statusArr[index] ? "Active" : "Locked"}
+                    </button>
+                  </div>
+                </div>
+              )
+            })}
+            <RenderEmptyRow />
           </div>
         </div>
         <div className="history_pagination">
-          <p className="text_pagination" href="#">
+          <p className="text_pagination" onClick={prevFragment}>
             <button>Previous</button>
           </p>
-          <p className="pagination_focus" href="#">
-            <button>1</button>
-          </p>
-          <p href="#">
-            <button>2</button>
-          </p>
-          <p href="#">
-            <button>3</button>
-          </p>
-          <p className="text_pagination" href="#">
+
+          {numberOfFragment > 2 && listFragment.map((value, index) => <ListFragment value={value} index={index} />) }
+          {numberOfFragment <= 2 && listFragment.map((value, index) => {
+            if (index === 0) {
+              return(
+                <p key={index} 
+                  className={currentFragment === 0 && "pagination_focus"}
+                  onClick={() => {
+                    setCurrentFragment(0)
+                    setlistFragment([0,1,2])
+                  }}>
+                    <button>{value + 1}</button>
+                </p>
+              )
+            }
+            else if (numberOfFragment === 2 && index === 1) {
+              return(
+                <p key={index} 
+                  className={currentFragment === 1 && "pagination_focus"}
+                  onClick={() => {
+                    setCurrentFragment(1)
+                    setlistFragment([0,1,2])
+                  }}>
+                    <button>{value + 1}</button>
+                </p>
+              )
+            }
+          }) }
+
+          <p className="text_pagination" onClick={nextFragment}>
             <button>Next</button>
           </p>
         </div>
