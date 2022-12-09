@@ -33,7 +33,7 @@ export default function ModalUser( {modalData,setOpenModal} ) {
                             </div>
                             <div className="info_ctn">
                                 <p>Email:</p>
-                                <p>{info.email}@gmail.com</p>
+                                <p>{info.email}</p>
                             </div>
                             <div className="info_ctn">
                                 <p>Phone:</p>
