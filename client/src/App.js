@@ -16,7 +16,6 @@ import Checkout from "./components/cart/checkout";
 import ProductDetail from "./components/publicPage/productDetail";
 import Error from "./components/helper/error";
 import Loading from "./components/helper/loading";
-import ViewPDF from "./components/helper/viewPDF";
 import { Analytics } from "@vercel/analytics/react";
 
 export const AppContext = React.createContext();
@@ -146,7 +145,6 @@ function App() {
               />
             }
           />
-          <Route path="view" element={<ViewPDF />} />
           <Route path="user/history" element={<User tab={"history"} />} />
           <Route path="user/info" element={<User tab={"info"} />} />
           <Route path="user" element={<Navigate to="info" />} />
