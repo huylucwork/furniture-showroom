@@ -15,7 +15,7 @@ export default function Admin( {tab} ) {
     return (
         <React.Fragment>
             <div className="sidebar_ctn">
-            <div className="sidebar_ele">
+                <div className="sidebar_ele">
                     <button 
                         className={"sidebar_btn " + (tab === 'manage-users' && "sidebar_focus")}
                         type="button" 
