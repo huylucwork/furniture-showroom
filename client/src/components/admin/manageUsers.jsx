@@ -190,7 +190,7 @@ export default function ManageUser( {
                     <p className="left_align">{user.display_name? user.display_name : ""}</p>
                   </div>
                   <div className="table_ele admin_fix-size-3">
-                    <p className="left_align">{user.user_mail}@gmail.com</p>
+                    <p className="left_align">{user.user_mail}</p>
                   </div>
                   <div className="table_ele admin_fix-size-1">
                     <button onClick={() => handleOpenModal(user.id)}>Detail</button>
