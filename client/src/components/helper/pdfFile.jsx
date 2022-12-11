@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   image: {
     marginLeft: "27.5%",
-    marginBottom: 50,
+    marginBottom: 10,
     width: 30,
     height: 50,
   },
@@ -26,13 +26,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Cinzel Decorative',
   },
   orderType: {
-    position: "absolute",
-    top: 95,
+    width: "100%",
     textAlign: "center",
-    fontSize: 18,
+    fontSize: 36,
     color: "#473C38",
     fontFamily: "Poppins",
-    width: "100vw",
+    marginBottom: 10,
   },
   textCtn: {
     display: "flex",
@@ -285,7 +284,7 @@ export default function PDFFile ( {type} ) {
       <Page style={styles.body}>
         <Image style={styles.image} src="https://ik.imagekit.io/gyeviu0zo/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1670737858067"/>
         <Text style={styles.title}>Hifurdez</Text>
-        <Text style={styles.orderType}>{`${type} Order`}</Text>
+        {type === "Sale" && <Text style={styles.orderType}>{`${type} Order`}</Text>}
         {type === "Purchase" ? <RenderItemPurchase /> : <RenderItemHistorySale />}
         <View style={styles.totalPrice}>
           <Text style={styles.total}>Total:</Text>
