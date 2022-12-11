@@ -1,57 +1,122 @@
 import React, { useState } from "react";
+import Axios from "axios";
 import "../../styles/admin.css";
+import ModalProduct from "./modalProduct";
 import UpdateAdd from "./updateAdd";
 
-export default function ManageItem() {
+export default function ManageItem({
+  products, changeProducts, setChangeProducts, 
+  setAlert, setOpenAlert, openLoading, setOpenLoading
+}) {
   const [buttonModal, setButtonModal] = useState(false);
 
   const [modalVal, setModalVal] = useState(false);
 
-  const [statusArr, setStatusArr] = useState([true, true, true, true, true, true, true]);
+  const [openDetailModal, setOpenDetailModal] = useState(false);
+  const [modalData, setModalData] = useState();
 
-  const RenderColumn =()=>{
-    let list = []
-    for(let i=0; i<7; i++)
-      list.push(
-      <div className={"table_row " + (i%2 ? "odd_row" : "even_row ") + (i===6 ? "last-row_shadow" : "")}>
-        <div className="table_ele">
-          <p>Spring</p>
-        </div>
-        <div className="table_ele">
-          <p>Not yet ...</p>
-        </div>
-        <div className="table_ele admin_fix-size-3">
-          <p className="left_align">Sofa</p>
-        </div>
-        <div className="table_ele admin_fix-size-3">
-          <p className="left_align">$123</p>
-        </div>
-        <div className="table_ele">
-          <p>DD-MM-YYYY</p>
-        </div>
-        <div className="table_ele">
-          <p>DD-MM-YYYY</p>
-        </div>
-        <div className="table_ele admin_fix-size-1">
-          <button onClick={() => {setButtonModal(!buttonModal); setModalVal(true);}}>Edit</button>
-        </div>
-        <div className="table_ele admin_fix-size-1">
-          <button 
-            className= {statusArr[i] ? "admin_active-btn": "admin_locked-btn"}
-            onClick={() => {
-              let tmpArr = [...statusArr];
-              tmpArr[i] = !tmpArr[i];
-              setStatusArr(tmpArr);
-            }}>
-            {statusArr[i] ? "Active" : "Locked"}
-          </button>
-        </div>
-      </div>)
-    return list;
+  // for fragment
+  const [currentFragment, setCurrentFragment] = useState(0);
+  const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+  const maxOfFragment = 7;
+  const numberOfFragment = Math.ceil(products.length * 1.0 / maxOfFragment);
+  function prevFragment() {
+    if (currentFragment > 0) {
+      setCurrentFragment(currentFragment - 1);
+      currentFragment === 1 ?
+        setlistFragment([0,1,2]):
+        setlistFragment([currentFragment-2, currentFragment-1, currentFragment]);
+    }
+  }
+  function nextFragment() {
+    if (currentFragment < numberOfFragment - 1) {
+      setCurrentFragment(currentFragment + 1);
+      currentFragment === numberOfFragment - 2 ?
+        setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1]):
+      setlistFragment([currentFragment, currentFragment + 1, currentFragment + 2]);
+    }
+  }
+
+  const ListFragment = ( {value, index} ) => {
+    if ((value === 0 && index === 0))
+      return (
+        <p key={index} 
+          className={currentFragment === 0 && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(0)
+            setlistFragment([0,1,2])
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+    else if (value === numberOfFragment - 1 && index === 2)
+      return (
+        <p key={index} 
+          className={value === currentFragment && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(numberOfFragment - 1)
+            setlistFragment([numberOfFragment - 3, numberOfFragment - 2, numberOfFragment -1])
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+    else
+      return (
+        <p key={index} 
+          className={value === currentFragment && "pagination_focus"}
+          onClick={() => {
+            setCurrentFragment(value)
+            setlistFragment([value-1, value, value+1])
+          }}>
+            <button>{value + 1}</button>
+        </p>
+      )
+  }
+
+  const RenderEmptyRow =()=>{
+    if (currentFragment !== numberOfFragment-1) return '';
+    let list = [];
+    let start = products.length-((numberOfFragment-1)*maxOfFragment);
+    for(let i=start; i<7; i++)
+      list.push(<div key={products.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+    return list
+  }
+
+  const handleOpenDetailModal = (id) => {
+    setOpenLoading(true);
+    Axios.post("https://hifurdez.vercel.app/admin/products/detail", {
+      id:id
+    })
+      .then((response) => {
+        setModalData(response.data[0]);
+        setOpenLoading(false);
+        setOpenDetailModal(true);
+      })
+      .catch((err)=>{
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true)
+      })
+  }
+
+  const handleStatusSwitch = (id) => {
+    setOpenLoading(true);
+    Axios.put("https://hifurdez.vercel.app/admin/products/change-status", {
+      id:id
+    })
+      .then((response) => {
+        setChangeProducts(!changeProducts)
+        setAlert({type: "success", message: response.data.message});
+        setOpenAlert(true);
+      })
+      .catch(err => {
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true)
+      }); 
   }
 
   return (
     <div className="history_container">
+      {openDetailModal && <ModalProduct modalData={modalData} setOpenDetailModal={setOpenDetailModal}/>}
       <div className="history_content">
         <div className="search_container">
           <input 
@@ -77,57 +142,126 @@ export default function ManageItem() {
         <div className="table_ctn">
           <div className="history_table">
             <div className="table_row first_row">
-              <div className="table_ele">
-                <p>Collection</p>
+              {/* <div className="table_ele admin_fix-size-1">
+                <p>ID</p>
+              </div> */}
+              <div className="table_ele admin_fix-size-2">
+                <p>collection</p>
               </div>
-              <div className="table_ele">
+              <div className="table_ele admin_fix-size-2">
+                <p>Category</p>
+              </div>
+              <div className="table_ele admin_fix-size-3">
                 <p>SKU</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
               </div>
               <div className="table_ele admin_fix-size-3">
                 <p className="left_align">Name</p>
+                <button>
+                  <i className="fa-solid fa-up-down"></i>
+                </button>
               </div>
-              <div className="table_ele admin_fix-size-3">
-                <p className="left_align">Price</p>
+              <div className="table_ele admin_fix-size-2">
+                <p>Price</p>
                 <button>
                   <i className="fa-solid fa-up-down"></i>
                 </button>
               </div>
               <div className="table_ele">
-                <p>Created date</p>
-                <button>
-                  <i className="fa-solid fa-up-down"></i>
-                </button>
-              </div>
-              <div className="table_ele">
-                <p>Updated date</p>
-                <button>
-                  <i className="fa-solid fa-up-down"></i>
-                </button>
+                <p>Discount price</p>
               </div>
               <div className="table_ele admin_fix-size-1">
-                <p>Update</p>
+                <p>Detail</p>
+              </div>
+              <div className="table_ele admin_fix-size-1">
+                <p>Edit</p>
               </div>
               <div className="table_ele admin_fix-size-1">
                 <p>Status</p>
               </div>
             </div>
-            <RenderColumn />
+            {products.map((product, index) => {
+              return index >= currentFragment * maxOfFragment && 
+              index < (currentFragment + 1) * maxOfFragment && (
+                <div className={"table_row " + (index%2 ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
+                  {/* <div className="table_ele admin_fix-size-1">
+                    <p>{product.product_id}</p>
+                  </div> */}
+                  <div className="table_ele admin_fix-size-2">
+                    <p>{product.collection}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-2">
+                    <p>{product.category}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-3">
+                    <p>{product.sku}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-3">
+                    <p className="left_align">{product.product_name}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-2">
+                    <p>${product.price}</p>
+                  </div>
+                  <div className="table_ele">
+                    <p>{product.price === product.discount_price ? '' : '$' + product.discount_price}</p>
+                  </div>
+                  <div className="table_ele admin_fix-size-1">
+                    <button onClick={() => handleOpenDetailModal(product.product_id)}>Detail</button>
+                  </div>
+                  <div className="table_ele admin_fix-size-1">
+                    <button onClick={()=>{setButtonModal(true); setModalVal(1)}}>Edit</button>
+                  </div>
+                  <div className="table_ele admin_fix-size-1">
+                    <button 
+                      className= {product.is_active ? "admin_active-btn": "admin_locked-btn"}
+                      onClick={() => handleStatusSwitch(product.product_id)}>
+                      {product.is_active ? "Active" : "Locked"}
+                    </button>
+                  </div>
+                </div>
+              )
+            })
+
+            }
+            <RenderEmptyRow />
           </div>
         </div>
         <div className="history_pagination">
-          <p className="text_pagination" href="#">
+          <p className="text_pagination" onClick={prevFragment}>
             <button>Previous</button>
           </p>
-          <p className="pagination_focus" href="#">
-            <button>1</button>
-          </p>
-          <p href="#">
-            <button>2</button>
-          </p>
-          <p href="#">
-            <button>3</button>
-          </p>
-          <p className="text_pagination" href="#">
+
+          {numberOfFragment > 2 && listFragment.map((value, index) => <ListFragment value={value} index={index} />) }
+          {numberOfFragment <= 2 && listFragment.map((value, index) => {
+            if (index === 0) {
+              return(
+                <p key={index} 
+                  className={currentFragment === 0 && "pagination_focus"}
+                  onClick={() => {
+                    setCurrentFragment(0)
+                    setlistFragment([0,1,2])
+                  }}>
+                    <button>{value + 1}</button>
+                </p>
+              )
+            }
+            else if (numberOfFragment === 2 && index === 1) {
+              return(
+                <p key={index} 
+                  className={currentFragment === 1 && "pagination_focus"}
+                  onClick={() => {
+                    setCurrentFragment(1)
+                    setlistFragment([0,1,2])
+                  }}>
+                    <button>{value + 1}</button>
+                </p>
+              )
+            }
+          }) }
+
+          <p className="text_pagination" onClick={nextFragment}>
             <button>Next</button>
           </p>
         </div>

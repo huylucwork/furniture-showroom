@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/history.css";
 
-export default function ThirdPartyModal( {modalData,setOpenModal} ) {
+export default function ModalThirdPartyEmployee( {modalData,setOpenModal} ) {
 
   const [info, setInfo] = useState();
-  const [employee, setEmployee] = useState([]);
+  const [order, setOrder] = useState([]);
 
   useEffect(()=>{
-      setInfo(modalData.thirdPartyInfo[0]);
-      setEmployee(modalData.thirdPartyEmployee);
+      setInfo(modalData.thirdPartyEmployeeInfo[0]);
+      setOrder(modalData.thirdPartyEmployeeOrder);
   },[modalData])
 
     return info && (
@@ -18,24 +18,24 @@ export default function ThirdPartyModal( {modalData,setOpenModal} ) {
                   <div className="user_info">
                       <div className="user_detail-info del_bottomBorder">
                           <div className="info_ctn">
-                              <p>ID:</p>
-                              <p>Warehouse {info.id}</p>
+                              <p>Identification:</p>
+                              <p>{info.driver_citizen_identification}</p>
                           </div>
                           <div className="info_ctn">
-                              <p>Tax:</p>
-                              <p>{info.tax}</p>
+                              <p>Lisence:</p>
+                              <p>{info.driver_license}</p>
                           </div>
                           <div className="info_ctn">
                               <p>Name:</p>
-                              <p>{info.name}</p>
+                              <p>{info.driver_name}</p>
                           </div>
                           <div className="info_ctn">
-                              <p>Start date:</p>
-                              <p>{info.start_date}</p>
+                              <p>Phone:</p>
+                              <p>{info.driver_phone}</p>
                           </div>
                           <div className="info_ctn">
-                              <p>End Date:</p>
-                              <p>{info.end_date}</p>
+                              <p>Third-party:</p>
+                              <p>{info.company_name}</p>
                           </div>
                       </div>
                   </div>
@@ -55,16 +55,17 @@ export default function ThirdPartyModal( {modalData,setOpenModal} ) {
                           d="M2 30L30 2m0 28L2 2"/>
                       </svg>
                       <div className="item_ctn">
-                          {employee? employee.map((item, index)=>{
+                          {order? order.map((item, index)=>{
                               return (
                                   <div className="item_ctn_info">
                                       <div className="row first">
-                                          <p className="col-10">Employee: {item.id} - {item.driver_name}</p>
-                                          <p className="col-2 text-end">{item.is_active? "Active" : "Locked"}</p>
+                                          <p className="col-10">Code: {item.code}</p>
+                                          <p className="col-2 text-end">${item.amount_total}</p>
                                       </div>
                                       <div className="row second">
-                                          <p className="col">Phone: {item.driver_phone}</p>
-                                          <p className="col-4 text-end">License: {item.driver_license}</p>
+                                          <p className="col">Date: {item.delivery_date}</p>
+                                          <p className="col-5 text-center">Amount: {item.product_amount}</p>
+                                          <p className="col-3 text-end">{item.status.charAt(0).toUpperCase() + item.status.slice(1)}</p>
                                       </div>
                                   </div>
                               )

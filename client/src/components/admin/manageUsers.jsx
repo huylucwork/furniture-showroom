@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
 import ModalUser from "./modalUser";
-import Loading from "../helper/loading";
 
 export default function ManageUser( {
   users, changeUsers, setChangeUsers, 
@@ -117,6 +116,10 @@ export default function ManageUser( {
         setAlert({type: "success", message: response.data.message});
         setOpenAlert(true);
       })
+      .catch(err => {
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true)
+      }); 
   }
 
   return !openLoading && (
@@ -142,9 +145,9 @@ export default function ManageUser( {
         <div className="table_ctn">
           <div className="history_table admin_user-scroll">
             <div className="table_row first_row">
-              <div className="table_ele admin_fix-size-1">
+              {/* <div className="table_ele admin_fix-size-1">
                 <p>ID</p>
-              </div>
+              </div> */}
               <div className="table_ele admin_fix-size-2">
                 <p>Created date</p>
               </div>
@@ -154,7 +157,7 @@ export default function ManageUser( {
               <div className="table_ele admin_fix-size-3">
                 <p className="left_align">Full name</p>
               </div>
-              <div className="table_ele">
+              <div className="table_ele admin_fix-size-3">
                 <p className="left_align">User name</p>
               </div>
               <div className="table_ele admin_fix-size-3">
@@ -171,16 +174,16 @@ export default function ManageUser( {
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
                 <div key={index} className={"table_row " + (index%2 ? "odd_row" : "even_row") + (index===6 ? " last-row_shadow" : "")}>
-                  <div className="table_ele admin_fix-size-1">
+                  {/* <div className="table_ele admin_fix-size-1">
                     <p>{user.id}</p>
-                  </div>
+                  </div> */}
                   <div className="table_ele admin_fix-size-2">
                     <p>{user.created_date}</p>
                   </div>
                   <div className="table_ele">
                     <p className="left_align">{setDate(user.created_date)}</p>
                   </div>
-                  <div className="table_ele">
+                  <div className="table_ele admin_fix-size-3">
                     <p className="left_align">{user.name}</p>
                   </div>
                   <div className="table_ele admin_fix-size-3">
@@ -190,7 +193,7 @@ export default function ManageUser( {
                     <p className="left_align">{user.user_mail}@gmail.com</p>
                   </div>
                   <div className="table_ele admin_fix-size-1">
-                    <button onClick={() =>handleOpenModal(user.id)}>Detail</button>
+                    <button onClick={() => handleOpenModal(user.id)}>Detail</button>
                   </div>
                   <div className="table_ele admin_fix-size-1">
                     <button 

@@ -7,26 +7,8 @@ import Sort from "./sort";
 export default function Product( {
   collectionProduct, categoryProduct,
   filterCollection, setFilterCollection, filterCategory, setFilterCategory,
-  items, setItems,
-  setAlert, setOpenAlert, setOpenLoading
+  items
 } ) {
-
-  useEffect(()=>{
-    if(!items.length) {
-      if (items.length === 0) {
-        setOpenLoading(true);
-        Axios.get("https://hifurdez.vercel.app/all-product")
-            .then((response) => {
-              setItems(response.data);
-              setOpenLoading(false);
-            })
-            .catch(err => {
-                setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-                setOpenAlert(true)
-            });            
-      }
-    }
-  },[])
 
   const productArr = ["Price: Low to high", "Price: High to low"];
 
@@ -148,7 +130,7 @@ export default function Product( {
       </div>
       <div className="product_content">
         <div className="product_row">
-          {filterItems.map((item, index)=> {
+          {(filterItems.length ? filterItems : items).map((item, index)=> {
             return index >= currentFragment * maxOfFragment && 
                   index < (currentFragment + 1) * maxOfFragment && (
               <div 
