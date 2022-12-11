@@ -28,7 +28,7 @@ export default function OrderSale() {
           <p className="left_align">$xxx</p>
         </div>
         <div className="table_ele">
-          <PDFDownloadLink document={<PDFFile type={"sale"}/>} fileName="Sale">
+          <PDFDownloadLink document={<PDFFile type={"Sale"}/>} fileName="Sale">
             <button className="download_btn">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 

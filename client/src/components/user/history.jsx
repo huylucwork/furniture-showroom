@@ -26,7 +26,7 @@ export default function History() {
             <p className="left_align">$xxx</p>
           </div>
           <div className="table_ele">
-            <PDFDownloadLink document={<PDFFile type={"history"}/>} fileName="History">
+            <PDFDownloadLink document={<PDFFile type={"History"}/>} fileName="History">
               {({loading}) => (loading && <Loading />)}
               <button className="download_btn">
                 <svg 

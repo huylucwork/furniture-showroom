@@ -12,19 +12,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
   },
   image: {
-    marginVertical: -10,
-    marginHorizontal: -20,
-    marginBottom: 10,
-    width: 150,
-    height: 70,
+    marginLeft: "27.5%",
+    marginBottom: 50,
+    width: 30,
+    height: 50,
   },
   title: {
     position: "absolute",
     top: 45,
-    left: 135,
-    fontSize: 24,
+    left: 282,
+    fontSize: 18,
     color: "#473C38",
     fontFamily: 'Cinzel Decorative',
+  },
+  orderType: {
+    position: "absolute",
+    top: 95,
+    textAlign: "center",
+    fontSize: 18,
+    color: "#473C38",
+    fontFamily: "Poppins",
+    width: "100vw",
   },
   textCtn: {
     display: "flex",
@@ -194,10 +202,6 @@ const RenderItemPurchase = () => {
         <Text style={styles.header}>Warehouse:</Text>
         <Text style={styles.content}>340 Madison Avenue Sixth Floor New York, NY 10173 USA</Text>
       </View>
-      <View style={styles.totalPrice} key={-7}>
-        <Text style={styles.total}>Total:</Text>
-        <Text style={styles.price}>$100000</Text>
-      </View>
     </>
   )
   for(let i=0; i<30; i++)
@@ -257,10 +261,6 @@ const RenderItemHistorySale = () => {
         <Text style={styles.header}>Address:</Text>
         <Text style={styles.content}>340 Madison Avenue Sixth Floor New York, NY 10173 USA</Text>
       </View>
-      <View style={styles.totalPrice} key={-8}>
-        <Text style={styles.total}>Total:</Text>
-        <Text style={styles.price}>$100000</Text>
-      </View>
     </>
   )
   for(let i=0; i<30; i++)
@@ -283,9 +283,14 @@ export default function PDFFile ( {type} ) {
   return (
     <Document>
       <Page style={styles.body}>
-        <Image style={styles.image} src="https://ik.imagekit.io/gyeviu0zo/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1670737858067" fixed/>
-        <Text style={styles.title} fixed>Hifurdez</Text>
-        {type === "purchase" ? <RenderItemPurchase /> : <RenderItemHistorySale />}
+        <Image style={styles.image} src="https://ik.imagekit.io/gyeviu0zo/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1670737858067"/>
+        <Text style={styles.title}>Hifurdez</Text>
+        <Text style={styles.orderType}>{`${type} Order`}</Text>
+        {type === "Purchase" ? <RenderItemPurchase /> : <RenderItemHistorySale />}
+        <View style={styles.totalPrice}>
+          <Text style={styles.total}>Total:</Text>
+          <Text style={styles.price}>$100000</Text>
+        </View>
         <Text
           style={styles.pageNumber}
           render={({ pageNumber, totalPages }) =>
