@@ -11,7 +11,21 @@ export default function Signup( {setButtonSignUp, setButtonLogin } ) {
               className="login_close-btn"
               onClick={() => setButtonSignUp(false)}
             >
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32" className="sign-up_my-icon"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 30L30 2m0 28L2 2"/></svg>            
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="1em" 
+                height="1em" 
+                preserveAspectRatio="xMidYMid meet" 
+                viewBox="0 0 32 32" 
+                className="sign-up_my-icon">
+                  <path 
+                    fill="none" 
+                    stroke="currentColor" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M2 30L30 2m0 28L2 2"/>
+              </svg>            
             </button>
           </div>
           <h1 className="sign-up_header">Welcome back</h1>

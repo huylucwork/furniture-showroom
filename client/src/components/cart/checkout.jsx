@@ -1,9 +1,13 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/checkout.css";
 import Sort from "../publicPage/sort";
+import CheckoutModal from "./checkoutModal";
 
 export default function Checkout( { setFilterCollection, setFilterCategory, setAlert, setOpenAlert} ) {
+
+  const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,8 +27,25 @@ export default function Checkout( { setFilterCollection, setFilterCategory, setA
     navigate("../")
   }
 
+  const RenderItem = () => {
+    let list = [];
+    for(let i=0; i<10; i++)
+      list.push(
+      <div className="item_info_ctn">
+        <div className="item_img"></div>
+        <div className="item_name-cat">
+          <p>Item X</p>
+          <p>Category</p>
+        </div>
+        <p>Amount <br></br> 1</p>
+        <p>Price <br></br> $123</p>
+      </div>)
+    return list
+  }
+
   return (
     <div className="checkout_container">
+      {modal && <CheckoutModal setModal={setModal} handlePayUp={handlePayUp}/>}
       <div className="checkout_information">
         <h2>Information</h2>
         <div className="checkout_input">
@@ -68,84 +89,13 @@ export default function Checkout( { setFilterCollection, setFilterCategory, setA
         }}>
           Return to shop
         </p>
-        <button onClick={()=>handlePayUp()}>
+        <button onClick={()=>setModal(true)}>
           Pay up
         </button>
       </div>
       <div className="checkout_item">
         <div className="item_container">
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
-          <div className="item_info_ctn">
-            <div className="item_img"></div>
-            <div className="item_name-cat">
-              <p>Item X</p>
-              <p>Category</p>
-            </div>
-            <p>Amount <br></br> 1</p>
-            <p>Price <br></br> $123</p>
-          </div>
+          <RenderItem />  
         </div>
         <hr />
         <div className="item_total">
