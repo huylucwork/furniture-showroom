@@ -86,8 +86,8 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                         return(
                             <div className="col item">
                                 <div className="collection_img">
-                                    <img src={value.media_0} alt="" />
                                     <img src={value.media_1} alt="" />
+                                    <img src={value.media_0} alt="" />
                                 </div>
                                 <h1 className={site}>{value.product_name}</h1>
                                 <p>$ {value.price}</p>
@@ -98,8 +98,8 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                         return(
                             <div className="col item">
                                 <div className="collection_img">
-                                    <img src={value.media_0} alt="" />
                                     <img src={value.media_1} alt="" />
+                                    <img src={value.media_0} alt="" />
                                 </div>
                                 <h1 className={site}>{value.product_name}</h1>
                                 <p>$ {value.price}</p>
@@ -110,8 +110,8 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                         return(
                             <div className="col item">
                                 <div className="collection_img">
-                                    <img src={value.media_0} alt="" />
                                     <img src={value.media_1} alt="" />
+                                    <img src={value.media_0} alt="" />
                                 </div>
                                 <h1 className={site}>{value.product_name}</h1>
                                 <p>$ {value.price}</p>
@@ -122,8 +122,8 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                         return(
                             <div className="col item">
                                 <div className="collection_img">
-                                    <img src={value.media_0} alt="" />
                                     <img src={value.media_1} alt="" />
+                                    <img src={value.media_0} alt="" />
                                 </div>
                                 <h1 className={site}>{value.product_name}</h1>
                                 <p>$ {value.price}</p>
