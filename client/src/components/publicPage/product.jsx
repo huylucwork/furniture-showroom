@@ -10,7 +10,7 @@ export default function Product( {
   items
 } ) {
 
-  const productArr = ["Price: Low to high", "Price: High to low"];
+  const productArr = ["Recommendation", "Price: Low to high", "Price: High to low"];
 
   const navigate = useNavigate();
 
@@ -126,7 +126,7 @@ export default function Product( {
       </div>
       <div className="admin_sort">
         <h2>Sort by:</h2>
-        <Sort trigger="product" setCount={0} optsArray={productArr}/>
+        <Sort trigger="product" optsArray={productArr}/>
       </div>
       <div className="product_content">
         <div className="product_row">
