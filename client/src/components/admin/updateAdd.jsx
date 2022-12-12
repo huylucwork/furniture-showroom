@@ -5,8 +5,8 @@ import Alert from "../helper/alert";
 
 export default function UpdateAdd(props) {
 
-  const season = ["Summer", "Autumn", "Winter"];
-  const color = ["Yellow", "Green"];
+  const season = ["Spring", "Summer", "Autumn", "Winter"];
+  const color = ["Red", "Yellow", "Green"];
 
   const [price, setPrice] = useState(-1);
   const [discountPrice, setDiscountPrice] = useState(-2);
@@ -80,11 +80,11 @@ export default function UpdateAdd(props) {
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Collection</label>
-                <Sort trigger="manageItem1" setCount={0} optsArray={season} />
+                <Sort trigger="manage" optsArray={season} />
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Category</label>
-                <Sort trigger="manageItem2" setCount={1} optsArray={color} />
+                <Sort trigger="manage" optsArray={color} />
               </div>
             </div>
             <div className="admin_input">
