@@ -8,10 +8,10 @@
   justify-content: center;
   align-items: center;
   z-index: 99;
-  background-color: rgba(71, 71, 71, 0.6);
+  /* background-color: rgba(71, 71, 71, 0.6); */
 }
 
-/* .bar {
+.bar {
   background-color: #dad2c7;
   min-width: 400px;
   min-height: 5px;
@@ -57,7 +57,7 @@
     transform: translateX(300%);
     min-width: 400px;
   }
-} */
+}
 
 /* New loading */
 
