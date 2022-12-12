@@ -25,7 +25,7 @@ export default function Sort(props) {
                   key = {index}
                   href="#" 
                   role="button" 
-                  onClick={(e) => {setChecked(!checked); setHeader(element)}}>
+                  onClick={(e) => {setChecked(!checked); setHeader(element); props.setPick(index+1)}}>
                     <h2>{element}</h2>
                 </a>);
     })

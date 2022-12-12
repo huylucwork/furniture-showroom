@@ -6,6 +6,10 @@ import "../../styles/signup.css";
 export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } ) {
   const navigate = useNavigate();
 
+  const handleLoggin = () => {
+    
+  }
+
   return (
     <div className="login_container">
       <div
@@ -38,7 +42,7 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } )
           <p className="login_para">
             Join us to savor good things in this life
           </p>
-          <form method="post" className="login_form">
+          <form method="post" className="login_form" onSubmit={()=>handleLoggin()}>
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"
