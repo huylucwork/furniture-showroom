@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
 import PurchaseModal from "./modalPurchase";
+import PDFFile from "../helper/pdfFile";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 export default function OrderPurchase({
   purchaseOrders, changePurchaseOrders, setChangePurchaseOrders,
