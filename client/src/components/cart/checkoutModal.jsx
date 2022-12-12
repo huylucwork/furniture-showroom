@@ -30,7 +30,7 @@ export default function CheckoutModal( {setModal, handlePayUp} ) {
             </button>
           </div>
           <div className="checkout-modal_content">
-            <h2>Confirm Action</h2>
+            <h2>Confirm Transaction</h2>
             <p>Are you sure you want to pay up this order?</p>
           </div>
           <button className="checkout-modal_ok-btn" onClick={() => handlePayUp()}>Yes</button>

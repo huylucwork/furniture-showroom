@@ -319,9 +319,10 @@
 .checkout-modal_content {
   position: absolute;
   left: 0;
-  width: 80%;
+  width: 100%;
   height: 100%;
   padding: 0 2em;
+  z-index: -1;
 }
 
 .checkout-modal_content h2 {
@@ -330,12 +331,14 @@
   color: #b06d40;
   margin-bottom: 2em;
   margin-top: 0.7em;
+  text-align: center;
 }
 
 .checkout-modal_content p {
   font-size: 2em;
   font-family: "Poppins";
   color: #553A31;
+  padding-left: 1em;
 }
 
 .checkout-modal_ok-btn {
