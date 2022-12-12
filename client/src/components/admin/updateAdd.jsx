@@ -59,7 +59,7 @@ export default function UpdateAdd(props) {
         product_name: name,
         material: material,
         price: price,
-        discount_price: null,
+        discount_price: price,
         color: color,
         width: width,
         depth: depth,
