@@ -11,20 +11,20 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     paddingHorizontal: 35,
   },
-  image: {
-    marginLeft: "27.5%",
-    marginBottom: 10,
-    width: 30,
-    height: 50,
-  },
-  title: {
-    position: "absolute",
-    top: 45,
-    left: 282,
-    fontSize: 18,
-    color: "#473C38",
-    fontFamily: 'Cinzel Decorative',
-  },
+  // image: {
+  //   marginLeft: "27.5%",
+  //   marginBottom: 10,
+  //   width: 30,
+  //   height: 50,
+  // },
+  // title: {
+  //   position: "absolute",
+  //   top: 45,
+  //   left: 282,
+  //   fontSize: 18,
+  //   color: "#473C38",
+  //   fontFamily: 'Cinzel Decorative',
+  // },
   orderType: {
     width: "100%",
     textAlign: "center",
@@ -282,9 +282,10 @@ export default function PDFFile ( {type} ) {
   return (
     <Document>
       <Page style={styles.body}>
-        <Image style={styles.image} src="https://ik.imagekit.io/gyeviu0zo/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1670737858067"/>
-        <Text style={styles.title}>Hifurdez</Text>
+        {/* <Image style={styles.image} src="https://ik.imagekit.io/gyeviu0zo/logo.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1670737858067"/>
+        <Text style={styles.title}>Hifurdez</Text> */}
         {type === "Sale" && <Text style={styles.orderType}>{`${type} Order`}</Text>}
+        {type === "Purchase" && <Text style={styles.orderType}>{`${type} Order`}</Text>}
         {type === "Purchase" ? <RenderItemPurchase /> : <RenderItemHistorySale />}
         <View style={styles.totalPrice}>
           <Text style={styles.total}>Total:</Text>
