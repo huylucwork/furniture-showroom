@@ -6,20 +6,21 @@ import Alert from "../helper/alert";
 
 export default function UpdateAdd(props) {
 
-  const season = ["Summer", "Autumn", "Winter"];
-  // const color = ["Yellow", "Green"];
+  const collection = ["Spring", "Summer", "Autumn", "Winter"];
+  const category = ["Sofa", "Table", "Chair", "Storage"];
 
   const [price, setPrice] = useState(-1);
   const [discountPrice, setDiscountPrice] = useState(-2);
-  const [name, setName] = useState();
-  const [collection, setCollection] = useState();
-  const [category, setCategory] = useState();
-  const [width, setWidth] = useState();
-  const [height, setHeight] = useState();
-  const [Depth, setDepth] = useState();
-  const [weight, setWeight] = useState();
-  const [color, setColor] = useState();
-  const [material, setMaterial] = useState();
+  const [name, setName] = useState(null);
+  const [collectionPick, setCollectionPick] = useState(0);
+  const [categoryPick, setCategoryPick] = useState(0);
+  const [width, setWidth] = useState(null);
+  const [height, setHeight] = useState(null);
+  const [depth, setDepth] = useState(null);
+  const [weight, setWeight] = useState(null);
+  const [color, setColor] = useState(null);
+  const [material, setMaterial] = useState(null);
+  const [descrb, setDescrb] = useState(null);
 
   const [openAlert, setOpenAlert] = useState(false);
   const [alert, setAlert] = useState({ type: "", message: "" });
@@ -51,17 +52,33 @@ export default function UpdateAdd(props) {
   const handleSaveButton = (e) => {
     e.preventDefault();
 
-    if(price < discountPrice) {
-      setAlert({type: "error", message: "Price can't be greater than Discount Price"});
-      setOpenAlert(true);
-    } 
-    else if(props.trigger[1]) {
-      // Axios.post("https://hifurdez.vercel.app/admin/products/add-new", {
-
-      // })
+    if(!props.trigger[1]) {
+      Axios.put("https://hifurdez.vercel.app/admin/products/add-new", {
+        category_id: categoryPick,
+        collection_id: collectionPick,
+        product_name: name,
+        material: material,
+        price: price,
+        discount_price: null,
+        color: color,
+        width: width,
+        depth: depth,
+        height: height,
+        weight: weight,
+        description: descrb,
+      })
+        .then((response)=>{
+          setAlert({type: "success", message: response.message});
+          setOpenAlert(true);
+        })
     }
 
-    props.setTrigger(false)
+    // if(price < discountPrice) {
+    //   setAlert({type: "error", message: "Price can't be greater than Discount Price"});
+    //   setOpenAlert(true);
+    // } 
+
+    // props.setTrigger(false)
   }
   
   return props.trigger[0] ? (
@@ -100,11 +117,11 @@ export default function UpdateAdd(props) {
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Collection</label>
-                <Sort trigger="manage" optsArray={season} />
+                <Sort trigger="manage" optsArray={collection} setPick={setCollectionPick}/>
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Category</label>
-                <Sort trigger="manage" optsArray={color} />
+                <Sort trigger="manage" optsArray={category} setPick={setCategoryPick}/>
               </div>
             </div>
             <div className="admin_input">
@@ -149,7 +166,7 @@ export default function UpdateAdd(props) {
                 <input className="admin_input_text" type="text" onChange={(e) => setMaterial(e.target.value)}/>
               </div>
             </div>
-            {!props.trigger[1] &&
+            {/* {!props.trigger[1] &&
             <div className="admin_input">
               <label className="display_block">Image</label>
               <input 
@@ -159,7 +176,7 @@ export default function UpdateAdd(props) {
                 data-multiple-caption="{count} files selected" 
                 multiple/>
               <label htmlFor="file" className="admin_input_label">Choose file</label>
-            </div>}
+            </div>} */}
             <div className="admin_input">
               <label 
                 className="display_block">
@@ -169,7 +186,8 @@ export default function UpdateAdd(props) {
                 className="admin_input_text admin_input_desc" 
                 cols="8" 
                 wrap="soft" 
-                placeholder="Write something">
+                placeholder="Write something"
+                onChange={(e)=>setDescrb(e.target.value)}>
               </textarea>
             </div>
           </div>
