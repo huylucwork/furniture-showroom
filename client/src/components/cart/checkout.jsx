@@ -7,7 +7,7 @@ export default function Checkout( { setFilterCollection, setFilterCategory, setA
 
   const navigate = useNavigate();
 
-  const vehicle = ["Honda", "Suzuki"];
+  const vehicle = ["BMW", "Honda", "Suzuki"];
 
   const handlePayUp = () => {
 
@@ -44,9 +44,9 @@ export default function Checkout( { setFilterCollection, setFilterCategory, setA
           <input type="text" />
         </div>
         <div className="checkout_input">
-          <Sort trigger="checkout1" setCount={0} optsArray={vehicle} />
-          <Sort trigger="checkout2" setCount={1} optsArray={vehicle} />
-          <Sort trigger="checkout3" setCount={2} optsArray={vehicle} />
+          <Sort trigger="checkout" optsArray={vehicle} />
+          <Sort trigger="checkout" optsArray={vehicle} />
+          <Sort trigger="checkout" optsArray={vehicle} />
         </div>
       </div>
       <div className="checkout_payment">
