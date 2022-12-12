@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
-import ThirdPartyModal from "./modalThirdParty";
+import ModalThirdPartyEmployee from "./modalThirdPartyEmployee";
 
-export default function ThirdParty({
-    thirdParty, changeThirdParty, setChangeThirdParty,
+export default function ThirdPartyEmployee({
+    thirdPartyEmployee, changeThirdPartyEmployee, setChangeThirdPartyEmployee,
     setAlert, setOpenAlert, openLoading, setOpenLoading
 }) {
 
@@ -15,7 +15,7 @@ export default function ThirdParty({
     const [currentFragment, setCurrentFragment] = useState(0);
     const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
     const maxOfFragment = 7;
-    const numberOfFragment = Math.ceil(thirdParty.length * 1.0 / maxOfFragment);
+    const numberOfFragment = Math.ceil(thirdPartyEmployee.length * 1.0 / maxOfFragment);
     function prevFragment() {
       if (currentFragment > 0) {
         setCurrentFragment(currentFragment - 1);
@@ -72,15 +72,15 @@ export default function ThirdParty({
     const RenderEmptyRow =()=>{
       if (currentFragment !== numberOfFragment-1) return '';
       let list = [];
-      let start = thirdParty.length-((numberOfFragment-1)*maxOfFragment);
+      let start = thirdPartyEmployee.length-((numberOfFragment-1)*maxOfFragment);
       for(let i=start; i<7; i++)
-        list.push(<div key={thirdParty.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+        list.push(<div key={thirdPartyEmployee.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
       return list
     }
   
     const handleOpenModal = (id) => {
       setOpenLoading(true);
-      Axios.post("https://hifurdez.vercel.app/admin/3pls/detail", {
+      Axios.post("https://hifurdez.vercel.app/admin/3plse/detail", {
         id:id
       })
         .then((response) => {
@@ -96,11 +96,11 @@ export default function ThirdParty({
 
     const handleStatusSwitch = (id) => {
         setOpenLoading(true);
-        Axios.put("https://hifurdez.vercel.app/admin/3pls/change-status", {
+        Axios.put("https://hifurdez.vercel.app/admin/3plse/change-status", {
           id:id
         })
           .then((response) => {
-            setChangeThirdParty(!changeThirdParty)
+            setChangeThirdPartyEmployee(!changeThirdPartyEmployee)
             setAlert({type: "success", message: response.data.message});
             setOpenAlert(true);
           })
@@ -112,7 +112,7 @@ export default function ThirdParty({
 
     return (
         <div className="history_container">
-            {openModal && <ThirdPartyModal modalData={modalData} setOpenModal={setOpenModal}/>}
+            {openModal && <ModalThirdPartyEmployee modalData={modalData} setOpenModal={setOpenModal}/>}
             <div className="history_content">
                 <div className="search_container">
                     <input 
@@ -134,16 +134,19 @@ export default function ThirdParty({
                     <div className="history_table admin_user-scroll">
                         <div className="table_row first_row">
                             <div className="table_ele admin_fix-size-2">
-                                <p>Tax</p>
+                                <p>Identification</p>
+                            </div>
+                            <div className="table_ele admin_fix-size-2">
+                                <p>License</p>
                             </div>
                             <div className="table_ele">
                                 <p className="left_align">Name</p>
                             </div>
-                            <div className="table_ele">
-                                <p>Start Date</p>
+                            <div className="table_ele admin_fix-size-1">
+                                <p>Phone</p>
                             </div>
                             <div className="table_ele">
-                                <p>End Date</p>
+                                <p className="left_align">Third-party</p>
                             </div>
                             <div className="table_ele admin_fix-size-1">
                                 <p>Detail</p>
@@ -152,21 +155,24 @@ export default function ThirdParty({
                                 <p>Status</p>
                             </div>
                         </div>
-                        {thirdParty.map((item, index)=> {
+                        {thirdPartyEmployee.map((item, index)=> {
                             return index >= currentFragment * maxOfFragment && 
                             index < (currentFragment + 1) * maxOfFragment && (
                                 <div className={"table_row " + (index%2 ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
                                     <div className="table_ele admin_fix-size-2">
-                                        <p>{item.tax}</p>
+                                        <p>{item.driver_citizen_identification}</p>
+                                    </div>
+                                    <div className="table_ele admin_fix-size-2">
+                                        <p>{item.driver_license}</p>
                                     </div>
                                     <div className="table_ele">
-                                        <p className="left_align">{item.name}</p>
+                                        <p className="left_align">{item.driver_name}</p>
+                                    </div>
+                                    <div className="table_ele admin_fix-size-1">
+                                        <p>{item.driver_phone}</p>
                                     </div>
                                     <div className="table_ele">
-                                        <p>{item.start_date}</p>
-                                    </div>
-                                    <div className="table_ele">
-                                        <p>{item.end_date}</p>
+                                        <p className="left_align">{item.company_name}</p>
                                     </div>
                                     <div className="table_ele admin_fix-size-1">
                                         <button onClick={ () => handleOpenModal(item.id)}>Detail</button>
@@ -180,8 +186,8 @@ export default function ThirdParty({
                                     </div>
                                 </div>
                             )
-                            })}
-                            <RenderEmptyRow />
+                        })}
+                        <RenderEmptyRow />
                     </div>
                 </div>
                 <div className="history_pagination">
