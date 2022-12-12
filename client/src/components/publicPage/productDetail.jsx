@@ -5,11 +5,10 @@ import "../../styles/productDetail.css";
 import Loading from "../helper/loading";
 
 export default function ProductDetail ( {
-    filterCollection, filterCategory, 
     setFilterCategory, setFilterCollection,
     collectionProduct, categoryProduct,
     productDetail, setProductDetail,
-    setAlert, setOpenAlert, setOpenLoading
+    setAlert, setOpenAlert,
 } ) {
 
     const [chosenImg, setChosenImg] = useState([0,0]);

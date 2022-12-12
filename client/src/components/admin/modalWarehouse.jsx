@@ -1,71 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/history.css";
 
-export default function ModalWarehouse( {setOpenModal} ) {
+export default function ModalWarehouse( {modalData,setOpenModal} ) {
     const [tab, setTab] = useState('receive')
+
+    const [info, setInfo] = useState();
+    const [receive, setReceive] = useState([]);
+    const [transfer, setTransfer] = useState([]);
+    const [delivery, setDelivery] = useState([]);
+
+    useEffect(()=>{
+      setInfo(modalData.warehouseInfo[0]);
+      setReceive(modalData.receive);
+      setTransfer(modalData.transfer);
+      setDelivery(modalData.delivery);
+    },[modalData])
 
     const RenderItem = ( {tab} ) => {
       let list = [];
 
       if (tab === 'delivery'){
-        for(let i=0; i<8; i++){
+        delivery.forEach((item)=>{
           list.push (
             <div className="item_ctn_info">
               <div className="row first">
-                <p className="col-10">Picking Code: SP100000001</p>
-                <p className="col-2 text-end">$1000</p>
+                <p className="col-10">Code: {item.code} - {item.customer_name}</p>
+                <p className="col-2 text-end">${item.amount_total}</p>
               </div>
               <div className="row second">
-                <p className="col">Code: PO10000001</p>
-                <p className="col text-center">Warehouse: WH10000001</p>
-                <p className="col-3 text-end">Amout: 100</p>
+                <p className="col">Third-party: {item.third_party}</p>
+                <p className="col text-center">Amount: {item.product_amount}</p>
+              </div>
+              <div className="second">
+                <p>Address: {item.street? item.street +', ' : ''} {item.ward? item.ward +', ' : ''} {item.district? item.district + ', ': ''} {item.province? item.province + '.': ''}</p>
               </div>
             </div>
           )
-        }
+        })
       }
       else if (tab === 'receive'){
-        for(let i=0; i<8; i++){
+        receive.forEach((item)=>{
           list.push (
             <div className="item_ctn_info">
               <div className="row first">
-                <p className="col-10">Picking Code: SP100000001</p>
-                <p className="col-2 text-end">$1000</p>
+                <p className="col-9">Picking Code: {item.picking_code}</p>
+                <p className="col-3 text-end">{item.date}</p>
               </div>
               <div className="row second">
-                <p className="col">Code: PO10000001</p>
-                <p className="col text-center">Third-party: TP10000001</p>
-                <p className="col-3 text-end">Amout: 100</p>
+                <p className="col">Code: {item.code}</p>
+                <p className="col-6 text-center">Third-party: {item.third_party_name}</p>
+                <p className="col-2 text-end">Amout: {item.product_amount}</p>
               </div>
             </div>
           )
-        }
+        })
       }
       else {
-        for(let i=0; i<8; i++){
+        transfer.forEach((item)=>{
           list.push (
             <div className="item_ctn_info">
               <div className="row first">
-                <p className="col-10">Picking Code: SP100000001</p>
-                <p className="col-2 text-end">$1000</p>
+                <p className="col-9">Transfer Code: {item.transfer_code}</p>
+                <p className="col-3 text-end">{item.date}</p>
               </div>
               <div className="row second">
-                <p className="col">Move Code: PO10000001</p>
-                <p className="col text-center">Third-party: TP10000001</p>
-                <p className="col-3 text-end">Amout: 100</p>
+                <p className="col">Third-party: {item.third_party_name}</p>
+                <p className="col-6 text-center">Amount: {item.product_amount}</p>
               </div>
-              <div className="row second">
-                <p className="col">Srce Warehouse: WH10000001</p>
-                <p className="col">Desc Warehouse: WH10000002</p>
+              <div className="second">
+                <p>Src warehouse: {item.src_warehouse}</p>
+              </div>
+              <div className="second">
+                <p>Dest warehouse: {item.dest_warehouse}</p>
               </div>
             </div>
           )
-        }
+        })
       }
       return list
     }
 
-    return(
+  return info && receive && delivery && transfer && (
     <div className={"order_detail"}>
       <div className="order_detail_wrapper">
         <div className="order_detail_ctn">
@@ -73,19 +88,19 @@ export default function ModalWarehouse( {setOpenModal} ) {
             <div className="user_detail-info del_bottomBorder">
               <div className="info_ctn">
                 <p>Code:</p>
-                <p>WH100000001</p>
+                <p>{info.code}</p>
               </div>
               <div className="info_ctn">
                 <p>Name:</p>
-                <p>Warehouse xxx</p>
+                <p>{info.name}</p>
               </div>
               <div className="info_ctn">
                 <p>Status:</p>
-                <p>Active</p>
+                <p>{info.is_active? "Active" : "Locked"}</p>
               </div>
               <div className="info_ctn">
                 <p>Address:</p>
-                <p>288 Ly Thuong Kiet,<br/>Phuong 14, Quan 10, Ho Chi Minh.</p>
+                <p>{info.street},<br/> {info.ward}, {info.district}, {info.province}.</p>
               </div>
             </div>
           </div>

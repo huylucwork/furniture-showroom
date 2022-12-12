@@ -48,11 +48,15 @@ function App() {
   const [autumnRecommend, setAutumnRecommend] = useState([]);
   const [winterRecommend, setWinterRecommend] = useState([]);
 
+  //product detail
   const [productDetail, setProductDetail] = useState();
+
+  //admin
+  const [changeProducts, setChangeProducts] = useState(true);
 
   useEffect(() => {
     // Get all of items
-    if (items.length === 0) {
+    // if (items.length === 0) {
       setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/all-product")
           .then((response) => {
@@ -63,7 +67,7 @@ function App() {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
               setOpenAlert(true)
           });            
-    }
+    // }
 
     // Get recommend items colletion
     if (springRecommend.length === 0) {
@@ -123,7 +127,7 @@ function App() {
     //     .catch(err => {
     //         setOpenLoading(false)
     //     })
-  },[])
+  },[changeProducts])
 
   return (
     <AppContext.Provider>
@@ -208,11 +212,7 @@ function App() {
                 setFilterCollection={setFilterCollection}
                 filterCategory={filterCategory}
                 setFilterCategory={setFilterCategory}
-                items = {items}
-                setItems = {setItems}
-                setAlert={setAlert}
-                setOpenAlert={setOpenAlert}
-                setOpenLoading={setOpenLoading}
+                items={items}
               />
             }
           />
@@ -220,8 +220,6 @@ function App() {
             path="product-detail/:id"
             element={
               <ProductDetail
-                filterCollection={filterCollection}
-                filterCategory={filterCategory}
                 setFilterCategory={setFilterCategory}
                 setFilterCollection={setFilterCollection}
                 collectionProduct={collectionProduct}
@@ -230,32 +228,79 @@ function App() {
                 setProductDetail = {setProductDetail}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
-                setOpenLoading={setOpenLoading}
               />
             }
           />
           <Route
             path="admin/manage-users"
-            element={<Admin tab={"manage-users"} />}
+            element={<Admin 
+              tab={"manage-users"}  
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+          />}
           />
           <Route
             path="admin/manage-items"
-            element={<Admin tab={"manage-items"} />}
+            element={<Admin 
+              tab={"manage-items"} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+            />}
           />
-          <Route path="admin/supplier" element={<Admin tab={"supplier"} />} />
+          {/* <Route path="admin/supplier" element={<Admin tab={"supplier"} />} /> */}
           <Route
             path="admin/order/sale"
-            element={<Admin tab={"order-sale"} />}
+            element={<Admin 
+              tab={"order-sale"} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+          />}
           />
           <Route
             path="admin/order/purchase"
-            element={<Admin tab={"order-purchase"} />}
+            element={<Admin 
+              tab={"order-purchase"} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+            />}
           />
           <Route
             path="admin/third-party"
-            element={<Admin tab={"third-party"} />}
+            element={<Admin 
+              tab={"third-party"} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+            />}
           />
-          <Route path="admin/warehouse" element={<Admin tab={"warehouse"} />} />
+          <Route
+            path="admin/third-party-employee"
+            element={<Admin 
+              tab={"third-party-employee"} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+            />}
+          />
+          <Route 
+            path="admin/warehouse" 
+            element={<Admin 
+              tab={"warehouse"} 
+              setAlert={setAlert}
+              setOpenAlert={setOpenAlert}
+              changeProducts={changeProducts}
+              setChangeProducts={setChangeProducts}
+            />} />
           <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
           <Route
