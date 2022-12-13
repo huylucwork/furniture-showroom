@@ -12,8 +12,8 @@ export default function UpdateAdd(props) {
   const [price, setPrice] = useState(-1);
   const [discountPrice, setDiscountPrice] = useState(-2);
   const [name, setName] = useState(null);
-  const [collectionPick, setCollectionPick] = useState(0);
-  const [categoryPick, setCategoryPick] = useState(0);
+  const [collectionPick, setCollectionPick] = useState(1);
+  const [categoryPick, setCategoryPick] = useState(1);
   const [width, setWidth] = useState(null);
   const [height, setHeight] = useState(null);
   const [depth, setDepth] = useState(null);
@@ -70,10 +70,10 @@ export default function UpdateAdd(props) {
         .then((response)=>{
           setAlert({type: "success", message: response.message});
           setOpenAlert(true);
+          props.setChangeProducts(!props.setChangeProducts);
         })
     }
-
-    // if(price < discountPrice) {
+    // else if(price < discountPrice) {
     //   setAlert({type: "error", message: "Price can't be greater than Discount Price"});
     //   setOpenAlert(true);
     // } 
