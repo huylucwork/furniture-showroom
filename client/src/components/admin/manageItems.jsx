@@ -267,8 +267,10 @@ export default function ManageItem({
         </div>
         <UpdateAdd 
           trigger={[buttonModal, modalVal]} 
-          setTrigger={setButtonModal}>
-        </UpdateAdd>
+          setTrigger={setButtonModal} 
+          changeProducts={changeProducts}
+          setChangeProducts={setChangeProducts}
+        />
       </div>
     </div>
   )
