@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../../styles/login.css";
 import "../../styles/signup.css";
 
-export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } ) {
+export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn, setAlert, setOpenAlert } ) {
   const navigate = useNavigate();
 
   return (
@@ -64,11 +64,13 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } )
             </div>
             <div className="login_sign-up_div">
               <button className="login_sign-up-btn" type="submit" 
-                      onClick={()=>{
-                        setButtonLogin(false);
-                        setLoggedIn(true);
-                        navigate("../")
-                      }}
+                onClick={()=>{
+                  setButtonLogin(false);
+                  setLoggedIn(true);
+                  navigate("../")
+                  setAlert({type: 'success', message: 'Login successfully!'}); 
+                  setOpenAlert(true);
+                }}
               >
                 <p>Enjoy now !</p>
                 {/* <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i> */}

@@ -149,7 +149,6 @@
 
 .payment_container:nth-child(3) {
   border-top: none;
-  pointer-events: none;
 }
 
 .payment_container h2 {
@@ -157,10 +156,6 @@
   height: 1em;
   font-size: 1em;
   color: #473C38;
-}
-
-.payment_container:nth-child(3) h2 {
-  color: #473C3850;
 }
 
 .payment_container input {
@@ -184,10 +179,18 @@
 }
 
 .payment_container:nth-child(2) input:hover ~ .payment_checkmark {
-  background-color: #ccc;
+  background-color: #b46a29;
 }
 
 .payment_container:nth-child(2) input:checked ~ .payment_checkmark {
+  background-color: #b46a29;
+}
+
+.payment_container:nth-child(3) input:hover ~ .payment_checkmark {
+  background-color: #b46a29;
+}
+
+.payment_container:nth-child(3) input:checked ~ .payment_checkmark {
   background-color: #b46a29;
 }
 

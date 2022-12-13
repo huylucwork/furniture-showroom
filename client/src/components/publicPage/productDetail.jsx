@@ -132,8 +132,13 @@ export default function ProductDetail ( {
                             <p>{itemCount}</p>
                             <button className="button-plus" onClick={()=>setItemCount(itemCount+1)}>+</button>
                         </div>
-                        <button className="product-detail_body_right_add">
-                            Add to cart - ${productDetail.discount_price*itemCount}
+                        <button 
+                            className="product-detail_body_right_add"
+                            onClick={() => {
+                                setAlert({type: 'success', message: 'Add to cart successfully!'}); 
+                                setOpenAlert(true);
+                            }}>
+                                Add to cart - ${productDetail.discount_price*itemCount}
                         </button>
                         <div className="product-detail_body_right_about row" onClick={()=>setTriggerAbout(!triggerAbout)}>
                             <h1 className="col">About</h1>

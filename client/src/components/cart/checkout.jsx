@@ -78,7 +78,7 @@ export default function Checkout( { setFilterCollection, setFilterCategory, setA
           <span className="payment_checkmark"></span>
         </div>
         <div className="payment_container">
-          <h2>Bank transfer (Updating...)</h2>
+          <h2>Bank transfer</h2>
           <input type="radio" name="radio" />
           <span className="payment_checkmark"></span>
         </div>
