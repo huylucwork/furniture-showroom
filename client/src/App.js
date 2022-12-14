@@ -51,6 +51,9 @@ function App() {
   //product detail
   const [productDetail, setProductDetail] = useState();
 
+  //loggin
+  const [loggedIn, setLoggedIn] = useState(false);
+
   //admin
   const [changeProducts, setChangeProducts] = useState(true);
 
@@ -135,7 +138,7 @@ function App() {
         {openAlert && <Alert alert={alert} setOpenAlert={setOpenAlert} />}
         <ScrollToTop />
         <Analytics />
-        <Header />
+        <Header setAlert={setAlert} setOpenAlert={setOpenAlert} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         {openLoading ? <Loading /> :
         <Routes>
           <Route

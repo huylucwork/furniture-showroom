@@ -3,8 +3,9 @@ import Navbar from "./navbar/navbar";
 import NavbarLogin from "./navbar/navbarLogin";
 import { useLocation } from 'react-router-dom';
 
-export default function Header() {
-  const [loggedIn, setButtonLoggedIn] = useState(false);
+export default function Header({
+  setAlert, setOpenAlert, loggedIn, setLoggedIn
+}) {
 
   const [headerNav, setHeaderNav] = useState("header_ctn");
 
@@ -72,15 +73,21 @@ export default function Header() {
       {loggedIn ? (
         <NavbarLogin 
           loggedIn={loggedIn} 
-          setLoggedIn={setButtonLoggedIn} 
+          setLoggedIn={setLoggedIn} 
           setHeaderNav={setHeaderNav}
-          setTimer={setTimer}/>
+          setTimer={setTimer}
+          setAlert={setAlert} 
+          setOpenAlert={setOpenAlert}
+        />
       ) : (
         <Navbar 
           loggedIn={loggedIn} 
-          setLoggedIn={setButtonLoggedIn} 
+          setLoggedIn={setLoggedIn} 
           setHeaderNav={setHeaderNav}
-          setTimer={setTimer}/>
+          setTimer={setTimer}
+          setAlert={setAlert} 
+          setOpenAlert={setOpenAlert}
+        />
       )}
     </div>
   );
