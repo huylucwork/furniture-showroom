@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
-export default function NavbarLogin( {setLoggedIn, setHeaderNav, setTimer, account} ) {
+export default function NavbarLogin( {
+  setLoggedIn, setHeaderNav, setTimer, 
+  account, accountCart, accountCartTotal,
+  setAccountCart, setAccountCartTotal
+} ) {
   const [buttonCart, setButtonCart] = useState(false);
 
   const navigate = useNavigate();
@@ -14,6 +18,10 @@ export default function NavbarLogin( {setLoggedIn, setHeaderNav, setTimer, accou
       window.localStorage.removeItem('is_admin');
       window.localStorage.removeItem('account_id');
       window.localStorage.removeItem('display_name');
+      window.localStorage.removeItem('account_info');
+      window.localStorage.removeItem('account_history');
+      window.localStorage.removeItem('cart');
+      window.localStorage.removeItem('cart_total');
       navigate("../");
   }
 
@@ -194,7 +202,11 @@ export default function NavbarLogin( {setLoggedIn, setHeaderNav, setTimer, accou
           </li>
         </ul>
       </div>
-      <Cart trigger={buttonCart} setTrigger={setButtonCart} />
+      <Cart 
+        buttonCart={buttonCart} setButtonCart={setButtonCart} account={account}
+        accountCart={accountCart} accountCartTotal={accountCartTotal}
+        setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
+      />
     </div>
   );
 }

@@ -4,7 +4,8 @@ import NavbarLogin from "./navbar/navbarLogin";
 import { useLocation } from 'react-router-dom';
 
 export default function Header({
-  setAlert, setOpenAlert, loggedIn, setLoggedIn, account
+  setAlert, setOpenAlert, loggedIn, setLoggedIn, 
+  account, accountCart, accountCartTotal, setAccountCart, setAccountCartTotal
 }) {
 
   const [headerNav, setHeaderNav] = useState("header_ctn");
@@ -79,6 +80,8 @@ export default function Header({
           setAlert={setAlert} 
           setOpenAlert={setOpenAlert}
           account={account}
+          accountCart={accountCart} accountCartTotal={accountCartTotal}
+          setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
         />
       ) : (
         <Navbar 

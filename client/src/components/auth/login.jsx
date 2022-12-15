@@ -23,11 +23,13 @@ export default function Login( {
     })
       .then((response)=>{
         console.log(response.data);
-        window.localStorage.setItem('account_id', response.data[0].id);
-        window.localStorage.setItem('is_admin', response.data[0].is_admin);
-        window.localStorage.setItem('display_name', response.data[0].display_name);
+        window.localStorage.setItem('account_id', response.data['user-info'][0].id);
+        window.localStorage.setItem('is_admin', response.data['user-info'][0].is_admin);
+        window.localStorage.setItem('display_name', response.data['user-info'][0].display_name);
+        window.localStorage.setItem('cart', JSON.stringify(response.data['product-info']));
+        window.localStorage.setItem('cart_total', response.data['total-price'][0].product_price);
         setLoggedIn(true);
-        setAlert({type: "success", message: "Welcome back! " + response.data[0].display_name});
+        setAlert({type: "success", message: "Welcome back! " + response.data['user-info'][0].display_name});
         setOpenAlert(true);
         setButtonLogin(false);
       })

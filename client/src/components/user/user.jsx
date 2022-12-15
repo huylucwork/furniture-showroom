@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 import History from "./history";
 import Info from "./info";
 
-export default function User( {tab} ) {
+export default function User( {tab, accountInfo, accountHistory} ) {
     const navigate = useNavigate();
 
     useEffect(()=>{}, [tab])
@@ -30,8 +31,8 @@ export default function User( {tab} ) {
                     <i className="fa-solid fa-clock-rotate-left sidebar_icon"></i>
                 </div>
             </div>
-            {tab === 'info' && <Info />}
-            {tab === 'history' && <History />}
+            {tab === 'info' && <Info accountInfo={accountInfo}/>}
+            {tab === 'history' && <History accountHistory={accountHistory}/>}
         </React.Fragment>
     )
 }

@@ -19,8 +19,8 @@ export default function Signup( { setButtonSignUp, setButtonLogin } ) {
       Axios.post("https://hifurdez.vercel.app/auth/sign-up", {
         email: email,
         password: sha1(password),
-        fullName: fullName,
-        userName: userName
+        fullname: fullName,
+        username: userName,
       })
         .then((response)=>{
           if (response.message === "Signup successful"){

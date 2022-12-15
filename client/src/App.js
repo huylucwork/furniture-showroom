@@ -144,6 +144,10 @@ function App() {
   //loggin
   const [loggedIn, setLoggedIn] = useState(false);
   const [account, setAccount] = useState();
+  const [accountInfo, setAccountInfo] = useState();
+  const [accountHistory, setAccountHistory] = useState();
+  const [accountCart, setAccountCart] = useState([]);
+  const [accountCartTotal, setAccountCartTotal] = useState();
 
   useEffect(()=>{
     if (localStorage.getItem('is_admin') !== null){
@@ -152,12 +156,46 @@ function App() {
         'id': Number(localStorage.getItem('account_id')),
         'display_name': localStorage.getItem('display_name')
       })
+      setAccountCart(JSON.parse(localStorage.getItem('cart')));
+      setAccountCartTotal(localStorage.getItem('cart_total'));
+      if (localStorage.getItem('account_info') !== null) {
+        setAccountInfo(JSON.parse(localStorage.getItem('account_info')));
+        setAccountHistory(JSON.parse(localStorage.getItem('account_history')));
+      }
+      else {
+        setOpenLoading(true);
+        Axios.post("https://hifurdez.vercel.app/user/get-info", {
+          id: Number(localStorage.getItem('account_id'))
+        })
+          .then((response) => {
+            window.localStorage.setItem('account_info', JSON.stringify(response.data[0]));
+            setAccountInfo(response.data[0]);
+          })
+          .catch(err => {
+            setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+            setOpenAlert(true)
+          }); 
+        Axios.post("https://hifurdez.vercel.app/user/order", {
+          id: Number(localStorage.getItem('account_id'))
+        }) 
+          .then((response) => {
+            window.localStorage.setItem('account_history', JSON.stringify(response.data));
+            setAccountHistory(response.data);
+            setOpenLoading(false);
+          })
+          .catch(err => {
+            setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+            setOpenAlert(true)
+          });
+      }
       setLoggedIn(true);
     }
     else {
       setAccount();
     }
   },[loggedIn])
+
+  console.log(accountCart)
 
   return (
     <AppContext.Provider>
@@ -168,7 +206,8 @@ function App() {
         <Header 
           setAlert={setAlert} setOpenAlert={setOpenAlert} 
           loggedIn={loggedIn} setLoggedIn={setLoggedIn} 
-          account={account}
+          account={account} accountCart={accountCart} accountCartTotal={accountCartTotal}
+          setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
         />
         {openLoading ? <Loading /> :
         <Routes>
@@ -183,9 +222,9 @@ function App() {
               />
             }
           />
-          <Route path="user/history" element={<User tab={"history"} />} />
-          <Route path="user/info" element={<User tab={"info"} />} />
-          <Route path="user" element={<Navigate to="info" />} />
+          {loggedIn && <Route path="user/history" element={<User tab={"history"} accountInfo={accountInfo} accountHistory={accountHistory}/>} />}
+          {loggedIn && <Route path="user/info" element={<User tab={"info"} accountInfo={accountInfo} accountHistory={accountHistory}/>} />}
+          {loggedIn && <Route path="user" element={<Navigate to="info" />} />}
           <Route
             path={"collection-detail/spring"}
             element={
@@ -262,6 +301,10 @@ function App() {
                 setProductDetail = {setProductDetail}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
+                loggedIn={loggedIn}
+                accountInfo={accountInfo}
+                setAccountCart={setAccountCart}
+                setAccountCartTotal={setAccountCartTotal}
               />
             }
           />
@@ -337,6 +380,7 @@ function App() {
             />} />
           <Route path="admin/report" element={<Admin tab={"report"} />} />
           <Route path="admin" element={<Navigate to="manage-users" />} />
+          {loggedIn && 
           <Route
             path="checkout"
             element={
@@ -347,7 +391,7 @@ function App() {
                 setOpenAlert={setOpenAlert}
               />
             }
-          />
+          />}
           <Route path="*" element={<Error />} />
         </Routes>}
         <Footer />
