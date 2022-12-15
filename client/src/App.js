@@ -37,6 +37,7 @@ function App() {
   
   //loading
   const [openLoading, setOpenLoading] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   //items
   const [items, setItems] = useState([]);
@@ -51,33 +52,38 @@ function App() {
   //product detail
   const [productDetail, setProductDetail] = useState();
 
-  //loggin
-  const [loggedIn, setLoggedIn] = useState(false);
-
   //admin
   const [changeProducts, setChangeProducts] = useState(true);
 
   useEffect(() => {
     // Get all of items
-    // if (items.length === 0) {
+    if (firstLoad && localStorage.getItem('items')) {
+      setItems(JSON.parse(localStorage.getItem('items')));
+    }
+    else {
       setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/all-product")
           .then((response) => {
             setItems(response.data);
+            window.localStorage.setItem('items',JSON.stringify(response.data));
             setOpenLoading(false);
           })
           .catch(err => {
               setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
               setOpenAlert(true)
           });            
-    // }
+    }
 
     // Get recommend items colletion
-    if (springRecommend.length === 0) {
+    if (firstLoad && localStorage.getItem('spring')) {
+      setSpringRecommend(JSON.parse(localStorage.getItem('spring')));
+    }
+    else if (springRecommend.length === 0) {
       setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-spring")
           .then((response) => {
             setSpringRecommend(response.data);
+            window.localStorage.setItem('spring',JSON.stringify(response.data));
             setOpenLoading(false);
           })
           .catch(err => {
@@ -85,11 +91,15 @@ function App() {
               setOpenAlert(true)
           });  
     }
-    if (summerRecommend.length === 0) {
+    if (firstLoad && localStorage.getItem('summer')) {
+      setSummerRecommend(JSON.parse(localStorage.getItem('summer')));
+    }
+    else if (summerRecommend.length === 0) {
       setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-summer")
           .then((response) => {
             setSummerRecommend(response.data);
+            window.localStorage.setItem('summer',JSON.stringify(response.data));
             setOpenLoading(false);
           })
           .catch(err => {
@@ -97,11 +107,15 @@ function App() {
               setOpenAlert(true)
           });  
     }
-    if (autumnRecommend.length === 0) {
+    if (firstLoad && localStorage.getItem('autumn')) {
+      setAutumnRecommend(JSON.parse(localStorage.getItem('autumn')));
+    }
+    else if (autumnRecommend.length === 0) {
       setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-autumn")
           .then((response) => {
             setAutumnRecommend(response.data);
+            window.localStorage.setItem('autumn',JSON.stringify(response.data));
             setOpenLoading(false);
           })
           .catch(err => {
@@ -109,11 +123,15 @@ function App() {
               setOpenAlert(true)
           });  
     }
-    if (winterRecommend.length === 0) {
+    if (firstLoad && localStorage.getItem('winter')) {
+      setWinterRecommend(JSON.parse(localStorage.getItem('winter')));
+    }
+    else if (winterRecommend.length === 0) {
       setOpenLoading(true);
       Axios.get("https://hifurdez.vercel.app/product-random-by-winter")
           .then((response) => {
             setWinterRecommend(response.data);
+            window.localStorage.setItem('winter',JSON.stringify(response.data));
             setOpenLoading(false);
           })
           .catch(err => {
@@ -121,16 +139,25 @@ function App() {
               setOpenAlert(true)
           });  
     }
-    // setOpenLoading(true)
-    // Axios.get("/api/auth")
-    //     .then((response) => {
-    //         setUser(response.data.user)
-    //         setOpenLoading(false)
-    //     })
-    //     .catch(err => {
-    //         setOpenLoading(false)
-    //     })
   },[changeProducts])
+
+  //loggin
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [account, setAccount] = useState();
+
+  useEffect(()=>{
+    if (localStorage.getItem('is_admin') !== null){
+      setAccount({
+        'is_admin': localStorage.getItem('is_admin'),
+        'id': Number(localStorage.getItem('account_id')),
+        'display_name': localStorage.getItem('display_name')
+      })
+      setLoggedIn(true);
+    }
+    else {
+      setAccount();
+    }
+  },[loggedIn])
 
   return (
     <AppContext.Provider>
@@ -138,7 +165,11 @@ function App() {
         {openAlert && <Alert alert={alert} setOpenAlert={setOpenAlert} />}
         <ScrollToTop />
         <Analytics />
-        <Header setAlert={setAlert} setOpenAlert={setOpenAlert} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+        <Header 
+          setAlert={setAlert} setOpenAlert={setOpenAlert} 
+          loggedIn={loggedIn} setLoggedIn={setLoggedIn} 
+          account={account}
+        />
         {openLoading ? <Loading /> :
         <Routes>
           <Route

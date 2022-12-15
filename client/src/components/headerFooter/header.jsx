@@ -4,7 +4,7 @@ import NavbarLogin from "./navbar/navbarLogin";
 import { useLocation } from 'react-router-dom';
 
 export default function Header({
-  setAlert, setOpenAlert, loggedIn, setLoggedIn
+  setAlert, setOpenAlert, loggedIn, setLoggedIn, account
 }) {
 
   const [headerNav, setHeaderNav] = useState("header_ctn");
@@ -70,7 +70,7 @@ export default function Header({
         className="dummy_navbar" 
         onMouseEnter={() => {setTimer(true); setHeaderNav("header_ctn")}}>
       </div>
-      {loggedIn ? (
+      {loggedIn && account ? (
         <NavbarLogin 
           loggedIn={loggedIn} 
           setLoggedIn={setLoggedIn} 
@@ -78,6 +78,7 @@ export default function Header({
           setTimer={setTimer}
           setAlert={setAlert} 
           setOpenAlert={setOpenAlert}
+          account={account}
         />
       ) : (
         <Navbar 

@@ -7,7 +7,7 @@ import Login from "../../auth/login";
 import Signup from "../../auth/signup";
 
 export default function Navbar( {
-  loggedIn, setLoggedIn, setHeaderNav, setTimer, setAlert, setOpenAlert
+  setLoggedIn, setHeaderNav, setTimer, setAlert, setOpenAlert
 } ) {
   const [buttonSignUp, setButtonSignUp] = useState(false);
   const [buttonLogin, setButtonLogin] = useState(false);

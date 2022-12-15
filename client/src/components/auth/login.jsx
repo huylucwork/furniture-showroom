@@ -19,13 +19,21 @@ export default function Login( {
 
     Axios.post("https://hifurdez.vercel.app/auth/sign-in",{
       email: email,
-      password: "40bd001563085fc35165329ea1ff5c5ecbdbbeef",
+      password: sha1(password),
     })
       .then((response)=>{
-        console.log(response);
+        console.log(response.data);
+        window.localStorage.setItem('account_id', response.data[0].id);
+        window.localStorage.setItem('is_admin', response.data[0].is_admin);
+        window.localStorage.setItem('display_name', response.data[0].display_name);
+        setLoggedIn(true);
+        setAlert({type: "success", message: "Welcome back! " + response.data[0].display_name});
+        setOpenAlert(true);
+        setButtonLogin(false);
       })
       .catch((err) => {
-        console.log(err)
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true);
       })
   }
 
