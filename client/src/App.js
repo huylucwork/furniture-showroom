@@ -139,6 +139,7 @@ function App() {
               setOpenAlert(true)
           });  
     }
+    setFirstLoad(false);
   },[changeProducts])
 
   //loggin
