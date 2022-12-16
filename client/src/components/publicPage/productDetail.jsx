@@ -9,7 +9,7 @@ export default function ProductDetail ( {
     collectionProduct, categoryProduct,
     productDetail, setProductDetail,
     setAlert, setOpenAlert,
-    loggedIn, accountInfo, setAccountCart, setAccountCartTotal
+    loggedIn, account, setAccountCart, setAccountCartTotal
 } ) {
 
     const [chosenImg, setChosenImg] = useState([0,0]);
@@ -68,15 +68,20 @@ export default function ProductDetail ( {
     }, [productDetail])
 
     const handleAddButton = () => {
-        if(loggedIn && accountInfo){
-            Axios.post("https://hifurdez.vercel.app/cart/insert", {
-                customer_id: accountInfo.id,
-                product_id: productDetail.id
-            })
+        if(loggedIn && account){
+            if (account.is_admin) {
+                setAlert({type: 'warning', message: 'You are in administrator account!'}); 
+                setOpenAlert(true);
+            }
+            else {
+                Axios.post("https://hifurdez.vercel.app/cart/insert", {
+                    customer_id: account.id,
+                    product_id: productDetail.id
+                })
                 .then((response)=>{
                     if(response.data.message === "Insert Successfully") {
                         Axios.post("https://hifurdez.vercel.app/cart/get",{
-                            customer_id: accountInfo.id
+                            customer_id: account.id
                         })
                             .then((res)=>{
                                 window.localStorage.setItem('cart', JSON.stringify(res.data['product-info']));
@@ -100,6 +105,7 @@ export default function ProductDetail ( {
                     setAlert({type: "error", message: "Add fail! Please reload to retry!"});
                     setOpenAlert(true)
                 });
+            }
         }
         else {
             setAlert({type: "error", message: "Please log in to shopping!"});
