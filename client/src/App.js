@@ -300,7 +300,7 @@ function App() {
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
                 loggedIn={loggedIn}
-                accountInfo={accountInfo}
+                account={account}
                 setAccountCart={setAccountCart}
                 setAccountCartTotal={setAccountCartTotal}
               />
