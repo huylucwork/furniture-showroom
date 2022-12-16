@@ -58,8 +58,8 @@ export default function UpdateAdd(props) {
     e.preventDefault();
 
     if(!props.trigger[1]) {
-      if(name === "" || name === null) {
-        setAlert({type: "error", message: "You must enter item name!"});
+      if(name === "" || price === -1 || width === "" || height === "" || depth === "" || weight === "" || color === "" || material === "" || descrb ==="") {
+        setAlert({type: "error", message: "You must input all fields!"});
         setOpenAlert(true)
         return;
       }
@@ -102,7 +102,7 @@ export default function UpdateAdd(props) {
           setOpenAlert(true);
         })
     }
-    else if((price !==-1? price : props.accountVal.price) < discountPrice) {
+    else if((price !==-1? Number(price) : props.accountVal.price) < Number(discountPrice)) {
       setAlert({type: "error", message: "Discount Price can't be greater than Price"});
       setOpenAlert(true);
     } 
