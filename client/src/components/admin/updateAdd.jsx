@@ -80,7 +80,20 @@ export default function UpdateAdd(props) {
         weight: weight,
         description: descrb,
         media_0: "https://res.cloudinary.com/castlery/image/private/b_rgb:F0EAE2,c_fit,f_auto,q_auto,w_1000/v1619340680/crusader/variants/T50440970-TL4002-GD/Adams-Right-Chaise-Setcional-Sofa-Pearl-Beige-Brass-Front.jpg",
-        media_1: "https://res.cloudinary.com/castlery/image/private/b_rgb:F0EAE2,c_fit,f_auto,q_auto,w_1000/v1639130399/crusader/variants/T50440970-TL4002-GD/Adams-Chaise-Sectional-Sofa-Right-Facing-Pearl-Beige-Brass-Leg-Shared1.jpg"
+        media_1: "https://res.cloudinary.com/castlery/image/private/b_rgb:F0EAE2,c_fit,f_auto,q_auto,w_1000/v1639130399/crusader/variants/T50440970-TL4002-GD/Adams-Chaise-Sectional-Sofa-Right-Facing-Pearl-Beige-Brass-Leg-Shared1.jpg",
+        media_2: "test",
+        media_3: "test",
+        media_4: "test",
+        media_5: "test",
+        media_6: "test",
+        media_7: "test",
+        media_8: "test",
+        media_9: "test",
+        media_10: "test",
+        media_11: "test",
+        media_12: "test",
+        media_13: "test",
+        media_14: "test",
       })
         .then((response)=>{
           setAlert({type: "success", message: "Add item successfully!"});
