@@ -1,9 +1,11 @@
 .checkout_container {
+  position: relative;
   width: 100%;
   height: 96rem;
   z-index: -1;
   color: #473C38;
   font-size: 10px;
+  z-index: 100;
 }
 
 /* information */
@@ -147,7 +149,6 @@
 
 .payment_container:nth-child(3) {
   border-top: none;
-  pointer-events: none;
 }
 
 .payment_container h2 {
@@ -155,10 +156,6 @@
   height: 1em;
   font-size: 1em;
   color: #473C38;
-}
-
-.payment_container:nth-child(3) h2 {
-  color: #473C3850;
 }
 
 .payment_container input {
@@ -182,10 +179,18 @@
 }
 
 .payment_container:nth-child(2) input:hover ~ .payment_checkmark {
-  background-color: #ccc;
+  background-color: #b46a29;
 }
 
 .payment_container:nth-child(2) input:checked ~ .payment_checkmark {
+  background-color: #b46a29;
+}
+
+.payment_container:nth-child(3) input:hover ~ .payment_checkmark {
+  background-color: #b46a29;
+}
+
+.payment_container:nth-child(3) input:checked ~ .payment_checkmark {
   background-color: #b46a29;
 }
 
@@ -278,4 +283,98 @@
   color: #473C38;
   font-weight: 300;
   margin-right: 18em;
+}
+
+/* Checkout Modal */
+
+.checkout-modal_ctn {
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-size: 10px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(71, 71, 71, 0.6);
+  z-index: 99999;
+}
+
+.checkout-modal_wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75em;
+  height: 30em;
+  background-color: #f0eae2;
+}
+
+.checkout-modal_ctr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 5.4em);
+  height: calc(100% - 5.4em);
+  background-color: var(--backgroundColor);
+  border: 1px solid #D1B7A1;
+}
+
+.checkout-modal_content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 2em;
+  z-index: -1;
+}
+
+.checkout-modal_content h2 {
+  font-size: 3em;
+  font-family: "Poppins";
+  color: #b06d40;
+  margin-bottom: 2em;
+  margin-top: 0.7em;
+  text-align: center;
+}
+
+.checkout-modal_content p {
+  font-size: 2em;
+  font-family: "Poppins";
+  color: #553A31;
+  padding-left: 1em;
+}
+
+.checkout-modal_ok-btn {
+  position: absolute;
+  bottom: 0.5em;
+  right: 8em;
+  border: none;
+  outline: none;
+  background-color: #AD7252;
+  width: 6em;
+  height: 2.5em;
+  color: #fff;
+  font-size: 2em;
+  transition: box-shadow .2s;
+  box-shadow: inset 0.6em 0 0 0.00375em #AD7252;
+}
+
+.checkout-modal_cancel-btn {
+  position: absolute;
+  bottom: 0.5em;
+  right: 1em;
+  border: none;
+  outline: none;
+  background-color: #AD7252;
+  width: 6em;
+  height: 2.5em;
+  color: #fff;
+  font-size: 2em;
+  transition: box-shadow .2s;
+  box-shadow: inset 0.6em 0 0 0.00375em #AD7252;
+}
+
+.checkout-modal_ok-btn:hover,
+.checkout-modal_cancel-btn:hover {
+  box-shadow: inset 6em 0 0 0.09px #9C674B;
 }

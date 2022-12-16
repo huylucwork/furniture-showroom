@@ -234,6 +234,7 @@
 .collection_part_3 .items .item {
     width: 35.7rem;
     height: 51rem;
+    cursor: pointer;
 }
 
 .collection_part_3 .items .item img {
