@@ -84,12 +84,13 @@ export default function UpdateAdd(props) {
     } 
     else if(props.trigger[1]) {
       Axios.put("https://hifurdez.vercel.app/admin/products/update-info", {
+        id: props.modalValId,
         category_id: categoryPick,
         collection_id: collectionPick,
         product_name: name,
         material: material,
         price: price,
-        discount_price: price,
+        discount_price: discountPrice? discountPrice : price,
         color: color,
         width: width,
         depth: depth,
