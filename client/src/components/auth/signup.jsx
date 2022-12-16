@@ -154,7 +154,7 @@ export default function Signup( { setButtonSignUp, setButtonLogin, setAlert, set
                 required              
               />
               <label className="sign-up_form_text-field_label">Full name</label>
-              {validFname && <h2 className="signup_check-valid">{`Unvalid Character "${validChaFname}"`}</h2>}
+              {validFname && <h2 className="signup_check-valid">{`Invalid Character "${validChaFname}"`}</h2>}
             </div>
             <div className="sign-up_form_text-field">
               <input
@@ -165,7 +165,7 @@ export default function Signup( { setButtonSignUp, setButtonLogin, setAlert, set
                 required
               />
               <label className="sign-up_form_text-field_label">User name</label>
-              {validUname && <h2 className="signup_check-valid">{`Unvalid Character "${validChaUname}"`}</h2>}
+              {validUname && <h2 className="signup_check-valid">{`Invalid Character "${validChaUname}"`}</h2>}
             </div>
             <div className="sign-up_form_text-field">
               <input
@@ -176,7 +176,7 @@ export default function Signup( { setButtonSignUp, setButtonLogin, setAlert, set
                 onChange={e => checkValidEmail(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">Email</label>
-              {valid && <h2 className="signup_check-valid">{`Unvalid Character "${validCha}"`}</h2>}
+              {valid && <h2 className="signup_check-valid">{`Invalid Character "${validCha}"`}</h2>}
             </div>
             <div className="sign-up_form_text-field">
               <input

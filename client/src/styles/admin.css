@@ -87,6 +87,7 @@
 .admin_input {
   margin-bottom: 1.2em;
   max-width: 50em;
+  position: relative;
 }
 
 .display_block {
@@ -281,4 +282,24 @@
 
 .admin_input .manage_type .sort-opts a:hover h2 {
   color: #fff;
+}
+
+/* validate add new */
+
+.admin_input:nth-child(1) h2,
+.admin_input:nth-child(4) h2 {
+  position: absolute;
+  left: 0;
+  top: 5.2em;
+}
+
+.admin_input:nth-child(3) .admin_choosen h2 {
+  width: 150%;
+  position: absolute;
+  left: 0;
+  top: 2.7em;
+}
+
+.admin_input:nth-child(5) .admin_choosen h2 {
+  width: 180%;
 }

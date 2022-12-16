@@ -26,6 +26,31 @@ export default function UpdateAdd(props) {
   const [openAlert, setOpenAlert] = useState(false);
   const [alert, setAlert] = useState({ type: "", message: "" });
 
+  const [validName, setValidName] = useState(false);
+  const [validNameCha, setValidNameCha] = useState("");
+
+  const [validW, setValidW] = useState(false);
+  const [validWCha, setValidWCha] = useState("");
+
+  const [validD, setValidD] = useState(false);
+  const [validDCha, setValidDCha] = useState("");
+
+  const [validH, setValidH] = useState(false);
+  const [validHCha, setValidHCha] = useState("");
+
+  const [validPrice, setValidPrice] = useState(false);
+  const [validPriceCha, setValidPriceCha] = useState("");
+
+  const [validWeight, setValidWeight] = useState(false);
+  const [validWeightCha, setValidWeightCha] = useState("");
+
+  const [validColor, setValidColor] = useState(false);
+  const [validColorCha, setValidColorCha] = useState("");
+
+  const [validMaterial, setValidMaterial] = useState(false);
+  const [validMaterialCha, setValidMaterialCha] = useState("");
+
+  var format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
   useEffect(() => {
     var inputs = document.querySelectorAll( '.admin_input_tmp' );
@@ -58,8 +83,15 @@ export default function UpdateAdd(props) {
     e.preventDefault();
 
     if(!props.trigger[1]) {
-      if(name === "" || name === null) {
-        setAlert({type: "error", message: "You must enter item name!"});
+      if(name === null || name === "" || width === null || width === "" || height === null || height === "" ||
+         depth === null || depth === "" || weight === null || weight === "" || color === null || color === "" || 
+         material === null || material === "" || price === -1) {
+        setAlert({type: "error", message: "You must enter item properties!"});
+        setOpenAlert(true)
+        return;
+      }
+      if (format.test(name) || format.test(depth) || format.test(width) || format.test(height) || format.test(weight) || format.test(color) || format.test(material)) {
+        setAlert({type: "error", message: "Invalid Character!"});
         setOpenAlert(true)
         return;
       }
@@ -81,8 +113,16 @@ export default function UpdateAdd(props) {
         description: descrb,
       })
         .then((response)=>{
+          props.setTrigger(false)
           setAlert({type: "success", message: "Add item successfully!"});
           setOpenAlert(true);
+          setName(null);
+          setHeight(null);
+          setWidth(null);
+          setDepth(null);
+          setWeight(null);
+          setColor(null);
+          setMaterial(null);
           props.setChangeProducts(!props.setChangeProducts);
         })
     }
@@ -107,13 +147,87 @@ export default function UpdateAdd(props) {
         description: descrb,
       })
         .then((response)=>{
+          props.setTrigger(false)
           setAlert({type: "success", message: response.message});
           setOpenAlert(true);
           props.setChangeProducts(!props.setChangeProducts);
         })
     }
+  }
 
-    // props.setTrigger(false)
+  const checkValid = (str, type) => {
+    if(type === "name") {
+      setName(str);
+      if (format.test(str[str.length - 1])) {
+        setValidName(true);
+        setValidNameCha(str[str.length - 1]);
+        return;
+      }
+      setValidName(false);
+    }
+    else if(type === "w") {
+      setWidth(str);
+      if (format.test(str[str.length - 1])) {
+        setValidW(true);
+        setValidWCha(str[str.length - 1]);
+        return;
+      }
+      setValidW(false);
+    }
+    else if(type === "d") {
+      setDepth(str);
+      if (format.test(str[str.length - 1])) {
+        setValidD(true);
+        setValidDCha(str[str.length - 1]);
+        return;
+      }
+      setValidD(false);
+    }
+    else if(type === "h") {
+      setHeight(str);
+      if (format.test(str[str.length - 1])) {
+        setValidH(true);
+        setValidHCha(str[str.length - 1]);
+        return;
+      }
+      setValidH(false);
+    }
+    else if(type === "price") {
+      setPrice(str);
+      if (format.test(str[str.length - 1])) {
+        setValidPrice(true);
+        setValidPriceCha(str[str.length - 1]);
+        return;
+      }
+      setValidPrice(false);
+    }
+    else if(type === "weight") {
+      setWeight(str);
+      if (format.test(str[str.length - 1])) {
+        setValidWeight(true);
+        setValidWeightCha(str[str.length - 1]);
+        return;
+      }
+      setValidWeight(false);
+    }
+    else if(type === "color") {
+      setColor(str);
+      if (format.test(str[str.length - 1])) {
+        setValidColor(true);
+        setValidColorCha(str[str.length - 1]);
+        return;
+      }
+      setValidColor(false);
+    }
+    else if(type === "material") {
+      setMaterial(str);
+      if (format.test(str[str.length - 1])) {
+        setValidMaterial(true);
+        setValidMaterialCha(str[str.length - 1]);
+        return;
+      }
+      setValidMaterial(false);
+    }
   }
 
   return props.trigger[0] ? (
@@ -147,7 +261,8 @@ export default function UpdateAdd(props) {
           <div className="admin_content">
             <div className="admin_input">
               <label className="display_block">Name</label>
-              <input className="admin_input_text" type="text" onChange={(e)=>setName(e.target.value)}/>
+              <input className="admin_input_text" type="text" onChange={(e)=>checkValid(e.target.value, "name")}/>
+              {(!props.trigger[1] && validName) && <h2 className="signup_check-valid">{`Invalid Character "${validNameCha}"`}</h2>}
             </div>
             <div className="admin_input">
               <div className="admin_choosen">
@@ -164,22 +279,26 @@ export default function UpdateAdd(props) {
               <div className="size_ctn">
                 <div className="admin_choosen">
                   <label>w:</label>
-                  <input className="admin_input_text" type="text" onChange={(e)=>setWidth(e.target.value)}/>
+                  <input className="admin_input_text" type="text" onChange={(e)=>checkValid(e.target.value, "w")}/>
+                  {(!props.trigger[1] && validW) && <h2 className="signup_check-valid">{`Invalid Character "${validWCha}"`}</h2>}
                 </div>
                 <div className="admin_choosen">
                   <label>d:</label>
-                  <input className="admin_input_text" type="text" onChange={(e)=>setDepth(e.target.value)}/>
+                  <input className="admin_input_text" type="text" onChange={(e)=>checkValid(e.target.value, "d")}/>
+                  {(!props.trigger[1] && validD) && <h2 className="signup_check-valid">{`Invalid Character "${validDCha}"`}</h2>}
                 </div>
                 <div className="admin_choosen">
                   <label>h:</label>
-                  <input className="admin_input_text" type="text" onChange={(e)=>setHeight(e.target.value)}/>
+                  <input className="admin_input_text" type="text" onChange={(e)=>checkValid(e.target.value, "h")}/>
+                  {(!props.trigger[1] && validH) && <h2 className="signup_check-valid">{`Invalid Character "${validHCha}"`}</h2>}
                 </div>
               </div>
             </div>
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Price</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => checkValid(e.target.value, "price")}/>
+                {(!props.trigger[1] && validPrice) && <h2 className="signup_check-valid">{`Invalid Character "${validPriceCha}"`}</h2>}
               </div>
               {props.trigger[1] &&
               <div className="admin_choosen">
@@ -190,15 +309,18 @@ export default function UpdateAdd(props) {
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Weight</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setWeight(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => checkValid(e.target.value, "weight")}/>
+                {(!props.trigger[1] && validWeight) && <h2 className="signup_check-valid">{`Invalid Cha "${validWeightCha}"`}</h2>}
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Color</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setColor(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => checkValid(e.target.value, "color")}/>
+                {(!props.trigger[1] && validColor) && <h2 className="signup_check-valid">{`Invalid Character "${validColorCha}"`}</h2>}
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Material</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setMaterial(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => checkValid(e.target.value, "material")}/>
+                {(!props.trigger[1] && validMaterial) && <h2 className="signup_check-valid">{`Invalid Character "${validMaterialCha}"`}</h2>}
               </div>
             </div>
             {!props.trigger[1] &&
