@@ -40,11 +40,17 @@
   left: -2.5%;
   top: 100%;
   width: 105%;
+  height: 22em;
   padding: 10px 0;
   box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
   background-color: #f0eae2;
   cursor: pointer;
   border-radius: 4px;
+  overflow: auto;
+}
+
+.sort-opts::-webkit-scrollbar {
+  display: none;
 }
 
 .sort-opts a {
@@ -61,9 +67,12 @@
   font-weight: 400;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   color: #473C38;
-  display: flex;
+  display: block;
   align-items: center;
-  padding: 0 25px;
+  padding: 5px 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sort-opts a:hover h2 {
