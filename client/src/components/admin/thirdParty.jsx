@@ -74,7 +74,7 @@ export default function ThirdParty({
       let list = [];
       let start = thirdParty.length-((numberOfFragment-1)*maxOfFragment);
       for(let i=start; i<7; i++)
-        list.push(<div key={thirdParty.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+        list.push(<div key={thirdParty.length+i-start} className={"table_row " + (((i + (thirdParty.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
       return list
     }
   
@@ -155,7 +155,7 @@ export default function ThirdParty({
                         {thirdParty.map((item, index)=> {
                             return index >= currentFragment * maxOfFragment && 
                             index < (currentFragment + 1) * maxOfFragment && (
-                                <div className={"table_row " + (index%2 ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
+                                <div className={"table_row " + (index%2 ? "odd_row " : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
                                     <div className="table_ele admin_fix-size-2">
                                         <p>{item.tax}</p>
                                     </div>

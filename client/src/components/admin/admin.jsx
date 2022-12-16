@@ -194,7 +194,7 @@ export default function Admin( {tab, setAlert, setOpenAlert, changeProducts, set
                         onClick={() => {navigate("../admin/third-party-employee")}}>
                         Third-party Employee
                     </button>
-                    <i className="fa-solid fa-users sidebar_icon"></i>
+                    <i class="fa-solid fa-truck-fast sidebar_icon"></i>
                 </div>
                 <div className="sidebar_ele">
                     <button 

@@ -1,21 +1,47 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Axios from "axios";
 import "../../styles/cart.css";
 
 
 function CartItem(item) {
   const [close,setClose] = useState(false);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
+
   const addCountHandler = () => {
     setCounter(counter + 1);
+    item.setTotalPrice(item.totalPrice+Number(item.price))
   };
   const removeCountHandler = () => {
-    if (counter === 0) {
+    if (counter === 1) {
       return;
     }
     setCounter(counter - 1);
+    item.setTotalPrice(item.totalPrice-Number(item.price))
   };
+
+  const handleRemoveItem = () => {
+    Axios.post("https://hifurdez.vercel.app/cart/update", {
+      customer_id: item.customer,
+      product_id: item.product
+    })
+      .then((response)=> {
+        if (response.data.message === "Delete Successfully") {
+          Axios.post("https://hifurdez.vercel.app/cart/get", {
+              customer_id: item.customer
+          })
+              .then((res)=>{
+                window.localStorage.setItem('cart', JSON.stringify(res.data['product-info']));
+                window.localStorage.setItem('cart_total', JSON.stringify(res.data['total-price'][0]['product_price']));
+                item.setAccountCart(res.data['product-info']);
+                item.setAccountCartTotal(res.data['total-price'][0]['product_price']);
+                setClose(true);
+                item.setTotalPrice(item.price)
+              })
+        }
+      })
+  }
+
   return close ? (
     ""
   ) : (
@@ -23,7 +49,7 @@ function CartItem(item) {
       <div className="cart_detail_item-img"></div>
       <div className="cart_detail_item_name-cat">
         <p className="cart_detail_item-name">{item.name}</p>
-        <button className="cart_btn_close" onClick={() => setClose(true)}>
+        <button className="cart_btn_close" onClick={() => handleRemoveItem()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -40,7 +66,7 @@ function CartItem(item) {
         </button>
         <p className="cart_detail_item-cat">{item.collection}</p>
         <p className="cart_detail_item-cat cart_detail_item-price">
-          $ {item.price}
+          $ {item.price * counter}
         </p>
       </div>
       <p className="cart_detail_amount">
@@ -57,42 +83,57 @@ function CartItem(item) {
 }
 
 
-export default function Cart(props) {
+export default function Cart({
+  buttonCart, setButtonCart, account, 
+  accountCart, accountCartTotal, setAccountCart, setAccountCartTotal
+}) {
 
   // turn off the cart when change route
   let location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
-    props.setTrigger(false);
+    setButtonCart(false);
   }, [location]);
+  
+  const [totalPrice, setTotalPrice] = useState(Number(accountCartTotal));
 
+  useEffect(()=>{
+    setTotalPrice(Number(accountCartTotal))
+  },[accountCartTotal])
 
-  return props.trigger ? (
+  return buttonCart && (
     <div className="cart_container">
       <div
         className="modal_close"
-        onClick={() => props.setTrigger(false)}
+        onClick={() => setButtonCart(false)}
       ></div>
       <div className="cart_wrapper">
         <div className="cart_ctr">
           <h1 className="cart_header">Your Cart</h1>
           <div className="cart_item_list">
-            <CartItem
-              name="Chaise Sectional Sofa"
-              collection="Pearl Spring"
-              price="123"
-            />
-            <CartItem
-              name="Wellington Sofa"
-              collection="Heartfelt Winter"
-              price="10000"
-            />
+            {accountCart.length &&
+            accountCart.map((item, index)=>{
+              return(
+                <CartItem
+                  key={item.product_id}
+                  name={item.product_name}
+                  collection=""
+                  price={item.product_price}
+                  totalPrice={totalPrice}
+                  setTotalPrice={setTotalPrice}
+                  customer={account.id}
+                  product={item.product_id}
+                  setAccountCart={setAccountCart}
+                  setAccountCartTotal={setAccountCartTotal}
+                />
+              )
+            })}
             
           </div>
 
           <div className="cart_footer">
             <p className="cart_footer_align-left">Total:</p>
-            <p className="cart_footer_align-right"> $123</p>
+            <p className="cart_footer_align-right"> ${totalPrice}</p>
           </div>
           <div className="cart_btn_container ">
             <button className="cart_btn" type="submit" onClick={()=> navigate('../checkout')}>
@@ -116,7 +157,5 @@ export default function Cart(props) {
         </div>
       </div>
     </div>
-  ) : (
-    ""
-  );
+  )
 }

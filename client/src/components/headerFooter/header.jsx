@@ -3,14 +3,18 @@ import Navbar from "./navbar/navbar";
 import NavbarLogin from "./navbar/navbarLogin";
 import { useLocation } from 'react-router-dom';
 
-export default function Header( {setAlert, setOpenAlert} ) {
-  const [loggedIn, setButtonLoggedIn] = useState(false);
+export default function Header({
+  setAlert, setOpenAlert, loggedIn, setLoggedIn, 
+  account, accountCart, accountCartTotal, setAccountCart, setAccountCartTotal
+}) {
+
+  const [cart, setCart] = useState(false);
 
   const [headerNav, setHeaderNav] = useState("header_ctn");
 
   const [timerScroll, setTimer] = useState(true);
 
-  const aboutUsRoute = useLocation();
+  const headerRoute = useLocation();
 
   var timer = null;
 
@@ -34,7 +38,14 @@ export default function Header( {setAlert, setOpenAlert} ) {
 
     // if page is not aboutUs, do nothing
 
-    if(aboutUsRoute.pathname !== "/about-us"){
+    if(headerRoute.pathname === "/checkout"){
+      setCart(true);
+    }
+    else {
+      setCart(false);
+    }
+
+    if(headerRoute.pathname !== "/about-us"){
       setHeaderNav("header_ctn");
       return;
     }
@@ -69,22 +80,28 @@ export default function Header( {setAlert, setOpenAlert} ) {
         className="dummy_navbar" 
         onMouseEnter={() => {setTimer(true); setHeaderNav("header_ctn")}}>
       </div>
-      {loggedIn ? (
+      {loggedIn && account ? (
         <NavbarLogin 
           loggedIn={loggedIn} 
-          setLoggedIn={setButtonLoggedIn} 
-          setHeaderNav={setHeaderNav}
-          setTimer={setTimer}
-          setAlert={setAlert}
-          setOpenAlert={setOpenAlert}/>
-      ) : (
-        <Navbar 
-          loggedIn={loggedIn} 
-          setLoggedIn={setButtonLoggedIn} 
+          setLoggedIn={setLoggedIn} 
           setHeaderNav={setHeaderNav}
           setTimer={setTimer}
           setAlert={setAlert} 
-          setOpenAlert={setOpenAlert}/>
+          setOpenAlert={setOpenAlert}
+          account={account}
+          accountCart={accountCart} accountCartTotal={accountCartTotal}
+          setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
+          disableCart={cart}
+        />
+      ) : (
+        <Navbar 
+          loggedIn={loggedIn} 
+          setLoggedIn={setLoggedIn} 
+          setHeaderNav={setHeaderNav}
+          setTimer={setTimer}
+          setAlert={setAlert} 
+          setOpenAlert={setOpenAlert}
+        />
       )}
     </div>
   );

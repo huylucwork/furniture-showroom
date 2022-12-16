@@ -1,10 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 import "../../styles/login.css";
 import "../../styles/signup.css";
 
-export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn, setAlert, setOpenAlert } ) {
+export default function Login( { 
+  setButtonSignUp, setButtonLogin, setLoggedIn, setAlert, setOpenAlert
+} ) {
   const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [valid, setValid] = useState(false);
+  const [validCha, setValidCha] = useState("");
+
+  var format = /[ `!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
+
+  const handleLoggin = (e) => {
+    e.preventDefault();
+
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setAlert({type: "error", message: "Invalid Email!"});
+      setOpenAlert(true)
+      return;
+    }
+
+    var sha1 = require('sha1');
+
+    Axios.post("https://hifurdez.vercel.app/auth/sign-in",{
+      email: email,
+      password: sha1(password),
+    })
+      .then((response)=>{
+        console.log(response.data);
+        window.localStorage.setItem('account_id', response.data['user-info'][0].id);
+        window.localStorage.setItem('is_admin', response.data['user-info'][0].is_admin);
+        window.localStorage.setItem('display_name', response.data['user-info'][0].display_name);
+        window.localStorage.setItem('cart', JSON.stringify(response.data['product-info']));
+        window.localStorage.setItem('cart_total', response.data['total-price'][0].product_price);
+        setLoggedIn(true);
+        setAlert({type: "success", message: "Welcome back! " + response.data['user-info'][0].display_name});
+        setOpenAlert(true);
+        setButtonLogin(false);
+        navigate("../");
+      })
+      .catch((err) => {
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true);
+      })
+  }
+
+  const checkValid = (str, type) => {
+    if(type === "password") {
+      setPassword(str);
+      return;
+    }
+    setEmail(str);
+    if (format.test(str[str.length - 1])) {
+      setValid(true);
+      setValidCha(str[str.length - 1]);
+      return;
+    }
+    setValid(false);
+  }
 
   return (
     <div className="login_container">
@@ -38,21 +96,24 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn, se
           <p className="login_para">
             Join us to savor good things in this life
           </p>
-          <form method="post" className="login_form">
+          <form method="post" className="login_form" onSubmit={(e)=>handleLoggin(e)}>
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"
                 type="email"
                 autocomplete="off"
+                onChange={e => checkValid(e.target.value, "email")}
                 required
               />
               <label className="login_form_text-field_label">Email</label>
             </div>
+            {valid && <h2 className="login_check-valid">{`Unvalid Character "${validCha}"`}</h2>}
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"
                 type="password"
                 autocomplete="off"
+                onChange={e => checkValid(e.target.value, "password")}
                 required
               />
               <label className="login_form_text-field_label">Password</label>
@@ -63,15 +124,7 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn, se
               </a>
             </div>
             <div className="login_sign-up_div">
-              <button className="login_sign-up-btn" type="submit" 
-                onClick={()=>{
-                  setButtonLogin(false);
-                  setLoggedIn(true);
-                  navigate("../")
-                  setAlert({type: 'success', message: 'Login successfully!'}); 
-                  setOpenAlert(true);
-                }}
-              >
+              <button className="login_sign-up-btn" type="submit" >
                 <p>Enjoy now !</p>
                 {/* <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i> */}
                 <svg
@@ -96,10 +149,10 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn, se
           <div className="login_signup-link">
             New to Hifurdez? &thinsp;
             <span className="login_link" 
-                  onClick={()=>{
-                    setButtonSignUp(true);
-                    setButtonLogin(false);
-                  }}
+              onClick={()=>{
+                setButtonSignUp(true);
+                setButtonLogin(false);
+              }}
             >
               <u>Sign up</u>
             </span>

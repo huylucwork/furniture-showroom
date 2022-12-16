@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from "react";
+import Axios from "axios";
 import "../../styles/admin.css";
 import Sort from "../publicPage/sort";
 import Alert from "../helper/alert";
 
 export default function UpdateAdd(props) {
 
-  const season = ["Summer", "Autumn", "Winter"];
-  const color = ["Yellow", "Green"];
+  const collection = ["Spring", "Summer", "Autumn", "Winter"];
+  const category = ["Sofa", "Table", "Chair", "Storage"];
 
   const [price, setPrice] = useState(-1);
   const [discountPrice, setDiscountPrice] = useState(-2);
+  const [name, setName] = useState(null);
+  const [collectionPick, setCollectionPick] = useState(1);
+  const [categoryPick, setCategoryPick] = useState(1);
+  const [width, setWidth] = useState(null);
+  const [height, setHeight] = useState(null);
+  const [depth, setDepth] = useState(null);
+  const [weight, setWeight] = useState(null);
+  const [color, setColor] = useState(null);
+  const [material, setMaterial] = useState(null);
+  const [descrb, setDescrb] = useState(null);
 
   const [openAlert, setOpenAlert] = useState(false);
   const [alert, setAlert] = useState({ type: "", message: "" });
 
-  const checkPrice = () => {
-    if(price < discountPrice) {
-      setAlert({type: "error", message: "Price can't be greater than Discount Price"});
-      setOpenAlert(true);
-    }
-  }
 
   useEffect(() => {
     var inputs = document.querySelectorAll( '.admin_input_tmp' );
@@ -43,12 +48,58 @@ export default function UpdateAdd(props) {
       });
     });
   });
-  
+
+  const handleSaveButton = (e) => {
+    e.preventDefault();
+
+    if(!props.trigger[1]) {
+      if(name === "" || name === null) {
+        setAlert({type: "error", message: "You must enter item name!"});
+        setOpenAlert(true)
+        return;
+      }
+    }
+
+    if(!props.trigger[1]) {
+      Axios.put("https://hifurdez.vercel.app/admin/products/add-new", {
+        category_id: categoryPick,
+        collection_id: collectionPick,
+        product_name: name,
+        material: material,
+        price: price,
+        discount_price: price,
+        color: color,
+        width: width,
+        depth: depth,
+        height: height,
+        weight: weight,
+        description: descrb,
+      })
+        .then((response)=>{
+          setAlert({type: "success", message: "Add item successfully!"});
+          setOpenAlert(true);
+          props.setChangeProducts(!props.setChangeProducts);
+        })
+    }
+
+    if(props.trigger[1]) {
+      setAlert({type: "success", message: "Update item successfully!"});
+      setOpenAlert(true);
+    }
+
+    // else if(price < discountPrice) {
+    //   setAlert({type: "error", message: "Price can't be greater than Discount Price"});
+    //   setOpenAlert(true);
+    // } 
+
+    // props.setTrigger(false)
+  }
+
   return props.trigger[0] ? (
     <div className="sign-up_container">
       {openAlert && <Alert alert={alert} setOpenAlert={setOpenAlert} />}
       <div className="sign-up_wrapper admin_fix_modal">
-        <div className="sign-up_ctr admin-modal_ctr">
+        <form className="sign-up_ctr admin-modal_ctr" onSubmit={(e)=>handleSaveButton(e)}>
           <div className="sign-up_icon">
             <button
               className="login_close-btn"
@@ -75,16 +126,16 @@ export default function UpdateAdd(props) {
           <div className="admin_content">
             <div className="admin_input">
               <label className="display_block">Name</label>
-              <input className="admin_input_text" type="text" />
+              <input className="admin_input_text" type="text" onChange={(e)=>setName(e.target.value)}/>
             </div>
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Collection</label>
-                <Sort trigger="manageItem1" setCount={0} optsArray={season} />
+                <Sort trigger="manage" optsArray={collection} setPick={setCollectionPick}/>
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Category</label>
-                <Sort trigger="manageItem2" setCount={1} optsArray={color} />
+                <Sort trigger="manage" optsArray={category} setPick={setCategoryPick}/>
               </div>
             </div>
             <div className="admin_input">
@@ -92,15 +143,15 @@ export default function UpdateAdd(props) {
               <div className="size_ctn">
                 <div className="admin_choosen">
                   <label>w:</label>
-                  <input className="admin_input_text" type="text" />
+                  <input className="admin_input_text" type="text" onChange={(e)=>setWidth(e.target.value)}/>
                 </div>
                 <div className="admin_choosen">
-                  <label>l:</label>
-                  <input className="admin_input_text" type="text" />
+                  <label>d:</label>
+                  <input className="admin_input_text" type="text" onChange={(e)=>setDepth(e.target.value)}/>
                 </div>
                 <div className="admin_choosen">
                   <label>h:</label>
-                  <input className="admin_input_text" type="text" />
+                  <input className="admin_input_text" type="text" onChange={(e)=>setHeight(e.target.value)}/>
                 </div>
               </div>
             </div>
@@ -109,26 +160,27 @@ export default function UpdateAdd(props) {
                 <label className="display_block">Price</label>
                 <input className="admin_input_text" type="text" onChange={(e) => setPrice(e.target.value)}/>
               </div>
+              {props.trigger[1] &&
               <div className="admin_choosen">
                 <label className="display_block">Discount Price</label>
                 <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)}/>
-              </div>
+              </div>}
             </div>
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Weight</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => setWeight(e.target.value)}/>
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Color</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => setColor(e.target.value)}/>
               </div>
               <div className="admin_choosen">
                 <label className="display_block">Material</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => setMaterial(e.target.value)}/>
               </div>
             </div>
-            {!props.trigger[1] &&
+            {/* {!props.trigger[1] &&
             <div className="admin_input">
               <label className="display_block">Image</label>
               <input 
@@ -138,7 +190,7 @@ export default function UpdateAdd(props) {
                 data-multiple-caption="{count} files selected" 
                 multiple/>
               <label htmlFor="file" className="admin_input_label">Choose file</label>
-            </div>}
+            </div>} */}
             <div className="admin_input">
               <label 
                 className="display_block">
@@ -148,14 +200,15 @@ export default function UpdateAdd(props) {
                 className="admin_input_text admin_input_desc" 
                 cols="8" 
                 wrap="soft" 
-                placeholder="Write something">
+                placeholder="Write something"
+                onChange={(e)=>setDescrb(e.target.value)}>
               </textarea>
             </div>
           </div>
-          <button type="submit" className="admin_save" onClick={() => checkPrice()}>
+          <button type="submit" className="admin_save">
             Save
           </button>
-        </div>
+        </form>
       </div>
     </div>
   ) : (

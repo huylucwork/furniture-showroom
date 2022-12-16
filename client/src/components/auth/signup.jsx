@@ -1,7 +1,119 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 import "../../styles/signup.css";
 
-export default function Signup( {setButtonSignUp, setButtonLogin, setAlert, setOpenAlert } ) {
+export default function Signup( { setButtonSignUp, setButtonLogin, setAlert, setOpenAlert } ) {
+
+  const navigate = useNavigate();
+
+  const [fullName, setFullName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const [validFname, setValidFname] = useState(false);
+  const [validChaFname, setValidChaFname] = useState("");
+
+  const [validUname, setValidUname] = useState(false);
+  const [validChaUname, setValidChaUname] = useState("");
+
+  const [valid, setValid] = useState(false);
+  const [validCha, setValidCha] = useState("");
+
+  const [checkPass, setCheckPass] = useState(false);
+
+  var format = /[ `!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
+
+  var formatName = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    if (formatName.test(fullName) || formatName.test(userName)) {
+      setAlert({type: "error", message: "Invalid Character!"});
+      setOpenAlert(true)
+      return;
+    }
+    else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setAlert({type: "error", message: "Invalid Email!"});
+      setOpenAlert(true)
+      return;
+    }
+    else if (password === "" || confirmPassword === "") {
+      setAlert({type: "error", message: "You must enter password!"});
+      setOpenAlert(true)
+      return;
+    }
+    else if (password !== confirmPassword) {
+      setAlert({type: "error", message: "The password comfirmation does not match!"});
+      setOpenAlert(true)
+      return;
+    }
+
+    var sha1 = require('sha1');
+
+    if (password === confirmPassword){
+      Axios.post("https://hifurdez.vercel.app/auth/sign-up", {
+        email: email,
+        password: sha1(password),
+        fullname: fullName,
+        username: userName,
+      })
+        .then((response)=>{
+          // if (response.message === "Signup successful"){
+          //   setButtonSignUp(false);
+          // }
+          setAlert({type: 'success', message: 'Sign Up successfully!'}); 
+          setOpenAlert(true);
+          setButtonSignUp(false);
+          navigate("../");
+        })
+        .catch(err => {
+          console.log(err)
+        });  
+    } else {
+      console.log('bad')
+    }
+  }
+
+  const checkValidEmail = (str) => {
+    setEmail(str);
+    if (format.test(str[str.length - 1])) {
+      setValid(true);
+      setValidCha(str[str.length - 1]);
+      return;
+    }
+    setValid(false);
+  }
+
+  const checkValidName = (str, type) => {
+    (type === "Fname" ? setFullName(str) : setUserName(str));
+    if (formatName.test(str[str.length - 1])) {
+      if(type === "Fname") {
+        setValidFname(true);
+        setValidChaFname(str[str.length - 1]);
+        return;
+      }
+      else {
+        setValidUname(true);
+        setValidChaUname(str[str.length - 1]);
+        return;
+      }
+    }
+    (type === "Fname" ? setValidFname(false) : setValidUname(false));
+  }
+
+  const checkConfirmPassword = (str) => {
+    setConfirmPassword(str);
+    if(str === password) {
+      setCheckPass(true);
+      return;
+    }
+    setCheckPass(false);
+  }
+
   return (
     <div className="sign-up_container">
       <div className="sign-up_wrapper">
@@ -32,23 +144,28 @@ export default function Signup( {setButtonSignUp, setButtonLogin, setAlert, setO
           <p className="sign-up_para">
             Join us to savor good things in this life.
           </p>
-          <form method="post" className="sign-up_form">
+          <form method="post" className="sign-up_form" onSubmit={(e)=>handleSignUp(e)}>
             <div className="sign-up_form_text-field">
               <input 
                 className="sign-up_form_text-field_input" 
                 type="text"
                 autocomplete="off"
-                required 
+                onChange={e => checkValidName(e.target.value, "Fname")}
+                required              
               />
               <label className="sign-up_form_text-field_label">Full name</label>
+              {validFname && <h2 className="signup_check-valid">{`Unvalid Character "${validChaFname}"`}</h2>}
             </div>
             <div className="sign-up_form_text-field">
               <input
                 className="sign-up_form_text-field_input"
                 type="text"
                 autocomplete="off"
+                onChange={e => checkValidName(e.target.value, "Uname")}
+                required
               />
               <label className="sign-up_form_text-field_label">User name</label>
+              {validUname && <h2 className="signup_check-valid">{`Unvalid Character "${validChaUname}"`}</h2>}
             </div>
             <div className="sign-up_form_text-field">
               <input
@@ -56,8 +173,10 @@ export default function Signup( {setButtonSignUp, setButtonLogin, setAlert, setO
                 type="text"
                 autocomplete="off"
                 required
+                onChange={e => checkValidEmail(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">Email</label>
+              {valid && <h2 className="signup_check-valid">{`Unvalid Character "${validCha}"`}</h2>}
             </div>
             <div className="sign-up_form_text-field">
               <input
@@ -65,19 +184,24 @@ export default function Signup( {setButtonSignUp, setButtonLogin, setAlert, setO
                 type="password"
                 autocomplete="off"
                 required
+                onChange={e => setPassword(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">Password</label>
+              {password !== "" && <i class="fa-solid fa-check"></i>}
             </div>
             <div className="sign-up_form_text-field">
               <input
                 className="sign-up_form_text-field_input"
                 type="password"
                 autocomplete="off"
+                onChange={e => checkConfirmPassword(e.target.value)}
                 required
               />
               <label className="sign-up_form_text-field_label">
                 Confirm password
               </label>
+              {(checkPass && confirmPassword !== "")  && <i class="fa-solid fa-check"></i>}
+              {(!checkPass && confirmPassword !== "") && <i class="fa-solid fa-xmark"></i>}
             </div>
             <div className="sign-up_desc">
               By signing up, you agree to Heifurdesz's&thinsp;
@@ -116,10 +240,10 @@ export default function Signup( {setButtonSignUp, setButtonLogin, setAlert, setO
             <div className="sign-up_signup-link">
               Already have an account?&thinsp;
               <span className="sign-up_link_login" 
-                    onClick={()=>{
-                      setButtonSignUp(false);
-                      setButtonLogin(true);
-                    }}
+                onClick={()=>{
+                  setButtonSignUp(false);
+                  setButtonLogin(true);
+                }}
               >
                 Log in
               </span>

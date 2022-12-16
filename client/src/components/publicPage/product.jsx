@@ -126,7 +126,7 @@ export default function Product( {
       </div>
       <div className="admin_sort">
         <h2>Sort by:</h2>
-        <Sort trigger="product" setCount={0} optsArray={productArr}/>
+        <Sort trigger="product" optsArray={productArr}/>
       </div>
       <div className="product_content">
         <div className="product_row">

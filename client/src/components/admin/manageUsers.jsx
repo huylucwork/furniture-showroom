@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
 import ModalUser from "./modalUser";
@@ -10,11 +10,28 @@ export default function ManageUser( {
   const [openModal, setOpenModal] = useState(false);
   const [modalData, setModalData] = useState();
 
-  // for fragment
   const [currentFragment, setCurrentFragment] = useState(0);
   const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+
+  //search
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [filterItems, setFilterItems] = useState([]);
+
+  useEffect(()=>{
+    setFilterItems([]);
+    let list = [];
+    if (searchKeyword !== '')
+      users.forEach(user => {
+        user.user_mail.includes(searchKeyword) && list.push(user);
+      })
+    setFilterItems(list);
+    setCurrentFragment(0);
+    setlistFragment([0,1,2]);
+  },[searchKeyword]) 
+
+  // for fragment
   const maxOfFragment = 7;
-  const numberOfFragment = Math.ceil(users.length * 1.0 / maxOfFragment);
+  const numberOfFragment = Math.ceil((filterItems.length? filterItems : users).length * 1.0 / maxOfFragment);
   function prevFragment() {
     if (currentFragment > 0) {
       setCurrentFragment(currentFragment - 1);
@@ -84,9 +101,9 @@ export default function ManageUser( {
   const RenderEmptyRow =()=>{
     if (currentFragment !== numberOfFragment-1) return '';
     let list = [];
-    let start = users.length-((numberOfFragment-1)*maxOfFragment);
+    let start = (filterItems.length? filterItems : users).length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={users.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={(filterItems.length? filterItems : users).length+i-start} className={"table_row " + (((i + (users.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 
@@ -129,7 +146,8 @@ export default function ManageUser( {
         <div className="search_container">
           <input 
             type="text" 
-            placeholder="Search..." />
+            placeholder="Search..." 
+            onChange={(e)=>setSearchKeyword(e.target.value)}/>
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="1em" 
@@ -170,7 +188,7 @@ export default function ManageUser( {
                 <p>Status</p>
               </div>
             </div>
-            {users.map((user, index)=>{
+            {(filterItems.length? filterItems: users).map((user, index)=>{
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
                 <div key={index} className={"table_row " + (index%2 ? "odd_row" : "even_row") + (index===6 ? " last-row_shadow" : "")}>

@@ -6,7 +6,9 @@ import "../../../styles/login.css";
 import Login from "../../auth/login";
 import Signup from "../../auth/signup";
 
-export default function Navbar( {loggedIn, setLoggedIn, setHeaderNav, setTimer, setAlert, setOpenAlert} ) {
+export default function Navbar( {
+  setLoggedIn, setHeaderNav, setTimer, setAlert, setOpenAlert
+} ) {
   const [buttonSignUp, setButtonSignUp] = useState(false);
   const [buttonLogin, setButtonLogin] = useState(false);
 
@@ -100,8 +102,20 @@ export default function Navbar( {loggedIn, setLoggedIn, setHeaderNav, setTimer, 
           </li>
         </ul>
       </div>
-      {buttonLogin && <Login setButtonSignUp={setButtonSignUp} setButtonLogin={setButtonLogin} setLoggedIn={setLoggedIn} setAlert={setAlert} setOpenAlert={setOpenAlert}/>}
-      {buttonSignUp && <Signup setButtonSignUp={setButtonSignUp} setButtonLogin={setButtonLogin} setAlert={setAlert} setOpenAlert={setOpenAlert}/>}
+      {buttonLogin && <Login 
+        setButtonSignUp={setButtonSignUp} 
+        setButtonLogin={setButtonLogin} 
+        setLoggedIn={setLoggedIn} 
+        setAlert={setAlert} 
+        setOpenAlert={setOpenAlert}
+      />}
+      {buttonSignUp && <Signup 
+        setButtonSignUp={setButtonSignUp} 
+        setButtonLogin={setButtonLogin}
+        setLoggedIn={setLoggedIn} 
+        setAlert={setAlert} 
+        setOpenAlert={setOpenAlert}
+      />}
     </div>
   );
 }
