@@ -96,7 +96,6 @@ export default function Cart({
   }, [location]);
   
   const [totalPrice, setTotalPrice] = useState(Number(accountCartTotal));
-
   useEffect(()=>{
     setTotalPrice(Number(accountCartTotal))
   },[accountCartTotal])
@@ -111,7 +110,7 @@ export default function Cart({
         <div className="cart_ctr">
           <h1 className="cart_header">Your Cart</h1>
           <div className="cart_item_list">
-            {accountCart.length &&
+            {accountCart.length !==0 &&
             accountCart.map((item, index)=>{
               return(
                 <CartItem
@@ -136,7 +135,7 @@ export default function Cart({
             <p className="cart_footer_align-right"> ${totalPrice}</p>
           </div>
           <div className="cart_btn_container ">
-            <button className="cart_btn" type="submit" onClick={()=> navigate('../checkout')}>
+            <button className="cart_btn" type="submit" onClick={()=> {navigate('../checkout')}}>
               <p>Checkout</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
