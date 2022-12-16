@@ -152,7 +152,7 @@ function App() {
   useEffect(()=>{
     if (localStorage.getItem('is_admin') !== null){
       setAccount({
-        'is_admin': localStorage.getItem('is_admin'),
+        'is_admin': Number(localStorage.getItem('is_admin')),
         'id': Number(localStorage.getItem('account_id')),
         'display_name': localStorage.getItem('display_name')
       })
@@ -195,8 +195,6 @@ function App() {
     }
   },[loggedIn])
 
-  console.log(accountCart)
-
   return (
     <AppContext.Provider>
       <div id="App">
@@ -222,9 +220,9 @@ function App() {
               />
             }
           />
-          {loggedIn && <Route path="user/history" element={<User tab={"history"} accountInfo={accountInfo} accountHistory={accountHistory} setAlert={setAlert} setOpenAlert={setOpenAlert}/>} />}
-          {loggedIn && <Route path="user/info" element={<User tab={"info"} accountInfo={accountInfo} accountHistory={accountHistory} setAlert={setAlert} setOpenAlert={setOpenAlert}/>} />}
-          {loggedIn && <Route path="user" element={<Navigate to="info" />} />}
+          {loggedIn && account !== undefined && account.is_admin === 0 && <Route path="user/history" element={<User tab={"history"} accountInfo={accountInfo} accountHistory={accountHistory}/>} />}
+          {loggedIn && account !== undefined && account.is_admin === 0 && <Route path="user/info" element={<User tab={"info"} accountInfo={accountInfo} accountHistory={accountHistory}/>} />}
+          {loggedIn && account !== undefined && account.is_admin === 0 && <Route path="user" element={<Navigate to="info" />} />}
           <Route
             path={"collection-detail/spring"}
             element={
@@ -308,6 +306,7 @@ function App() {
               />
             }
           />
+          {loggedIn && account !== undefined && account.is_admin === 1 && 
           <Route
             path="admin/manage-users"
             element={<Admin 
@@ -316,30 +315,32 @@ function App() {
               setOpenAlert={setOpenAlert}
               changeProducts={changeProducts}
               setChangeProducts={setChangeProducts}
-          />}
-          />
-          <Route
-            path="admin/manage-items"
-            element={<Admin 
-              tab={"manage-items"} 
-              setAlert={setAlert}
-              setOpenAlert={setOpenAlert}
-              changeProducts={changeProducts}
-              setChangeProducts={setChangeProducts}
             />}
-          />
-          {/* <Route path="admin/supplier" element={<Admin tab={"supplier"} />} /> */}
-          <Route
-            path="admin/order/sale"
-            element={<Admin 
-              tab={"order-sale"} 
-              setAlert={setAlert}
-              setOpenAlert={setOpenAlert}
-              changeProducts={changeProducts}
-              setChangeProducts={setChangeProducts}
           />}
-          />
-          <Route
+          {loggedIn && account !== undefined && account.is_admin === 1 && 
+            <Route
+              path="admin/manage-items"
+              element={<Admin 
+                tab={"manage-items"} 
+                setAlert={setAlert}
+                setOpenAlert={setOpenAlert}
+                changeProducts={changeProducts}
+                setChangeProducts={setChangeProducts}
+              />}
+          />}
+          {/* <Route path="admin/supplier" element={<Admin tab={"supplier"} />} />  */}
+          {loggedIn && account !== undefined && account.is_admin === 1 && 
+            <Route
+              path="admin/order/sale"
+              element={<Admin 
+                tab={"order-sale"} 
+                setAlert={setAlert}
+                setOpenAlert={setOpenAlert}
+                changeProducts={changeProducts}
+                setChangeProducts={setChangeProducts}
+              />}
+            />}
+          {loggedIn && account !== undefined && account.is_admin === 1 && <Route
             path="admin/order/purchase"
             element={<Admin 
               tab={"order-purchase"} 
@@ -348,8 +349,8 @@ function App() {
               changeProducts={changeProducts}
               setChangeProducts={setChangeProducts}
             />}
-          />
-          <Route
+          />}
+          {loggedIn && account !== undefined && account.is_admin === 1 && <Route
             path="admin/third-party"
             element={<Admin 
               tab={"third-party"} 
@@ -358,8 +359,8 @@ function App() {
               changeProducts={changeProducts}
               setChangeProducts={setChangeProducts}
             />}
-          />
-          <Route
+          />}
+          {loggedIn && account !== undefined && account.is_admin === 1 && <Route
             path="admin/third-party-employee"
             element={<Admin 
               tab={"third-party-employee"} 
@@ -368,8 +369,8 @@ function App() {
               changeProducts={changeProducts}
               setChangeProducts={setChangeProducts}
             />}
-          />
-          <Route 
+          />}
+          {loggedIn && account !== undefined && account.is_admin === 1 && <Route 
             path="admin/warehouse" 
             element={<Admin 
               tab={"warehouse"} 
@@ -377,10 +378,11 @@ function App() {
               setOpenAlert={setOpenAlert}
               changeProducts={changeProducts}
               setChangeProducts={setChangeProducts}
-            />} />
-          <Route path="admin/report" element={<Admin tab={"report"} />} />
-          <Route path="admin" element={<Navigate to="manage-users" />} />
-          {loggedIn && 
+            />} 
+          />}
+          {loggedIn && account !== undefined && account.is_admin === 1 && <Route path="admin/report" element={<Admin tab={"report"} />} />}
+          {loggedIn && account !== undefined && account.is_admin === 1 && <Route path="admin" element={<Navigate to="manage-users" />} />}
+          {loggedIn && account !== undefined && account.is_admin === 0 &&
           <Route
             path="checkout"
             element={
