@@ -28,36 +28,40 @@ export default function DetailModal(props) {
             <div className="user_detail-info">
               <div className="info_ctn">
                 <p>Order:</p>
-                <p>SO40000087</p>
+                <p>{props.modalData['sale_order'][0].so_code}</p>
+              </div>
+              <div className="info_ctn">
+                <p>Transport:</p>
+                <p>{props.modalData['sale_order'][0].transport_card_code}</p>
               </div>
               <div className="info_ctn">
                 <p>Date:</p>
-                <p>02-09-2022</p>
+                <p>{props.modalData['sale_order'][0].delivery_date}</p>
               </div>
               <div className="info_ctn">
                 <p>User Name:</p>
-                <p>anhbo123</p>
+                <p>{props.modalData['sale_order'][0].customer_name}</p>
               </div>
-              <div className="info_ctn">
+              {/* <div className="info_ctn">
                 <p>Name:</p>
                 <p>anhbodantruong</p>
-              </div>
-              <div className="info_ctn">
+              </div> */}
+              {/* <div className="info_ctn">
                 <p>Email:</p>
                 <p>bolaanh@gmail.com</p>
-              </div>
-              <div className="info_ctn">
+              </div> */}
+              {/* <div className="info_ctn">
                 <p>Phone:</p>
                 <p>0938608456</p>
-              </div>
+              </div> */}
               <div className="info_ctn">
                 <p>Address:</p>
-                <p>340 Madison Avenue Sixth Floor New York, NY 10173 USA</p>
+                <p>{props.modalData['sale_order'][0].street}, {props.modalData['sale_order'][0].ward}, {props.modalData['sale_order'][0].district}, {props.modalData['sale_order'][0].province}.</p>
               </div>
             </div>
             <div className="user_total">
               <p>Total:</p>
-              <p>$1000000</p>
+              <p>${props.modalData['total_price'][0].amount_total}</p>
             </div>
           </div>
           <div className="item_info">
@@ -76,7 +80,20 @@ export default function DetailModal(props) {
                 d="M2 30L30 2m0 28L2 2"/>
             </svg>
             <div className="item_ctn">
-              <RenderItemInfo />
+              {/* <RenderItemInfo /> */}
+              {props.modalData['sale_order_line'].map((item)=>{
+                return (
+                  <div className="item_info_ctn">
+                    <div className="item_img"></div>
+                    <div className="item_name-cat">
+                      <p>{item.name}</p>
+                      <p>Category</p>
+                    </div>
+                    <p>Amount <br></br> 1</p>
+                    <p>Price <br></br> ${item.price}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
