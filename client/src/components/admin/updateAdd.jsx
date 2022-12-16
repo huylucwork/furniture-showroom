@@ -96,9 +96,10 @@ export default function UpdateAdd(props) {
         media_14: "test",
       })
         .then((response)=>{
+          props.setChangeProducts(!props.changeProducts);
+          // props.setTrigger(false);
           setAlert({type: "success", message: "Add item successfully!"});
           setOpenAlert(true);
-          props.setChangeProducts(!props.setChangeProducts);
         })
     }
     else if(price < discountPrice) {
@@ -124,11 +125,9 @@ export default function UpdateAdd(props) {
         .then((response)=>{
           setAlert({type: "success", message: response.message});
           setOpenAlert(true);
-          props.setChangeProducts(!props.setChangeProducts);
+          props.setChangeProducts(!props.changeProducts);
         })
     }
-
-    // props.setTrigger(false)
   }
 
   return props.trigger[0] ? (
