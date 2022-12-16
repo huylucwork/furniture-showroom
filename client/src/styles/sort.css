@@ -40,7 +40,7 @@
   left: -2.5%;
   top: 100%;
   width: 105%;
-  height: 22em;
+  max-height: 22em;
   padding: 10px 0;
   box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
   background-color: #f0eae2;
@@ -69,7 +69,8 @@
   color: #473C38;
   display: block;
   align-items: center;
-  padding: 5px 25px;
+  padding: 0px 25px;
+  line-height: 2.2em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
