@@ -96,19 +96,19 @@ export default function OrderPurchase({
   }
 
   const handleStatusSwitch = (id) => {
-    // setOpenLoading(true);
-    // Axios.put("https://hifurdez.vercel.app/admin/products/change-status", {
-    //   id:id
-    // })
-    //   .then((response) => {
-    //     setChangeProducts(!changeProducts)
-    //     setAlert({type: "success", message: response.data.message});
-    //     setOpenAlert(true);
-    //   })
-    //   .catch(err => {
-    //     setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
-    //     setOpenAlert(true)
-    //   }); 
+    setOpenLoading(true);
+    Axios.put("https://hifurdez.vercel.app/admin/order/purchase/status", {
+      id:id
+    })
+      .then((response) => {
+        setChangePurchaseOrders(!changePurchaseOrders)
+        setAlert({type: "success", message: response.data.message});
+        setOpenAlert(true);
+      })
+      .catch(err => {
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true)
+      }); 
   }
 
   const hanldeDownload = () => {
@@ -203,9 +203,9 @@ export default function OrderPurchase({
                   </div>
                   <div className="table_ele admin_fix-size-1">
                     <button 
-                      className= {order.is_active ? "admin_active-btn_purchase": "admin_locked-btn"}
-                      onClick={() => handleStatusSwitch(order.product_id)}>
-                      {order.is_active ? "Delivery" : "Done"}
+                      className= {order.status === 'done' ? "admin_active-btn_purchase": "admin_locked-btn"}
+                      onClick={() => handleStatusSwitch(order.order_id)}>
+                      {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                     </button>
                   </div>
                   <div className="table_ele admin_fix-size-1">
