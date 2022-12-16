@@ -50,6 +50,9 @@ export default function UpdateAdd(props) {
   const [validMaterial, setValidMaterial] = useState(false);
   const [validMaterialCha, setValidMaterialCha] = useState("");
 
+  const [validDesc, setValidDesc] = useState(false);
+  const [validDescCha, setValidDescCha] = useState("");
+
   var format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
   useEffect(() => {
@@ -85,12 +88,12 @@ export default function UpdateAdd(props) {
     if(!props.trigger[1]) {
       if(name === null || name === "" || width === null || width === "" || height === null || height === "" ||
          depth === null || depth === "" || weight === null || weight === "" || color === null || color === "" || 
-         material === null || material === "" || price === -1) {
+         material === null || material === "" || price === -1 || descrb === null || descrb === "") {
         setAlert({type: "error", message: "You must enter item properties!"});
         setOpenAlert(true)
         return;
       }
-      if (format.test(name) || format.test(depth) || format.test(width) || format.test(height) || format.test(weight) || format.test(color) || format.test(material)) {
+      if (format.test(name) || format.test(depth) || format.test(width) || format.test(height) || format.test(weight) || format.test(color) || format.test(material) || format.test(descrb)) {
         setAlert({type: "error", message: "Invalid Character!"});
         setOpenAlert(true)
         return;
@@ -228,6 +231,15 @@ export default function UpdateAdd(props) {
       }
       setValidMaterial(false);
     }
+    else if(type === "description") {
+      setDescrb(str);
+      if (format.test(str[str.length - 1])) {
+        setValidDesc(true);
+        setValidDescCha(str[str.length - 1]);
+        return;
+      }
+      setValidDesc(false);
+    }
   }
 
   return props.trigger[0] ? (
@@ -345,8 +357,9 @@ export default function UpdateAdd(props) {
                 cols="8" 
                 wrap="soft" 
                 placeholder="Write something"
-                onChange={(e)=>setDescrb(e.target.value)}>
+                onChange={(e) => checkValid(e.target.value, "description")}>
               </textarea>
+              {(!props.trigger[1] && validDesc) && <h2 className="signup_check-valid">{`Invalid Character "${validDescCha}"`}</h2>}
             </div>
           </div>
           <button type="submit" className="admin_save">

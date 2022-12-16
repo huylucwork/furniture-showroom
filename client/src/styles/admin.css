@@ -303,3 +303,9 @@
 .admin_input:nth-child(5) .admin_choosen h2 {
   width: 180%;
 }
+
+.admin_input:last-child h2 {
+  position: absolute;
+  left: 0;
+  top: 10em;
+}
