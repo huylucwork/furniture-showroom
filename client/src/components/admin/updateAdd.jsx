@@ -11,16 +11,16 @@ export default function UpdateAdd(props) {
 
   const [price, setPrice] = useState(-1);
   const [discountPrice, setDiscountPrice] = useState(-2);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
   const [collectionPick, setCollectionPick] = useState(1);
   const [categoryPick, setCategoryPick] = useState(1);
-  const [width, setWidth] = useState(null);
-  const [height, setHeight] = useState(null);
-  const [depth, setDepth] = useState(null);
-  const [weight, setWeight] = useState(null);
-  const [color, setColor] = useState(null);
-  const [material, setMaterial] = useState(null);
-  const [descrb, setDescrb] = useState(null);
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
+  const [depth, setDepth] = useState("");
+  const [weight, setWeight] = useState("");
+  const [color, setColor] = useState("");
+  const [material, setMaterial] = useState("");
+  const [descrb, setDescrb] = useState("");
   const [amountImage, setAmountImage] = useState(0);
 
   const [openAlert, setOpenAlert] = useState(false);
@@ -102,19 +102,19 @@ export default function UpdateAdd(props) {
           setOpenAlert(true);
         })
     }
-    else if(price < discountPrice) {
-      setAlert({type: "error", message: "Price can't be greater than Discount Price"});
+    else if((price !==-1? price : props.accountVal.price) < discountPrice) {
+      setAlert({type: "error", message: "Discount Price can't be greater than Price"});
       setOpenAlert(true);
     } 
     else if(props.trigger[1]) {
       Axios.put("https://hifurdez.vercel.app/admin/products/update-info", {
-        id: props.modalValId,
+        id: props.accountVal.product_id,
         category_id: categoryPick,
-        collection_id: collectionPick,
-        product_name: name,
+        collection: collectionPick,
+        name: name !== ''? name: props.accountVal.product_name,
         material: material,
-        price: price,
-        discount_price: discountPrice? discountPrice : price,
+        price: price!==-1 ? price : props.accountVal.price,
+        discount_price: discountPrice!==-1? (discountPrice<props.accountVal.price ? discountPrice : price) : props.accountVal.discount_price,
         color: color,
         width: width,
         depth: depth,
@@ -161,7 +161,7 @@ export default function UpdateAdd(props) {
           <div className="admin_content">
             <div className="admin_input">
               <label className="display_block">Name</label>
-              <input className="admin_input_text" type="text" onChange={(e)=>setName(e.target.value)}/>
+              <input className="admin_input_text" type="text" onChange={(e)=>setName(e.target.value)} placeholder={props.trigger[1] && props.accountVal.product_name}/>
             </div>
             <div className="admin_input">
               <div className="admin_choosen">
@@ -193,12 +193,12 @@ export default function UpdateAdd(props) {
             <div className="admin_input">
               <div className="admin_choosen">
                 <label className="display_block">Price</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => setPrice(e.target.value)} placeholder={props.trigger[1] && props.accountVal.price !== -1 && props.accountVal.price}/>
               </div>
               {props.trigger[1] &&
               <div className="admin_choosen">
                 <label className="display_block">Discount Price</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)} placeholder={props.trigger[1] && props.accountVal.price !== props.accountVal.discount_price && props.accountVal.discount_price}/>
               </div>}
             </div>
             <div className="admin_input">
