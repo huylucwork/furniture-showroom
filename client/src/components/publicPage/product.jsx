@@ -100,28 +100,30 @@ export default function Product( {
   return (
     <div className="product_container">
       <div className="product_sidebar">
-        <div className="sidebar_element">
-          <h2>Collection</h2>
-          {collectionProduct.map((collection, index) => {
-            return (
-              <button key={index} className={filterCollection === collection ? "button_selected" : ""} 
-                  onClick={()=>setFilterCollection(collection)}>
-                {collectionProduct[index]}
-              </button>
-            )
-          })}
-        </div>
-        
-        <div className="sidebar_element">
-          <h2>Category</h2>
-          {categoryProduct.map((category, index) => {
-            return (
-              <button key={index} className={filterCategory === category? "button_selected" : ''} 
-                  onClick={()=>setFilterCategory(category)}>
-                {categoryProduct[index]}
-              </button>
-            )
-          })}
+        <div className="sidebar_wrap">
+          <div className="sidebar_element">
+            <h2>Collection</h2>
+            {collectionProduct.map((collection, index) => {
+              return (
+                <button key={index} className={filterCollection === collection ? "button_selected" : ""} 
+                    onClick={()=>setFilterCollection(collection)}>
+                  {collectionProduct[index]}
+                </button>
+              )
+            })}
+          </div>
+          
+          <div className="sidebar_element">
+            <h2>Category</h2>
+            {categoryProduct.map((category, index) => {
+              return (
+                <button key={index} className={filterCategory === category? "button_selected" : ''} 
+                    onClick={()=>setFilterCategory(category)}>
+                  {categoryProduct[index]}
+                </button>
+              )
+            })}
+          </div>
         </div>
       </div>
       <div className="admin_sort">
