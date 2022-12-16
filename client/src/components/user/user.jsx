@@ -4,7 +4,7 @@ import Axios from "axios";
 import History from "./history";
 import Info from "./info";
 
-export default function User( {tab, accountInfo, accountHistory} ) {
+export default function User( {tab, accountInfo, accountHistory, setAlert, setOpenAlert} ) {
     const navigate = useNavigate();
 
     useEffect(()=>{}, [tab])
@@ -31,8 +31,8 @@ export default function User( {tab, accountInfo, accountHistory} ) {
                     <i className="fa-solid fa-clock-rotate-left sidebar_icon"></i>
                 </div>
             </div>
-            {tab === 'info' && <Info accountInfo={accountInfo}/>}
-            {tab === 'history' && <History accountHistory={accountHistory}/>}
+            {tab === 'info' && <Info accountInfo={accountInfo} setAlert={setAlert} setOpenAlert={setOpenAlert}/>}
+            {tab === 'history' && <History accountHistory={accountHistory} setAlert={setAlert} setOpenAlert={setOpenAlert}/>}
         </React.Fragment>
     )
 }

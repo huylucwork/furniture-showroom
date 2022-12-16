@@ -71,7 +71,9 @@
   overflow: auto;
   z-index: 1;
 }
-
+.info_content::-webkit-scrollbar {
+  display: none;
+}
 .profile_container {
   font-size: 24px;
 }

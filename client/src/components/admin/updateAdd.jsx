@@ -53,6 +53,14 @@ export default function UpdateAdd(props) {
     e.preventDefault();
 
     if(!props.trigger[1]) {
+      if(name === "" || name === null) {
+        setAlert({type: "error", message: "You must enter item name!"});
+        setOpenAlert(true)
+        return;
+      }
+    }
+
+    if(!props.trigger[1]) {
       Axios.put("https://hifurdez.vercel.app/admin/products/add-new", {
         category_id: categoryPick,
         collection_id: collectionPick,
@@ -68,11 +76,17 @@ export default function UpdateAdd(props) {
         description: descrb,
       })
         .then((response)=>{
-          setAlert({type: "success", message: response.message});
+          setAlert({type: "success", message: "Add item successfully!"});
           setOpenAlert(true);
           props.setChangeProducts(!props.setChangeProducts);
         })
     }
+
+    if(props.trigger[1]) {
+      setAlert({type: "success", message: "Update item successfully!"});
+      setOpenAlert(true);
+    }
+
     // else if(price < discountPrice) {
     //   setAlert({type: "error", message: "Price can't be greater than Discount Price"});
     //   setOpenAlert(true);
@@ -80,7 +94,7 @@ export default function UpdateAdd(props) {
 
     // props.setTrigger(false)
   }
-  
+
   return props.trigger[0] ? (
     <div className="sign-up_container">
       {openAlert && <Alert alert={alert} setOpenAlert={setOpenAlert} />}
