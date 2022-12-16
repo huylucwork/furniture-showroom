@@ -3,10 +3,27 @@ import { useNavigate } from "react-router-dom";
 import Cart from "../../cart/cart";
 import "../../../styles/navbar.css";
 
-export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTimer} ) {
+export default function NavbarLogin( {
+  setLoggedIn, setHeaderNav, setTimer, 
+  account, accountCart, accountCartTotal,
+  setAccountCart, setAccountCartTotal
+} ) {
   const [buttonCart, setButtonCart] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+      setLoggedIn(false);
+      setHeaderNav("");
+      window.localStorage.removeItem('is_admin');
+      window.localStorage.removeItem('account_id');
+      window.localStorage.removeItem('display_name');
+      window.localStorage.removeItem('account_info');
+      window.localStorage.removeItem('account_history');
+      window.localStorage.removeItem('cart');
+      window.localStorage.removeItem('cart_total');
+      navigate("../");
+  }
 
   return (
     <div className="header" 
@@ -85,8 +102,8 @@ export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTi
                 stroke="currentColor"
                 className="w-6 h-6 nav-btn icon-hover"
                 color="black"
-                onClick={() => {{
-                  setButtonCart(!buttonCart); setHeaderNav("");};
+                onClick={() => {
+                  setButtonCart(!buttonCart); setHeaderNav("");;
                 }}
               >
                 <path
@@ -123,12 +140,12 @@ export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTi
               <div className="logout_container">
                 <div className="logout_wrapper">
                   <h1 className="logout_header"> Hello,</h1>
-                  <p className="logout_name"> $&#123;Full name&#125;</p>
+                  <p className="logout_name"> {account.display_name}</p>
                   <div className="logout_icon">
                     <button
                       className="logout_button logout_hover"
-                      onClick={() => {{
-                        navigate("../user/info"); setHeaderNav("");};
+                      onClick={() => {
+                        navigate("../user/info"); setHeaderNav("");;
                       }}
                     >
                       <svg
@@ -149,8 +166,8 @@ export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTi
 
                     <button
                       className="logout_button logout_hover"
-                      onClick={() => {{
-                        navigate("../user/history"); setHeaderNav("");};
+                      onClick={() => {
+                        navigate("../user/history"); setHeaderNav("");;
                       }}
                     >
                       <svg
@@ -173,11 +190,7 @@ export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTi
                     {/* Temp change NAV bar  */}
                     <button
                       className="logout_button logout_button_footer"
-                      onClick={() => {
-                        setLoggedIn(false);
-                        navigate("../");
-                        setHeaderNav("");
-                      }}
+                      onClick={() => handleLogout()}
                     >
                       LOG OUT
                     </button>
@@ -189,7 +202,11 @@ export default function NavbarLogin( {loggedIn, setLoggedIn, setHeaderNav, setTi
           </li>
         </ul>
       </div>
-      <Cart trigger={buttonCart} setTrigger={setButtonCart} />
+      <Cart 
+        buttonCart={buttonCart} setButtonCart={setButtonCart} account={account}
+        accountCart={accountCart} accountCartTotal={accountCartTotal}
+        setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
+      />
     </div>
   );
 }

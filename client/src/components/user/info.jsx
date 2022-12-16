@@ -1,11 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 import "../../styles/info.css";
 
-export default function Info(props) {
+export default function Info({accountInfo}) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
+
+  const [fullname, setFullname] = useState(accountInfo.name);
+  const [username, setUsername] = useState(accountInfo.user_name);
+  const [userMail, setUserMail] = useState(accountInfo.user_mail);
+  const [phone, setPhone] = useState(accountInfo.phone);
+  const [street, setStreet] = useState(accountInfo.street);
+  const [wardSelect, setWardSelect] = useState(accountInfo.ward);
+  const [districtSelect, setDistrictSelect] = useState(accountInfo.district !== null? accountInfo.ward : 3537);
+  const [provinceSelect, setProvinceSelect] = useState(accountInfo.province!== null? accountInfo.district : 1313);
+
+  const [province, setProvince] = useState([]);
+  const [district, setDistrict] = useState([]);
+  const [ward, setWard] = useState([]);
+
+    useEffect(()=>{
+        Axios.get("https://hifurdez.vercel.app/province")
+        .then((response)=>{
+            setProvince(response.data);
+        })
+    },[])
+
+    useEffect(()=>{
+        Axios.post("https://hifurdez.vercel.app/province/district",{
+          id: provinceSelect,
+        })
+        .then((response)=>{
+            setDistrict(response.data);
+        })
+  },[provinceSelect])
+
+  useEffect(()=>{
+    Axios.post("https://hifurdez.vercel.app/province/district/ward", {
+      id: districtSelect
+    })
+      .then((response)=>{
+        setWard(response.data);
+      })
+  },[districtSelect])
 
   return (
     <div className="">
@@ -30,11 +69,8 @@ export default function Info(props) {
                   <Form.Control
                     className="form-control"
                     type="text"
-                    placeholder="User Name"
-                    defaultValue="username"
-                    disabled
-                    plaintext
-                    readOnly
+                    placeholder={accountInfo.user_name}
+                    onChange={e=>setUsername(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
 
@@ -43,10 +79,8 @@ export default function Info(props) {
                   <Form.Control
                     className="form-control"
                     type="email"
-                    value="tranducbo@meomeo.com"
-                    disabled
-                    plaintext
-                    readOnly
+                    placeholder={accountInfo.user_mail}
+                    onChange={e=>setUserMail(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
               </Row>
@@ -57,8 +91,8 @@ export default function Info(props) {
                   <Form.Control
                     className="form-control"
                     type="text"
-                    placeholder="Enter Name"
-                    defaultValue="Name"
+                    placeholder={accountInfo.name}
+                    onChange={e=>setFullname(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
 
@@ -67,7 +101,8 @@ export default function Info(props) {
                   <Form.Control
                     className="form-control"
                     type="Phone"
-                    placeholder="Enter Phone number"
+                    placeholder={accountInfo.phone}
+                    onChange={e=>setPhone(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
               </Row>
@@ -78,29 +113,45 @@ export default function Info(props) {
                   <Form.Control
                     className="form-control address_size"
                     type="address"
-                    placeholder="Enter Address"
+                    placeholder={accountInfo.street}
+                    onChange={e=>setStreet(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
               </Row>
               <Row className="row_box ">
                 <Form.Group as={Col} controlId="address_ward">
-                  <Form.Select className="form-control row_box_size ">
-                    <option>Choose Ward</option>
-                    <option>...</option>
+                  <Form.Select className="form-control row_box_size " onChange={e=>setWardSelect(e.target.value)}>
+                    {ward.length ?
+                    ward.map((value)=> {
+                      return (
+                        <option key={value.code} value={value.id}>{value.name}</option>
+                      )
+                    }) :
+                      <option>Choose ward</option>
+                    }
                   </Form.Select>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="address_district">
-                  <Form.Select className="form-control row_box_size second_box">
-                    <option>Choose District</option>
-                    <option>...</option>
+                  <Form.Select className="form-control row_box_size second_box" onChange={e=>setDistrictSelect(e.target.value)}>
+                    {district.length ?
+                    district.map((value)=> {
+                      return (
+                        <option key={value.code} value={value.id}>{value.name}</option>
+                      )
+                    }) :
+                      <option>Choose district</option>
+                    }
                   </Form.Select>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="address_province">
-                  <Form.Select className="form-control row_box_size third_box">
-                    <option>Choose Province</option>
-                    <option>...</option>
+                  <Form.Select className="form-control row_box_size third_box" onChange={e=>setProvinceSelect(e.target.value)}>
+                    {province.map((value)=> {
+                      return (
+                        <option key={value.code} value={value.id}>{value.name}</option>
+                      )
+                    })}
                   </Form.Select>
                 </Form.Group>
               </Row>

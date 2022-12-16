@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import Axios from "axios";
 import "../../styles/signup.css";
 
-export default function Signup( {setButtonSignUp, setButtonLogin } ) {
+export default function Signup( { setButtonSignUp, setButtonLogin } ) {
+
+  const [fullName, setFullName] = useState('');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    var sha1 = require('sha1');
+
+    if (password === confirmPassword){
+      Axios.post("https://hifurdez.vercel.app/auth/sign-up", {
+        email: email,
+        password: sha1(password),
+        fullname: fullName,
+        username: userName,
+      })
+        .then((response)=>{
+          if (response.message === "Signup successful"){
+            setButtonSignUp(false);
+          }
+
+        })
+        .catch(err => {
+          console.log(err)
+        });  
+    } else {
+      console.log('bad')
+    }
+  }
+
   return (
     <div className="sign-up_container">
       <div className="sign-up_wrapper">
@@ -18,13 +52,14 @@ export default function Signup( {setButtonSignUp, setButtonLogin } ) {
           <p className="sign-up_para">
             Join us to savor good things in this life.
           </p>
-          <form method="post" className="sign-up_form">
+          <form method="post" className="sign-up_form" onSubmit={(e)=>handleSignUp(e)}>
             <div className="sign-up_form_text-field">
               <input 
                 className="sign-up_form_text-field_input" 
                 type="text"
                 autocomplete="off"
                 required 
+                onChange={(e)=>setFullName(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">Full name</label>
             </div>
@@ -33,6 +68,7 @@ export default function Signup( {setButtonSignUp, setButtonLogin } ) {
                 className="sign-up_form_text-field_input"
                 type="text"
                 autocomplete="off"
+                onChange={(e)=>setUserName(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">User name</label>
             </div>
@@ -42,6 +78,7 @@ export default function Signup( {setButtonSignUp, setButtonLogin } ) {
                 type="text"
                 autocomplete="off"
                 required
+                onChange={(e)=>setEmail(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">Email</label>
             </div>
@@ -51,6 +88,7 @@ export default function Signup( {setButtonSignUp, setButtonLogin } ) {
                 type="password"
                 autocomplete="off"
                 required
+                onChange={(e)=>setPassword(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">Password</label>
             </div>
@@ -60,6 +98,7 @@ export default function Signup( {setButtonSignUp, setButtonLogin } ) {
                 type="password"
                 autocomplete="off"
                 required
+                onChange={(e)=>setConfirmPassword(e.target.value)}
               />
               <label className="sign-up_form_text-field_label">
                 Confirm password

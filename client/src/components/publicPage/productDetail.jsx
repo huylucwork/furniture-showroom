@@ -9,6 +9,7 @@ export default function ProductDetail ( {
     collectionProduct, categoryProduct,
     productDetail, setProductDetail,
     setAlert, setOpenAlert,
+    loggedIn, accountInfo, setAccountCart, setAccountCartTotal
 } ) {
 
     const [chosenImg, setChosenImg] = useState([0,0]);
@@ -66,6 +67,46 @@ export default function ProductDetail ( {
         }
     }, [productDetail])
 
+    const handleAddButton = () => {
+        if(loggedIn && accountInfo){
+            Axios.post("https://hifurdez.vercel.app/cart/insert", {
+                customer_id: accountInfo.id,
+                product_id: productDetail.id
+            })
+                .then((response)=>{
+                    if(response.data.message === "Insert Successfully") {
+                        Axios.post("https://hifurdez.vercel.app/cart/get",{
+                            customer_id: accountInfo.id
+                        })
+                            .then((res)=>{
+                                window.localStorage.setItem('cart', JSON.stringify(res.data['product-info']));
+                                window.localStorage.setItem('cart_total', JSON.stringify(res.data['total-price'][0]['product_price']));
+                                setAccountCart(res.data['product-info']);
+                                setAccountCartTotal(res.data['total-price'][0]['product_price']);
+                                setAlert({type: "success", message: "Add success!"});
+                                setOpenAlert(true)
+                            })
+                            .catch(err => {
+                                setAlert({type: "error", message: "Add fail! Please reload to retry!"});
+                                setOpenAlert(true)
+                            });
+                    }
+                    else {
+                        setAlert({type: "warning", message: response.data.message});
+                        setOpenAlert(true)
+                    }
+                })
+                .catch(err => {
+                    setAlert({type: "error", message: "Add fail! Please reload to retry!"});
+                    setOpenAlert(true)
+                });
+        }
+        else {
+            setAlert({type: "error", message: "Please log in to shopping!"});
+            setOpenAlert(true)
+        }
+    }
+
     return (productDetail && id == productDetail.id) ? (
         <div className="product-detail_container">
                 <div className="product-detail_route">
@@ -106,7 +147,7 @@ export default function ProductDetail ( {
                                 </video>:
                                 <img src={images[chosenImg[0]]} alt="" className="main-img" />
                             }
-                        </div>
+                        </div>a
                         <p className="view-link" 
                             onClick={()=>{
                                 setFilterCollection(collectionProduct[productDetail.collection_id]); 
@@ -132,7 +173,7 @@ export default function ProductDetail ( {
                             <p>{itemCount}</p>
                             <button className="button-plus" onClick={()=>setItemCount(itemCount+1)}>+</button>
                         </div>
-                        <button className="product-detail_body_right_add">
+                        <button className="product-detail_body_right_add" onClick={()=>handleAddButton()}>
                             Add to cart - ${productDetail.discount_price*itemCount}
                         </button>
                         <div className="product-detail_body_right_about row" onClick={()=>setTriggerAbout(!triggerAbout)}>

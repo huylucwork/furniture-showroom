@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 import "../../styles/login.css";
 import "../../styles/signup.css";
 
-export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } ) {
+export default function Login( { 
+  setButtonSignUp, setButtonLogin, setLoggedIn, setAlert, setOpenAlert
+} ) {
   const navigate = useNavigate();
 
-  const handleLoggin = () => {
-    
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLoggin = (e) => {
+    e.preventDefault();
+
+    var sha1 = require('sha1');
+
+    Axios.post("https://hifurdez.vercel.app/auth/sign-in",{
+      email: email,
+      password: sha1(password),
+    })
+      .then((response)=>{
+        console.log(response.data);
+        window.localStorage.setItem('account_id', response.data['user-info'][0].id);
+        window.localStorage.setItem('is_admin', response.data['user-info'][0].is_admin);
+        window.localStorage.setItem('display_name', response.data['user-info'][0].display_name);
+        window.localStorage.setItem('cart', JSON.stringify(response.data['product-info']));
+        window.localStorage.setItem('cart_total', response.data['total-price'][0].product_price);
+        setLoggedIn(true);
+        setAlert({type: "success", message: "Welcome back! " + response.data['user-info'][0].display_name});
+        setOpenAlert(true);
+        setButtonLogin(false);
+      })
+      .catch((err) => {
+        setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+        setOpenAlert(true);
+      })
   }
 
   return (
@@ -42,13 +71,14 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } )
           <p className="login_para">
             Join us to savor good things in this life
           </p>
-          <form method="post" className="login_form" onSubmit={()=>handleLoggin()}>
+          <form method="post" className="login_form" onSubmit={(e)=>handleLoggin(e)}>
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"
                 type="email"
                 autocomplete="off"
                 required
+                onChange={(e)=>setEmail(e.target.value)}
               />
               <label className="login_form_text-field_label">Email</label>
             </div>
@@ -58,6 +88,7 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } )
                 type="password"
                 autocomplete="off"
                 required
+                onChange={(e)=>setPassword(e.target.value)}
               />
               <label className="login_form_text-field_label">Password</label>
             </div>
@@ -67,13 +98,7 @@ export default function Login( {setButtonSignUp, setButtonLogin, setLoggedIn } )
               </a>
             </div>
             <div className="login_sign-up_div">
-              <button className="login_sign-up-btn" type="submit" 
-                      onClick={()=>{
-                        setButtonLogin(false);
-                        setLoggedIn(true);
-                        navigate("../")
-                      }}
-              >
+              <button className="login_sign-up-btn" type="submit" >
                 <p>Enjoy now !</p>
                 {/* <i className="fa-solid fa-arrow-right-long fa-2x login_sign-up-btn_icon"></i> */}
                 <svg

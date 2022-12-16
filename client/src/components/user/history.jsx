@@ -5,7 +5,7 @@ import PDFFile from "../helper/pdfFile";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Loading from "../helper/loading";
 
-export default function History() {
+export default function History({accountHistory}) {
   const [openModal, setOpenModal] = useState(false);
 
   const RenderColumn =()=>{
