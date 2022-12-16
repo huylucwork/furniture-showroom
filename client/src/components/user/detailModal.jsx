@@ -10,7 +10,7 @@ export default function DetailModal(props) {
         <div className="item_info_ctn">
           <div className="item_img"></div>
           <div className="item_name-cat">
-            <p>Item X</p>
+            <p>Item XXX sadasa asasa á ấ dắ đá  sasd </p>
             <p>Category</p>
           </div>
           <p>Amount <br></br> 1</p>

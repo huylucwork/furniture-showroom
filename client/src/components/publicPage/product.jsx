@@ -10,7 +10,7 @@ export default function Product( {
   items
 } ) {
 
-  const productArr = ["Recommendation", "Price: Low to high", "Price: High to low"];
+  const productArr = ["Price: Low to high", "Price: High to low"];
 
   const navigate = useNavigate();
 

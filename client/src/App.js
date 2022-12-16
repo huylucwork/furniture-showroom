@@ -222,8 +222,8 @@ function App() {
               />
             }
           />
-          {loggedIn && <Route path="user/history" element={<User tab={"history"} accountInfo={accountInfo} accountHistory={accountHistory}/>} />}
-          {loggedIn && <Route path="user/info" element={<User tab={"info"} accountInfo={accountInfo} accountHistory={accountHistory}/>} />}
+          {loggedIn && <Route path="user/history" element={<User tab={"history"} accountInfo={accountInfo} accountHistory={accountHistory} setAlert={setAlert} setOpenAlert={setOpenAlert}/>} />}
+          {loggedIn && <Route path="user/info" element={<User tab={"info"} accountInfo={accountInfo} accountHistory={accountHistory} setAlert={setAlert} setOpenAlert={setOpenAlert}/>} />}
           {loggedIn && <Route path="user" element={<Navigate to="info" />} />}
           <Route
             path={"collection-detail/spring"}

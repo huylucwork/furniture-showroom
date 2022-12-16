@@ -75,7 +75,7 @@ export default function OrderPurchase({
     let list = [];
     let start = purchaseOrders.length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={purchaseOrders.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={purchaseOrders.length+i-start} className={"table_row " + (((i + (purchaseOrders.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 
@@ -93,6 +93,30 @@ export default function OrderPurchase({
         setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
         setOpenAlert(true)
       })
+  }
+
+  const handleStatusSwitch = (id) => {
+    // setOpenLoading(true);
+    // Axios.put("https://hifurdez.vercel.app/admin/products/change-status", {
+    //   id:id
+    // })
+    //   .then((response) => {
+    //     setChangeProducts(!changeProducts)
+    //     setAlert({type: "success", message: response.data.message});
+    //     setOpenAlert(true);
+    //   })
+    //   .catch(err => {
+    //     setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+    //     setOpenAlert(true)
+    //   }); 
+  }
+
+  const hanldeDownload = () => {
+    setAlert({
+      type: 'success', 
+      message: 'Download successfully!'
+    })
+    setOpenAlert(true);
   }
 
   return (
@@ -158,7 +182,7 @@ export default function OrderPurchase({
             {purchaseOrders.map((order, index)=> {
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
-                <div className={"table_row " + (index%2 ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
+                <div className={"table_row " + (index%2 ? "odd_row " : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
                   <div className="table_ele admin_fix-size-2">
                     <p>{order.code}</p>
                   </div>
@@ -178,10 +202,14 @@ export default function OrderPurchase({
                     <p>${order.amount_total}</p>
                   </div>
                   <div className="table_ele admin_fix-size-1">
-                    <p>{order.is_active ? "Done" : "Delivery"}</p>
+                    <button 
+                      className= {order.is_active ? "admin_active-btn_purchase": "admin_locked-btn"}
+                      onClick={() => handleStatusSwitch(order.product_id)}>
+                      {order.is_active ? "Delivery" : "Done"}
+                    </button>
                   </div>
                   <div className="table_ele admin_fix-size-1">
-                    <button className="download_btn">
+                    <button className="download_btn" onClick={() => hanldeDownload()}>
                       <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         fill="none" 

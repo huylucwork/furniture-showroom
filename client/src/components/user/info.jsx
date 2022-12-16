@@ -4,7 +4,7 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 
 import "../../styles/info.css";
 
-export default function Info({accountInfo}) {
+export default function Info({accountInfo, setAlert, setOpenAlert}) {
   const [saveButton, setSaveButton] = useState(false);
   const [editButton, setEditButton] = useState(false);
 
@@ -21,20 +21,20 @@ export default function Info({accountInfo}) {
   const [district, setDistrict] = useState([]);
   const [ward, setWard] = useState([]);
 
-    useEffect(()=>{
-        Axios.get("https://hifurdez.vercel.app/province")
-        .then((response)=>{
-            setProvince(response.data);
-        })
-    },[])
+  useEffect(()=>{
+      Axios.get("https://hifurdez.vercel.app/province")
+      .then((response)=>{
+          setProvince(response.data);
+      })
+  },[])
 
-    useEffect(()=>{
-        Axios.post("https://hifurdez.vercel.app/province/district",{
-          id: provinceSelect,
-        })
-        .then((response)=>{
-            setDistrict(response.data);
-        })
+  useEffect(()=>{
+      Axios.post("https://hifurdez.vercel.app/province/district",{
+        id: provinceSelect,
+      })
+      .then((response)=>{
+          setDistrict(response.data);
+      })
   },[provinceSelect])
 
   useEffect(()=>{
@@ -45,6 +45,14 @@ export default function Info({accountInfo}) {
         setWard(response.data);
       })
   },[districtSelect])
+
+  const alertSave = () => {
+    setAlert({
+      type: 'success', 
+      message: 'Save successfully!'
+    })
+    setOpenAlert(true);
+  }
 
   return (
     <div className="">
@@ -217,6 +225,7 @@ export default function Info({accountInfo}) {
                     onClick={() => {
                       setEditButton(false);
                       setSaveButton(false);
+                      alertSave();
                     }}
                   >
                     Save

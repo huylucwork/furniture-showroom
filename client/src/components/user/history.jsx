@@ -5,8 +5,16 @@ import PDFFile from "../helper/pdfFile";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import Loading from "../helper/loading";
 
-export default function History({accountHistory}) {
+export default function History({accountHistory, setAlert, setOpenAlert}) {
   const [openModal, setOpenModal] = useState(false);
+
+  const hanldeDownload = () => {
+    setAlert({
+      type: 'success', 
+      message: 'Download successfully!'
+    })
+    setOpenAlert(true);
+  }
 
   const RenderColumn =()=>{
     let list = []
@@ -28,7 +36,7 @@ export default function History({accountHistory}) {
           <div className="table_ele">
             <PDFDownloadLink document={<PDFFile type={"History"}/>} fileName="History">
               {({loading}) => (loading && <Loading />)}
-              <button className="download_btn">
+              <button className="download_btn" onClick={() => hanldeDownload()}>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   fill="none" 

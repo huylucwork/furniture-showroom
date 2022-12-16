@@ -6,7 +6,8 @@ import "../../../styles/navbar.css";
 export default function NavbarLogin( {
   setLoggedIn, setHeaderNav, setTimer, 
   account, accountCart, accountCartTotal,
-  setAccountCart, setAccountCartTotal
+  setAccountCart, setAccountCartTotal, disableCart,
+  setAlert, setOpenAlert
 } ) {
   const [buttonCart, setButtonCart] = useState(false);
 
@@ -22,6 +23,8 @@ export default function NavbarLogin( {
       window.localStorage.removeItem('account_history');
       window.localStorage.removeItem('cart');
       window.localStorage.removeItem('cart_total');
+      setAlert({type: 'success', message: 'Logout successfully!'}); 
+      setOpenAlert(true);
       navigate("../");
   }
 
@@ -93,7 +96,7 @@ export default function NavbarLogin( {
                 />
               </label>
             </div>
-            <div className="navbar_a right_nav">
+            <div className={"navbar_a right_nav " + (disableCart && "disable_cart")}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
