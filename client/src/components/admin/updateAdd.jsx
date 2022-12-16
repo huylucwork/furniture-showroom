@@ -21,6 +21,7 @@ export default function UpdateAdd(props) {
   const [color, setColor] = useState(null);
   const [material, setMaterial] = useState(null);
   const [descrb, setDescrb] = useState(null);
+  const [amountImage, setAmountImage] = useState(0);
 
   const [openAlert, setOpenAlert] = useState(false);
   const [alert, setAlert] = useState({ type: "", message: "" });
@@ -49,6 +50,10 @@ export default function UpdateAdd(props) {
     });
   });
 
+  const handleUploadImage = (e) => {
+    setAmountImage(e.target.files.length);
+  }
+
   const handleSaveButton = (e) => {
     e.preventDefault();
 
@@ -73,10 +78,31 @@ export default function UpdateAdd(props) {
           props.setChangeProducts(!props.setChangeProducts);
         })
     }
-    // else if(price < discountPrice) {
-    //   setAlert({type: "error", message: "Price can't be greater than Discount Price"});
-    //   setOpenAlert(true);
-    // } 
+    else if(price < discountPrice) {
+      setAlert({type: "error", message: "Price can't be greater than Discount Price"});
+      setOpenAlert(true);
+    } 
+    else if(props.trigger[1]) {
+      Axios.put("https://hifurdez.vercel.app/admin/products/update-info", {
+        category_id: categoryPick,
+        collection_id: collectionPick,
+        product_name: name,
+        material: material,
+        price: price,
+        discount_price: price,
+        color: color,
+        width: width,
+        depth: depth,
+        height: height,
+        weight: weight,
+        description: descrb,
+      })
+        .then((response)=>{
+          setAlert({type: "success", message: response.message});
+          setOpenAlert(true);
+          props.setChangeProducts(!props.setChangeProducts);
+        })
+    }
 
     // props.setTrigger(false)
   }
@@ -166,7 +192,7 @@ export default function UpdateAdd(props) {
                 <input className="admin_input_text" type="text" onChange={(e) => setMaterial(e.target.value)}/>
               </div>
             </div>
-            {/* {!props.trigger[1] &&
+            {!props.trigger[1] &&
             <div className="admin_input">
               <label className="display_block">Image</label>
               <input 
@@ -174,9 +200,10 @@ export default function UpdateAdd(props) {
                 name="file" 
                 id="file" 
                 data-multiple-caption="{count} files selected" 
-                multiple/>
-              <label htmlFor="file" className="admin_input_label">Choose file</label>
-            </div>} */}
+                multiple
+                onChange={(e)=>{handleUploadImage(e)}}/>
+              <label htmlFor="file" className="admin_input_label">{amountImage? amountImage +  " files selected": "Choose file"}</label>
+            </div>}
             <div className="admin_input">
               <label 
                 className="display_block">
