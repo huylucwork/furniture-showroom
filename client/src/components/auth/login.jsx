@@ -11,9 +11,19 @@ export default function Login( {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [valid, setValid] = useState(false);
+  const [validCha, setValidCha] = useState("");
+
+  var format = /[ `!#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/;
 
   const handleLoggin = (e) => {
     e.preventDefault();
+
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setAlert({type: "error", message: "Invalid Email!"});
+      setOpenAlert(true)
+      return;
+    }
 
     var sha1 = require('sha1');
 
@@ -32,11 +42,26 @@ export default function Login( {
         setAlert({type: "success", message: "Welcome back! " + response.data['user-info'][0].display_name});
         setOpenAlert(true);
         setButtonLogin(false);
+        navigate("../");
       })
       .catch((err) => {
         setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
         setOpenAlert(true);
       })
+  }
+
+  const checkValid = (str, type) => {
+    if(type === "password") {
+      setPassword(str);
+      return;
+    }
+    setEmail(str);
+    if (format.test(str[str.length - 1])) {
+      setValid(true);
+      setValidCha(str[str.length - 1]);
+      return;
+    }
+    setValid(false);
   }
 
   return (
@@ -77,18 +102,19 @@ export default function Login( {
                 className="login_form_text-field_input"
                 type="email"
                 autocomplete="off"
+                onChange={e => checkValid(e.target.value, "email")}
                 required
-                onChange={(e)=>setEmail(e.target.value)}
               />
               <label className="login_form_text-field_label">Email</label>
             </div>
+            {valid && <h2 className="login_check-valid">{`Unvalid Character "${validCha}"`}</h2>}
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"
                 type="password"
                 autocomplete="off"
+                onChange={e => checkValid(e.target.value, "password")}
                 required
-                onChange={(e)=>setPassword(e.target.value)}
               />
               <label className="login_form_text-field_label">Password</label>
             </div>
@@ -123,10 +149,10 @@ export default function Login( {
           <div className="login_signup-link">
             New to Hifurdez? &thinsp;
             <span className="login_link" 
-                  onClick={()=>{
-                    setButtonSignUp(true);
-                    setButtonLogin(false);
-                  }}
+              onClick={()=>{
+                setButtonSignUp(true);
+                setButtonLogin(false);
+              }}
             >
               <u>Sign up</u>
             </span>

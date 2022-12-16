@@ -83,8 +83,8 @@ export default function ProductDetail ( {
                                 window.localStorage.setItem('cart_total', JSON.stringify(res.data['total-price'][0]['product_price']));
                                 setAccountCart(res.data['product-info']);
                                 setAccountCartTotal(res.data['total-price'][0]['product_price']);
-                                setAlert({type: "success", message: "Add success!"});
-                                setOpenAlert(true)
+                                setAlert({type: 'success', message: 'Add to cart successfully!'}); 
+                                setOpenAlert(true);
                             })
                             .catch(err => {
                                 setAlert({type: "error", message: "Add fail! Please reload to retry!"});
@@ -178,7 +178,7 @@ export default function ProductDetail ( {
                         </button>
                         <div className="product-detail_body_right_about row" onClick={()=>setTriggerAbout(!triggerAbout)}>
                             <h1 className="col">About</h1>
-                            <i className="fa-solid fa-plus col plus"></i>
+                            {triggerAbout ? <i class="fa-solid fa-minus col minus"></i> : <i className="fa-solid fa-plus col plus"></i>}
                             {triggerAbout === true &&
                             <div className="about_container">
                                 <p className="about_container_left">Material:</p>
@@ -191,7 +191,7 @@ export default function ProductDetail ( {
                         </div>
                         <div className="product-detail_body_right_policy row" onClick={()=>setTriggerPolicy(!triggerPolicy)}>
                             <h1 className="col">Policy</h1>
-                            <i className="fa-solid fa-plus col plus"></i>
+                            {triggerPolicy ? <i class="fa-solid fa-minus col minus"></i> : <i className="fa-solid fa-plus col plus"></i>}
                             {triggerPolicy === true &&
                             <div className="policy_container">
                                 <p>Free shipping in Ho Chi Minh City.</p>

@@ -8,11 +8,13 @@ export default function Header({
   account, accountCart, accountCartTotal, setAccountCart, setAccountCartTotal
 }) {
 
+  const [cart, setCart] = useState(false);
+
   const [headerNav, setHeaderNav] = useState("header_ctn");
 
   const [timerScroll, setTimer] = useState(true);
 
-  const aboutUsRoute = useLocation();
+  const headerRoute = useLocation();
 
   var timer = null;
 
@@ -36,7 +38,14 @@ export default function Header({
 
     // if page is not aboutUs, do nothing
 
-    if(aboutUsRoute.pathname !== "/about-us"){
+    if(headerRoute.pathname === "/checkout"){
+      setCart(true);
+    }
+    else {
+      setCart(false);
+    }
+
+    if(headerRoute.pathname !== "/about-us"){
       setHeaderNav("header_ctn");
       return;
     }
@@ -82,6 +91,7 @@ export default function Header({
           account={account}
           accountCart={accountCart} accountCartTotal={accountCartTotal}
           setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
+          disableCart={cart}
         />
       ) : (
         <Navbar 

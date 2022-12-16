@@ -79,7 +79,7 @@ export default function ManageItem({
     let list = [];
     let start = products.length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={products.length+i-start} className={"table_row " + (i%2? "even_row" : "odd_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={products.length+i-start} className={"table_row " + (((i + (products.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 
@@ -186,7 +186,7 @@ export default function ManageItem({
             {products.map((product, index) => {
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
-                <div className={"table_row " + (index%2 ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
+                <div className={"table_row " + (index%2 ? "odd_row " : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
                   {/* <div className="table_ele admin_fix-size-1">
                     <p>{product.product_id}</p>
                   </div> */}

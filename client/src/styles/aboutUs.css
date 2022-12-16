@@ -268,7 +268,7 @@
   color: #fff;
   font-size: 2em;
   box-shadow: inset 20px 0 0 0 var(--boxColor);
-  transition: ease-out .3s .1s;
+  transition: box-shadow ease-out .3s .1s;
 }
 
 .aboutUs_contact_submit:hover {
