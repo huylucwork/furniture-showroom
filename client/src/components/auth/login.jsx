@@ -112,7 +112,7 @@ export default function Login( {
               />
               <label className="login_form_text-field_label">Email</label>
             </div>
-            {valid && <h2 className="login_check-valid">{`Unvalid Character "${validCha}"`}</h2>}
+            {valid && <h2 className="login_check-valid">{`Invalid Character "${validCha}"`}</h2>}
             <div className="login_form_text-field">
               <input
                 className="login_form_text-field_input"

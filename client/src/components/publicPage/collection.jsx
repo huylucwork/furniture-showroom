@@ -34,14 +34,39 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                         <h1>{site.toUpperCase()}</h1>
                     </div>
                     <h1 className={site}>About collection</h1>
-                    <p>The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR).</p>
+                    <p>
+                    {(site === "spring" &&
+                    "One of the main furniture trends for this year is all about round. Sharp edges and corners are out and softer angles and edges are in, again resembling the shapes and curves more commonly found in nature. Curved kitchen cabinets, rugs and even circular patterns on the walls are big this spring. Filling your home with rounded edges will soften the feel of your living spaces, making it feel more organic while still maintaining clean lines and creating open spaces throughout.")
+                    || (site === "summer" &&
+                    "Appropriately named, our Summer collection brings its timeless beauty to any outdoor space. With its curved arms featuring exposed cushions, the wicker is hand-woven with our N-dura™ Resin wicker. The anodized aluminum feet ensure that the collection will be part of your life's best moments for years to come.")
+                    || (site === "autumn" &&
+                    "One surefire way to elicit a sense of the season is by using wooden features all over the house, but not just any wood. Lighter materials like bamboo and sandalwood give off more of a summery vibe, while vintage autumn furniture is more likely to made from darker woods, such as rich mahogany, walnut, and ebony.")
+                    || (site === "winter" &&
+                    "If you've got an outdoor space you want to make full use of a backyard, garden, patio, or you run a restaurant alfresco style, you're probably looking at the winter furniture to change things up over the winter. No problemo, we've got you covered! We combed through our collection to bring you our best products to get in theme for the winter season")}</p>
                 </div>
 
-                <p className="collection_descr_2">There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). </p>
+                <p className="collection_descr_2">
+                {(site === "spring" && 
+                "Open plan living has been big for some years now, removing walls between spaces and creating larger areas where the whole family can work, rest and play in the same space. But a new addition to this movement is the idea of flow. The idea behind flow is all about creating open spaces where energy and productivity can flow naturally.")
+                || (site === "summer" &&
+                "Relaxation was the goal when creating Summer collection. This collection innovates by fully upholstering the frame in our woven, N-dura resin wicker over a water-resistant reticulated foam cushion core. Offered in oyster and black walnut, this collection requires minimum care, making it the perfect worry-free outdoor furniture collection.")
+                || (site === "autumn" &&
+                "If you're trying to set up a gorgeously autumnal living room permanently, focusing on color is the easiest way to go about it. Soft furnishings and upholstery featuring colors such as burnt orange, juniper green, maple burgundy, and various shades of tan are all mainstays when it comes to establishing an autumn color scheme living room, or any other room.")
+                || (site === "winter" &&
+                "Natural teak also makes an excellent choice for long-lasting outdoor furniture sets that can feel and look warmer than those made of metal. The hardwood doesn't warp when exposed to repeated moisture, and naturally naturally occurring oils in the wood also help protect it against rot and insects. When buying teak, look for a certification from the Forest Stewardship Council to ensure that the wood comes from a plantation with sustainable harvesting practices.")}</p>
+
             
                 <img src={"../img/collection-" + (site) + "3.jpg"} alt="image 2" className="collection_image_2" />
 
-                <p className="collection_descr_3">There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). </p>
+                <p className="collection_descr_3">{
+                (site === "spring" &&
+                "As with almost every other area of life, sustainability is a core idea for new furniture ideas this spring. For a long time, items like sofas, chairs and tables were made using non-sustainable materials or treatments. This meant investing in furniture came with its own not-insignificant carbon footprint.")
+                || (site === "summer" &&
+                "A modern take on the classic summer style seating, our Summer collection features a smooth texture and a sleek frame design that mixes nicely with a variety of collections. Handcrafted from our farm harvested, high quality teak with mortise and tenon construction, this collection is built to last.")
+                || (site === "autumn" &&
+                "An easy way to enhance your cozy autumn room decor is by utilizing appropriate patterns where you. For that rustic feel, you can focus on plaid, tartan, floral, paisley, and toile features, displayed in varying degrees. Whether you treat patterns as a base for more decoration or as little touches of exciting detail, they can do wonders for your autumnal project.")
+                || (site === "winter" &&
+                "Investing in winter furniture made from weather-hardy materials can make a big difference in how a set holds up over time, what maintenance is required to keep it looking good and whether or not you need to bring it under a covered area or tarp it over the winter.")}</p>
 
                 <img src={"../img/collection-" + (site) + "4.jpg"} alt="image 3" className="collection_image_3" />
             </div>
@@ -54,7 +79,16 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                     <img src={"../img/collection-" + (site) + "6.jpg"} alt="" className="col image_item" />
                     <img src={"../img/collection-" + (site) + "7.jpg"} alt="" className="col image_item" />
                 </div>
-                <p className="collection_descr_4">There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). </p>
+                <p className="collection_descr_4">{
+                (site === "spring" &&
+                "As spring comes into bloom, why not think about trying out a few of the above ideas to give your home a new lease of life? Add some green tones to your living space, round off your 'flopen' plan kitchen with circles or bring some new life to an old piece of furniture you've found in the shed. You'll be amazed by how even a few small touches can make a big difference.")
+                || (site === "summer" &&
+                "Delicate yet durable, our stackable Summer collection of outdoor wicker furniture features seats and backs hand-woven from our N-dura™ Resin wicker to conform to your body. “Lighter than Summer”, this collection features graceful curves complemented by the resiliency of our hand-welded aluminum frame.")
+                || (site === "autumn" &&
+                "Coziness, color, and a generally rustic approach are all surefire ways to enhance the sense of these feelings in your house. Whether you want autumn accessories that suit the season at the time or pieces of furniture and decor that maintain the atmosphere for the foreseeable future, the spirit of autumn is always inviting and comforting to guests.")
+                || (site === "winter" &&
+                "It's that time of the year again. Temperatures drop to the early 20s, there's a cool breeze in the air and the phrase “let's chill”, takes on a new meaning. For residents in the Vietnam, the months December through February bring a much-awaited respite from the unforgiving heat we're exposed to throughout the year. That means more opportunities to hang outdoors than being confined to the air-conditioned walls of our offices and homes.")}</p>
+
             </div>
 
             <div className="collection_part_3">
