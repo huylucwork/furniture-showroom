@@ -188,7 +188,7 @@ export default function ManageUser( {
                 <p>Status</p>
               </div>
             </div>
-            {(filterItems.length? filterItems: users).map((user, index)=>{
+            {(filterItems.length? filterItems : users).map((user, index)=>{
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
                 <div key={index} className={"table_row " + (index%2 ? "odd_row" : "even_row") + (index===6 ? " last-row_shadow" : "")}>
