@@ -201,7 +201,13 @@ export default function History({accountHistory, setAlert, setOpenAlert}) {
                 </div>
               )
             })}
-            <RenderEmptyRow />
+            {accountHistory.length ? <RenderEmptyRow />: 
+            [0,1,2,3,4,5,6].map((i)=>{
+              return (
+                <div key={i} className={"table_row " + (((i + (accountHistory.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>
+              )
+            })
+            }
           </div>
         </div>
         <div className="history_pagination">
