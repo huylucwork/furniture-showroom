@@ -86,8 +86,8 @@ export default function DetailModal(props) {
                   <div className="item_info_ctn">
                     <div className="item_img"></div>
                     <div className="item_name-cat">
-                      <p>{item.name}</p>
-                      <p>Category</p>
+                      <p>{item.product_name}</p>
+                      <p>{item.collection_name}</p>
                     </div>
                     <p>Amount <br></br> 1</p>
                     <p>Price <br></br> ${item.price}</p>
