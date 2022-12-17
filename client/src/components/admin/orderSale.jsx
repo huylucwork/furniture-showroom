@@ -75,7 +75,7 @@ export default function OrderSale({
     let list = [];
     let start = saleOrders.length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={saleOrders.length+i-start} className={"table_row " + (((i + (saleOrders.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={saleOrders.length+i-start} className={"table_row " + (((i - (((saleOrders.length-1)%7)%2))%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 

@@ -118,10 +118,10 @@ const styles = StyleSheet.create({
   itemName: {
     fontSize: 18,
     color: "#ad7252",
-    width: "100%",
+    width: "200%",
   },
   itemCat: {
-    width: "100%",
+    width: "200%",
     fontSize: 16,
     textAlign: "left",
     fontFamily: "Poppins1",
@@ -179,19 +179,19 @@ const RenderItemPurchase = () => {
     <>
       <View style={styles.textCtn} key={-1}>
         <Text style={styles.header}>Order:</Text>
-        <Text style={styles.content}>PO40000087</Text>
+        <Text style={styles.content}>PO600001</Text>
       </View>
       <View style={styles.textCtn} key={-2}>
         <Text style={styles.header}>Date:</Text>
-        <Text style={styles.content}>02-09-2022</Text>
+        <Text style={styles.content}>2022/09/10</Text>
       </View>
       <View style={styles.textCtn} key={-3}>
         <Text style={styles.header}>Company:</Text>
-        <Text style={styles.content}>XXX</Text>
+        <Text style={styles.content}>CalmFactory</Text>
       </View>
       <View style={styles.textCtn} key={-4}>
         <Text style={styles.header}>Amount:</Text>
-        <Text style={styles.content}>06</Text>
+        <Text style={styles.content}>02</Text>
       </View>
       <View style={styles.textCtn} key={-5}>
         <Text style={styles.header}>Move Code:</Text>
@@ -203,25 +203,25 @@ const RenderItemPurchase = () => {
       </View>
     </>
   )
-  for(let i=0; i<30; i++)
+  for(let i=0; i<2; i++)
     list.push(
       <View style={styles.item} wrap={false} key={i}>
         {/* <Image style={styles.itemImage} src="#"/> */}
         <View style={styles.nameCtn}>
-          <Text style={styles.itemName}>Item X</Text>
-          <Text style={styles.itemCat}>Category</Text>
+          <Text style={styles.itemName}>Item Couchmax</Text>
+          <Text style={styles.itemCat}>Category: Couch</Text>
         </View>
         <View style={styles.colorL}>
           <Text style={styles.purchaseDetail}>Color: White</Text>
-          <Text style={styles.purchaseDetail}>l: 02xx</Text>
+          <Text style={styles.purchaseDetail}>l: 02m</Text>
         </View>
         <View style={styles.wH}>
-          <Text style={styles.purchaseDetail}>w: 02xx</Text>
-          <Text style={styles.purchaseDetail}>h: 02xx</Text>
+          <Text style={styles.purchaseDetail}>w: 04m</Text>
+          <Text style={styles.purchaseDetail}>h: 1.5m</Text>
         </View>
         <View style={styles.amountWeight}>
           <Text style={styles.purchaseDetail}>Amount: 01</Text>
-          <Text style={styles.purchaseDetail}>Weight: 10kg</Text>
+          <Text style={styles.purchaseDetail}>Weight: 20kg</Text>
         </View>
       </View>
     )
@@ -234,27 +234,27 @@ const RenderItemHistorySale = () => {
     <>
       <View style={styles.textCtn} key={-1}>
         <Text style={styles.header}>Order:</Text>
-        <Text style={styles.content}>SO40000087</Text>
+        <Text style={styles.content}>SO600023</Text>
       </View>
       <View style={styles.textCtn} key={-2}>
         <Text style={styles.header}>Date:</Text>
-        <Text style={styles.content}>02-09-2022</Text>
+        <Text style={styles.content}>2022/12/23</Text>
       </View>
       <View style={styles.textCtn} key={-3}>
         <Text style={styles.header}>User name:</Text>
-        <Text style={styles.content}>anhbo123</Text>
+        <Text style={styles.content}>Couchmax</Text>
       </View>
       <View style={styles.textCtn} key={-4}>
         <Text style={styles.header}>Name:</Text>
-        <Text style={styles.content}>anhbodantruong</Text>
+        <Text style={styles.content}>Deltora</Text>
       </View>
       <View style={styles.textCtn} key={-5}>
         <Text style={styles.header}>Email:</Text>
-        <Text style={styles.content}>bolaanh@gmail.com</Text>
+        <Text style={styles.content}>deltora@gmail.com</Text>
       </View>
       <View style={styles.textCtn} key={-6}>
         <Text style={styles.header}>Phone:</Text>
-        <Text style={styles.content}>0938608456</Text>
+        <Text style={styles.content}>0815977777</Text>
       </View>
       <View style={styles.textCtn} key={-7}>
         <Text style={styles.header}>Address:</Text>
@@ -262,16 +262,16 @@ const RenderItemHistorySale = () => {
       </View>
     </>
   )
-  for(let i=0; i<30; i++)
+  for(let i=0; i<2; i++)
     list.push(
       <View style={styles.item} wrap={false} key={i}>
         {/* <Image style={styles.itemImage} src="#"/> */}
         <View style={styles.nameCtn}>
-          <Text style={styles.itemName}>Item X</Text>
-          <Text style={styles.itemCat}>Category</Text>
+          <Text style={styles.itemName}>Item Couchmax</Text>
+          <Text style={styles.itemCat}>Category: Couch</Text>
         </View>
         <Text style={styles.itemAmount}>Amount 1</Text>
-        <Text style={styles.itemPrice}>Price $123</Text>
+        <Text style={styles.itemPrice}>Price $121</Text>
       </View>
     )
   return list
@@ -289,7 +289,7 @@ export default function PDFFile ( {type} ) {
         {type === "Purchase" ? <RenderItemPurchase /> : <RenderItemHistorySale />}
         <View style={styles.totalPrice}>
           <Text style={styles.total}>Total:</Text>
-          <Text style={styles.price}>$100000</Text>
+          <Text style={styles.price}>{type === "Purchase" ? "7387.8$" : "242$"}</Text>
         </View>
         <Text
           style={styles.pageNumber}
