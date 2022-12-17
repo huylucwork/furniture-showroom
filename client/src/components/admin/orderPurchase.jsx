@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
 import PurchaseModal from "./modalPurchase";
@@ -15,8 +15,25 @@ export default function OrderPurchase({
   // for fragment
   const [currentFragment, setCurrentFragment] = useState(0);
   const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+
+  //search
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [filterItems, setFilterItems] = useState([]);
+
+  useEffect(()=>{
+    setFilterItems([]);
+    let list = [];
+    if (searchKeyword !== '')
+      purchaseOrders.forEach(item => {
+        item.code.includes(searchKeyword) && list.push(item);
+      })
+    setFilterItems(list);
+    setCurrentFragment(0);
+    setlistFragment([0,1,2]);
+  },[searchKeyword])
+
   const maxOfFragment = 7;
-  const numberOfFragment = Math.ceil(purchaseOrders.length * 1.0 / maxOfFragment);
+  const numberOfFragment = Math.ceil((filterItems.length? filterItems : purchaseOrders).length * 1.0 / maxOfFragment);
   function prevFragment() {
     if (currentFragment > 0) {
       setCurrentFragment(currentFragment - 1);
@@ -73,9 +90,9 @@ export default function OrderPurchase({
   const RenderEmptyRow =()=>{
     if (currentFragment !== numberOfFragment-1) return '';
     let list = [];
-    let start = purchaseOrders.length-((numberOfFragment-1)*maxOfFragment);
+    let start = (filterItems.length? filterItems : purchaseOrders).length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={purchaseOrders.length+i-start} className={"table_row " + (((i + (purchaseOrders.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={(filterItems.length? filterItems : purchaseOrders).length+i-start} className={"table_row " + (((i + (purchaseOrders.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 
@@ -126,7 +143,9 @@ export default function OrderPurchase({
         <div className="search_container">
           <input 
             type="text" 
-            placeholder="Search..." />
+            placeholder="Search..." 
+            onChange={(e)=>setSearchKeyword(e.target.value)}
+          />
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="1em" 
@@ -179,7 +198,7 @@ export default function OrderPurchase({
                 <p>Detail</p>
               </div>
             </div>
-            {purchaseOrders.map((order, index)=> {
+            {(filterItems.length? filterItems : purchaseOrders).map((order, index)=> {
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
                 <div className={"table_row " + (index%2 ? "odd_row " : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
