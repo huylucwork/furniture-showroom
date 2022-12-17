@@ -46,7 +46,7 @@ function CartItem(item) {
     ""
   ) : (
     <div className="cart_detail_item-info">
-      <div className="cart_detail_item-img"></div>
+      <img src={item.product_image} className="cart_detail_item-img"/>
       <div className="cart_detail_item_name-cat">
         <p className="cart_detail_item-name">{item.name}</p>
         <button className="cart_btn_close" onClick={() => handleRemoveItem()}>
@@ -124,6 +124,7 @@ export default function Cart({
                   product={item.product_id}
                   setAccountCart={setAccountCart}
                   setAccountCartTotal={setAccountCartTotal}
+                  product_image={item.product_image}
                 />
               )
             })}
