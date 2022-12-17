@@ -18,13 +18,52 @@
     object-fit: fill;
 }
 
-.collection_wallpaper {
+.collection_wallpaper.spring {
     width: 100%;
     height: 81rem;
     /* background-color: #d9d9d9; */
     position: relative;
     overflow: hidden;
     object-fit: contain;
+    background-image: url("../../public/img/collection-spring1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.collection_wallpaper.summer {
+    width: 100%;
+    height: 81rem;
+    /* background-color: #d9d9d9; */
+    position: relative;
+    overflow: hidden;
+    object-fit: contain;
+    background-image: url("../../public/img/collection-summer1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.collection_wallpaper.autumn {
+    width: 100%;
+    height: 81rem;
+    /* background-color: #d9d9d9; */
+    position: relative;
+    overflow: hidden;
+    object-fit: contain;
+    background-image: url("../../public/img/collection-autumn1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.collection_wallpaper.winter {
+    width: 100%;
+    height: 81rem;
+    /* background-color: #d9d9d9; */
+    position: relative;
+    overflow: hidden;
+    object-fit: contain;
+    background-image: url("../../public/img/collection-winter1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .collection_wallpaper img {
