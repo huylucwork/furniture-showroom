@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/history.css";
 
-export default function ModalUser( {modalData,setOpenModal} ) {  
+export default function ModalSale( {modalData,setOpenModal} ) {  
 
     const [info, setInfo] = useState();
     const [so, setSo] = useState([]);

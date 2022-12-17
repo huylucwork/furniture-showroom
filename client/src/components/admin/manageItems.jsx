@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
 import ModalProduct from "./modalProduct";
@@ -19,8 +19,25 @@ export default function ManageItem({
   // for fragment
   const [currentFragment, setCurrentFragment] = useState(0);
   const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+
+    //search
+    const [searchKeyword, setSearchKeyword] = useState('');
+    const [filterItems, setFilterItems] = useState([]);
+  
+    useEffect(()=>{
+      setFilterItems([]);
+      let list = [];
+      if (searchKeyword !== '')
+        products.forEach(product => {
+          product.product_name.includes(searchKeyword) && list.push(product);
+        })
+      setFilterItems(list);
+      setCurrentFragment(0);
+      setlistFragment([0,1,2]);
+    },[searchKeyword])
+
   const maxOfFragment = 7;
-  const numberOfFragment = Math.ceil(products.length * 1.0 / maxOfFragment);
+  const numberOfFragment = Math.ceil((filterItems.length? filterItems : products).length * 1.0 / maxOfFragment);
   function prevFragment() {
     if (currentFragment > 0) {
       setCurrentFragment(currentFragment - 1);
@@ -77,9 +94,9 @@ export default function ManageItem({
   const RenderEmptyRow =()=>{
     if (currentFragment !== numberOfFragment-1) return '';
     let list = [];
-    let start = products.length-((numberOfFragment-1)*maxOfFragment);
+    let start = (filterItems.length? filterItems : products).length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={products.length+i-start} className={"table_row " + (((i - (((products.length-1)%7)%2))%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={(filterItems.length? filterItems : products).length+i-start} className={"table_row " + (((i - (((products.length-1)%7)%2))%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 
@@ -122,7 +139,9 @@ export default function ManageItem({
         <div className="search_container">
           <input 
             type="text" 
-            placeholder="Search..." />
+            placeholder="Search..." 
+            onChange={(e)=>setSearchKeyword(e.target.value)}
+          />
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="1em" 
@@ -183,7 +202,7 @@ export default function ManageItem({
                 <p>Status</p>
               </div>
             </div>
-            {products.map((product, index) => {
+            {(filterItems.length? filterItems : products).map((product, index) => {
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
                 <div className={"table_row " + (index%2 ? "odd_row " : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
