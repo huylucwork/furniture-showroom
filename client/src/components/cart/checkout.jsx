@@ -103,7 +103,7 @@ export default function Checkout( {
 
   useEffect(()=>{
       Axios.post("https://hifurdez.vercel.app/province/district",{
-        id: provinceId[provinceSelect] ? provinceId[provinceSelect] : 1313,
+        id: provinceId[provinceSelect-1] ? provinceId[provinceSelect-1] : 1313,
       })
       .then((response)=>{
         let id = [];
@@ -119,7 +119,7 @@ export default function Checkout( {
 
   useEffect(()=>{
     Axios.post("https://hifurdez.vercel.app/province/district/ward", {
-      id: districtId[districtSelect] ? districtId[districtSelect] : 3537,
+      id: districtId[districtSelect-1] ? districtId[districtSelect-1] : 3537,
     })
       .then((response)=>{
         let id = [];
@@ -132,8 +132,6 @@ export default function Checkout( {
         setWardId(id);
       })
   },[districtSelect])
-
-  console.log(accountCart)
 
   return buyerInfo && province && district && ward && (
     <div className="checkout_container">
