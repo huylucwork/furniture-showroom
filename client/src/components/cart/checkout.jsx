@@ -37,16 +37,16 @@ export default function Checkout( {
       user_ward: wardId[wardSelect],
       payment_method: 0,
       total_amount: accountCartTotal,
-      product_0: accountCart.length >= 1 ? accountCart[0] : 'test',
-      product_1: accountCart.length >= 2 ? accountCart[1] : 'test',
-      product_2: accountCart.length >= 3 ? accountCart[2] : 'test',
-      product_3: accountCart.length >= 4 ? accountCart[3] : 'test',
-      product_4: accountCart.length >= 5 ? accountCart[4] : 'test',
-      product_5: accountCart.length >= 6 ? accountCart[5] : 'test',
-      product_6: accountCart.length >= 7 ? accountCart[6] : 'test',
-      product_7: accountCart.length >= 8 ? accountCart[7] : 'test',
-      product_8: accountCart.length >= 9 ? accountCart[8] : 'test',
-      product_9: accountCart.length >= 10 ? accountCart[9] : 'test',
+      product_0: accountCart.length >= 1 ? accountCart[0].product_id : 'test',
+      product_1: accountCart.length >= 2 ? accountCart[1].product_id : 'test',
+      product_2: accountCart.length >= 3 ? accountCart[2].product_id : 'test',
+      product_3: accountCart.length >= 4 ? accountCart[3].product_id : 'test',
+      product_4: accountCart.length >= 5 ? accountCart[4].product_id : 'test',
+      product_5: accountCart.length >= 6 ? accountCart[5].product_id : 'test',
+      product_6: accountCart.length >= 7 ? accountCart[6].product_id : 'test',
+      product_7: accountCart.length >= 8 ? accountCart[7].product_id : 'test',
+      product_8: accountCart.length >= 9 ? accountCart[8].product_id : 'test',
+      product_9: accountCart.length >= 10 ? accountCart[9].product_id : 'test',
     })
       .then((response)=>{
         setAlert({
@@ -59,16 +59,19 @@ export default function Checkout( {
           setChangeHistory(!changeHistory);
           setFilterCategory('All');
           setFilterCollection('All');
-          accountCart.map((item)=>{
-            Axios.post("https://hifurdez.vercel.app/cart/update", {
-              customer_id: buyerInfo.id,
-              product_id: item.product_id
-            })
+          Axios.post("https://hifurdez.vercel.app/cart/get",{
+              customer_id: buyerInfo.id
           })
-          window.localStorage.setItem('cart', JSON.stringify([]));
-          window.localStorage.setItem('cart_total', 0);
-          setAccountCart([]);
-          setAccountCartTotal(0);
+              .then((res)=>{
+                  window.localStorage.setItem('cart', JSON.stringify(res.data['product-info']));
+                  window.localStorage.setItem('cart_total', JSON.stringify(res.data['total-price'][0]['product_price']));
+                  setAccountCart(res.data['product-info']);
+                  setAccountCartTotal(res.data['total-price'][0]['product_price']);
+              })
+              .catch(err => {
+                  setAlert({type: "error", message: "Add fail! Please reload to retry!"});
+                  setOpenAlert(true)
+              });
           navigate("../")
         }
       })
