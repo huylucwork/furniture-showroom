@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   nameCtn: {
     position: "absolute",
-    left: 10,
+    left: 70,
     width: 100,
   },
   itemName: {
@@ -206,7 +206,7 @@ const RenderItemPurchase = () => {
   for(let i=0; i<30; i++)
     list.push(
       <View style={styles.item} wrap={false} key={i}>
-        {/* <Image style={styles.itemImage} src="#"/> */}
+        <Image style={styles.itemImage} src="#"/>
         <View style={styles.nameCtn}>
           <Text style={styles.itemName}>Item X</Text>
           <Text style={styles.itemCat}>Category</Text>
@@ -265,7 +265,7 @@ const RenderItemHistorySale = () => {
   for(let i=0; i<30; i++)
     list.push(
       <View style={styles.item} wrap={false} key={i}>
-        {/* <Image style={styles.itemImage} src="#"/> */}
+        <Image style={styles.itemImage} src="#"/>
         <View style={styles.nameCtn}>
           <Text style={styles.itemName}>Item X</Text>
           <Text style={styles.itemCat}>Category</Text>
