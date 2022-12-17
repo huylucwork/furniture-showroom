@@ -6,25 +6,10 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
 
     const navigate = useNavigate();
 
-    const RenderItems =()=>{
-        let list = []
-        for(let i=0; i<8; i++)
-            list.push(
-            <div className="col item">
-                <div className="collection_img">
-                    <img src="../img/autumn.jpg" alt="" />
-                    <img src="../img/autumn2.jpg" alt="" />
-                </div>
-                <h1 className={site}>Name of item</h1>
-                <p>$999</p>
-            </div>)
-        return list
-    }
-
     return (
         <div className="collection_background">
-            <div className="collection_wallpaper">
-                <img src={"../img/collection-" + (site) + "1.jpg"} alt="" />
+            <div className={"collection_wallpaper " + (site)}>
+                {/* <img src={"../img/collection-" + (site) + "1.jpg"} alt="" /> */}
             </div>
 
             <div className="collection_part_1">
