@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "../../styles/admin.css";
 import ModalSale from "./modalSale";
@@ -13,8 +13,25 @@ export default function OrderSale({
   // for fragment
   const [currentFragment, setCurrentFragment] = useState(0);
   const [listFragment, setlistFragment] = useState([0 , 1 , 2]);
+
+  //search
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [filterItems, setFilterItems] = useState([]);
+
+  useEffect(()=>{
+    setFilterItems([]);
+    let list = [];
+    if (searchKeyword !== '')
+      saleOrders.forEach(item => {
+        item.code.includes(searchKeyword) && list.push(item);
+      })
+    setFilterItems(list);
+    setCurrentFragment(0);
+    setlistFragment([0,1,2]);
+  },[searchKeyword])
+
   const maxOfFragment = 7;
-  const numberOfFragment = Math.ceil(saleOrders.length * 1.0 / maxOfFragment);
+  const numberOfFragment = Math.ceil((filterItems.length? filterItems : saleOrders).length * 1.0 / maxOfFragment);
   function prevFragment() {
     if (currentFragment > 0) {
       setCurrentFragment(currentFragment - 1);
@@ -71,9 +88,9 @@ export default function OrderSale({
   const RenderEmptyRow =()=>{
     if (currentFragment !== numberOfFragment-1) return '';
     let list = [];
-    let start = saleOrders.length-((numberOfFragment-1)*maxOfFragment);
+    let start = (filterItems.length? filterItems : saleOrders).length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={saleOrders.length+i-start} className={"table_row " + (((i + (saleOrders.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={(filterItems.length? filterItems : saleOrders).length+i-start} className={"table_row " + (((i + (saleOrders.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 
@@ -117,8 +134,6 @@ export default function OrderSale({
     setOpenAlert(true);
   }
 
-  console.log(saleOrders)
-
   return (
     <div className="history_container">
       {openModal && <ModalSale modalData={modalData} setOpenModal={setOpenModal}/>}
@@ -126,7 +141,9 @@ export default function OrderSale({
         <div className="search_container">
           <input 
             type="text" 
-            placeholder="Search..." />
+            placeholder="Search..." 
+            onChange={(e)=>setSearchKeyword(e.target.value)}
+          />
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             width="1em" 
@@ -179,7 +196,7 @@ export default function OrderSale({
                 <p>Detail</p>
               </div>
             </div>
-            {saleOrders.map((order, index)=> {
+            {(filterItems.length? filterItems : saleOrders).map((order, index)=> {
               return index >= currentFragment * maxOfFragment && 
               index < (currentFragment + 1) * maxOfFragment && (
                 <div className={"table_row " + (index%2 ? "odd_row " : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
