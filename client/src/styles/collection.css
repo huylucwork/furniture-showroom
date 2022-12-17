@@ -6,7 +6,7 @@
 }
 
 .collection_background {
-    position: absolute;
+    position: relative;
     width: 100%;
     color: #473C38;
     font-size: 10px;
@@ -23,12 +23,42 @@
     height: 81rem;
     /* background-color: #d9d9d9; */
     position: relative;
+    overflow: hidden;
+    object-fit: contain;
 }
 
-.collection_title {
+.collection_wallpaper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collection_wallpaper .spring h1 {
     position: absolute;
-    top: 40rem;
-    left: 42rem;
+    top: 32%;
+    left: 30%;
+    color: var(--springColor);
+}
+
+.collection_wallpaper .summer h1 {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    color: #482611;
+}
+
+.collection_wallpaper .autumn h1 {
+    position: absolute;
+    top: 25%;
+    left: 42%;
+    color: #fff;
+}
+
+.collection_wallpaper .winter h1 {
+    position: absolute;
+    top: 28%;
+    left: 45%;
+    color: #fff;
 }
 
 .collection_background .spring {
@@ -47,19 +77,12 @@
     color: var(--winterColor);
 }
 
-.collection_title h1 {
-    font-size:  8rem;
+.collection_descr_1 .collection_title h1 {
+    font-size:  9rem;
     font-family: 'Cinzel Decorative';
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.collection_title p {
-    font-size: 6rem;
-    font-weight: 300;
-    width: 60rem;
-    line-height: 9rem;
-    text-align: center;
+    margin-bottom: 6rem;
+    text-align: left;
+    font-weight: 500;
 }
 
 .collection_part_1 p {
@@ -77,7 +100,7 @@
     width: 67rem;
     height: 85.5rem;
 
-    background-color: #d9d9d9;
+    /* background-color: #d9d9d9; */
     /* border: 1px solid #000; */
 }
 
@@ -89,24 +112,24 @@
     width: 72rem;
     height: 40rem;
 
-    background-color: #d9d9d9;
-    border: 1px solid #000;
+    /* background-color: #d9d9d9; */
+    /* border: 1px solid #000; */
 }
 
 .collection_image_3 {
     position: absolute;
-    top: 193.5rem;
+    top: 204rem;
     left: 41.5rem;
 
     width: 37.5rem;
     height: 55.6rem;
 
-    background-color: #d9d9d9;
-    border: 1px solid #000;
+    /* background-color: #d9d9d9; */
+    /* border: 1px solid #000; */
 }
 
 .collection_descr_1 {
-    margin-top: 12rem;
+    margin-top: 13rem;
     margin-left: 103rem;   
 }
 
@@ -128,7 +151,7 @@
 }
 
 .collection_descr_2 { 
-    margin-top: 31rem;
+    margin-top: 25rem;
     margin-left: 33.4rem;
     width: 54.5rem;
 }
@@ -164,7 +187,7 @@
 }
 
 .image_item {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 
 
@@ -187,11 +210,20 @@
     font-size: 6rem;
 }
 
+.collection_part_2 .summer {
+    color: #482611;
+}
+
+.collection_part_2 .autumn {
+    color: #000000;
+}
+
 .collection_part_3 {
     position: relative;
     margin-top: 7.6rem;
     width: 152rem;
     margin-left: 50%;
+    margin-bottom: 5em;
     transform: translateX(-50%);
 }
 
@@ -210,10 +242,50 @@
     padding-left: 4.4rem;
     font-size: 1.6rem;
     text-align: left;
-    background-color: rgba(186, 175, 158, 0.8);
+    /* background-color: rgba(186, 175, 158, 0.8); */
     border: none;
     box-shadow: inset 4.166666666666667em 0 0 0.00375em rgba(186, 175, 158, 0);
     transition: ease-out 0.4s;
+}
+
+.collection_part_3 button.spring {
+    background-color: rgba(194, 36, 36, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(194, 36, 36, 0);
+    color: #fff;
+}
+
+.collection_part_3 button.spring:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(194, 36, 36, 1);
+}
+
+.collection_part_3 button.summer {
+    background-color:rgba(253, 135, 40, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(252, 127, 25, 0);
+    color: #fff;
+}
+
+.collection_part_3 button.summer:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(252, 127, 25, 1);
+}
+
+.collection_part_3 button.autumn {
+    background-color:rgba(176, 109, 64, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(176, 109, 64, 0);
+    color: #fff;
+}
+
+.collection_part_3 button.autumn:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(176, 109, 64, 1);
+}
+
+.collection_part_3 button.winter {
+    background-color: rgba(71, 71, 71, 0.8);
+    box-shadow: inset 4.166666666666667em 0 0 0.005em rgba(71, 71, 71, 0);
+    color: #fff;
+}
+
+.collection_part_3 button.winter:hover {
+    box-shadow: inset 27.5rem 0 0 0 rgba(71, 71, 71, 1);
 }
 
 .part_3_button:hover {
@@ -221,7 +293,7 @@
 }
 
 .part_3_button_icon {
-    color: #473C38;
+    color: #fff;
     margin: auto;
     margin-left: 30px;
     font-size: 2.5rem;
@@ -234,7 +306,6 @@
 .collection_part_3 .items .item {
     width: 35.7rem;
     height: 51rem;
-    cursor: pointer;
 }
 
 .collection_part_3 .items .item img {
@@ -248,11 +319,11 @@
     text-align: center;
     margin-top: 1.5rem;
     font-weight: 400;
-    color: black;
+    color: rgb(71 ,60, 56);
 }
 
 .collection_part_3 .items .item p {
-    font-size: 2rem;
+    font-size: 2.4rem;
     text-align: center;
     margin-top: 1.5rem;
     font-weight: 400;
