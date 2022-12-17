@@ -66,9 +66,9 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                     </svg>
                 </button>
                 <div className="row g-5 items">
-                    {site === 'spring' && springRecommend.map((value)=> {
+                    {site === 'spring' && springRecommend.map((value,index)=> {
                         return(
-                            <div className="col item">
+                            <div key={index} className="col item" onClick={()=>{navigate(`../product-detail/${value.id}`)}}>
                                 <div className="collection_img">
                                     <img src={value.media_1} alt="" />
                                     <img src={value.media_0} alt="" />
@@ -78,9 +78,9 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                             </div>
                         )
                     })}
-                    {site === 'summer' && summerRecommend.map((value)=> {
+                    {site === 'summer' && summerRecommend.map((value,index)=> {
                         return(
-                            <div className="col item">
+                            <div key={index} className="col item" onClick={()=>{navigate(`../product-detail/${value.id}`)}}>
                                 <div className="collection_img">
                                     <img src={value.media_1} alt="" />
                                     <img src={value.media_0} alt="" />
