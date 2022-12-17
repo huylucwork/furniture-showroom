@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   colorL: {
     position: "absolute",
-    left: 170,
+    left: 180,
     width: 100,
   },
   wH: {
@@ -208,20 +208,20 @@ const RenderItemPurchase = () => {
       <View style={styles.item} wrap={false} key={i}>
         {/* <Image style={styles.itemImage} src="#"/> */}
         <View style={styles.nameCtn}>
-          <Text style={styles.itemName}>Item Couchmax</Text>
-          <Text style={styles.itemCat}>Category: Couch</Text>
+          <Text style={styles.itemName}>{i === 0 ? "Item Couchmax" : "Item Armless Sofa"}</Text>
+          <Text style={styles.itemCat}>Category: Sofa</Text>
         </View>
         <View style={styles.colorL}>
-          <Text style={styles.purchaseDetail}>Color: White</Text>
-          <Text style={styles.purchaseDetail}>l: 02m</Text>
+          <Text style={styles.purchaseDetail}>{i === 0 ? "Color: White" : "Color: Black"}</Text>
+          <Text style={styles.purchaseDetail}>{i === 0 ? "l: 02m" : "l: 2.5m"}</Text>
         </View>
         <View style={styles.wH}>
-          <Text style={styles.purchaseDetail}>w: 04m</Text>
-          <Text style={styles.purchaseDetail}>h: 1.5m</Text>
+          <Text style={styles.purchaseDetail}>{i === 0 ? "w: 04m" : "w: 05m"}</Text>
+          <Text style={styles.purchaseDetail}>{i === 0 ? "h: 1.5m" : "h: 1m"}</Text>
         </View>
         <View style={styles.amountWeight}>
           <Text style={styles.purchaseDetail}>Amount: 01</Text>
-          <Text style={styles.purchaseDetail}>Weight: 20kg</Text>
+          <Text style={styles.purchaseDetail}>{i === 0 ? "Weight: 20kg" : "Weight: 15kg"}</Text>
         </View>
       </View>
     )
@@ -267,11 +267,11 @@ const RenderItemHistorySale = () => {
       <View style={styles.item} wrap={false} key={i}>
         {/* <Image style={styles.itemImage} src="#"/> */}
         <View style={styles.nameCtn}>
-          <Text style={styles.itemName}>Item Couchmax</Text>
-          <Text style={styles.itemCat}>Category: Couch</Text>
+          <Text style={styles.itemName}>{i === 0 ? "Item Couchmax" : "Item Armless Sofa"}</Text>
+          <Text style={styles.itemCat}>Category: Sofa</Text>
         </View>
         <Text style={styles.itemAmount}>Amount 1</Text>
-        <Text style={styles.itemPrice}>Price $121</Text>
+        <Text style={styles.itemPrice}>{i === 0 ? "Price $2340" : "Price $1550"}</Text>
       </View>
     )
   return list
@@ -289,7 +289,7 @@ export default function PDFFile ( {type} ) {
         {type === "Purchase" ? <RenderItemPurchase /> : <RenderItemHistorySale />}
         <View style={styles.totalPrice}>
           <Text style={styles.total}>Total:</Text>
-          <Text style={styles.price}>{type === "Purchase" ? "7387.8$" : "242$"}</Text>
+          <Text style={styles.price}>{type === "Purchase" ? "7387.8$" : "3890$"}</Text>
         </View>
         <Text
           style={styles.pageNumber}
