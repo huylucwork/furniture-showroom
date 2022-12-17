@@ -103,7 +103,7 @@ export default function ManageUser( {
     let list = [];
     let start = (filterItems.length? filterItems : users).length-((numberOfFragment-1)*maxOfFragment);
     for(let i=start; i<7; i++)
-      list.push(<div key={(filterItems.length? filterItems : users).length+i-start} className={"table_row " + (((i + (users.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+      list.push(<div key={(filterItems.length? filterItems : users).length+i-start} className={"table_row " + (((i - (((users.length-1)%7)%2))%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
     return list
   }
 

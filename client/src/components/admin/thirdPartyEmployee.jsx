@@ -74,7 +74,7 @@ export default function ThirdPartyEmployee({
       let list = [];
       let start = thirdPartyEmployee.length-((numberOfFragment-1)*maxOfFragment);
       for(let i=start; i<7; i++)
-        list.push(<div key={thirdPartyEmployee.length+i-start} className={"table_row " + (((i + (thirdPartyEmployee.length%2) + 1)%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
+        list.push(<div key={thirdPartyEmployee.length+i-start} className={"table_row " + (((i - ((thirdPartyEmployee.length%7)%2))%2 === 0) ? "odd_row" : "even_row") + (i===6 ? " last-row_shadow" : "")}></div>)
       return list
     }
   
