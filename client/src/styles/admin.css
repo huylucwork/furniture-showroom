@@ -22,11 +22,12 @@
 
 .table_ele .admin_locked-btn {
   background-color: #757575;
+  width: 5em;
 }
 
 .table_ele .admin_active-btn_purchase {
   background-color: #125F4B;
-  width: 4.8em;
+  width: 5em;
 }
 
 .admin_fix_modal {
