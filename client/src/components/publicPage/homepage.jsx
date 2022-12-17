@@ -50,8 +50,7 @@ export default function Homepage( {site, setSite, collectionProduct, setFilterCo
             <div className="title_sub-name">Collection</div>
             <div className="title_name">SPRING</div>
             <div className="title_descr">
-            Spring has sprung. New life abounds all around as the winter fades into the distance. It's little wonder that this is the most popular time of year to decorate the home. Spring is a fresh start and a time to blow away the cobwebs of the colder months, breathing new life into your home. Below we'll give you some newest design on what is hot this spring, looking at furniture items, color schemes and design ideas that you could use to give your home a bright new start for the rest of the year.
-
+            The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR).
             </div>
           </div>
 
@@ -96,8 +95,7 @@ export default function Homepage( {site, setSite, collectionProduct, setFilterCo
             <div className="title_sub-name">Collection</div>
             <div className="title_name">SUMMER</div>
             <div className="title_descr">
-            Whether your customers need a place to call sanctuary and relax after a long day or a space to gather around the table with friends and family, our signature summer furniture collections are curated to fit the lifestyles of our customers… and yours. Summer furniture is a collection of modern outdoor and indoor furniture crafted for a lifetime of liveable luxury. With more than a quarter century of experience under our belts, we're committed to enhancing customers' living and dining spaces through timeless yet fashionable, furniture designs.
-
+            The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR).
             </div>
           </div>
 
@@ -143,8 +141,7 @@ export default function Homepage( {site, setSite, collectionProduct, setFilterCo
             <div className="title_sub-name">Collection</div>
             <div className="title_name">AUTUMN</div>
             <div className="title_descr">
-            Autumn furniture and decor can mean so many different things. It could mean pieces that work all year round, reflecting that warm, comforting autumn color palette that you know and love, or it can be those perfect temporary pieces to bring out of storage to display during the months of the season. Either way, making choices that reflect the spirit of autumn in terms of color, materials, and overall feel can be a great way to infuse some personality into your home. We've put together this list of multiple choices for autumn decor and furniture that you can make to bring the spirit of falling leaves out in your house, whether as permanent fixtures or for only a few weeks at a time.
-
+            The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR).
             </div>
           </div>
 
@@ -189,8 +186,7 @@ export default function Homepage( {site, setSite, collectionProduct, setFilterCo
             <div className="title_sub-name">Collection</div>
             <div className="title_name">WINTER</div>
             <div className="title_descr">
-            Even in mild climates, most of us get far more use from our furniture in the spring and summer than in chillier times of year. You can extend the use of your patio furniture and rooms into the colder months with a few practical tips, including what materials to look for if you're investing in new furniture and ways to make your existing living room more comfortable and inviting in cooler weather.
-
+            The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR). There are different types of texts and interactive exercises that practise the reading skills you need to do well in your studies, to get ahead at work and to communicate in English in your free time. The self-study lessons in this section are written and organised according to the levels of the Common European Framework of Reference for languages (CEFR).
             </div>
           </div>
 
