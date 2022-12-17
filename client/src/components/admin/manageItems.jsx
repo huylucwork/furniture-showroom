@@ -11,7 +11,7 @@ export default function ManageItem({
   const [buttonModal, setButtonModal] = useState(false);
 
   const [modalVal, setModalVal] = useState(false);
-  const [modalValId, setModalValId] = useState(false);
+  const [accountVal, setAccountVal] = useState();
 
   const [openDetailModal, setOpenDetailModal] = useState(false);
   const [modalData, setModalData] = useState();
@@ -212,7 +212,7 @@ export default function ManageItem({
                     <button onClick={() => handleOpenDetailModal(product.product_id)}>Detail</button>
                   </div>
                   <div className="table_ele admin_fix-size-1">
-                    <button onClick={()=>{setButtonModal(true); setModalVal(1); setModalValId(product.product_id)}}>Edit</button>
+                    <button onClick={()=>{setButtonModal(true); setModalVal(1); setAccountVal(product)}}>Edit</button>
                   </div>
                   <div className="table_ele admin_fix-size-1">
                     <button 
@@ -271,7 +271,7 @@ export default function ManageItem({
           setTrigger={setButtonModal} 
           changeProducts={changeProducts}
           setChangeProducts={setChangeProducts}
-          modalValId={modalValId}
+          accountVal={accountVal}
         />
       </div>
     </div>

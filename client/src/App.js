@@ -139,6 +139,7 @@ function App() {
               setOpenAlert(true)
           });  
     }
+    setFirstLoad(false);
   },[changeProducts])
 
   //loggin
@@ -194,6 +195,25 @@ function App() {
       setAccount();
     }
   },[loggedIn])
+
+  const [changeHistory, setChangeHistory] = useState(true);
+
+  useEffect(()=>{
+    if(loggedIn){
+      Axios.post("https://hifurdez.vercel.app/user/order", {
+        id: Number(localStorage.getItem('account_id'))
+      }) 
+        .then((response) => {
+          window.localStorage.setItem('account_history', JSON.stringify(response.data));
+          setAccountHistory(response.data);
+          setOpenLoading(false);
+        })
+        .catch(err => {
+          setAlert({type: "error", message: "Loading fail! Please reload to entry!"});
+          setOpenAlert(true)
+        });
+    }
+  },[changeHistory])
 
   return (
     <AppContext.Provider>
@@ -300,7 +320,7 @@ function App() {
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
                 loggedIn={loggedIn}
-                accountInfo={accountInfo}
+                account={account}
                 setAccountCart={setAccountCart}
                 setAccountCartTotal={setAccountCartTotal}
               />
@@ -391,6 +411,13 @@ function App() {
                 setFilterCategory={setFilterCategory}
                 setAlert={setAlert}
                 setOpenAlert={setOpenAlert}
+                accountCart={accountCart}
+                setAccountCart={setAccountCart}
+                accountCartTotal={accountCartTotal}
+                setAccountCartTotal={setAccountCartTotal}
+                account={account}
+                changeHistory={changeHistory}
+                setChangeHistory={setChangeHistory}
               />
             }
           />}

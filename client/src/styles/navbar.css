@@ -237,7 +237,7 @@ svg:focus {
   border-radius: 5px;
   user-select: none;
   width: 293.07px;
-  height: 277.88px;
+  max-height: 277.88px;
   display: none;
 }
 
@@ -314,4 +314,48 @@ svg:focus {
 
 .disable_cart {
   pointer-events: none;
+}
+
+/* collection navbar */
+
+.navbar_collection_menu {
+  font-size: 10px;
+  position: fixed;
+  top: 9em;
+  left: 23.8em;
+  width: 20.5em;
+  z-index: 999;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+}
+
+.navbar_collection_menu button {
+  font-size: 2.5em;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 3.2em;
+  display: block;
+  outline: none;
+  border: none;
+  background-color: rgba(186, 175, 158, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(50px);
+  color: var(--textColorNav);
+}
+
+.navbar_collection_menu button:hover {
+  background-color: rgba(186, 175, 158, 0.75);
+}
+
+.navbar_collection_menu .hover-underline-animation:after {
+  bottom: 0px;
+  display: none;
+}
+
+.navbar_collection_menu .hover-underline-animation {
+  font-size: 1em;
+}
+
+.navbar_collection_menu button:hover .hover-underline-animation {
+  text-shadow: 0px 0px 0px black;
+  color: #ad7252;
 }

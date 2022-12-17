@@ -25,15 +25,14 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
         <div className="collection_background">
             <div className="collection_wallpaper">
                 <img src={"../img/collection-" + (site) + "1.jpg"} alt="" />
-                <div className={"collection_title " + site}>
-                    <h1>{site.toUpperCase()}</h1>
-                    <p>A special gift for {site}</p>
-                </div>
             </div>
 
             <div className="collection_part_1">
                 <img src={"../img/collection-" + (site) + "2.jpg"} alt="image 1" className="collection_image_1" />
                 <div className="collection_descr_1">
+                    <div className={"collection_title " + site}>
+                        <h1>{site.toUpperCase()}</h1>
+                    </div>
                     <h1 className={site}>About collection</h1>
                     <p>
                     {(site === "spring" &&
@@ -96,7 +95,7 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                 <div className="collection_line"></div>
                 <h1 className={site}>Feature items</h1>
                 <button
-                    className="part_3_button"
+                    className={"part_3_button " + (site)}
                     onClick={() => navigate("../product")}
                 >
                     View all product

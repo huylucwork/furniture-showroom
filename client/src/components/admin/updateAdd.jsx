@@ -11,16 +11,16 @@ export default function UpdateAdd(props) {
 
   const [price, setPrice] = useState(-1);
   const [discountPrice, setDiscountPrice] = useState(-2);
-  const [name, setName] = useState(null);
+  const [name, setName] = useState("");
   const [collectionPick, setCollectionPick] = useState(1);
   const [categoryPick, setCategoryPick] = useState(1);
-  const [width, setWidth] = useState(null);
-  const [height, setHeight] = useState(null);
-  const [depth, setDepth] = useState(null);
-  const [weight, setWeight] = useState(null);
-  const [color, setColor] = useState(null);
-  const [material, setMaterial] = useState(null);
-  const [descrb, setDescrb] = useState(null);
+  const [width, setWidth] = useState("");
+  const [height, setHeight] = useState("");
+  const [depth, setDepth] = useState("");
+  const [weight, setWeight] = useState("");
+  const [color, setColor] = useState("");
+  const [material, setMaterial] = useState("");
+  const [descrb, setDescrb] = useState("");
   const [amountImage, setAmountImage] = useState(0);
 
   const [openAlert, setOpenAlert] = useState(false);
@@ -114,6 +114,21 @@ export default function UpdateAdd(props) {
         height: height,
         weight: weight,
         description: descrb,
+        media_0: "https://res.cloudinary.com/castlery/image/private/b_rgb:F0EAE2,c_fit,f_auto,q_auto,w_1000/v1619340680/crusader/variants/T50440970-TL4002-GD/Adams-Right-Chaise-Setcional-Sofa-Pearl-Beige-Brass-Front.jpg",
+        media_1: "https://res.cloudinary.com/castlery/image/private/b_rgb:F0EAE2,c_fit,f_auto,q_auto,w_1000/v1639130399/crusader/variants/T50440970-TL4002-GD/Adams-Chaise-Sectional-Sofa-Right-Facing-Pearl-Beige-Brass-Leg-Shared1.jpg",
+        media_2: "test",
+        media_3: "test",
+        media_4: "test",
+        media_5: "test",
+        media_6: "test",
+        media_7: "test",
+        media_8: "test",
+        media_9: "test",
+        media_10: "test",
+        media_11: "test",
+        media_12: "test",
+        media_13: "test",
+        media_14: "test",
       })
         .then((response)=>{
           props.setTrigger(false)
@@ -129,19 +144,19 @@ export default function UpdateAdd(props) {
           props.setChangeProducts(!props.setChangeProducts);
         })
     }
-    else if(price < discountPrice) {
-      setAlert({type: "error", message: "Price can't be greater than Discount Price"});
+    else if((price !==-1? Number(price) : props.accountVal.price) < Number(discountPrice)) {
+      setAlert({type: "error", message: "Discount Price can't be greater than Price"});
       setOpenAlert(true);
     } 
     else if(props.trigger[1]) {
       Axios.put("https://hifurdez.vercel.app/admin/products/update-info", {
-        id: props.modalValId,
+        id: props.accountVal.product_id,
         category_id: categoryPick,
-        collection_id: collectionPick,
-        product_name: name,
+        collection: collectionPick,
+        name: name !== ''? name: props.accountVal.product_name,
         material: material,
-        price: price,
-        discount_price: discountPrice? discountPrice : price,
+        price: price!==-1 ? price : props.accountVal.price,
+        discount_price: discountPrice!==-1? (discountPrice<props.accountVal.price ? discountPrice : price) : props.accountVal.discount_price,
         color: color,
         width: width,
         depth: depth,
@@ -153,7 +168,7 @@ export default function UpdateAdd(props) {
           props.setTrigger(false)
           setAlert({type: "success", message: response.message});
           setOpenAlert(true);
-          props.setChangeProducts(!props.setChangeProducts);
+          props.setChangeProducts(!props.changeProducts);
         })
     }
   }
@@ -315,7 +330,7 @@ export default function UpdateAdd(props) {
               {props.trigger[1] &&
               <div className="admin_choosen">
                 <label className="display_block">Discount Price</label>
-                <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)}/>
+                <input className="admin_input_text" type="text" onChange={(e) => setDiscountPrice(e.target.value)} placeholder={props.trigger[1] && props.accountVal.price !== props.accountVal.discount_price && props.accountVal.discount_price}/>
               </div>}
             </div>
             <div className="admin_input">
