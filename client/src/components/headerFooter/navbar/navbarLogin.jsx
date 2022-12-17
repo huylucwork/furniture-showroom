@@ -10,6 +10,7 @@ export default function NavbarLogin( {
   setAlert, setOpenAlert
 } ) {
   const [buttonCart, setButtonCart] = useState(false);
+  const [buttonMenu, setButtonMenu] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,10 +44,14 @@ export default function NavbarLogin( {
 
       <div className="navbar">
         <ul className="navbar_ul">
-          <li className="navbar_list" onClick={() => {navigate("../"); setHeaderNav("abcd");}}>
-            <a href="#collection" className="navbar_a a_hover">
-              <div className="hover-underline-animation">Collection</div>
-            </a>
+          <li 
+            className="navbar_list" 
+            onClick={() => {navigate("../"); setHeaderNav("abcd");}}
+            onMouseEnter={() => setButtonMenu(true)}
+            onMouseLeave={() => setButtonMenu(false)}>
+              <a href="#collection" className="navbar_a a_hover">
+                <div className="hover-underline-animation">Collection</div>
+              </a>
           </li>
           <li
             className="navbar_list margin_nav"
@@ -237,6 +242,44 @@ export default function NavbarLogin( {
         accountCart={accountCart} accountCartTotal={accountCartTotal}
         setAccountCart={setAccountCart} setAccountCartTotal={setAccountCartTotal}
       />
+      {buttonMenu &&
+        <div 
+          className="navbar_collection_menu"
+          onMouseEnter={() => setButtonMenu(true)}
+          onMouseLeave={() => setButtonMenu(false)}>
+          <button 
+            onClick={() => {
+              // setSiteCollection('spring');
+              navigate("../collection-detail/spring")}}>
+                <div className="hover-underline-animation">
+                  Spring
+                </div>
+          </button>
+          <button 
+            onClick={() => {
+              // setSiteCollection('summer');
+              navigate("../collection-detail/summer")}}>
+                <div className="hover-underline-animation">
+                  Summer
+                </div>
+          </button>
+          <button 
+            onClick={() => {
+              // setSiteCollection('autumn');
+              navigate("../collection-detail/autumn")}}>
+                <div className="hover-underline-animation">
+                  Autumn
+                </div>
+          </button>
+          <button 
+            onClick={() => {
+              // setSiteCollection('winter');
+              navigate("../collection-detail/winter")}}>
+                <div className="hover-underline-animation">
+                  Winter
+                </div>
+          </button>
+        </div>}
     </div>
   );
 }
