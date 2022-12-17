@@ -105,9 +105,9 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                             </div>
                         )
                     })}
-                    {site === 'autumn' && autumnRecommend.map((value)=> {
+                    {site === 'autumn' && autumnRecommend.map((value,index)=> {
                         return(
-                            <div className="col item">
+                            <div key={index} className="col item" onClick={()=>{navigate(`../product-detail/${value.id}`)}}>
                                 <div className="collection_img">
                                     <img src={value.media_1} alt="" />
                                     <img src={value.media_0} alt="" />
@@ -117,9 +117,9 @@ export default function Collection ( {site, springRecommend, summerRecommend, au
                             </div>
                         )
                     })}
-                    {site === 'winter' && winterRecommend.map((value)=> {
+                    {site === 'winter' && winterRecommend.map((value, index)=> {
                         return(
-                            <div className="col item">
+                            <div key={index} className="col item" onClick={()=>{navigate(`../product-detail/${value.id}`)}}>
                                 <div className="collection_img">
                                     <img src={value.media_1} alt="" />
                                     <img src={value.media_0} alt="" />

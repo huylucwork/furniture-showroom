@@ -230,7 +230,7 @@ export default function ProductDetail ( {
                     <div className="row items">
                         {recommend.map((item,index)=>{
                             return index >= 4 && (
-                                <div key={index} className="col item" onClick={()=>{navigate(`../product-detail/${item.id}`)}}>
+                                <div key={index} className="col item" onClick={()=>{navigate(`/product-detail/${item.id}`)}}>
                                     <div className="detail_ctn">
                                         <img src={item.media_1} alt="" />
                                         <img src={item.media_0} alt="" />
