@@ -132,7 +132,7 @@ export default function Cart({
 
           <div className="cart_footer">
             <p className="cart_footer_align-left">Total:</p>
-            <p className="cart_footer_align-right"> ${totalPrice}</p>
+            <p className="cart_footer_align-right"> ${!Number(accountCartTotal) ? 0 : totalPrice}</p>
           </div>
           <div className="cart_btn_container ">
             <button className="cart_btn" type="submit" onClick={()=> {navigate('../checkout')}}>

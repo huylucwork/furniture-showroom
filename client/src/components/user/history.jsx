@@ -158,8 +158,9 @@ export default function History({accountHistory, setAlert, setOpenAlert}) {
               </div>
             </div>
             {accountHistory.map((item, index)=>{
-              return (
-                <div className={"table_row " + (index%2 ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
+              return index >= currentFragment * maxOfFragment && 
+              index < (currentFragment + 1) * maxOfFragment &&(
+                <div className={"table_row " + ((index%7) ? "odd_row" : "even_row ") + (index===6 ? "last-row_shadow" : "")}>
                   <div className="table_ele">
                     <p>{item.order_date}</p>
                   </div>
