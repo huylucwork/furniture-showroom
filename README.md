@@ -35,9 +35,9 @@
 
 ### `Authentication`
 
-<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl>
+<dl><dd><dl><dd><dl><dd><dl><dd><dl><dd><dl>
 <img src="https://user-images.githubusercontent.com/104556775/224239336-4fc42aec-eb73-464b-bb5e-c1fba30b1241.png"  alt="https://www.hifurdez.studio/" width="400" /> <img src="https://user-images.githubusercontent.com/104556775/224239530-b522e49c-1df6-4adb-aacc-ed5b05f5792a.png"  alt="https://www.hifurdez.studio/" width="334" />
-</dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
+</dl></dd></dl></dd></dl></dd></dl></dd></dl></dd></dl>
 
 ### `Products`
 
