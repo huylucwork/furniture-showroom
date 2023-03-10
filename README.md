@@ -23,7 +23,7 @@
 - Programming Languages: Javascript.
 - Frameworks: React, Bootstrap.
 - Others: HTML, CSS, Docker.
-- 
+
 ### `Backend`
 - Programming Languages: Javascript.
 - Environment: NodeJs.
